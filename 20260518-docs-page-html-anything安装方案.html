@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>html-anything 安装方案 — 技术文档</title>
+<style>
+:root{--sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;--mono:"SF Mono","Fira Code",Consolas,monospace;--side:260px;--toc:220px;--top:56px;--tr:.25s cubic-bezier(.4,0,.2,1)}
+[data-theme="dark"]{--bg:#0d1117;--bg2:#161b22;--bg3:#1c2128;--bgc:#1a1f2b;--bgh:#21262d;--bga:#1f6feb22;--bd:#30363d;--bdl:#21262d;--t1:#e6edf3;--t2:#8b949e;--t3:#6e7681;--tl:#58a6ff;--ac:#58a6ff;--acs:#1f6feb33;--ibg:#0d1d31;--ibd:#1f6feb;--itx:#79c0ff;--wbg:#2a1f00;--wbd:#d29922;--wtx:#e3b341;--dbg:#2d0a0a;--dbd:#f85149;--dtx:#ff7b72;--ts:#161b2299;--th:#1f6feb11;--st:#161b22;--sb:#30363d;--sh:0 1px 3px rgba(0,0,0,.4);--cpb:#30363d;--cph:#484f58}
+[data-theme="light"]{--bg:#fff;--bg2:#f6f8fa;--bg3:#f0f3f6;--bgc:#f6f8fa;--bgh:#eaeef2;--bga:#ddf4ff;--bd:#d0d7de;--bdl:#e8ecf0;--t1:#1f2328;--t2:#656d76;--t3:#8b949e;--tl:#0969da;--ac:#0969da;--acs:#ddf4ff;--ibg:#ddf4ff;--ibd:#54aeff;--itx:#0550ae;--wbg:#fff8c5;--wbd:#d4a72c;--wtx:#7a4706;--dbg:#ffebe9;--dbd:#ff8182;--dtx:#a40e26;--ts:#f6f8fa;--th:#ddf4ff88;--st:#f6f8fa;--sb:#d0d7de;--sh:0 1px 3px rgba(31,35,40,.12);--cpb:#e1e4e8;--cph:#d0d7de}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--top)+24px)}
+body{font-family:var(--sans);background:var(--bg);color:var(--t1);line-height:1.7;font-size:15px;transition:background var(--tr),color var(--tr);overflow-x:hidden}
+a{color:var(--tl);text-decoration:none;transition:color var(--tr)}a:hover{text-decoration:underline}
+::-webkit-scrollbar{width:8px;height:8px}::-webkit-scrollbar-track{background:var(--st)}::-webkit-scrollbar-thumb{background:var(--sb);border-radius:4px}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:100;height:var(--top);background:var(--bg2);border-bottom:1px solid var(--bd);display:flex;align-items:center;padding:0 24px;gap:16px;backdrop-filter:blur(12px);transition:background var(--tr)}
+.topbar-brand{font-weight:700;font-size:16px;color:var(--t1);display:flex;align-items:center;gap:8px;white-space:nowrap}
+.search{flex:1;max-width:420px;position:relative}
+.search input{width:100%;height:36px;padding:0 12px 0 36px;background:var(--bg);border:1px solid var(--bd);border-radius:8px;color:var(--t1);font-size:13px;outline:none;transition:border-color var(--tr),box-shadow var(--tr);font-family:var(--sans)}
+.search input::placeholder{color:var(--t3)}.search input:focus{border-color:var(--ac);box-shadow:0 0 0 3px var(--acs)}
+.search svg{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--t3);pointer-events:none}
+.top-r{display:flex;align-items:center;gap:12px;margin-left:auto}
+.badge{padding:3px 10px;border-radius:12px;font-size:12px;font-weight:600;background:var(--bgh);color:var(--t2);border:1px solid var(--bd)}
+.tbtn{width:36px;height:36px;border-radius:8px;border:1px solid var(--bd);background:var(--bg);color:var(--t2);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all var(--tr)}
+.tbtn:hover{background:var(--bgh);color:var(--t1)}
+[data-theme="dark"] .icon-sun{display:none}[data-theme="light"] .icon-moon{display:none}
+.ham{display:none;width:36px;height:36px;border-radius:8px;border:1px solid var(--bd);background:var(--bg);color:var(--t2);cursor:pointer;align-items:center;justify-content:center;transition:all var(--tr)}.ham:hover{background:var(--bgh);color:var(--t1)}
+.layout{display:flex;margin-top:var(--top);min-height:calc(100vh - var(--top))}
+.side{position:fixed;top:var(--top);left:0;bottom:0;width:var(--side);overflow-y:auto;background:var(--bg2);border-right:1px solid var(--bd);padding:20px 0;z-index:50;transition:background var(--tr),border-color var(--tr),transform var(--tr)}
+.side-t{padding:6px 20px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--t3)}
+.side-n{list-style:none}
+.side-n a{display:flex;align-items:center;gap:8px;padding:7px 20px;font-size:14px;color:var(--t2);border-left:3px solid transparent;transition:all var(--tr);text-decoration:none}
+.side-n a:hover{color:var(--t1);background:var(--bgh);text-decoration:none}
+.side-n a.active{color:var(--ac);background:var(--bga);border-left-color:var(--ac);font-weight:600}
+.side-n .e{font-size:15px;flex-shrink:0;width:20px;text-align:center}
+.overlay{display:none;position:fixed;inset:0;z-index:49;background:rgba(0,0,0,.5)}
+.main{flex:1;margin-left:var(--side);margin-right:var(--toc);padding:40px 56px 80px;min-width:0}
+.tocp{position:fixed;top:var(--top);right:0;bottom:0;width:var(--toc);overflow-y:auto;padding:24px 16px;border-left:1px solid var(--bd);background:var(--bg2);transition:background var(--tr)}
+.tocp-t{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--t3);margin-bottom:12px;padding-left:8px}
+.tocp ul{list-style:none}.tocp li{margin-bottom:2px}
+.tocp a{display:block;padding:4px 8px;font-size:12.5px;color:var(--t3);border-left:2px solid transparent;border-radius:0 4px 4px 0;transition:all var(--tr);text-decoration:none;line-height:1.5}
+.tocp a:hover{color:var(--t2);text-decoration:none}
+.tocp a.active{color:var(--ac);border-left-color:var(--ac);background:var(--acs)}
+.tocp .h3{padding-left:20px}
+h1{font-size:32px;font-weight:800;line-height:1.25;margin:0 0 8px;letter-spacing:-.02em;background:linear-gradient(135deg,var(--ac),#a371f7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.subtitle{font-size:16px;color:var(--t2);margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid var(--bd)}
+h2{font-size:24px;font-weight:700;margin:48px 0 16px;padding-bottom:10px;border-bottom:1px solid var(--bd);color:var(--t1)}h2:first-of-type{margin-top:0}
+h3{font-size:18px;font-weight:600;margin:32px 0 12px;color:var(--t1)}
+p{margin:0 0 16px}strong{font-weight:600}
+ul,ol{margin:0 0 16px;padding-left:24px}li{margin-bottom:6px}li::marker{color:var(--t3)}
+code:not(pre code){background:var(--bgc);border:1px solid var(--bd);padding:2px 6px;border-radius:5px;font-size:13px;font-family:var(--mono);color:var(--ac)}
+.cb{position:relative;margin:0 0 20px;border-radius:10px;border:1px solid var(--bd);overflow:hidden;background:var(--bgc);box-shadow:var(--sh)}
+.cb-h{display:flex;align-items:center;justify-content:space-between;padding:8px 14px;background:var(--bg3);border-bottom:1px solid var(--bd)}
+.cb-l{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--t3);font-family:var(--mono)}
+.cb-c{display:flex;align-items:center;gap:5px;padding:4px 10px;border-radius:6px;border:none;background:var(--cpb);color:var(--t2);font-size:11px;cursor:pointer;transition:all var(--tr);font-family:var(--sans)}
+.cb-c:hover{background:var(--cph);color:var(--t1)}.cb-c.copied{background:#238636;color:#fff}
+.cb-c svg{width:14px;height:14px}
+.cb pre{margin:0;padding:16px;overflow-x:auto;font-family:var(--mono);font-size:13px;line-height:1.6;color:var(--t1)}
+.cb pre code{background:none;border:none;padding:0;font-size:inherit;color:inherit}
+.kw{color:#ff7b72}.str{color:#a5d6ff}.cm{color:#8b949e;font-style:italic}.fn{color:#d2a8ff}.dir{color:#7ee787}.fl{color:#e6edf3}
+[data-theme="light"] .kw{color:#cf222e}[data-theme="light"] .str{color:#0550ae}[data-theme="light"] .cm{color:#6e7781}[data-theme="light"] .fn{color:#8250df}[data-theme="light"] .dir{color:#116329}[data-theme="light"] .fl{color:#1f2328}
+.callout{padding:14px 18px;margin:0 0 20px;border-radius:8px;border-left:4px solid;font-size:14px;line-height:1.65}
+.ct{display:flex;align-items:center;gap:6px;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px}
+.ct svg{width:16px;height:16px;flex-shrink:0}
+.callout.info{background:var(--ibg);border-color:var(--ibd);color:var(--itx)}
+.callout.warn{background:var(--wbg);border-color:var(--wbd);color:var(--wtx)}
+.callout.danger{background:var(--dbg);border-color:var(--dbd);color:var(--dtx)}
+.tw{overflow-x:auto;margin:0 0 20px;border-radius:8px;border:1px solid var(--bd)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+thead{background:var(--bg3)}
+th{padding:10px 16px;text-align:left;font-weight:600;font-size:13px;color:var(--t2);border-bottom:2px solid var(--bd);white-space:nowrap}
+td{padding:10px 16px;border-bottom:1px solid var(--bdl);color:var(--t1)}
+tr:nth-child(even){background:var(--ts)}tr:hover{background:var(--th)}
+tbody tr:last-child td{border-bottom:none}
+.tg{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px;margin:0 0 20px}
+.tc{padding:14px 16px;border-radius:8px;border:1px solid var(--bd);background:var(--bg2);transition:all var(--tr)}
+.tc:hover{border-color:var(--ac);box-shadow:0 0 0 1px var(--acs);transform:translateY(-1px)}
+.tc-n{font-weight:600;font-size:14px;margin-bottom:4px;color:var(--t1)}.tc-d{font-size:13px;color:var(--t2)}
+.cat{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:16px;font-size:13px;font-weight:600;background:var(--acs);color:var(--ac);margin-bottom:12px}
+.flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:16px 0 24px;padding:20px;border-radius:10px;background:var(--bg2);border:1px solid var(--bd)}
+.flow-s{padding:8px 16px;border-radius:8px;font-size:13px;font-weight:600;background:var(--acs);color:var(--ac);border:1px solid var(--ac);white-space:nowrap}
+.flow-a{color:var(--t3);font-size:18px}
+.cfg td:first-child{font-family:var(--mono);font-size:13px;color:var(--ac);white-space:nowrap}
+@media(max-width:1200px){.tocp{display:none}.main{margin-right:0}}
+@media(max-width:900px){.side{transform:translateX(-100%);z-index:200}.side.open{transform:translateX(0);box-shadow:0 8px 30px rgba(0,0,0,.5)}.overlay.active{display:block}.main{margin-left:0;padding:28px 20px 60px}.ham{display:flex}h1{font-size:26px}h2{font-size:20px}.tg{grid-template-columns:1fr}.flow{flex-direction:column;align-items:stretch}.flow-a{transform:rotate(90deg);text-align:center}.flow-s{text-align:center}}
+@media(max-width:480px){.topbar{padding:0 12px;gap:8px}.topbar-brand span{display:none}.search{display:none}.badge{display:none}}
+</style>
+</head>
+<body>
+<header class="topbar">
+<button class="ham" onclick="toggleSidebar()" aria-label="Menu"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+<div class="topbar-brand">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+<span>html-anything 安装方案</span></div>
+<div class="search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input type="text" placeholder="搜索文档… (Ctrl+K)" id="searchInput" autocomplete="off"></div>
+<div class="top-r">
+<span class="badge">v1.0.0</span>
+<button class="tbtn" onclick="toggleTheme()" aria-label="切换主题">
+<svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+<svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button></div></header>
+<div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+<aside class="side" id="sidebar">
+<div style="margin-bottom:8px"><div class="side-t">概览</div><ul class="side-n">
+<li><a href="#overview"><span class="e">📋</span>项目概述</a></li>
+<li><a href="#structure"><span class="e">📁</span>安装位置与结构</a></li>
+</ul></div>
+<div style="margin-bottom:8px"><div class="side-t">模板体系</div><ul class="side-n">
+<li><a href="#matrix"><span class="e">📊</span>模板矩阵</a></li>
+<li><a href="#templates-all"><span class="e">🗂️</span>全部 75 个模板</a></li>
+</ul></div>
+<div style="margin-bottom:8px"><div class="side-t">工作流</div><ul class="side-n">
+<li><a href="#workflow"><span class="e">🔄</span>交互流程</a></li>
+<li><a href="#config"><span class="e">⚙️</span>执行配置</a></li>
+</ul></div>
+<div style="margin-bottom:8px"><div class="side-t">其他</div><ul class="side-n">
+<li><a href="#sync"><span class="e">🔗</span>同步更新</a></li>
+<li><a href="#install-date"><span class="e">📅</span>安装日期</a></li>
+</ul></div>
+</aside>
+<nav class="tocp" id="toc"><div class="tocp-t">本页目录</div><ul>
+<li><a href="#overview">项目概述</a></li>
+<li><a href="#structure">安装位置与结构</a></li>
+<li><a href="#matrix">模板矩阵</a></li>
+<li><a href="#templates-all">全部 75 个模板</a></li>
+<li><a href="#cat-article" class="h3">📖 文章</a></li>
+<li><a href="#cat-deck" class="h3">🎬 演示Deck</a></li>
+<li><a href="#cat-poster" class="h3">🖼️ 海报</a></li>
+<li><a href="#cat-card" class="h3">📱 卡片</a></li>
+<li><a href="#cat-dashboard" class="h3">📊 仪表板</a></li>
+<li><a href="#cat-doc" class="h3">📄 文档</a></li>
+<li><a href="#cat-proto" class="h3">🛠️ 网页原型</a></li>
+<li><a href="#cat-mobile" class="h3">📱 移动端</a></li>
+<li><a href="#cat-other" class="h3">💰📧📝📈 其他</a></li>
+<li><a href="#cat-video" class="h3">🎞️ 视频帧</a></li>
+<li><a href="#workflow">交互流程</a></li>
+<li><a href="#config">执行配置</a></li>
+<li><a href="#sync">同步更新</a></li>
+<li><a href="#install-date">安装日期</a></li>
+</ul></nav>
+<div class="layout"><main class="main">
+<h1>html-anything 安装方案</h1>
+<p class="subtitle">面向 AI Agent 的多模板 HTML 生成器 — OpenClaw workspace-eight 技能安装文档</p>
+<h2 id="overview">项目概述</h2>
+<p><strong>html-anything</strong> 是一套面向 AI Agent 的多模板 HTML 生成器，来源于 <a href="https://github.com/nexu-io/html-anything" target="_blank">nexu-io/html-anything</a>。安装为 OpenClaw workspace-eight 的 Skill，让小八具备从 75 个设计级模板中选择并生成精美单文件 HTML 的能力。</p>
+<div class="callout info"><div class="ct"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>INFO</div>75 个模板涵盖 13 个大类，覆盖从文章排版到视频帧生成的完整场景。所有模板均为单文件 HTML，零外部依赖。</div>
+<h2 id="structure">安装位置与结构</h2>
+<p>安装后的目录结构如下，所有文件集中在 <code>workspace-eight/skills/html-anything/</code> 下：</p>
+<div class="cb"><div class="cb-h"><span class="cb-l">text</span><button class="cb-c" onclick="copyCode(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>复制</button></div>
+<pre><code><span class="dir">workspace-eight/</span>
+├── <span class="dir">skills/</span>
+│   └── <span class="dir">html-anything/</span>
+│       ├── <span class="fl">SKILL.md</span>            <span class="cm">← 技能入口文档</span>
+│       ├── <span class="fl">catalog.json</span>        <span class="cm">← 75 条模板索引</span>
+│       └── <span class="dir">templates/</span>          <span class="cm">← 75 个子目录</span>
+│           ├── <span class="dir">article-magazine/</span>
+│           │   ├── <span class="fl">SKILL.md</span>
+│           │   └── <span class="fl">example.html</span>
+│           ├── <span class="dir">deck-pitch/</span>
+│           │   ├── <span class="fl">SKILL.md</span>
+│           │   └── <span class="fl">example.html</span>
+│           └── <span class="cm">...（共75 个）</span>
+├── <span class="dir">logs/</span>
+│   └── <span class="dir">html-anything/</span>         <span class="cm">← 产出本地目录</span>
+└── <span class="fl">TOOLS.md</span>                   <span class="cm">← 已同步更新</span></code></pre></div>
+<div class="callout warn"><div class="ct"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>WARNING</div>每个模板子目录必须同时包含 <code>SKILL.md</code> 和 <code>example.html</code> 两个文件，缺失任意一个将导致该模板不可用。</div>
+<h2 id="matrix">模板矩阵：13 大类 × 75 模板</h2>
+<div class="tw"><table><thead><tr><th>大类</th><th>数量</th><th>典型场景</th></tr></thead><tbody>
+<tr><td>📖 文章 (article)</td><td>3</td><td>公众号、博客、电子书</td></tr>
+<tr><td>🎬 演示Deck (slides)</td><td>22</td><td>Keynote、Pitch、周报、课程</td></tr>
+<tr><td>🖼️ 海报 (poster)</td><td>5</td><td>营销、杂志风、3D 展架</td></tr>
+<tr><td>📱 卡片 (card)</td><td>7</td><td>Twitter、小红书、Spotify、Reddit</td></tr>
+<tr><td>📊 仪表板 (dashboard)</td><td>8</td><td>后台、Kanban、OKR、社媒矩阵</td></tr>
+<tr><td>📄 文档 (doc)</td><td>6</td><td>PRD、Runbook、入职页、会议纪要</td></tr>
+<tr><td>🛠️ 网页原型 (prototype)</td><td>8</td><td>SaaS、定价页、等候名单、线框图</td></tr>
+<tr><td>📱 移动端 (mobile)</td><td>3</td><td>iPhone App、引导屏、游戏化</td></tr>
+<tr><td>💰 财务 (finance)</td><td>2</td><td>季度财报、可打印发票</td></tr>
+<tr><td>📧 邮件 (email)</td><td>1</td><td>营销邮件模板</td></tr>
+<tr><td>📝 简历 (resume)</td><td>1</td><td>极简现代简历</td></tr>
+<tr><td>📈 数据报告 (data)</td><td>1</td><td>数据可视化报告</td></tr>
+<tr><td>🎞️ 视频帧 (video)</td><td>8</td><td>NYT 图表帧、故障标题、电影帧</td></tr>
+</tbody></table></div>
+<h2 id="templates-all">全部 75 个模板清单</h2>
+<h3 id="cat-article">📖 文章（3）</h3>
+<div class="tg">
+<div class="tc"><div class="tc-n">杂志文章</div><div class="tc-d">Substack / Medium 高级感长文排版</div></div>
+<div class="tc"><div class="tc-n">博客长文</div><div class="tc-d">含 masthead、hero、figures、pull quote</div></div>
+<div class="tc"><div class="tc-n">电子指南</div><div class="tc-d">适合教程、操作手册</div></div>
+</div>
+<h3 id="cat-deck">🎬 演示Deck（22）</h3>
+<div class="tg">
+<div class="tc"><div class="tc-n">蓝图架构 Deck</div><div class="tc-d">技术架构讲解</div></div>
+<div class="tc"><div class="tc-n">课程 / 培训 Deck</div><div class="tc-d">教学场景</div></div>
+<div class="tc"><div class="tc-n">极简方向键 Keynote</div><div class="tc-d">键盘翻页</div></div>
+<div class="tc"><div class="tc-n">暗底图谱 Deck</div><div class="tc-d">深色知识图谱</div></div>
+<div class="tc"><div class="tc-n">贵赞编辑墨水 Deck</div><div class="tc-d">古典编辑风格</div></div>
+<div class="tc"><div class="tc-n">Cyber Terminal Deck</div><div class="tc-d">赛博朋克终端风</div></div>
+<div class="tc"><div class="tc-n">杂志风网页 PPT</div><div class="tc-d">杂志排版的演示</div></div>
+<div class="tc"><div class="tc-n">GitHub Dark 紫渐变 Deck</div><div class="tc-d">开发者主题</div></div>
+<div class="tc"><div class="tc-n">1920 画布自由 Deck</div><div class="tc-d">大画布自由布局</div></div>
+<div class="tc"><div class="tc-n">投资人 Pitch Deck</div><div class="tc-d">融资路演</div></div>
+<div class="tc"><div class="tc-n">演讲者模式 Deck</div><div class="tc-d">含演讲者备注</div></div>
+<div class="tc"><div class="tc-n">产品发布 Keynote</div><div class="tc-d">产品发布会</div></div>
+<div class="tc"><div class="tc-n">Replit Slides 风 Deck</div><div class="tc-d">代码+幻灯片</div></div>
+<div class="tc"><div class="tc-n">安全 / 风险红色 Deck</div><div class="tc-d">安全汇报</div></div>
+<div class="tc"><div class="tc-n">通用 Simple Deck</div><div class="tc-d">万能通用模板</div></div>
+<div class="tc"><div class="tc-n">瑞士国际主义 Deck</div><div class="tc-d">设计感极强</div></div>
+<div class="tc"><div class="tc-n">技术分享 Deck</div><div class="tc-d">Tech Talk</div></div>
+<div class="tc"><div class="tc-n">马卡龙慢生活 Deck</div><div class="tc-d">文艺小清新</div></div>
+<div class="tc"><div class="tc-n">小红书图文 Deck</div><div class="tc-d">小红书风格</div></div>
+<div class="tc"><div class="tc-n">白底杂志风 Deck</div><div class="tc-d">白底高级感</div></div>
+<div class="tc"><div class="tc-n">Keynote 风格 PPT</div><div class="tc-d">经典苹果风</div></div>
+<div class="tc"><div class="tc-n">团队周报 Deck</div><div class="tc-d">周报/汇报</div></div>
+</div>
+<h3 id="cat-poster">🖼️ 海报（5）</h3>
+<div class="tg">
+<div class="tc"><div class="tc-n">流体背景 Hero 帧</div><div class="tc-d">渐变液态效果</div></div>
+<div class="tc"><div class="tc-n">杂志风海报</div><div class="tc-d">杂志封面排版</div></div>
+<div class="tc"><div class="tc-n">iPhone × MacBook 立体展架</div><div class="tc-d">3D Mockup</div></div>
+<div class="tc"><div class="tc-n">营销海报</div><div class="tc-d">通用营销物料</div></div>
+<div class="tc"><div class="tc-n">像素动画解说</div><div class="tc-d">像素艺术风格</div></div>
+</div>
+<h3 id="cat-card">📱 卡片（7）</h3>
+<div class="tg">
+<div class="tc"><div class="tc-n">Twitter 分享卡</div><div class="tc-d">配推文金句</div></div>
+<div class="tc"><div class="tc-n">小红书图文卡片</div><div class="tc-d">小红书排版</div></div>
+<div class="tc"><div class="tc-n">macOS 通知横幅</div><div class="tc-d">系统通知模拟</div></div>
+<div class="tc"><div class="tc-n">社交媒体三联</div><div class="tc-d">轮播图</div></div>
+<div class="tc"><div class="tc-n">Reddit 帖子卡</div><div class="tc-d">Reddit 风格</div></div>
+<div class="tc"><div class="tc-n">Spotify 正在播放卡</div><div class="tc-d">音乐播放界面</div></div>
+<div class="tc"><div class="tc-n">X (Twitter) 帖子卡</div><div class="tc-d">帖子截图</div></div>
+</div>
+<h3 id="cat-dashboard">📊 仪表板（8）</h3>
+<div class="tg">
+<div class="tc"><div class="tc-n">管理后台仪表板</div><div class="tc-d">通用管理面板</div></div>
+<div class="tc"><div class="tc-n">社区 / 配对数据墙</div><div class="tc-d">数据展示</div></div>
+<div class="tc"><div class="tc-n">FlowAI 团队管理</div><div class="tc-d">团队协作面板</div></div>
+<div class="tc"><div class="tc-n">看板 / Kanban</div><div class="tc-d">项目管理</div></div>
+<div class="tc"><div class="tc-n">Notion 风团队仪表板</div><div class="tc-d">Notion 美学</div></div>
+<div class="tc"><div class="tc-n">社媒创作者仪表板</div><div class="tc-d">创作者数据</div></div>
+<div class="tc"><div class="tc-n">社媒矩阵追踪面板</div><div class="tc-d">多平台监控</div></div>
+<div class="tc"><div class="tc-n">团队 OKR 追踪</div><div class="tc-d">目标管理</div></div>
+</div>
+<h3 id="cat-doc">📄 文档（6）</h3>
+<div class="tg">
+<div class="tc"><div class="tc-n">Kami 羊皮纸文档</div><div class="tc-d">古典羊皮纸风</div></div>
+<div class="tc"><div class="tc-n">技术文档页</div><div class="tc-d">API/技术文档</div></div>
+<div class="tc"><div class="tc-n">工程 Runbook</div><div class="tc-d">运维手册</div></div>
+<div class="tc"><div class="tc-n">新员工入职页</div><div class="tc-d">HR 场景</div></div>
+<div class="tc"><div class="tc-n">会议纪要</div><div class="tc-d">结构化纪要</div></div>
+<div class="tc"><div class="tc-n">PRD / 产品 Spec</div><div class="tc-d">产品文档</div></div>
+</div>
+<h3 id="cat-proto">🛠️ 网页原型（8）</h3>
+<div class="tg">
+<div class="tc"><div class="tc-n">定价页</div><div class="tc-d">SaaS 定价</div></div>
+<div class="tc"><div class="tc-n">Web 产品原型</div><div class="tc-d">通用原型</div></div>
+<div class="tc"><div class="tc-n">SaaS Landing</div><div class="tc-d">落地页</div></div>
+<div class="tc"><div class="tc-n">等候名单页</div><div class="tc-d">预注册</div></div>
+<div class="tc"><div class="tc-n">Brutalist 原型</div><div class="tc-d">粗野主义</div></div>
+<div class="tc"><div class="tc-n">Editorial 原型</div><div class="tc-d">编辑风</div></div>
+<div class="tc"><div class="tc-n">Apple Soft 原型</div><div class="tc-d">苹果柔和风</div></div>
+<div class="tc"><div class="tc-n">手绘线框图</div><div class="tc-d">手绘效果</div></div>
+</div>
+<h3 id="cat-mobile">📱 移动端（3）</h3>
+<div class="tg">
+<div class="tc"><div class="tc-n">游戏化 App 多屏</div><div class="tc-d">游戏化界面</div></div>
+<div class="tc"><div class="tc-n">iPhone App 单屏</div><div class="tc-d">iOS 界面</div></div>
+<div class="tc"><div class="tc-n">App 引导多屏</div><div class="tc-d">Onboarding 流程</div></div>
+</div>
+<h3 id="cat-other">💰📧📝📈 其他（5）</h3>
+<div class="tg">
+<div class="tc"><div class="tc-n">季度财报</div><div class="tc-d">财务数据可视化</div></div>
+<div class="tc"><div class="tc-n">可打印发票</div><div class="tc-d">标准发票模板</div></div>
+<div class="tc"><div class="tc-n">营销邮件模板</div><div class="tc-d">邮件排版</div></div>
+<div class="tc"><div class="tc-n">极简现代简历</div><div class="tc-d">求职简历</div></div>
+<div class="tc"><div class="tc-n">数据可视化报告</div><div class="tc-d">图表+叙述</div></div>
+</div>
+<h3 id="cat-video">🎞️ 视频帧（8）</h3>
+<div class="tg">
+<div class="tc"><div class="tc-n">NYT 风数据图表帧</div><div class="tc-d">纽约时报图表风</div></div>
+<div class="tc"><div class="tc-n">便利贴流程图帧</div><div class="tc-d">便利贴+流程图</div></div>
+<div class="tc"><div class="tc-n">故障艺术标题帧</div><div class="tc-d">Glitch 效果</div></div>
+<div class="tc"><div class="tc-n">胶片漏光电影帧</div><div class="tc-d">电影质感</div></div>
+<div class="tc"><div class="tc-n">品牌 Logo 收尾帧</div><div class="tc-d">片尾 Logo</div></div>
+<div class="tc"><div class="tc-n">动效英雄帧</div><div class="tc-d">动画 Hero</div></div>
+<div class="tc"><div class="tc-n">VFX 文字光标</div><div class="tc-d">打字机特效</div></div>
+<div class="tc"><div class="tc-n">Hyperframes 视频脚本</div><div class="tc-d">视频分镜</div></div>
+</div>
+<h2 id="workflow">交互流程</h2>
+<p>Boss 说“做 HTML”时，小八会按以下流程执行：</p>
+<div class="flow">
+<span class="flow-s">Boss 说“做 HTML”</span>
+<span class="flow-a">→</span>
+<span class="flow-s">三选一路由</span>
+<span class="flow-a">→</span>
+<span class="flow-s">大类选择</span>
+<span class="flow-a">→</span>
+<span class="flow-s">具体模板选择</span>
+<span class="flow-a">→</span>
+<span class="flow-s">读取模板 SKILL.md</span>
+<span class="flow-a">→</span>
+<span class="flow-s">DeepSeek-V4-Pro 生成</span>
+<span class="flow-a">→</span>
+<span class="flow-s">保存到 logs/</span>
+<span class="flow-a">→</span>
+<span class="flow-s">上传 Google Drive</span>
+</div>
+<div class="callout danger"><div class="ct"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>DANGER</div>三选一路由指的是：md-to-html（aihot 风格）、note-slides（笔记幻灯片）、html-anything（75 模板）。Boss 未指定时必须先问用哪个 Skill。</div>
+<h2 id="config">执行配置</h2>
+<div class="tw"><table class="cfg"><thead><tr><th>配置项</th><th>值</th></tr></thead><tbody>
+<tr><td>执行模型</td><td>DeepSeek-V4-Pro（sessions_spawn 指定）</td></tr>
+<tr><td>产出目录</td><td>logs/html-anything/</td></tr>
+<tr><td>命名格式</td><td>YYYYMMDD-{模板名}-{标题摘要}.html</td></tr>
+<tr><td>Drive 样例</td><td>GX/HTML模板样例</td></tr>
+<tr><td>索引文件</td><td>skills/html-anything/catalog.json</td></tr>
+</tbody></table></div>
+<h2 id="sync">同步更新</h2>
+<p>安装完成后同步更新了以下文件：</p>
+<ul>
+<li><code>TOOLS.md</code> — 新增 html-anything 配置段</li>
+<li><code>AGENTS.md</code> — 核心能力新增「多模板 HTML 生成」</li>
+<li><code>MEMORY.md</code> — 新增规则 7「做HTML三选一路由」</li>
+</ul>
+<h2 id="install-date">安装日期</h2>
+<p><strong>2026 年 5 月 15 日</strong></p>
+</main></div>
+<script>
+function toggleTheme(){
+  const h=document.documentElement;
+  const t=h.getAttribute('data-theme')==='dark'?'light':'dark';
+  h.setAttribute('data-theme',t);
+  try{localStorage.setItem('theme',t)}catch(e){}
+}
+try{const s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s)}catch(e){}
+
+function toggleSidebar(){
+  document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('overlay').classList.toggle('active');
+}
+
+function copyCode(btn){
+  const code=btn.closest('.cb').querySelector('pre code');
+  const text=code.innerText||code.textContent;
+  navigator.clipboard.writeText(text).then(()=>{
+    btn.classList.add('copied');
+    btn.innerHTML='\u2713 \u5df2\u590d\u5236';
+    setTimeout(()=>{btn.classList.remove('copied');btn.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>\u590d\u5236'},2000);
+  });
+}
+
+// Scroll spy for sidebar + TOC
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const id=e.target.id;
+      document.querySelectorAll('.side-n a, .tocp a').forEach(a=>{
+        a.classList.toggle('active',a.getAttribute('href')==='#'+id);
+      });
+    }
+  });
+},{rootMargin:'-80px 0px -60% 0px',threshold:0});
+document.querySelectorAll('h2[id],h3[id]').forEach(el=>observer.observe(el));
+
+// Search filter
+document.getElementById('searchInput').addEventListener('input',function(e){
+  const q=e.target.value.toLowerCase();
+  document.querySelectorAll('.main h2, .main h3, .main p, .main .tc').forEach(el=>{
+    if(!q){el.style.display='';return}
+    el.style.display=(el.textContent||'').toLowerCase().includes(q)?'':'none';
+  });
+});
+
+// Ctrl+K focus search
+document.addEventListener('keydown',e=>{
+  if((e.ctrlKey||e.metaKey)&&e.key==='k'){e.preventDefault();document.getElementById('searchInput').focus()}
+});
+</script>
+</body>
+</html>

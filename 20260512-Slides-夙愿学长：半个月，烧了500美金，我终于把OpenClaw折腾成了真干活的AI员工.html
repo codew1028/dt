@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>半个月500美金：OpenClaw施工手册</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@300;400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#141820;--ink-rgb:20,24,32;--paper:#f4f5f6;--paper-rgb:244,245,246;--accent:#1d8fa6;--accent-rgb:29,143,166;--muted:#6b7180;--serif-zh:"Noto Serif SC","Source Serif 4",serif;--sans-zh:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;--mono:"IBM Plex Mono",monospace;--w-quote:min(100%,48rem);--w-statement:min(100%,56rem);--w-note:min(100%,64rem);--w-default:min(100%,76rem);--w-wide:min(100%,92rem)}
+*{box-sizing:border-box;margin:0;padding:0}html,body{width:100%;height:100%;overflow:hidden;background:var(--ink);color:var(--paper);font-family:var(--sans-zh);-webkit-font-smoothing:antialiased;text-wrap:pretty}h1,h2,h3,p,li,blockquote,cite{text-wrap:pretty}
+#deck{position:fixed;inset:0;width:10000vw;height:100vh;display:flex;flex-wrap:nowrap;transition:transform .85s cubic-bezier(.77,0,.175,1);z-index:10;will-change:transform}
+.slide{width:100vw;height:100vh;flex:0 0 100vw;position:relative;padding:clamp(2rem,5vw,5.5rem) clamp(2rem,6vw,6.5rem) clamp(1.5rem,3vw,3rem);display:flex;flex-direction:column;overflow:hidden}
+.slide.dark{background:var(--ink);color:var(--paper)}.slide.light{background:var(--paper);color:var(--ink)}
+.slide.bare .chrome{display:none}.slide.bare .foot{opacity:.35}
+.slide-body{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center}
+.slide-body.bottom{justify-content:flex-end;padding-bottom:clamp(2rem,6vh,4.5rem)}
+.display-zh{font-family:var(--serif-zh);font-weight:900;font-size:clamp(3rem,7vw,7rem);line-height:1.08;letter-spacing:0}
+.h1-zh{font-family:var(--serif-zh);font-weight:700;font-size:clamp(2rem,4.6vw,4.2rem);line-height:1.18;letter-spacing:0}
+.h2-zh{font-family:var(--serif-zh);font-weight:600;font-size:clamp(1.5rem,3vw,2.6rem);line-height:1.28}
+.lead-zh{font-family:var(--serif-zh);font-weight:400;font-size:clamp(1.5rem,2vw,2rem);line-height:1.5}
+.body-zh{font-family:var(--sans-zh);font-weight:400;font-size:clamp(1.5rem,1.55vw,1.75rem);line-height:1.55}
+.kicker{font-family:var(--mono);font-size:clamp(.8rem,.9vw,1rem);text-transform:uppercase;letter-spacing:.15em;opacity:.5;margin-bottom:1vh}
+.meta{font-family:var(--mono);font-size:clamp(.75rem,.8vw,.9rem);letter-spacing:.08em;opacity:.5}
+.note-stack{width:var(--w-default);margin:0 auto;display:flex;flex-direction:column;justify-content:center;gap:clamp(2rem,4vh,3.6rem)}
+.w-quote{width:var(--w-quote);margin-left:auto;margin-right:auto}.w-statement{width:var(--w-statement);margin-left:auto;margin-right:auto}.w-note{width:var(--w-note);margin-left:auto;margin-right:auto}.w-default{width:var(--w-default);margin-left:auto;margin-right:auto}.w-wide{width:var(--w-wide);margin-left:auto;margin-right:auto}
+.section-title{max-width:11em;margin:0 auto;text-align:center}
+.grid-2-6-6{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1rem,3vw,3rem);flex:1;min-height:0}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:clamp(.8rem,2vw,2rem);min-height:0}
+.callout{font-family:var(--serif-zh);font-weight:400;font-size:clamp(2rem,3.5vw,3.6rem);line-height:1.45;border-left:3px solid var(--accent);padding-left:clamp(1rem,2vw,1.75rem);max-width:14em}
+.callout cite{display:block;font-style:normal;font-weight:500;font-size:clamp(.8rem,1vw,1rem);margin-top:1.8vh;opacity:.6;font-family:var(--mono)}
+.guest-mark{display:flex;flex-direction:column;align-items:center}.guest-mark::before{content:"";display:block;width:clamp(2.4rem,4em,4.8rem);height:1px;background:currentColor;opacity:.35;margin-bottom:clamp(1.4rem,3vh,2.4rem)}
+.callout-mark{border-left:none;padding-left:0;padding-top:clamp(1.6rem,3vh,2.4rem);position:relative}.callout-mark::before{content:"";position:absolute;top:0;left:0;width:clamp(.5rem,.75vw,.85rem);height:clamp(.5rem,.75vw,.85rem);background:var(--accent);opacity:.7}
+.timeline-row{position:relative}.timeline-row::before{content:"";position:absolute;top:clamp(.85rem,1.6vh,1.4rem);left:6%;right:6%;height:1px;background:rgba(var(--ink-rgb),.1);z-index:0}.slide.dark .timeline-row::before{background:rgba(var(--paper-rgb),.1)}.timeline-row.thick::before{height:1.5px;opacity:.8}.timeline-node{position:relative;z-index:1}.timeline-node .meta{padding-right:clamp(.5rem,1vw,1rem);display:inline-block}.slide.light .timeline-node .meta{background:var(--paper)}.slide.dark .timeline-node .meta{background:var(--ink)}
+.summary-num{font-family:var(--serif-zh);font-size:clamp(3.2rem,7vw,6.4rem);font-weight:600;color:var(--accent);opacity:.85;line-height:.95;letter-spacing:0}
+.table-wrap{width:var(--w-wide);margin:0 auto;display:flex;flex-direction:column;gap:clamp(1.4rem,3.5vh,2.8rem)}
+.data-table{width:100%;border-collapse:separate;border-spacing:0 clamp(.45rem,1vh,.8rem);font-family:var(--sans-zh);font-size:clamp(1.08rem,1.22vw,1.42rem);line-height:1.45}.data-table th,.data-table td{padding:clamp(.8rem,1.35vw,1.25rem) clamp(.9rem,1.6vw,1.45rem);text-align:center;vertical-align:middle}.data-table th{font-family:var(--mono);font-size:clamp(.78rem,.82vw,.95rem);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);background:rgba(var(--accent-rgb),.08)}.data-table td{background:rgba(var(--ink-rgb),.045)}.slide.dark .data-table td{background:rgba(var(--paper-rgb),.075)}.data-table.keyed td:first-child,.data-table.keyed th:first-child{text-align:left;font-weight:600}.data-table tr>*:first-child{border-radius:6px 0 0 6px}.data-table tr>*:last-child{border-radius:0 6px 6px 0}
+#nav{position:fixed;left:50%;bottom:2.2vh;transform:translateX(-50%);z-index:30;display:flex;gap:9px;padding:7px 14px;border-radius:999px;background:rgba(0,0,0,.2);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}#nav .dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.3);border:none;padding:0;cursor:pointer;transition:all .3s ease}#nav .dot.active{background:rgba(255,255,255,.95);width:20px;border-radius:999px}
+.chrome{display:flex;justify-content:space-between;font-family:var(--mono);font-size:clamp(.75rem,.8vw,.9rem);letter-spacing:.1em;text-transform:uppercase;opacity:.45;margin-bottom:2vh}
+.foot{display:flex;justify-content:space-between;font-family:var(--mono);font-size:clamp(.75rem,.8vw,.9rem);letter-spacing:.1em;text-transform:uppercase;opacity:.4;margin-top:auto;padding-top:2vh}
+.anim-item{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease}.slide.active .anim-item{opacity:1;transform:translateY(0)}.slide.active .anim-item:nth-child(1){transition-delay:.05s}.slide.active .anim-item:nth-child(2){transition-delay:.15s}.slide.active .anim-item:nth-child(3){transition-delay:.25s}.slide.active .anim-item:nth-child(4){transition-delay:.35s}.slide.active .anim-item:nth-child(5){transition-delay:.45s}.slide.active .anim-item:nth-child(n+6){transition-delay:.55s}
+</style>
+</head>
+<body>
+<div id="deck">
+<!-- 01 封面 L1 bare / w-statement -->
+<section class="slide dark hero active bare" data-theme="dark" data-screen-label="Cover" data-source="标题" style="text-align:center;align-items:center">
+  <div class="slide-body" style="align-items:center">
+    <div class="w-statement" style="display:flex;flex-direction:column;align-items:center;gap:clamp(1.4rem,3vh,2.4rem)">
+      <div class="kicker anim-item" style="color:var(--accent);opacity:1">实操长文</div>
+      <h1 class="display-zh anim-item" style="max-width:9.5em">半个月500美金，折腾成真干活的AI员工</h1>
+      <p class="lead-zh anim-item" style="max-width:24em;opacity:.62">一份从买服务器到给AI注入灵魂的完整施工手册</p>
+    </div>
+  </div>
+  <div class="foot" style="width:100%"><div>夙愿的AI实验室</div><div>2026-02-15</div></div>
+</section>
+
+<!-- 02 L3-a 社论式 bare / w-statement -->
+<section class="slide light bare" data-theme="light" data-screen-label="Statement" data-source="开头：心态切换">
+  <div class="slide-body" style="align-items:flex-start">
+    <div class="w-statement">
+      <div class="kicker anim-item" style="margin-bottom:clamp(1.6rem,4vh,3rem)">心态切换</div>
+      <h2 class="display-zh anim-item" style="font-size:clamp(3.2rem,8vw,7.6rem);max-width:11em;letter-spacing:0">不是聊天机器人，是远程员工</h2>
+    </div>
+  </div>
+  <div class="foot" style="width:100%"><div>夙愿</div><div>02 / 23</div></div>
+</section>
+
+<!-- 03 L29 文章脉络 / w-wide -->
+<section class="slide light" data-theme="light" data-screen-label="Outline" data-source="全文结构">
+  <div class="chrome"><div>文章脉络</div><div>03 / 23</div></div>
+  <div class="slide-body">
+    <div class="w-wide">
+      <h2 class="h1-zh anim-item" style="text-align:center;max-width:13em;margin:0 auto clamp(2rem,4vh,3.5rem)">给远程同事搭工位的全过程</h2>
+      <div class="timeline-row thick" style="display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(1rem,2vw,2rem)">
+        <div class="timeline-node anim-item"><div class="meta" style="color:var(--accent);opacity:1">起点</div><p class="body-zh" style="margin-top:1vh">买服务器、选模型、装系统，先把电脑和大脑准备好</p></div>
+        <div class="timeline-node anim-item"><div class="meta" style="color:var(--accent);opacity:1">展开</div><p class="body-zh" style="margin-top:1vh">接搜索、抓取、浏览器，让它能上网查资料操作页面</p></div>
+        <div class="timeline-node anim-item"><div class="meta" style="color:var(--accent);opacity:1">转折</div><p class="body-zh" style="margin-top:1vh">写SOUL.md、做入职培训，让它知道你是谁你要什么</p></div>
+        <div class="timeline-node anim-item"><div class="meta" style="color:var(--accent);opacity:1">落点</div><p class="body-zh" style="margin-top:1vh">日常使用技巧和踩坑，以及配完之后拿来干嘛</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><div>夙愿的AI实验室</div><div>03 / 23</div></div>
+</section>
+
+<!-- 04 L30 双张力 -->
+<section class="slide dark" data-theme="dark" data-screen-label="Tension" data-source="一、准备工作：服务器选择">
+  <div class="chrome"><div>准备工作 · 服务器</div><div>04 / 23</div></div>
+  <div class="grid-2-6-6" style="flex:1;min-height:0;align-items:center">
+    <div class="anim-item"><div class="kicker">坑一</div><h2 class="h2-zh" style="margin-bottom:clamp(1rem,2vh,2rem)">别买国内服务器</h2><p class="body-zh" style="max-width:15em">搜索、抓取、API调用、装软件都需要外网。国内配代理非常麻烦，直接在国内云厂商买海外地域的就行</p></div>
+    <div class="anim-item"><div class="kicker" style="color:var(--accent);opacity:1">坑二</div><h2 class="h2-zh" style="margin-bottom:clamp(1rem,2vh,2rem)">内存至少4G起步</h2><p class="body-zh" style="max-width:15em">买了2G，连自己升级都做不到，直接卡死。跑浏览器至少4G，推荐直接上8G或16G</p></div>
+  </div>
+  <div class="foot"><div>夙愿 · 买服务器踩坑</div><div>04 / 23</div></div>
+</section>
+
+<!-- 05 L16 表格 / w-wide -->
+<section class="slide light" data-theme="light" data-screen-label="Table" data-source="一、准备工作：选模型">
+  <div class="chrome"><div>准备工作 · 模型选择</div><div>05 / 23</div></div>
+  <div class="slide-body"><div class="table-wrap">
+    <h2 class="h1-zh anim-item" style="text-align:center;max-width:11em;margin:0 auto">日常闲聊用便宜的，复杂任务切强的</h2>
+    <table class="data-table keyed anim-item"><thead><tr><th>模型</th><th>定位</th><th>省钱策略</th></tr></thead><tbody>
+      <tr><td>Claude Opus 4.6</td><td>目前最强，也最贵</td><td>复杂任务时再切</td></tr>
+      <tr><td>GPT-5.3 Codex</td><td>性价比最高</td><td>某鱼几十块买Team计划</td></tr>
+      <tr><td>GLM 5 / Kimi K2.5 / MiniMax M2.5</td><td>国产平替</td><td>日常闲聊够用</td></tr>
+    </tbody></table>
+  </div></div>
+  <div class="foot"><div>夙愿 · 模型使用策略</div><div>05 / 23</div></div>
+</section>
+
+<!-- 06 L11 嘉宾观点 bare / w-quote / guest-mark -->
+<section class="slide dark bare" data-theme="dark" data-screen-label="Guest View" data-source="一、准备工作：安装部署">
+  <div class="slide-body" style="align-items:center;text-align:center">
+    <div class="w-quote guest-mark">
+      <div class="kicker anim-item" style="margin-bottom:clamp(1rem,2vh,1.6rem)">Guest View</div>
+      <h2 class="h1-zh anim-item" style="max-width:12em">用Claude Code帮你装OpenClaw，遇到问题它自己排查修复</h2>
+      <p class="body-zh anim-item" style="max-width:22em;margin:clamp(1.6rem,3.5vh,2.6rem) auto 0;opacity:.62">夙愿 · 安装那一步不需要你手动敲命令</p>
+    </div>
+  </div>
+  <div class="foot" style="width:100%"><div>让AI装AI</div><div>06 / 23</div></div>
+</section>
+
+<!-- 07 L25 段落拆解 / w-default -->
+<section class="slide light" data-theme="light" data-screen-label="Deconstruct" data-source="二、上网：搜索与抓取">
+  <div class="chrome"><div>上网能力 · 搜索与抓取</div><div>07 / 23</div></div>
+  <div class="slide-body"><div class="note-stack">
+    <h2 class="h1-zh anim-item" style="max-width:13em">日常80%的信息获取靠搜索加抓取就够了</h2>
+    <div class="grid-3">
+      <div class="anim-item"><div class="meta" style="color:var(--accent);opacity:1">Brave Search</div><p class="body-zh" style="margin-top:1vh">内置搜索，每月2000次免费。需绑海外Visa卡，或闲鱼几十块买API</p></div>
+      <div class="anim-item"><div class="meta" style="color:var(--accent);opacity:1">jina.ai Reader</div><p class="body-zh" style="margin-top:1vh">网址前加r.jina.ai前缀就能抓。绕付费墙、抓推特，返回Markdown，免费</p></div>
+      <div class="anim-item"><div class="meta">对比</div><p class="body-zh" style="margin-top:1vh">内置Readability不加载JS翻页不好。jina.ai是实测后发现的更优替代</p></div>
+    </div>
+  </div></div>
+  <div class="foot"><div>夙愿 · 实测搜索和抓取方案</div><div>07 / 23</div></div>
+</section>
+
+<!-- 08 L28 一句原话 bare / callout-mark -->
+<section class="slide dark bare" data-theme="dark" data-screen-label="Quote" data-source="二、上网：Brave Search段落" style="text-align:center">
+  <div class="slide-body" style="align-items:center">
+    <div class="w-quote">
+      <div class="callout callout-mark anim-item" style="max-width:16em;margin:0 auto;text-align:left">不要再自己去配置服务了，直接让它们帮你配好<cite>夙愿 · 配Brave Search时的反直觉提醒</cite></div>
+    </div>
+    <div class="w-default" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:clamp(.8rem,2vw,2rem);margin-top:clamp(2rem,4vh,3rem);text-align:left">
+      <div class="anim-item"><div class="meta" style="color:var(--accent);opacity:1">回应</div><p class="body-zh" style="margin-top:1vh">第一反应是打开配置文件粘贴API key，但现在不需要了</p></div>
+      <div class="anim-item"><div class="meta" style="color:var(--accent);opacity:1">重点</div><p class="body-zh" style="margin-top:1vh">告诉AI你要什么结果，让它搞定过程。全文反复出现的核心方法</p></div>
+      <div class="anim-item"><div class="meta" style="color:var(--accent);opacity:1">余味</div><p class="body-zh" style="margin-top:1vh">反过来要求你知道自己要什么，否则AI再强也只是更贵的聊天机器人</p></div>
+    </div>
+  </div>
+  <div class="foot" style="width:100%"><div>让AI自己配自己</div><div>08 / 23</div></div>
+</section>
+
+<!-- 09 L14 时间线 / w-wide -->
+<section class="slide light" data-theme="light" data-screen-label="Timeline" data-source="二、上网：浏览器四层级">
+  <div class="chrome"><div>上网能力 · 浏览器</div><div>09 / 23</div></div>
+  <div class="slide-body"><div class="w-wide">
+    <h2 class="h1-zh anim-item" style="text-align:center;max-width:13em;margin:0 auto clamp(2rem,5vh,4rem)">浏览器能力的四个层级</h2>
+    <div class="timeline-row" style="display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(1rem,2vw,2rem)">
+      <div class="timeline-node anim-item"><div class="meta" style="color:var(--accent);opacity:1">L0 搜索+抓取</div><p class="body-zh" style="margin-top:1vh">不需要浏览器，日常80%靠这层</p></div>
+      <div class="timeline-node anim-item"><div class="meta" style="color:var(--accent);opacity:1">L1 无头浏览器</div><p class="body-zh" style="margin-top:1vh">后台运行，处理需要JS的页面</p></div>
+      <div class="timeline-node anim-item"><div class="meta" style="color:var(--accent);opacity:1">L2 有头+DOM</div><p class="body-zh" style="margin-top:1vh">完整界面，DOM点击输入，适合登录填表</p></div>
+      <div class="timeline-node anim-item"><div class="meta" style="color:var(--accent);opacity:1">L3 截图+视觉</div><p class="body-zh" style="margin-top:1vh">截图后视觉识别，最慢但能处理图里的参数表</p></div>
+    </div>
+  </div></div>
+  <div class="foot"><div>夙愿 · 浏览器使用分层</div><div>09 / 23</div></div>
+</section>
+
+<!-- 10 L25 段落拆解 -->
+<section class="slide dark" data-theme="dark" data-screen-label="Deconstruct" data-source="二、上网：远程接管KasmVNC">
+  <div class="chrome"><div>上网能力 · 远程接管</div><div>10 / 23</div></div>
+  <div class="slide-body"><div class="note-stack">
+    <h2 class="h1-zh anim-item" style="max-width:13em">AI过不了滑块验证码时，你得能接管它的浏览器</h2>
+    <div class="grid-3">
+      <div class="anim-item"><div class="meta">Fact</div><p class="body-zh" style="margin-top:1vh">简单图片验证码AI能自己过，但滑块验证做不到，需要人接管</p></div>
+      <div class="anim-item"><div class="meta">Point</div><p class="body-zh" style="margin-top:1vh">KasmVNC是基于网页的远程桌面，通过浏览器就能看到AI正在操作的画面</p></div>
+      <div class="anim-item"><div class="meta">Aftertaste</div><p class="body-zh" style="margin-top:1vh">帮它过验证码，过完把控制权还给它。像Manus给智能体配的电脑</p></div>
+    </div>
+  </div></div>
+  <div class="foot"><div>夙愿 · KasmVNC开源方案</div><div>10 / 23</div></div>
+</section>
+
+<!-- 11 L27 观点加例证 -->
+<section class="slide light" data-theme="light" data-screen-label="Evidence" data-source="三、文件同步：三种方案">
+  <div class="chrome"><div>文件同步 · 三种方案</div><div>11 / 23</div></div>
+  <div class="slide-body"><div class="note-stack">
+    <h2 class="h1-zh anim-item section-title">干完活的成果全在服务器上，你得拿回来</h2>
+    <div class="grid-3">
+      <div class="anim-item"><div class="kicker">坚果云</div><p class="body-zh">简单直观自动同步。付费版不便宜，有流量限制，频繁读写很快用完</p></div>
+      <div class="anim-item"><div class="kicker" style="color:var(--accent);opacity:1">rclone 推荐</div><p class="body-zh">免费实时同步。SFTP挂载到本地像U盘用，Mac走NFS不需装macFUSE</p></div>
+      <div class="anim-item"><div class="kicker">File Browser</div><p class="body-zh">手机端方案。装在服务器上通过浏览器访问，能把文件链接直接发给你</p></div>
+    </div>
+  </div></div>
+  <div class="foot"><div>夙愿 · 文件同步方案对比</div><div>11 / 23</div></div>
+</section>
+
+<!-- 12 L24 摘录侧注 / callout-mark -->
+<section class="slide light" data-theme="light" data-screen-label="Excerpt" data-source="三、文件同步：rclone关键参数">
+  <div class="chrome"><div>Excerpt · rclone配置</div><div>12 / 23</div></div>
+  <div class="grid-2-6-6" style="flex:1;min-height:0;align-items:center">
+    <div class="anim-item">
+      <div class="kicker">Excerpt</div>
+      <div class="callout callout-mark" style="max-width:14em;color:var(--ink);margin-top:clamp(1rem,2vh,1.6rem);font-size:clamp(1.6rem,2.8vw,2.8rem)">这一串参数是我调过的，默认配置很慢而且容易断<cite>夙愿 · rclone配置</cite></div>
+    </div>
+    <div class="anim-item" style="padding-left:clamp(1rem,3vw,3rem)">
+      <div class="kicker" style="color:var(--accent);opacity:1">三个关键参数</div>
+      <p class="body-zh" style="max-width:18em"><strong>vfs-cache-mode full</strong> 最重要，读写走本地缓存，速度接近本地磁盘</p>
+      <p class="body-zh" style="max-width:18em;margin-top:clamp(.8rem,1.5vh,1.2rem)"><strong>sftp-connections 8</strong> 并发从1提到8，速度提升巨大</p>
+      <p class="body-zh" style="max-width:18em;margin-top:clamp(.8rem,1.5vh,1.2rem)"><strong>sftp-idle-timeout 0</strong> 禁用空闲超时，防止断联</p>
+    </div>
+  </div>
+  <div class="foot"><div>夙愿 · rclone调优经验</div><div>12 / 23</div></div>
+</section>
+<!-- 13 L3-c 上下宣告 / w-note -->
+<section class="slide dark" data-theme="dark" data-screen-label="Statement" data-source="四、灵魂：SOUL.md" style="text-align:center;align-items:center">
+  <div class="chrome" style="width:100%"><div>灵魂 · SOUL.md</div><div>13 / 23</div></div>
+  <div class="slide-body" style="align-items:center">
+    <div class="w-note" style="display:flex;flex-direction:column;align-items:center;gap:clamp(1.4rem,3.5vh,2.6rem)">
+      <div class="kicker anim-item">人格配置</div>
+      <h2 class="h1-zh anim-item" style="max-width:13em">不把它当助手，当同事。不只是贾维斯，还是Her</h2>
+      <p class="body-zh anim-item" style="max-width:22em;opacity:.62">如果SOUL.md写的是你是一个有用的AI助手请用专业语气回答问题，那跟直接用ChatGPT没区别</p>
+    </div>
+  </div>
+  <div class="foot" style="width:100%"><div>夙愿 · SOUL.md核心理念</div><div>13 / 23</div></div>
+</section>
+
+<!-- 14 L25 段落拆解 -->
+<section class="slide light" data-theme="light" data-screen-label="Deconstruct" data-source="四、灵魂：SOUL.md五个维度">
+  <div class="chrome"><div>灵魂 · 写SOUL.md的方法</div><div>14 / 23</div></div>
+  <div class="slide-body"><div class="note-stack">
+    <h2 class="h1-zh anim-item" style="max-width:13em">它需要了解你的工作、生活、人际关系和作息</h2>
+    <div class="grid-3">
+      <div class="anim-item"><div class="meta">你是谁</div><p class="body-zh" style="margin-top:1vh">职业、工作内容、兴趣爱好。写明你们是平等关系还是主从关系</p></div>
+      <div class="anim-item"><div class="meta">沟通风格</div><p class="body-zh" style="margin-top:1vh">简洁还是详细，直接还是委婉。夙愿写的是有话直说不客套不废话，敢拦着你</p></div>
+      <div class="anim-item"><div class="meta">禁忌事项</div><p class="body-zh" style="margin-top:1vh">哪些话不想听，哪些行为不想要。夙愿的禁区是废话和急于认同</p></div>
+    </div>
+  </div></div>
+  <div class="foot"><div>夙愿 · SOUL.md写法指南</div><div>14 / 23</div></div>
+</section>
+
+<!-- 15 L24 摘录侧注 / callout-mark -->
+<section class="slide dark" data-theme="dark" data-screen-label="Excerpt" data-source="四、灵魂：入职培训">
+  <div class="chrome"><div>灵魂 · 入职培训</div><div>15 / 23</div></div>
+  <div class="grid-2-6-6" style="flex:1;min-height:0;align-items:center">
+    <div class="anim-item">
+      <div class="kicker">Excerpt</div>
+      <div class="callout callout-mark" style="max-width:14em;margin-top:clamp(1rem,2vh,1.6rem);font-size:clamp(1.6rem,2.8vw,2.8rem)">它从我的笔记里推测出了我完整的人际关系和性格特点<cite>夙愿 · 入职培训后的惊喜</cite></div>
+    </div>
+    <div class="anim-item" style="padding-left:clamp(1rem,3vw,3rem)">
+      <div class="kicker" style="color:var(--accent);opacity:1">方法</div>
+      <p class="lead-zh" style="max-width:18em">把Obsidian知识库整个复制到服务器上，让小龙虾像新员工入职一样把所有文档读一遍</p>
+      <p class="body-zh" style="max-width:18em;margin-top:clamp(1rem,2vh,1.6rem)">读完后让它更新SOUL、TOOLS、USER、MEMORY配置文件。随着聊天越来越多，它越来越了解你</p>
+    </div>
+  </div>
+  <div class="foot"><div>夙愿 · 被AI深度理解的体验</div><div>15 / 23</div></div>
+</section>
+
+<!-- 16 L16 表格：斜杠命令 / w-wide -->
+<section class="slide light" data-theme="light" data-screen-label="Table" data-source="五、日常使用：斜杠命令">
+  <div class="chrome"><div>日常使用 · 斜杠命令</div><div>16 / 23</div></div>
+  <div class="slide-body"><div class="table-wrap">
+    <h2 class="h1-zh anim-item" style="text-align:center;max-width:11em;margin:0 auto">大部分人不知道的隐藏功能</h2>
+    <table class="data-table keyed anim-item"><thead><tr><th>命令</th><th>用途</th><th>场景</th></tr></thead><tbody>
+      <tr><td>/status</td><td>查看当前状态</td><td>卡住不回复时先发这个</td></tr>
+      <tr><td>/stop</td><td>强制停止</td><td>跑飞了的时候用</td></tr>
+      <tr><td>/compact</td><td>压缩上下文</td><td>token快满了，压缩后还记得</td></tr>
+      <tr><td>/model</td><td>切换模型</td><td>省钱的关键，一键切</td></tr>
+      <tr><td>/think off</td><td>关闭深度思考</td><td>日常闲聊不需要，省token</td></tr>
+    </tbody></table>
+  </div></div>
+  <div class="foot"><div>夙愿 · 斜杠命令速查</div><div>16 / 23</div></div>
+</section>
+
+<!-- 17 L7 左右分屏 -->
+<section class="slide light" data-theme="light" data-screen-label="Split" data-source="五、日常使用：多群组">
+  <div class="chrome"><div>日常使用 · 多群组</div><div>17 / 23</div></div>
+  <div class="grid-2-6-6" style="flex:1;min-height:0;align-items:center">
+    <div>
+      <h2 class="h1-zh anim-item" style="max-width:9em;margin-bottom:clamp(1rem,3vh,2rem)">分群聊等于分上下文</h2>
+      <p class="body-zh anim-item" style="max-width:18em">所有事情在一个会话里聊，记忆文件越来越杂，回复质量下降。分开之后每个场景更精准</p>
+    </div>
+    <div class="anim-item" style="padding-left:clamp(1rem,3vw,3rem)">
+      <div class="kicker" style="color:var(--accent);opacity:1">夙愿的四个群</div>
+      <p class="body-zh" style="max-width:16em;margin-top:clamp(.5rem,1vh,.8rem)">主对话：日常使用，有记忆</p>
+      <p class="body-zh" style="max-width:16em;margin-top:clamp(.5rem,1vh,.8rem)">写作台：专门用于写作任务</p>
+      <p class="body-zh" style="max-width:16em;margin-top:clamp(.5rem,1vh,.8rem)">AI News：每天推优质AI信息</p>
+      <p class="body-zh" style="max-width:16em;margin-top:clamp(.5rem,1vh,.8rem)">测试群：测试小龙虾功能</p>
+    </div>
+  </div>
+  <div class="foot"><div>夙愿 · 多群组分场景</div><div>17 / 23</div></div>
+</section>
+
+<!-- 18 L11 嘉宾观点 bare / w-quote / guest-mark -->
+<section class="slide dark bare" data-theme="dark" data-screen-label="Guest View" data-source="五、日常使用：AI改死自己">
+  <div class="slide-body" style="align-items:center;text-align:center">
+    <div class="w-quote guest-mark">
+      <div class="kicker anim-item" style="margin-bottom:clamp(1rem,2vh,1.6rem)">Guest View</div>
+      <h2 class="h1-zh anim-item" style="max-width:12em">AI会把自己改死，这是最离谱的一个坑</h2>
+      <p class="body-zh anim-item" style="max-width:22em;margin:clamp(1.6rem,3.5vh,2.6rem) auto 0;opacity:.62">夙愿 · 有一天晚上布置任务，第二天早上全是重启日志，小龙虾已经把自己折腾死了</p>
+    </div>
+  </div>
+  <div class="foot" style="width:100%"><div>装完后第一件事：关掉自动重启</div><div>18 / 23</div></div>
+</section>
+
+<!-- 19 L30 双张力：互补 -->
+<section class="slide dark" data-theme="dark" data-screen-label="Tension" data-source="五、日常使用：OpenClaw与Claude Code互补">
+  <div class="chrome"><div>日常使用 · 工具互补</div><div>19 / 23</div></div>
+  <div class="grid-2-6-6" style="flex:1;min-height:0;align-items:center">
+    <div class="anim-item">
+      <div class="kicker">OpenClaw出问题时</div>
+      <h2 class="h2-zh" style="margin-bottom:clamp(1rem,2vh,2rem)">让Claude Code去修</h2>
+      <p class="body-zh" style="max-width:15em">它会去查资料再改配置，不会像OpenClaw自己改自己那样产生幻觉</p>
+    </div>
+    <div class="anim-item">
+      <div class="kicker" style="color:var(--accent);opacity:1">不在电脑前时</div>
+      <h2 class="h2-zh" style="margin-bottom:clamp(1rem,2vh,2rem)">让OpenClaw帮你干活</h2>
+      <p class="body-zh" style="max-width:15em">配合HappyCoder，手机就能连接服务器上的Claude Code。半夜改挂了也能躺在床上修</p>
+    </div>
+  </div>
+  <div class="foot"><div>夙愿 · 两个工具互补</div><div>19 / 23</div></div>
+</section>
+
+<!-- 20 L3-b 长句式：记忆 -->
+<section class="slide dark" data-theme="dark" data-screen-label="Statement" data-source="六、配完干嘛：非工作场景" style="text-align:center;align-items:center">
+  <div class="chrome" style="width:100%"><div>配完干嘛 · 日常陪伴</div><div>20 / 23</div></div>
+  <div class="slide-body" style="align-items:center">
+    <h2 class="h1-zh anim-item" style="max-width:24em;font-size:clamp(1.8rem,3.2vw,3rem);line-height:1.35">比普通AI强的地方在于它有记忆，你越聊越久，它的MEMORY文件就越来越厚，越来越了解你</h2>
+  </div>
+  <div class="foot" style="width:100%"><div>夙愿 · 超级豆包Pro Max Ultra版本</div><div>20 / 23</div></div>
+</section>
+
+<!-- 21 L32 核心总结 1/2 / w-default / summary-num -->
+<section class="slide dark" data-theme="dark" data-screen-label="Summary" data-source="核心总结 01-05">
+  <div class="chrome"><div>核心总结</div><div>21 / 23</div></div>
+  <div class="slide-body">
+    <div class="w-default" style="display:flex;flex-direction:column;gap:clamp(2rem,5vh,3.5rem)">
+      <div class="anim-item" style="display:grid;grid-template-columns:auto 1fr;gap:clamp(1.5rem,3vw,3rem);align-items:start">
+        <div class="summary-num">01</div>
+        <p class="body-zh">把OpenClaw当远程员工不是聊天机器人。你得给它准备电脑（云服务器）、开通网络（搜索+浏览器）、配好工具、交代清楚你是谁和你的工作习惯</p>
+      </div>
+      <div class="anim-item" style="display:grid;grid-template-columns:auto 1fr;gap:clamp(1.5rem,3vw,3rem);align-items:start">
+        <div class="summary-num">02</div>
+        <p class="body-zh">服务器买海外的，内存至少4G。2G连自己升级都做不到。一千块能买两年16G海外服务器，比在Mac上折腾依赖性价比更高</p>
+      </div>
+      <div class="anim-item" style="display:grid;grid-template-columns:auto 1fr;gap:clamp(1.5rem,3vw,3rem);align-items:start">
+        <div class="summary-num">03</div>
+        <p class="body-zh">模型用/model一键切换省钱。日常闲聊用GLM或Kimi，复杂任务切Claude Opus。GPT-5.3 Codex接入OpenClaw是目前性价比最高的选择</p>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><div>夙愿的AI实验室</div><div>21 / 23</div></div>
+</section>
+
+<!-- 22 L32 核心总结 2/2 / w-default / summary-num -->
+<section class="slide dark" data-theme="dark" data-screen-label="Summary" data-source="核心总结 04-07">
+  <div class="chrome"><div>核心总结</div><div>22 / 23</div></div>
+  <div class="slide-body">
+    <div class="w-default" style="display:flex;flex-direction:column;gap:clamp(2rem,5vh,3.5rem)">
+      <div class="anim-item" style="display:grid;grid-template-columns:auto 1fr;gap:clamp(1.5rem,3vw,3rem);align-items:start">
+        <div class="summary-num">04</div>
+        <p class="body-zh">浏览器分四层：搜索抓取覆盖80%，无头浏览器处理JS页面，有头浏览器登录操作，截图视觉识别兜底。KasmVNC让你远程接管帮它过验证码</p>
+      </div>
+      <div class="anim-item" style="display:grid;grid-template-columns:auto 1fr;gap:clamp(1.5rem,3vw,3rem);align-items:start">
+        <div class="summary-num">05</div>
+        <p class="body-zh">SOUL.md不要写成你是一个有用的AI助手。写明平等关系、沟通风格、禁忌事项。把知识库复制给它读一遍做入职培训，它能从笔记里推测出你的人际关系</p>
+      </div>
+      <div class="anim-item" style="display:grid;grid-template-columns:auto 1fr;gap:clamp(1.5rem,3vw,3rem);align-items:start">
+        <div class="summary-num">06</div>
+        <p class="body-zh">AI会把自己改死。装完配完第一件事关掉自动重启。OpenClaw配置出问题让Claude Code去改，两个工具互补。手机上用HappyCoder远程连Claude Code</p>
+      </div>
+      <div class="anim-item" style="display:grid;grid-template-columns:auto 1fr;gap:clamp(1.5rem,3vw,3rem);align-items:start">
+        <div class="summary-num">07</div>
+        <p class="body-zh">不是这些工具本身，而是让AI自己配自己这个思路。但这反过来要求你知道自己要什么结果。没有工作流、没有知识体系、没有明确需求，它也只是更贵的聊天机器人</p>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><div>夙愿的AI实验室</div><div>22 / 23</div></div>
+</section>
+
+<!-- 23 L21 结尾回扣 bare / w-statement -->
+<section class="slide dark hero bare" data-theme="dark" data-screen-label="Closing" data-source="写在最后">
+  <div class="slide-body" style="align-items:center;text-align:center">
+    <div class="w-statement">
+      <h2 class="h1-zh anim-item" style="max-width:16em;margin:0 auto">先别急着养小龙虾，先把手边的AI工具用熟</h2>
+    </div>
+  </div>
+  <div class="foot" style="width:100%"><div>夙愿的AI实验室</div><div>NOTE SLIDES</div></div>
+</section>
+
+</div>
+<div id="nav"></div>
+<script>
+(function(){
+  const deck=document.getElementById('deck'),slides=Array.from(deck.querySelectorAll('.slide')),total=slides.length;
+  let current=0,isT=false;
+  const nav=document.getElementById('nav');
+  function renderNav(){
+    nav.innerHTML='';
+    slides.forEach((s,i)=>{const d=document.createElement('button');d.className='dot'+(i===current?' active':'');d.setAttribute('aria-label','Go to slide '+(i+1));d.onclick=()=>goTo(i);nav.appendChild(d)});
+    const t=slides[current].dataset.theme;
+    nav.style.setProperty('background',t==='light'?'rgba(0,0,0,.12)':'rgba(255,255,255,.15)');
+    Array.from(nav.querySelectorAll('.dot')).forEach((d,i)=>{d.style.background=i===current?(t==='light'?'rgba(0,0,0,.7)':'rgba(255,255,255,.95)'):(t==='light'?'rgba(0,0,0,.18)':'rgba(255,255,255,.3)')});
+  }
+  function goTo(idx){
+    if(idx<0||idx>=total||idx===current)return;isT=true;current=idx;
+    deck.style.transform='translateX(-'+(current*100)+'vw)';
+    slides.forEach(s=>s.classList.remove('active'));
+    setTimeout(()=>{slides[current].classList.add('active');isT=false;renderNav();saveProgress()},900);
+  }
+  document.addEventListener('keydown',e=>{if(isT)return;if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' '){e.preventDefault();goTo(current+1)}if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();goTo(current-1)}});
+  let wt=null;document.addEventListener('wheel',e=>{if(isT||wt)return;wt=setTimeout(()=>wt=null,800);if(e.deltaY>30)goTo(current+1);if(e.deltaY<-30)goTo(current-1)},{passive:true});
+  let tsx=0;document.addEventListener('touchstart',e=>{tsx=e.touches[0].clientX},{passive:true});document.addEventListener('touchend',e=>{if(isT)return;const d=tsx-e.changedTouches[0].clientX;if(d>50)goTo(current+1);if(d<-50)goTo(current-1)},{passive:true});
+  const SK='slides-progress-xuyuan-openclaw';
+  function saveProgress(){try{localStorage.setItem(SK,current)}catch(e){}}
+  function loadProgress(){try{const p=parseInt(localStorage.getItem(SK),10);if(!isNaN(p)&&p>=0&&p<total){current=p;deck.style.transform='translateX(-'+(current*100)+'vw)'}}catch(e){}}
+  loadProgress();slides.forEach(s=>s.classList.remove('active'));slides[current].classList.add('active');renderNav();
+})();
+</script>
+</body>
+</html>

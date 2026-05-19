@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>欧洲流量劫持与用户画像法规调研</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@300;400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+/* palette thesis: 法律合规调研。深铁蓝灰 ink 传达制度严肃，暖白 paper 保持阅读舒适，沉静蓝 accent 标记条款和数字。像法律备忘录的翻页笔记。 */
+:root{--ink:#1a2332;--ink-rgb:26,35,50;--paper:#faf9f5;--paper-rgb:250,249,245;--accent:#2c5fb8;--accent-rgb:44,95,184;--muted:#6b7180;--serif-zh:"Noto Serif SC","Source Serif 4",serif;--sans-zh:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;--mono:"IBM Plex Mono",monospace;--w-quote:min(100%,48rem);--w-statement:min(100%,56rem);--w-note:min(100%,64rem);--w-default:min(100%,76rem);--w-wide:min(100%,92rem)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden;background:var(--ink);color:var(--paper);font-family:var(--sans-zh);-webkit-font-smoothing:antialiased;text-wrap:pretty}
+h1,h2,h3,p,li,blockquote,cite{text-wrap:pretty}
+#deck{position:fixed;inset:0;width:10000vw;height:100vh;display:flex;flex-wrap:nowrap;transition:transform .85s cubic-bezier(.77,0,.175,1);z-index:10;will-change:transform}
+.slide{width:100vw;height:100vh;flex:0 0 100vw;position:relative;padding:clamp(2rem,5vw,5.5rem) clamp(2rem,6vw,6.5rem) clamp(1.5rem,3vw,3rem);display:flex;flex-direction:column;overflow:hidden}
+.slide.dark{background:var(--ink);color:var(--paper)}.slide.light{background:var(--paper);color:var(--ink)}
+.slide.bare .chrome{display:none}.slide.bare .foot{opacity:.35}
+.slide-body.top{justify-content:flex-start;padding-top:clamp(2rem,6vh,4.5rem)}
+.slide-body.bottom{justify-content:flex-end;padding-bottom:clamp(2rem,6vh,4.5rem)}
+.display-zh{font-family:var(--serif-zh);font-weight:900;font-size:clamp(3rem,7vw,7rem);line-height:1.08;letter-spacing:0}
+.h1-zh{font-family:var(--serif-zh);font-weight:700;font-size:clamp(2rem,4.6vw,4.2rem);line-height:1.18;letter-spacing:0}
+.h2-zh{font-family:var(--serif-zh);font-weight:600;font-size:clamp(1.5rem,3vw,2.6rem);line-height:1.28}
+.lead-zh{font-family:var(--serif-zh);font-weight:400;font-size:clamp(1.5rem,2vw,2rem);line-height:1.5}
+.body-zh{font-family:var(--sans-zh);font-weight:400;font-size:clamp(1.5rem,1.55vw,1.75rem);line-height:1.55}
+.kicker{font-family:var(--mono);font-size:clamp(.8rem,.9vw,1rem);text-transform:uppercase;letter-spacing:.15em;opacity:.5;margin-bottom:1vh}
+.meta{font-family:var(--mono);font-size:clamp(.75rem,.8vw,.9rem);letter-spacing:.08em;opacity:.5}
+.slide-body{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center}
+.note-stack{width:var(--w-default);margin:0 auto;display:flex;flex-direction:column;justify-content:center;gap:clamp(2rem,4vh,3.6rem)}
+.w-quote{width:var(--w-quote);margin-left:auto;margin-right:auto}
+.w-statement{width:var(--w-statement);margin-left:auto;margin-right:auto}
+.w-note{width:var(--w-note);margin-left:auto;margin-right:auto}
+.w-default{width:var(--w-default);margin-left:auto;margin-right:auto}
+.w-wide{width:var(--w-wide);margin-left:auto;margin-right:auto}
+.section-title{max-width:11em;margin:0 auto;text-align:center}
+.grid-2-6-6{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1rem,3vw,3rem);flex:1;min-height:0}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:clamp(.8rem,2vw,2rem);min-height:0}
+.callout{font-family:var(--serif-zh);font-weight:400;font-size:clamp(2rem,3.5vw,3.6rem);line-height:1.45;border-left:3px solid var(--accent);padding-left:clamp(1rem,2vw,1.75rem);max-width:14em}
+.callout cite{display:block;font-style:normal;font-weight:500;font-size:clamp(.8rem,1vw,1rem);margin-top:1.8vh;opacity:.6;font-family:var(--mono)}
+.guest-mark{display:flex;flex-direction:column;align-items:center}
+.guest-mark::before{content:"";display:block;width:clamp(2.4rem,4em,4.8rem);height:1px;background:currentColor;opacity:.35;margin-bottom:clamp(1.4rem,3vh,2.4rem)}
+.callout-mark{border-left:none;padding-left:0;padding-top:clamp(1.6rem,3vh,2.4rem);position:relative}
+.callout-mark::before{content:"";position:absolute;top:0;left:0;width:clamp(.5rem,.75vw,.85rem);height:clamp(.5rem,.75vw,.85rem);background:var(--accent);opacity:.7}
+.timeline-row{position:relative}
+.timeline-row::before{content:"";position:absolute;top:clamp(.85rem,1.6vh,1.4rem);left:6%;right:6%;height:1px;background:rgba(var(--ink-rgb),.1);z-index:0}
+.slide.dark .timeline-row::before{background:rgba(var(--paper-rgb),.1)}
+.timeline-row.thick::before{height:1.5px;opacity:.8}
+.timeline-node{position:relative;z-index:1}
+.timeline-node .meta{padding-right:clamp(.5rem,1vw,1rem);display:inline-block}
+.slide.light .timeline-node .meta{background:var(--paper)}
+.slide.dark .timeline-node .meta{background:var(--ink)}
+.summary-num{font-family:var(--serif-zh);font-size:clamp(3.2rem,7vw,6.4rem);font-weight:600;color:var(--accent);opacity:.85;line-height:.95;letter-spacing:0}
+.stat-num{font-family:var(--serif-zh);font-weight:800;font-size:clamp(5rem,13vw,12rem);line-height:1;color:var(--accent)}
+.table-wrap{width:var(--w-wide);margin:0 auto;display:flex;flex-direction:column;gap:clamp(1.4rem,3.5vh,2.8rem)}
+.data-table{width:100%;border-collapse:separate;border-spacing:0 clamp(.45rem,1vh,.8rem);font-family:var(--sans-zh);font-size:clamp(1.08rem,1.22vw,1.42rem);line-height:1.45}
+.data-table th,.data-table td{padding:clamp(.8rem,1.35vw,1.25rem) clamp(.9rem,1.6vw,1.45rem);text-align:center;vertical-align:middle}
+.data-table th{font-family:var(--mono);font-size:clamp(.78rem,.82vw,.95rem);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);background:rgba(var(--accent-rgb),.08)}
+.data-table td{background:rgba(var(--ink-rgb),.045)}
+.slide.dark .data-table td{background:rgba(var(--paper-rgb),.075)}
+.data-table.keyed td:first-child,.data-table.keyed th:first-child{text-align:left;font-weight:600}
+.data-table tr>*:first-child{border-radius:6px 0 0 6px}
+.data-table tr>*:last-child{border-radius:0 6px 6px 0}
+.data-table.compact th,.data-table.compact td{padding-top:clamp(.65rem,1.05vw,1rem);padding-bottom:clamp(.65rem,1.05vw,1rem)}
+.data-table.left td,.data-table.left th{text-align:left}
+.chrome{display:flex;justify-content:space-between;font-family:var(--mono);font-size:clamp(.75rem,.8vw,.9rem);letter-spacing:.1em;text-transform:uppercase;opacity:.45;margin-bottom:2vh}
+.foot{display:flex;justify-content:space-between;font-family:var(--mono);font-size:clamp(.75rem,.8vw,.9rem);letter-spacing:.1em;text-transform:uppercase;opacity:.4;margin-top:auto;padding-top:2vh}
+#nav{position:fixed;left:50%;bottom:2.2vh;transform:translateX(-50%);z-index:30;display:flex;gap:9px;padding:7px 14px;border-radius:999px;background:rgba(0,0,0,.2);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+#nav .dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.3);border:none;padding:0;cursor:pointer;transition:all .3s ease}
+#nav .dot.active{background:rgba(255,255,255,.95);width:20px;border-radius:999px}
+.anim-item{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease}
+.slide.active .anim-item{opacity:1;transform:translateY(0)}
+.slide.active .anim-item:nth-child(1){transition-delay:.05s}
+.slide.active .anim-item:nth-child(2){transition-delay:.15s}
+.slide.active .anim-item:nth-child(3){transition-delay:.25s}
+.slide.active .anim-item:nth-child(4){transition-delay:.35s}
+.slide.active .anim-item:nth-child(5){transition-delay:.45s}
+.slide.active .anim-item:nth-child(n+6){transition-delay:.55s}
+</style>
+</head>
+<body>
+<div id="deck">
+<section class="slide dark hero active bare" data-theme="dark" data-screen-label="Cover" data-source="报告标题" style="text-align:center;align-items:center">
+  <div class="slide-body" style="align-items:center"><div class="w-statement" style="display:flex;flex-direction:column;align-items:center;gap:clamp(1.4rem,3vh,2.4rem)">
+    <div class="kicker anim-item" style="color:var(--accent);opacity:1">法规调研报告</div>
+    <h1 class="display-zh anim-item" style="max-width:9.5em">欧洲流量劫持与用户画像法规调研</h1>
+    <p class="lead-zh anim-item" style="max-width:24em;opacity:.62">电商劫持社媒 APP 流量做画像，在 EU 及英德法荷卢比六国面临什么</p>
+  </div></div>
+  <div class="foot" style="width:100%"><div>2026.05.13</div><div>EU + UK / DE / FR / NL / LU / BE</div></div>
+</section><section class="slide light" data-theme="light" data-screen-label="Structure" data-source="导读：四个违法层次">
+  <div class="chrome"><div>违法结构 · 导读</div><div>02 / 29</div></div>
+  <div class="slide-body"><div class="w-wide">
+    <h2 class="h1-zh anim-item" style="text-align:center;max-width:13em;margin:0 auto clamp(2rem,5vh,4rem)">四层违法叠加，每一层都足以单独定罪</h2>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(.8rem,1.5vw,1.5rem);align-items:start">
+      <div class="anim-item"><div class="meta" style="color:var(--accent);opacity:1">Layer 01</div><p class="body-zh" style="margin-top:1vh">流量劫持本身，未经授权截获电子通信数据，违反 ePrivacy 和各国刑法</p></div>
+      <div class="anim-item"><div class="meta" style="color:var(--accent);opacity:1">Layer 02</div><p class="body-zh" style="margin-top:1vh">用户画像，未经有效同意处理个人数据，违反 GDPR 多条核心条款</p></div>
+      <div class="anim-item"><div class="meta" style="color:var(--accent);opacity:1">Layer 03</div><p class="body-zh" style="margin-top:1vh">定向广告投放，基于非法数据推荐，违反 DSA 广告透明度规则</p></div>
+      <div class="anim-item"><div class="meta" style="color:var(--accent);opacity:1">Layer 04</div><p class="body-zh" style="margin-top:1vh">跨平台数据合并，社媒与电商数据混用，违反 DMA 守门人禁令</p></div>
+    </div>
+  </div></div>
+  <div class="foot"><div>导读</div><div>02 / 29</div></div>
+</section><section class="slide light bare" data-theme="light" data-screen-label="Statement" data-source="导读：核心结论">
+  <div class="slide-body" style="align-items:flex-start"><div class="w-statement">
+    <div class="kicker anim-item" style="margin-bottom:clamp(1.6rem,4vh,3rem)">核心结论</div>
+    <h2 class="display-zh anim-item" style="font-size:clamp(3.2rem,8vw,7.6rem);max-width:11em;letter-spacing:0">不是灰色地带，是明确的多重违法</h2>
+  </div></div>
+  <div class="foot" style="width:100%"><div>导读</div><div>03 / 29</div></div>
+</section><section class="slide light" data-theme="light" data-screen-label="Outline" data-source="全文结构">
+  <div class="chrome"><div>报告脉络</div><div>04 / 29</div></div>
+  <div class="slide-body"><div class="w-wide">
+    <h2 class="h1-zh anim-item" style="text-align:center;max-width:13em;margin:0 auto clamp(2rem,4vh,3.5rem)">从 EU 统一层到六国本地法，再到实操风险</h2>
+    <div class="timeline-row thick" style="display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(1rem,2vw,2rem)">
+      <div class="timeline-node anim-item"><div class="meta" style="color:var(--accent);opacity:1">起点</div><p class="body-zh" style="margin-top:1vh">EU 四法：GDPR、ePrivacy、DSA、DMA</p></div>
+      <div class="timeline-node anim-item"><div class="meta" style="color:var(--accent);opacity:1">展开</div><p class="body-zh" style="margin-top:1vh">六国本地法各有加码</p></div>
+      <div class="timeline-node anim-item"><div class="meta" style="color:var(--accent);opacity:1">转折</div><p class="body-zh" style="margin-top:1vh">执法扩展到中国出海企业</p></div>
+      <div class="timeline-node anim-item"><div class="meta" style="color:var(--accent);opacity:1">落点</div><p class="body-zh" style="margin-top:1vh">风险矩阵与合规替代</p></div>
+    </div>
+  </div></div>
+  <div class="foot"><div>全文结构</div><div>04 / 29</div></div>
+</section><section class="slide light" data-theme="light" data-screen-label="Table" data-source="§1.1 GDPR Art.5">
+  <div class="chrome"><div>GDPR · Art.5</div><div>05 / 29</div></div>
+  <div class="slide-body"><div class="table-wrap">
+    <h2 class="h1-zh anim-item" style="text-align:center;max-width:13em;margin:0 auto">GDPR 第 5 条六项基本原则，全部被违反</h2>
+    <table class="data-table keyed compact anim-item"><thead><tr><th>原则</th><th>条款</th><th>与流量劫持的关系</th></tr></thead><tbody>
+      <tr><td>合法性、透明性</td><td>Art. 5(1)(a)</td><td>劫持流量完全不透明</td></tr>
+      <tr><td>目的限制</td><td>Art. 5(1)(b)</td><td>社媒流量挪用于电商画像</td></tr>
+      <tr><td>数据最小化</td><td>Art. 5(1)(c)</td><td>全量截获远超必要范围</td></tr>
+      <tr><td>完整性和保密性</td><td>Art. 5(1)(f)</td><td>截获传输中数据破坏保密性</td></tr>
+    </tbody></table>
+  </div></div>
+  <div class="foot"><div>Regulation (EU) 2016/679</div><div>05 / 29</div></div>
+</section><section class="slide dark" data-theme="dark" data-screen-label="Deconstruct" data-source="§1.1 GDPR Art.6">
+  <div class="chrome"><div>GDPR · Art.6</div><div>06 / 29</div></div>
+  <div class="slide-body"><div class="note-stack">
+    <h2 class="h1-zh anim-item" style="max-width:13em">Art. 6 的合法性基础，没有一条能用</h2>
+    <div class="grid-3">
+      <div class="anim-item"><div class="meta" style="color:var(--accent);opacity:1">同意</div><p class="body-zh" style="margin-top:1vh">用户从未就流量被截获给予同意</p></div>
+      <div class="anim-item"><div class="meta" style="color:var(--accent);opacity:1">合同必要</div><p class="body-zh" style="margin-top:1vh">截获社媒流量与电商合同无关</p></div>
+      <div class="anim-item"><div class="meta" style="color:var(--accent);opacity:1">正当利益</div><p class="body-zh" style="margin-top:1vh">截获他人通信不可能通过平衡测试</p></div>
+    </div>
+  </div></div>
+  <div class="foot"><div>GDPR Art.6</div><div>06 / 29</div></div>
+</section><section class="slide light" data-theme="light" data-screen-label="Table" data-source="§1.1 GDPR 执法案例">
+  <div class="chrome"><div>GDPR 执法</div><div>07 / 29</div></div>
+  <div class="slide-body"><div class="table-wrap">
+    <h2 class="h1-zh anim-item" style="text-align:center;max-width:13em;margin:0 auto">GDPR 累计罚款超 71 亿欧元</h2>
+    <table class="data-table keyed compact anim-item"><thead><tr><th>企业</th><th>罚款</th><th>核心违规</th><th>监管机构</th></tr></thead><tbody>
+      <tr><td>Meta</td><td>&euro;12 亿</td><td>非法跨大西洋数据传输</td><td>爱尔兰 DPC</td></tr>
+      <tr><td>Amazon</td><td>&euro;7.46 亿</td><td>行为广告违反 GDPR</td><td>卢森堡 CNPD</td></tr>
+      <tr><td>TikTok</td><td>&euro;5.3 亿</td><td>用户数据传输至中国</td><td>爱尔兰 DPC</td></tr>
+      <tr><td>Google</td><td>&euro;3.25 亿</td><td>未经同意放置广告 cookies</td><td>法国 CNIL</td></tr>
+      <tr><td>SHEIN</td><td>&euro;1.5 亿</td><td>未经同意放置追踪 cookies</td><td>法国 CNIL</td></tr>
+    </tbody></table>
+  </div></div>
+  <div class="foot"><div>截至 2026 年初</div><div>07 / 29</div></div>
+</section><section class="slide light" data-theme="light" data-screen-label="Excerpt" data-source="§1.2 ePrivacy Art.5(1)">
+  <div class="chrome"><div>Excerpt · ePrivacy</div><div>08 / 29</div></div>
+  <div class="grid-2-6-6" style="flex:1;min-height:0;align-items:center">
+    <div class="anim-item"><div class="kicker">Excerpt</div>
+      <div class="callout callout-mark" style="max-width:14em;color:var(--ink);margin-top:clamp(1rem,2vh,1.6rem)">成员国应禁止任何人在未经用户同意的情况下，对通信进行窃听、监听或拦截<cite>ePrivacy Art. 5(1)</cite></div></div>
+    <div class="anim-item" style="padding-left:clamp(1rem,3vw,3rem)">
+      <div class="kicker" style="color:var(--accent);opacity:1">Side Note</div>
+      <p class="lead-zh" style="max-width:18em">对流量劫持最直接适用的法律</p>
+      <p class="body-zh" style="max-width:18em;margin-top:clamp(1rem,2vh,1.6rem)">保护范围覆盖流量数据（元数据）。ePrivacy 条例草案截至 2026 年 5 月仍未通过。</p></div>
+  </div>
+  <div class="foot"><div>Directive 2002/58/EC</div><div>08 / 29</div></div>
+</section><section class="slide dark" data-theme="dark" data-screen-label="Statement" data-source="§1.3 DSA Art.26(4)" style="text-align:center;align-items:center">
+  <div class="chrome" style="width:100%"><div>DSA · Art.26(4)</div><div>09 / 29</div></div>
+  <div class="slide-body" style="align-items:center"><div class="w-note" style="display:flex;flex-direction:column;align-items:center;gap:clamp(1.4rem,3.5vh,2.6rem)">
+    <div class="kicker anim-item">绝对禁令</div>
+    <h2 class="h1-zh anim-item" style="max-width:13em">基于敏感数据的定向广告，无论是否获得同意，一律禁止</h2>
+    <p class="body-zh anim-item" style="max-width:22em;opacity:.62">DSA Art. 26(4) 涵盖种族、政治观点、宗教、健康、性取向。社媒流量极可能包含此类数据。</p>
+  </div></div>
+  <div class="foot" style="width:100%"><div>Regulation (EU) 2022/2065</div><div>09 / 29</div></div>
+</section><section class="slide light" data-theme="light" data-screen-label="Evidence" data-source="§1.4 DMA Art.5(2)">
+  <div class="chrome"><div>DMA · 守门人禁令</div><div>10 / 29</div></div>
+  <div class="grid-2-6-6" style="flex:1;min-height:0;align-items:center">
+    <div><h2 class="h1-zh anim-item" style="max-width:9em;margin-bottom:clamp(1rem,3vh,2rem)">跨服务数据合并，守门人明确被禁</h2>
+      <p class="body-zh anim-item" style="max-width:18em">Art. 5(2) 禁止守门人将核心平台数据与第三方数据合并</p></div>
+    <div class="anim-item" style="padding-left:clamp(1rem,3vw,3rem)">
+      <div class="kicker" style="color:var(--accent);opacity:1">处罚力度</div>
+      <p class="lead-zh" style="max-width:16em">初犯全球年营业额 10%，重犯 20%，可强制结构性剥离</p></div>
+  </div>
+  <div class="foot"><div>Regulation (EU) 2022/1925</div><div>10 / 29</div></div>
+</section><section class="slide dark bare" data-theme="dark" data-screen-label="Transition" data-source="第二部分：各国本地法规">
+  <div class="slide-body bottom" style="align-items:flex-start"><div class="w-statement">
+    <div class="kicker anim-item" style="color:var(--accent);opacity:1;margin-bottom:clamp(1.4rem,3vh,2.4rem)">各国本地层</div>
+    <h2 class="h1-zh anim-item" style="max-width:13em">EU 统一法之外，六国本地法各有加码</h2>
+  </div></div>
+  <div class="foot" style="width:100%"><div>UK / DE / FR / NL / LU / BE</div><div>11 / 29</div></div>
+</section><section class="slide dark" data-theme="dark" data-screen-label="Table" data-source="§2.1-2.6 各国刑法">
+  <div class="chrome"><div>刑事追诉 · 六国</div><div>12 / 29</div></div>
+  <div class="slide-body"><div class="table-wrap">
+    <h2 class="h1-zh anim-item" style="text-align:center;max-width:13em;margin:0 auto">流量劫持在所有覆盖国家都是刑事犯罪</h2>
+    <table class="data-table keyed compact anim-item"><thead><tr><th>国家</th><th>核心罪名</th><th>最高刑罚</th><th>法律依据</th></tr></thead><tbody>
+      <tr><td>英国</td><td>未经授权修改计算机资料</td><td>14 年监禁</td><td>CMA s.3ZA</td></tr>
+      <tr><td>法国</td><td>截获数据罪</td><td>5 年 + &euro;30 万</td><td>Art. 226-3</td></tr>
+      <tr><td>德国</td><td>数据间谍罪</td><td>3 年监禁</td><td>StGB &sect;202a</td></tr>
+      <tr><td>荷兰</td><td>计算机入侵罪</td><td>4 年监禁</td><td>Art. 138ab</td></tr>
+      <tr><td>比利时</td><td>获取计算机数据罪</td><td>5 年 + &euro;50 万</td><td>Art. 550ter</td></tr>
+      <tr><td>卢森堡</td><td>非法访问计算机系统</td><td>2 年 + &euro;2.5 万</td><td>Art. 509-1</td></tr>
+    </tbody></table>
+  </div></div>
+  <div class="foot"><div>各国刑法典</div><div>12 / 29</div></div>
+</section><section class="slide light" data-theme="light" data-screen-label="Excerpt" data-source="§2.1 CMA Section 3ZA">
+  <div class="chrome"><div>Excerpt · UK</div><div>13 / 29</div></div>
+  <div class="grid-2-6-6" style="flex:1;min-height:0;align-items:center">
+    <div class="anim-item"><div class="kicker">Excerpt</div>
+      <div class="callout callout-mark" style="max-width:14em;color:var(--ink);margin-top:clamp(1rem,2vh,1.6rem)">未经授权的行为导致严重损害，最高 14 年监禁加无上限罚款<cite>CMA Section 3ZA</cite></div></div>
+    <div class="anim-item" style="padding-left:clamp(1rem,3vw,3rem)">
+      <div class="kicker" style="color:var(--accent);opacity:1">Side Note</div>
+      <p class="lead-zh" style="max-width:18em">英国 CMA 1990 是欧洲最早的计算机犯罪法之一</p>
+      <p class="body-zh" style="max-width:18em;margin-top:clamp(1rem,2vh,1.6rem)">流量劫持同时触犯 Section 1 和 Section 3。IPA 2016 另加未经授权拦截通信最高 2 年。</p></div>
+  </div>
+  <div class="foot"><div>Computer Misuse Act 1990</div><div>13 / 29</div></div>
+</section><section class="slide dark" data-theme="dark" data-screen-label="Deconstruct" data-source="§2.2 StGB §202a-c">
+  <div class="chrome"><div>德国刑法 · StGB</div><div>14 / 29</div></div>
+  <div class="slide-body"><div class="note-stack">
+    <h2 class="h1-zh anim-item" style="max-width:13em">德国刑法有专门的数据间谍罪和截获数据罪</h2>
+    <div class="grid-3">
+      <div class="anim-item"><div class="meta" style="color:var(--accent);opacity:1">&sect;202a 数据间谍</div><p class="body-zh" style="margin-top:1vh">未经授权获取受保护数据，最高 3 年</p></div>
+      <div class="anim-item"><div class="meta" style="color:var(--accent);opacity:1">&sect;202b 截获数据</div><p class="body-zh" style="margin-top:1vh">未经授权截获传输中数据，最高 2 年</p></div>
+      <div class="anim-item"><div class="meta" style="color:var(--accent);opacity:1">&sect;202c 准备工具</div><p class="body-zh" style="margin-top:1vh">制造或获取犯罪工具，最高 2 年</p></div>
+    </div>
+  </div></div>
+  <div class="foot"><div>Strafgesetzbuch</div><div>14 / 29</div></div>
+</section><section class="slide dark bare" data-theme="dark" data-screen-label="Quote" data-source="§2.3 Code Penal Art.226-3" style="text-align:center">
+  <div class="slide-body" style="align-items:center">
+    <div class="w-quote"><div class="callout callout-mark anim-item" style="max-width:16em;margin:0 auto;text-align:left;color:var(--paper)">使用技术手段截获数据，最高 5 年监禁加 30 万欧元<cite>法国刑法典 Art. 226-3</cite></div></div>
+    <div class="w-default" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:clamp(.8rem,2vw,2rem);margin-top:clamp(2rem,4vh,3rem);text-align:left">
+      <div class="anim-item"><div class="meta" style="color:var(--accent);opacity:1">法人加重</div><p class="body-zh" style="margin-top:1vh">法人最高 150 万欧元</p></div>
+      <div class="anim-item"><div class="meta" style="color:var(--accent);opacity:1">技术许可</div><p class="body-zh" style="margin-top:1vh">截获设备需 ANSSI 授权，商业企业无权持有</p></div>
+      <div class="anim-item"><div class="meta" style="color:var(--accent);opacity:1">叠加罪名</div><p class="body-zh" style="margin-top:1vh">Art. 323-1 非法访问系统另判 3 年</p></div>
+    </div>
+  </div>
+  <div class="foot" style="width:100%"><div>Code Penal</div><div>15 / 29</div></div>
+</section><section class="slide light" data-theme="light" data-screen-label="Data" data-source="§2.3 CNIL 2025 执法" style="text-align:center;align-items:center">
+  <div class="chrome" style="width:100%"><div>CNIL · 2025</div><div>16 / 29</div></div>
+  <div class="slide-body" style="align-items:center">
+    <div class="stat-num anim-item">&euro;4.87亿</div>
+    <h2 class="h2-zh anim-item" style="max-width:14em;margin-top:clamp(1rem,2vh,2rem)">法国 CNIL 2025 年全年罚款总额</h2>
+    <p class="body-zh anim-item" style="max-width:22em;margin-top:clamp(.8rem,1.5vh,1.5rem);opacity:.6">259 项决定，83 项制裁。Google 被罚 3.25 亿，SHEIN 被罚 1.5 亿。</p>
+  </div>
+  <div class="foot" style="width:100%"><div>CNIL 2025 年报</div><div>16 / 29</div></div>
+</section><section class="slide light" data-theme="light" data-screen-label="Excerpt" data-source="§2.4 荷兰AP数据抓取指南">
+  <div class="chrome"><div>Excerpt · 荷兰 AP</div><div>17 / 29</div></div>
+  <div class="grid-2-6-6" style="flex:1;min-height:0;align-items:center">
+    <div class="anim-item"><div class="kicker">Excerpt</div>
+      <div class="callout callout-mark" style="max-width:14em;color:var(--ink);margin-top:clamp(1rem,2vh,1.6rem)">从社交媒体抓取个人数据，几乎必然违反 GDPR<cite>荷兰 AP · 2024</cite></div></div>
+    <div class="anim-item" style="padding-left:clamp(1rem,3vw,3rem)">
+      <div class="kicker" style="color:var(--accent);opacity:1">Side Note</div>
+      <p class="lead-zh" style="max-width:18em">与流量劫持场景直接相关</p>
+      <p class="body-zh" style="max-width:18em;margin-top:clamp(1rem,2vh,1.6rem)">AP 执法重点：算法与 AI、大科技、数据交易。Uber 被罚 2.9 亿欧元。</p></div>
+  </div>
+  <div class="foot"><div>Autoriteit Persoonsgegevens</div><div>17 / 29</div></div>
+</section><section class="slide dark" data-theme="dark" data-screen-label="Statement" data-source="§2.5 Amazon 7.46亿案" style="text-align:center;align-items:center">
+  <div class="chrome" style="width:100%"><div>卢森堡 · Amazon 案</div><div>18 / 29</div></div>
+  <div class="slide-body" style="align-items:center">
+    <h2 class="h1-zh anim-item" style="max-width:24em;font-size:clamp(1.8rem,3.2vw,3rem);line-height:1.35">即使是合法渠道收集的行为数据用于广告画像，也可能违反 GDPR，更不用说流量劫持</h2>
+  </div>
+  <div class="foot" style="width:100%"><div>Amazon &euro;7.46 亿 · CNPD 2021</div><div>18 / 29</div></div>
+</section><section class="slide light" data-theme="light" data-screen-label="Evidence" data-source="§2.6 IAB Europe TCF 案">
+  <div class="chrome"><div>比利时 · TCF 案</div><div>19 / 29</div></div>
+  <div class="slide-body"><div class="note-stack">
+    <h2 class="h1-zh anim-item section-title">行业自律标准也必须完全符合 GDPR</h2>
+    <div class="grid-3">
+      <div class="anim-item"><div class="kicker">TCF 框架</div><p class="body-zh">IAB Europe 的在线广告同意框架是欧洲广告行业处理用户同意的核心基础设施</p></div>
+      <div class="anim-item"><div class="kicker">APD 裁决</div><p class="body-zh">2022 年 2 月认定 TCF 违反 GDPR，罚款 25 万欧元，要求 6 个月内修正</p></div>
+      <div class="anim-item"><div class="kicker">行业影响</div><p class="body-zh">直接挑战整个在线广告行业的合规基础，比利时 DPA 裁决被视为 GDPR 解释的重要参考</p></div>
+    </div>
+  </div></div>
+  <div class="foot"><div>比利时 APD · 2022.02</div><div>19 / 29</div></div>
+</section><section class="slide light" data-theme="light" data-screen-label="Timeline" data-source="§3.1 执法趋势">
+  <div class="chrome"><div>执法趋势</div><div>20 / 29</div></div>
+  <div class="slide-body"><div class="w-wide">
+    <h2 class="h1-zh anim-item" style="text-align:center;max-width:13em;margin:0 auto clamp(2rem,5vh,4rem)">GDPR 罚款从试探期进入常态化</h2>
+    <div class="timeline-row" style="display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,2vw,2rem)">
+      <div class="timeline-node anim-item"><div class="meta" style="color:var(--accent);opacity:1">2018-2020</div><p class="body-zh" style="margin-top:1vh">百万级罚款为主，监管机构积累经验</p></div>
+      <div class="timeline-node anim-item"><div class="meta" style="color:var(--accent);opacity:1">2021-2023</div><p class="body-zh" style="margin-top:1vh">频繁出现亿级罚款，Meta 12 亿、Amazon 7.46 亿</p></div>
+      <div class="timeline-node anim-item"><div class="meta" style="color:var(--accent);opacity:1">2024-2026</div><p class="body-zh" style="margin-top:1vh">执法常态化，年均 10-15 亿欧元，目标从大科技扩展到中小电商</p></div>
+    </div>
+  </div></div>
+  <div class="foot"><div>§3.1 执法趋势</div><div>20 / 29</div></div>
+</section><section class="slide dark" data-theme="dark" data-screen-label="Statement" data-source="§3.1 noyb 对中国平台诉讼" style="text-align:center;align-items:center">
+  <div class="chrome" style="width:100%"><div>中国出海企业</div><div>21 / 29</div></div>
+  <div class="slide-body" style="align-items:center"><div class="w-note" style="display:flex;flex-direction:column;align-items:center;gap:clamp(1.4rem,3.5vh,2.6rem)">
+    <div class="kicker anim-item">执法新方向</div>
+    <h2 class="h1-zh anim-item" style="max-width:13em">noyb 对中国平台集中发起 GDPR 投诉，SHEIN 被罚 1.5 亿</h2>
+    <p class="body-zh anim-item" style="max-width:22em;opacity:.62">2025 年 1 月，noyb 对 TikTok、AliExpress、SHEIN、Temu、Xiaomi、WeChat 提起投诉，指控向中国非法传输数据。SHEIN 成为首个被欧洲 DPA 处以亿级罚款的中国出海企业。</p>
+  </div></div>
+  <div class="foot" style="width:100%"><div>noyb · 2025.01</div><div>21 / 29</div></div>
+</section><section class="slide light" data-theme="light" data-screen-label="Table" data-source="§3.2 实操风险矩阵">
+  <div class="chrome"><div>风险矩阵</div><div>22 / 29</div></div>
+  <div class="slide-body"><div class="table-wrap">
+    <h2 class="h1-zh anim-item" style="text-align:center;max-width:13em;margin:0 auto">刑事、行政、民事三重打击</h2>
+    <table class="data-table keyed compact anim-item"><thead><tr><th>风险</th><th>触发法律</th><th>最严后果</th><th>可能性</th></tr></thead><tbody>
+      <tr><td>刑事追诉</td><td>各国刑法</td><td>最高 14 年监禁</td><td>高</td></tr>
+      <tr><td>行政罚款</td><td>GDPR Art. 83</td><td>全球营业额 4%</td><td>极高</td></tr>
+      <tr><td>DSA 罚款</td><td>DSA Art. 52</td><td>全球营业额 6%</td><td>中高</td></tr>
+      <tr><td>民事赔偿</td><td>GDPR Art. 82</td><td>集体诉讼趋势明显</td><td>高</td></tr>
+      <tr><td>业务禁令</td><td>GDPR Art. 58</td><td>禁止数据处理</td><td>中</td></tr>
+    </tbody></table>
+  </div></div>
+  <div class="foot"><div>§3.2 风险矩阵</div><div>22 / 29</div></div>
+</section><section class="slide light" data-theme="light" data-screen-label="Evidence" data-source="§3.3 合规替代方案">
+  <div class="chrome"><div>合规替代</div><div>23 / 29</div></div>
+  <div class="slide-body"><div class="note-stack">
+    <h2 class="h1-zh anim-item section-title">合法提升画像精度的路径确实存在</h2>
+    <div class="grid-3">
+      <div class="anim-item"><div class="kicker">第一方数据</div><p class="body-zh">通过注册、购买历史、站内行为收集，明确告知加同意</p></div>
+      <div class="anim-item"><div class="kicker">隐私沙盒</div><p class="body-zh">Google Privacy Sandbox 等技术，不涉及个人数据跨平台传输</p></div>
+      <div class="anim-item"><div class="kicker">上下文广告</div><p class="body-zh">基于页面内容而非用户画像投放，不处理个人数据，无需同意</p></div>
+    </div>
+  </div></div>
+  <div class="foot"><div>§3.3 合规替代</div><div>23 / 29</div></div>
+</section><section class="slide dark" data-theme="dark" data-screen-label="Table" data-source="总结：各国执法力度">
+  <div class="chrome"><div>执法力度对比</div><div>24 / 29</div></div>
+  <div class="slide-body"><div class="table-wrap">
+    <h2 class="h1-zh anim-item" style="text-align:center;max-width:13em;margin:0 auto">六国执法力度，德法最积极</h2>
+    <table class="data-table keyed compact anim-item"><thead><tr><th>国家</th><th>积极度</th><th>特色</th></tr></thead><tbody>
+      <tr><td>德国</td><td>★★★★★</td><td>16 个州 DPA 形成执法网络，刑事门槛低</td></tr>
+      <tr><td>法国</td><td>★★★★★</td><td>CNIL 罚款金额大且频繁，对 cookie 零容忍</td></tr>
+      <tr><td>荷兰</td><td>★★★★</td><td>对数据跨境传输执法强硬</td></tr>
+      <tr><td>英国</td><td>★★★★</td><td>ICO 加速执法，CMA 介入数字市场</td></tr>
+      <tr><td>比利时</td><td>★★★</td><td>IAB Europe 案具行业标杆意义</td></tr>
+      <tr><td>卢森堡</td><td>★★★</td><td>案件少但产出最大罚款之一</td></tr>
+    </tbody></table>
+  </div></div>
+  <div class="foot"><div>总结</div><div>24 / 29</div></div>
+</section><section class="slide dark" data-theme="dark" data-screen-label="Summary" data-source="核心总结 01-03">
+  <div class="chrome"><div>核心总结 1/3</div><div>25 / 29</div></div>
+  <div class="slide-body"><div class="w-default" style="display:flex;flex-direction:column;gap:clamp(2rem,5vh,3.5rem)">
+    <div class="anim-item" style="display:grid;grid-template-columns:auto 1fr;gap:clamp(1.5rem,3vw,3rem);align-items:start">
+      <div class="summary-num">01</div>
+      <p class="body-zh">流量劫持在欧洲法律框架下触及四层违法：ePrivacy 通信保密、GDPR 数据保护、DSA 广告透明度、DMA 跨服务数据合并。四层叠加意味着刑事追诉加天价罚款加民事赔偿的三重打击。</p>
+    </div>
+    <div class="anim-item" style="display:grid;grid-template-columns:auto 1fr;gap:clamp(1.5rem,3vw,3rem);align-items:start">
+      <div class="summary-num">02</div>
+      <p class="body-zh">GDPR Art. 5 的六项基本原则全部被违反，Art. 6 的三条合法性基础没有一条适用。违反 Art. 5 可处最高 2000 万欧元或全球年营业额 4%。截至 2026 年初 GDPR 累计罚款超 71 亿欧元。</p>
+    </div>
+    <div class="anim-item" style="display:grid;grid-template-columns:auto 1fr;gap:clamp(1.5rem,3vw,3rem);align-items:start">
+      <div class="summary-num">03</div>
+      <p class="body-zh">DSA Art. 26(4) 设置绝对禁令：基于种族、政治观点、宗教、健康、性取向等敏感数据的画像式定向广告，无论是否获得用户同意，一律禁止。社媒流量中极可能包含此类数据。</p>
+    </div>
+  </div></div>
+  <div class="foot"><div>核心总结</div><div>25 / 29</div></div>
+</section><section class="slide dark" data-theme="dark" data-screen-label="Summary" data-source="核心总结 04-06">
+  <div class="chrome"><div>核心总结 2/3</div><div>26 / 29</div></div>
+  <div class="slide-body"><div class="w-default" style="display:flex;flex-direction:column;gap:clamp(2rem,5vh,3.5rem)">
+    <div class="anim-item" style="display:grid;grid-template-columns:auto 1fr;gap:clamp(1.5rem,3vw,3rem);align-items:start">
+      <div class="summary-num">04</div>
+      <p class="body-zh">流量劫持在所有六个覆盖国家都是刑事犯罪。英国 CMA Section 3ZA 最高 14 年监禁加无上限罚款，法国 Art. 226-3 最高 5 年加 30 万欧元（法人 150 万），德国 StGB 202a 最高 3 年。</p>
+    </div>
+    <div class="anim-item" style="display:grid;grid-template-columns:auto 1fr;gap:clamp(1.5rem,3vw,3rem);align-items:start">
+      <div class="summary-num">05</div>
+      <p class="body-zh">法国 CNIL 是欧洲最积极的执法机构之一，2025 年全年罚款 4.868 亿欧元。对 Google 罚 3.25 亿、SHEIN 罚 1.5 亿，均因 cookie 和追踪器违规。CNIL 对广告追踪零容忍。</p>
+    </div>
+    <div class="anim-item" style="display:grid;grid-template-columns:auto 1fr;gap:clamp(1.5rem,3vw,3rem);align-items:start">
+      <div class="summary-num">06</div>
+      <p class="body-zh">荷兰 AP 在 2024 年发布数据抓取指南，明确从社媒抓取个人数据几乎必然违反 GDPR。AP 对 Uber 罚 2.9 亿（数据传输至美国）、对 Yango 罚 1 亿（数据传输至俄罗斯），对跨境传输执法强硬。</p>
+    </div>
+  </div></div>
+  <div class="foot"><div>核心总结</div><div>26 / 29</div></div>
+</section><section class="slide dark" data-theme="dark" data-screen-label="Summary" data-source="核心总结 07-09">
+  <div class="chrome"><div>核心总结 3/3</div><div>27 / 29</div></div>
+  <div class="slide-body"><div class="w-default" style="display:flex;flex-direction:column;gap:clamp(2rem,5vh,3.5rem)">
+    <div class="anim-item" style="display:grid;grid-template-columns:auto 1fr;gap:clamp(1.5rem,3vw,3rem);align-items:start">
+      <div class="summary-num">07</div>
+      <p class="body-zh">卢森堡 CNPD 对 Amazon 的 7.46 亿罚款案证明：即使通过合法渠道收集的行为数据用于广告画像也可能违反 GDPR。罚款金额虽在 2026 年被法院撤销，但违规认定被维持。</p>
+    </div>
+    <div class="anim-item" style="display:grid;grid-template-columns:auto 1fr;gap:clamp(1.5rem,3vw,3rem);align-items:start">
+      <div class="summary-num">08</div>
+      <p class="body-zh">noyb 在 2025 年 1 月对 TikTok、AliExpress、SHEIN、Temu、Xiaomi、WeChat 集中发起 GDPR 投诉。SHEIN 成为首个被欧洲 DPA 处以亿级罚款的中国出海企业。执法从大科技公司扩展到中国出海电商。</p>
+    </div>
+    <div class="anim-item" style="display:grid;grid-template-columns:auto 1fr;gap:clamp(1.5rem,3vw,3rem);align-items:start">
+      <div class="summary-num">09</div>
+      <p class="body-zh">合法替代路径存在：第一方数据策略、Google Privacy Sandbox、上下文广告、数据洁净室、联邦学习。关键区别在于是否建立在用户知情同意和数据最小化的基础上。</p>
+    </div>
+  </div></div>
+  <div class="foot"><div>核心总结</div><div>27 / 29</div></div>
+</section><section class="slide light bare" data-theme="light" data-screen-label="Open" data-source="未解问题">
+  <div class="slide-body" style="align-items:center;text-align:center">
+    <div class="w-quote">
+      <div class="kicker anim-item">Open Questions</div>
+      <h2 class="h1-zh anim-item" style="max-width:10em;margin:clamp(1rem,3vh,2rem) auto 0">报告停下来的地方</h2>
+      <div style="margin-top:clamp(2rem,4vh,3rem);display:grid;gap:clamp(.8rem,1.5vh,1.2rem);text-align:left">
+        <p class="body-zh anim-item">01 ePrivacy 条例何时取代 2002 年指令，新条例对流量数据保护是否会更严格</p>
+        <p class="body-zh anim-item">02 noyb 对中国出海平台的集中投诉后续进展，是否会引发更大规模的执法行动</p>
+        <p class="body-zh anim-item">03 AI 驱动的用户画像技术是否会触发新的专项立法或监管框架</p>
+      </div>
+    </div>
+  </div>
+  <div class="foot" style="width:100%"><div>待观察</div><div>28 / 29</div></div>
+</section><section class="slide dark hero bare" data-theme="dark" data-screen-label="Close" data-source="总结：一句话结论">
+  <div class="slide-body" style="align-items:center;text-align:center">
+    <div class="w-statement">
+      <h2 class="h1-zh anim-item" style="max-width:16em;margin:0 auto">在欧洲，劫持社媒流量做画像不是灰色操作，是刑事加行政加民事的三重打击</h2>
+    </div>
+  </div>
+  <div class="foot" style="width:100%"><div>欧洲流量劫持法规调研</div><div>2026.05.13</div></div>
+</section>
+</div>
+<div id="nav"></div>
+<script>
+(function(){
+  const deck=document.getElementById('deck'),slides=Array.from(deck.querySelectorAll('.slide')),total=slides.length;
+  let current=0,isT=false;
+  const nav=document.getElementById('nav');
+  function renderNav(){nav.innerHTML='';slides.forEach((s,i)=>{const d=document.createElement('button');d.className='dot'+(i===current?' active':'');d.onclick=()=>goTo(i);nav.appendChild(d)});
+    const t=slides[current].dataset.theme;nav.style.background=t==='light'?'rgba(0,0,0,.12)':'rgba(255,255,255,.15)';
+    Array.from(nav.querySelectorAll('.dot')).forEach((d,i)=>{d.style.background=i===current?(t==='light'?'rgba(0,0,0,.7)':'rgba(255,255,255,.95)'):(t==='light'?'rgba(0,0,0,.18)':'rgba(255,255,255,.3)')});}
+  function goTo(idx){if(idx<0||idx>=total||idx===current)return;isT=true;current=idx;deck.style.transform='translateX(-'+(current*100)+'vw)';slides.forEach(s=>s.classList.remove('active'));
+    setTimeout(()=>{slides[current].classList.add('active');isT=false;renderNav();saveProgress()},900)}
+  document.addEventListener('keydown',e=>{if(isT)return;if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' '){e.preventDefault();goTo(current+1)}if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();goTo(current-1)}});
+  let wt=null;document.addEventListener('wheel',e=>{if(isT||wt)return;wt=setTimeout(()=>wt=null,800);if(e.deltaY>30)goTo(current+1);if(e.deltaY<-30)goTo(current-1)},{passive:true});
+  let tsx=0;document.addEventListener('touchstart',e=>{tsx=e.touches[0].clientX},{passive:true});
+  document.addEventListener('touchend',e=>{if(isT)return;const d=tsx-e.changedTouches[0].clientX;if(d>50)goTo(current+1);if(d<-50)goTo(current-1)},{passive:true});
+  const SK='slides-progress';function saveProgress(){try{localStorage.setItem(SK,current)}catch(e){}}
+  function loadProgress(){try{const p=parseInt(localStorage.getItem(SK),10);if(!isNaN(p)&&p>=0&&p<total){current=p;deck.style.transform='translateX(-'+(current*100)+'vw)'}}catch(e){}}
+  loadProgress();slides.forEach(s=>s.classList.remove('active'));slides[current].classList.add('active');renderNav()
+})();
+</script>
+</body>
+</html>
