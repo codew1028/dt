@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Meta Reels Creative Playbook 精华总结</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@300;400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#151c28;--ink-rgb:21,28,40;--paper:#f5f4f0;--paper-rgb:245,244,240;--accent:#2a5ea8;--accent-rgb:42,94,168;--muted:#6b7180;--serif-zh:"Noto Serif SC","Source Serif 4",serif;--sans-zh:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;--mono:"IBM Plex Mono",monospace;--w-quote:min(100%,48rem);--w-statement:min(100%,56rem);--w-note:min(100%,64rem);--w-default:min(100%,76rem);--w-wide:min(100%,92rem)}*{box-sizing:border-box;margin:0;padding:0}html,body{width:100%;height:100%;overflow:hidden;background:var(--ink);color:var(--paper);font-family:var(--sans-zh);-webkit-font-smoothing:antialiased;text-wrap:pretty}h1,h2,h3,p,li,blockquote,cite{text-wrap:pretty}
+#deck{position:fixed;inset:0;width:10000vw;height:100vh;display:flex;flex-wrap:nowrap;transition:transform .85s cubic-bezier(.77,0,.175,1);z-index:10;will-change:transform}.slide{width:100vw;height:100vh;flex:0 0 100vw;position:relative;padding:clamp(2rem,5vw,5.5rem) clamp(2rem,6vw,6.5rem) clamp(1.5rem,3vw,3rem);display:flex;flex-direction:column;overflow:hidden}.slide.dark{background:var(--ink);color:var(--paper)}.slide.light{background:var(--paper);color:var(--ink)}.slide.bare .chrome{display:none}.slide.bare .foot{opacity:.35}
+.display-zh{font-family:var(--serif-zh);font-weight:900;font-size:clamp(3rem,7vw,7rem);line-height:1.08;letter-spacing:0}.h1-zh{font-family:var(--serif-zh);font-weight:700;font-size:clamp(2rem,4.6vw,4.2rem);line-height:1.18;letter-spacing:0}.h2-zh{font-family:var(--serif-zh);font-weight:600;font-size:clamp(1.5rem,3vw,2.6rem);line-height:1.28}.lead-zh{font-family:var(--serif-zh);font-weight:400;font-size:clamp(1.5rem,2vw,2rem);line-height:1.5}.body-zh{font-family:var(--sans-zh);font-weight:400;font-size:clamp(1.5rem,1.55vw,1.75rem);line-height:1.55}.kicker{font-family:var(--mono);font-size:clamp(.8rem,.9vw,1rem);text-transform:uppercase;letter-spacing:.15em;opacity:.5;margin-bottom:1vh}.meta{font-family:var(--mono);font-size:clamp(.75rem,.8vw,.9rem);letter-spacing:.08em;opacity:.5}
+.slide-body{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center}.slide-body.top{justify-content:flex-start;padding-top:clamp(2rem,6vh,4.5rem)}.slide-body.bottom{justify-content:flex-end;padding-bottom:clamp(2rem,6vh,4.5rem)}.note-stack{width:var(--w-default);margin:0 auto;display:flex;flex-direction:column;justify-content:center;gap:clamp(2rem,4vh,3.6rem)}
+.w-quote{width:var(--w-quote);margin-left:auto;margin-right:auto}.w-statement{width:var(--w-statement);margin-left:auto;margin-right:auto}.w-note{width:var(--w-note);margin-left:auto;margin-right:auto}.w-default{width:var(--w-default);margin-left:auto;margin-right:auto}.w-wide{width:var(--w-wide);margin-left:auto;margin-right:auto}
+.grid-2-6-6{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1rem,3vw,3rem);min-height:0}.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:clamp(.8rem,2vw,2rem);min-height:0}
+.callout{font-family:var(--serif-zh);font-weight:400;font-size:clamp(1.6rem,2.8vw,2.8rem);line-height:1.45;border-left:3px solid var(--accent);padding-left:clamp(1rem,2vw,1.75rem);max-width:14em}.callout cite{display:block;font-style:normal;font-weight:500;font-size:clamp(.8rem,1vw,1rem);margin-top:1.8vh;opacity:.6;font-family:var(--mono)}
+.guest-mark{display:flex;flex-direction:column;align-items:center}.guest-mark::before{content:"";display:block;width:clamp(2.4rem,4em,4.8rem);height:1px;background:currentColor;opacity:.35;margin-bottom:clamp(1.4rem,3vh,2.4rem)}
+.callout-mark{border-left:none;padding-left:0;padding-top:clamp(1.6rem,3vh,2.4rem);position:relative}.callout-mark::before{content:"";position:absolute;top:0;left:0;width:clamp(.5rem,.75vw,.85rem);height:clamp(.5rem,.75vw,.85rem);background:var(--accent);opacity:.7}
+.timeline-row{position:relative}.timeline-row::before{content:"";position:absolute;top:clamp(.85rem,1.6vh,1.4rem);left:4%;right:4%;height:1px;background:rgba(var(--ink-rgb),.1);z-index:0}.slide.dark .timeline-row::before{background:rgba(var(--paper-rgb),.1)}.timeline-row.thick::before{height:1.5px;opacity:.8}.timeline-node{position:relative;z-index:1}.timeline-node .meta{padding-right:clamp(.5rem,1vw,1rem);display:inline-block}.slide.light .timeline-node .meta{background:var(--paper)}.slide.dark .timeline-node .meta{background:var(--ink)}
+.summary-num{font-family:var(--serif-zh);font-size:clamp(3.2rem,7vw,6.4rem);font-weight:600;color:var(--accent);opacity:.85;line-height:.95;letter-spacing:0}
+.stat-num{font-family:var(--serif-zh);font-weight:800;font-size:clamp(5rem,13vw,12rem);line-height:1;color:var(--accent)}
+.table-wrap{width:var(--w-wide);margin:0 auto;display:flex;flex-direction:column;gap:clamp(1.4rem,3.5vh,2.8rem)}.data-table{width:100%;border-collapse:separate;border-spacing:0 clamp(.35rem,.8vh,.6rem);font-family:var(--sans-zh);font-size:clamp(1rem,1.15vw,1.35rem);line-height:1.45}.data-table th,.data-table td{padding:clamp(.6rem,1.1vw,1rem) clamp(.7rem,1.3vw,1.2rem);text-align:center;vertical-align:middle}.data-table th{font-family:var(--mono);font-size:clamp(.72rem,.78vw,.88rem);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);background:rgba(var(--accent-rgb),.08)}.data-table td{background:rgba(var(--ink-rgb),.045)}.slide.dark .data-table td{background:rgba(var(--paper-rgb),.075)}.data-table.keyed td:first-child,.data-table.keyed th:first-child{text-align:left;font-weight:600}.data-table tr>*:first-child{border-radius:6px 0 0 6px}.data-table tr>*:last-child{border-radius:0 6px 6px 0}.data-table.compact th,.data-table.compact td{padding-top:clamp(.5rem,.85vw,.8rem);padding-bottom:clamp(.5rem,.85vw,.8rem)}
+#nav{position:fixed;left:50%;bottom:2.2vh;transform:translateX(-50%);z-index:30;display:flex;gap:9px;padding:7px 14px;border-radius:999px;background:rgba(0,0,0,.2);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}#nav .dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.3);border:none;padding:0;cursor:pointer;transition:all .3s ease}#nav .dot.active{background:rgba(255,255,255,.95);width:20px;border-radius:999px}
+.chrome{display:flex;justify-content:space-between;font-family:var(--mono);font-size:clamp(.75rem,.8vw,.9rem);letter-spacing:.1em;text-transform:uppercase;opacity:.45;margin-bottom:2vh}.foot{display:flex;justify-content:space-between;font-family:var(--mono);font-size:clamp(.75rem,.8vw,.9rem);letter-spacing:.1em;text-transform:uppercase;opacity:.4;margin-top:auto;padding-top:2vh}
+.anim-item{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease}.slide.active .anim-item{opacity:1;transform:translateY(0)}.slide.active .anim-item:nth-child(1){transition-delay:.05s}.slide.active .anim-item:nth-child(2){transition-delay:.15s}.slide.active .anim-item:nth-child(3){transition-delay:.25s}.slide.active .anim-item:nth-child(4){transition-delay:.35s}.slide.active .anim-item:nth-child(5){transition-delay:.45s}.slide.active .anim-item:nth-child(n+6){transition-delay:.55s}
+</style>
+</head>
+<body>
+<div id="deck">
+
+<!-- 01 封面 L1 bare dark w-statement -->
+<section class="slide dark hero active bare" data-theme="dark" data-screen-label="Cover" data-source="Meta官方Real Talk Creative Playbook" style="text-align:center;align-items:center">
+<div class="slide-body" style="align-items:center">
+<div class="w-statement" style="display:flex;flex-direction:column;align-items:center;gap:clamp(1.4rem,3vh,2.4rem)">
+<div class="kicker anim-item" style="color:var(--accent);opacity:1">Meta Reels · 投流素材指南</div>
+<h1 class="display-zh anim-item" style="max-width:9.5em">Reels Creative Playbook</h1>
+<p class="lead-zh anim-item" style="max-width:24em;opacity:.62">面向中小企业的 Reels 广告素材方法论，从及格线到最优解</p>
+</div>
+</div>
+<div class="foot" style="width:100%"><div>Meta for Business</div><div>2026</div></div>
+</section>
+
+<!-- 02 L3-a bare light w-statement -->
+<section class="slide light bare" data-theme="light" data-screen-label="Baseline" data-source="结论·核心动作清单第1条">
+<div class="slide-body" style="align-items:flex-start">
+<div class="w-statement">
+<div class="kicker anim-item" style="margin-bottom:clamp(1.6rem,4vh,3rem)">及格线</div>
+<h2 class="display-zh anim-item" style="font-size:clamp(3.2rem,8vw,7.6rem);max-width:11em;letter-spacing:0">9:16 竖版，有声音，安全区合规</h2>
+<p class="body-zh anim-item" style="max-width:22em;margin-top:clamp(1.6rem,3vh,2.4rem);opacity:.55">缺任何一项都在亏钱。这不是最佳实践，这是最低标准。</p>
+</div>
+</div>
+<div class="foot" style="width:100%"><div>Meta Playbook</div><div>02 / 20</div></div>
+</section>
+
+<!-- 03 表格 L16 light w-wide -->
+<section class="slide light" data-theme="light" data-screen-label="Specs" data-source="一、Reels素材的及格线规格">
+<div class="chrome"><div>规格 · 及格线</div><div>03 / 20</div></div>
+<div class="slide-body">
+<div class="table-wrap">
+<h2 class="h1-zh anim-item" style="text-align:center;max-width:13em;margin:0 auto">四项硬指标与对应提升</h2>
+<table class="data-table keyed anim-item">
+<thead><tr><th>要素</th><th>要求</th><th>效果</th></tr></thead>
+<tbody>
+<tr><td>画面比例</td><td>9:16 竖版全屏</td><td>正向响应 +7pts</td></tr>
+<tr><td>声音</td><td>音乐 + 旁白双轨</td><td>正向响应 +15pts</td></tr>
+<tr><td>安全区</td><td>文字 Logo 不被 UI 遮挡</td><td>CTR +39%</td></tr>
+<tr><td>额外元素</td><td>真人/贴纸/旁白/Lo-fi/Hook</td><td>叠加提升</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="foot"><div>Meta Playbook · 第一节</div><div>03 / 20</div></div>
+</section>
+
+<!-- 04 L3-c dark w-note -->
+<section class="slide dark" data-theme="dark" data-screen-label="Hook" data-source="二、前3秒Hook" style="text-align:center;align-items:center">
+<div class="chrome" style="width:100%"><div>Hook · 前3秒</div><div>04 / 20</div></div>
+<div class="slide-body" style="align-items:center">
+<div class="w-note" style="display:flex;flex-direction:column;align-items:center;gap:clamp(1.4rem,3.5vh,2.6rem)">
+<div class="kicker anim-item">生死线</div>
+<h2 class="h1-zh anim-item" style="max-width:13em">前 3 秒决定用户划不划走</h2>
+<p class="body-zh anim-item" style="max-width:22em;opacity:.62">5 种经过验证的 Hook 技巧，覆盖声音、镜头、提问、知识、共鸣</p>
+</div>
+</div>
+<div class="foot" style="width:100%"><div>Meta Playbook · 第二节</div><div>04 / 20</div></div>
+</section>
+
+<!-- 05 段落拆解 L25 light w-default -->
+<section class="slide light" data-theme="light" data-screen-label="5 Hooks" data-source="二、5种已验证的抓眼球方式">
+<div class="chrome"><div>Hook · 五种技巧</div><div>05 / 20</div></div>
+<div class="slide-body">
+<div class="note-stack">
+<h2 class="h1-zh anim-item" style="max-width:13em">5 种开场抓法，直接套用</h2>
+<div class="grid-3">
+<div class="anim-item"><div class="meta" style="color:var(--accent);opacity:1">01 声音破圈</div><p class="body-zh" style="margin-top:1vh">先静默再突然加大音量，用音效制造反差</p></div>
+<div class="anim-item"><div class="meta" style="color:var(--accent);opacity:1">02 镜头运动</div><p class="body-zh" style="margin-top:1vh">微距起手快速拉远，配合音效转场</p></div>
+<div class="anim-item"><div class="meta" style="color:var(--accent);opacity:1">03 带入观众</div><p class="body-zh" style="margin-top:1vh">你是不是也遇到过？你属于哪种类型？</p></div>
+</div>
+<div class="grid-2-6-6 anim-item" style="flex:0">
+<div><div class="meta" style="color:var(--accent);opacity:1">04 提供知识</div><p class="body-zh" style="margin-top:1vh">关于 X 你不知道的 N 件事</p></div>
+<div><div class="meta" style="color:var(--accent);opacity:1">05 制造共鸣</div><p class="body-zh" style="margin-top:1vh">这个画面是不是很眼熟？POV 叙事切入</p></div>
+</div>
+</div>
+</div>
+<div class="foot"><div>Meta Playbook · 第二节</div><div>05 / 20</div></div>
+</section>
+
+<!-- 06 摘录侧注 L24 light callout-mark -->
+<section class="slide light" data-theme="light" data-screen-label="Text Sticker" data-source="三、文字贴纸策略">
+<div class="chrome"><div>文字贴纸</div><div>06 / 20</div></div>
+<div class="grid-2-6-6" style="flex:1;min-height:0;align-items:center">
+<div class="anim-item">
+<div class="kicker">Data</div>
+<div class="callout callout-mark" style="max-width:14em;color:var(--ink);margin-top:clamp(1rem,2vh,1.6rem)">65% 的自然 Reels 都在用文字贴纸，正向响应分高出 11pts<cite>Meta 官方数据</cite></div>
+</div>
+<div class="anim-item" style="padding-left:clamp(1rem,3vw,3rem)">
+<div class="kicker">落地要点</div>
+<p class="body-zh" style="max-width:18em;margin-top:clamp(.6rem,1vh,1rem)">用平台原生字体和 emoji，营造 UGC 感</p>
+<p class="body-zh" style="max-width:18em;margin-top:clamp(.6rem,1vh,1rem)">前 2 秒用文字贴纸点明主题或悬念</p>
+<p class="body-zh" style="max-width:18em;margin-top:clamp(.6rem,1vh,1rem)">结尾放 CTA，比纯口播更显眼</p>
+<p class="body-zh" style="max-width:18em;margin-top:clamp(.6rem,1vh,1rem);opacity:.6">所有文字必须在安全区内，否则 CTR 直降 39%</p>
+</div>
+</div>
+<div class="foot"><div>Meta Playbook · 第三节</div><div>06 / 20</div></div>
+</section>
+
+<!-- 07 观点加例证 L27 light w-default -->
+<section class="slide light" data-theme="light" data-screen-label="Sound" data-source="四、声音/音乐策略">
+<div class="chrome"><div>声音策略</div><div>07 / 20</div></div>
+<div class="slide-body">
+<div class="note-stack">
+<h2 class="h1-zh anim-item" style="max-width:13em">音乐加旁白双轨，正向响应 +15pts</h2>
+<div class="grid-2-6-6 anim-item" style="flex:0">
+<div>
+<div class="meta">核心数据</div>
+<p class="body-zh" style="margin-top:1vh">对比无声，正向响应提升 15 个百分点</p>
+<p class="body-zh" style="margin-top:1vh">有音频品牌线索再高 22pts</p>
+</div>
+<div>
+<div class="meta">执行细节</div>
+<p class="body-zh" style="margin-top:1vh">付费广告用可商用音乐，Meta Sound Collection 或自有音频</p>
+<p class="body-zh" style="margin-top:1vh">找强节拍落点音轨配合转场</p>
+</div>
+</div>
+</div>
+</div>
+<div class="foot"><div>Meta Playbook · 第四节</div><div>07 / 20</div></div>
+</section>
+
+<!-- 08 大数字 L12 light -->
+<section class="slide light" data-theme="light" data-screen-label="Real Person" data-source="五、真人出镜的数据" style="text-align:center;align-items:center">
+<div class="chrome" style="width:100%"><div>真人出镜</div><div>08 / 20</div></div>
+<div class="slide-body" style="align-items:center">
+<div class="stat-num anim-item">+27%</div>
+<h2 class="h2-zh anim-item" style="max-width:14em;margin-top:clamp(1rem,2vh,2rem)">真人出镜 Reels 广告的 CTR 提升幅度</h2>
+<p class="body-zh anim-item" style="max-width:22em;margin-top:clamp(.8rem,1.5vh,1.5rem);opacity:.6">84% 的年轻消费者偏好不完美的品牌内容。Lo-fi 手机拍优于精修大片。</p>
+</div>
+<div class="foot" style="width:100%"><div>Meta Playbook · 第五节</div><div>08 / 20</div></div>
+</section>
+
+<!-- 09 嘉宾观点 L11 bare dark w-quote guest-mark -->
+<section class="slide dark bare" data-theme="dark" data-screen-label="Lo-fi" data-source="五、真人出镜·Lo-fi大于精修">
+<div class="slide-body" style="align-items:center;text-align:center">
+<div class="w-quote guest-mark">
+<div class="kicker anim-item" style="margin-bottom:clamp(1rem,2vh,1.6rem)">Core Insight</div>
+<h2 class="h1-zh anim-item" style="max-width:12em">素材不需要精美制作，手机自拍和真实感大于一切</h2>
+<p class="body-zh anim-item" style="max-width:22em;margin:clamp(1.6rem,3.5vh,2.6rem) auto 0;opacity:.62">含产品演示的 Reels 广告正向响应分比不含演示的高出 7pts</p>
+</div>
+</div>
+<div class="foot" style="width:100%"><div>Meta Playbook</div><div>09 / 20</div></div>
+</section>
+
+<!-- 10 表格 L16 light w-wide -->
+<section class="slide light" data-theme="light" data-screen-label="Templates" data-source="六、8种即拿即用的Reels故事模板">
+<div class="chrome"><div>故事模板</div><div>10 / 20</div></div>
+<div class="slide-body">
+<div class="table-wrap">
+<h2 class="h1-zh anim-item" style="text-align:center;max-width:13em;margin:0 auto">8 种 Reels 故事模板</h2>
+<table class="data-table keyed compact anim-item">
+<thead><tr><th>模板</th><th>适合场景</th><th>关键技巧</th></tr></thead>
+<tbody>
+<tr><td>照片合集</td><td>多款产品或场景</td><td>图片踩点音乐节拍</td></tr>
+<tr><td>X 类型列表</td><td>互动感强</td><td>问题开头 + 不同人使用</td></tr>
+<tr><td>清单体</td><td>功能好处罗列</td><td>文字贴纸分段 + TTS</td></tr>
+<tr><td>转场序列</td><td>视觉冲击力</td><td>跳切/拍手切 + 踩点</td></tr>
+<tr><td>教程</td><td>产品使用教学</td><td>分步骤 + 旁白 + 特写</td></tr>
+<tr><td>前后对比</td><td>效果类产品</td><td>避免身材健康负面暗示</td></tr>
+<tr><td>POV 视角</td><td>日常和开箱</td><td>第一人称 + 自然植入</td></tr>
+<tr><td>幕后花絮</td><td>建立信任</td><td>制作过程 + CTA 收尾</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="foot"><div>Meta Playbook · 第六节</div><div>10 / 20</div></div>
+</section>
+
+<!-- 11 时间线 L29 light w-wide timeline-row -->
+<section class="slide light" data-theme="light" data-screen-label="Structure" data-source="七、视频结构公式">
+<div class="chrome"><div>视频结构</div><div>11 / 20</div></div>
+<div class="slide-body">
+<div class="w-wide">
+<h2 class="h1-zh anim-item" style="text-align:center;max-width:13em;margin:0 auto clamp(2rem,5vh,4rem)">三段式结构公式</h2>
+<div class="timeline-row thick" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:clamp(1rem,2vw,2rem)">
+<div class="timeline-node anim-item"><div class="meta" style="color:var(--accent);opacity:1">开头 · Capture</div><p class="body-zh" style="margin-top:1vh">前 2-3 秒用 Hook 抓注意力，不要大 Logo 开场，文字贴纸建立 UGC 感</p></div>
+<div class="timeline-node anim-item"><div class="meta" style="color:var(--accent);opacity:1">中间 · Maintain</div><p class="body-zh" style="margin-top:1vh">展示产品实际使用场景，用转场保持节奏，从观众想知道什么出发</p></div>
+<div class="timeline-node anim-item"><div class="meta" style="color:var(--accent);opacity:1">结尾 · Reward</div><p class="body-zh" style="margin-top:1vh">品牌收尾或产品特写，用动画引导 CTA 按钮，邀请互动</p></div>
+</div>
+</div>
+</div>
+<div class="foot"><div>Meta Playbook · 第七节</div><div>11 / 20</div></div>
+</section>
+
+<!-- 12 段落拆解 L25 light w-default -->
+<section class="slide light" data-theme="light" data-screen-label="Branding" data-source="八、品牌植入的3个层次">
+<div class="chrome"><div>品牌植入</div><div>12 / 20</div></div>
+<div class="slide-body">
+<div class="note-stack">
+<h2 class="h1-zh anim-item" style="max-width:13em">品牌植入三个层次，由轻到重</h2>
+<div class="grid-3">
+<div class="anim-item"><div class="meta" style="color:var(--accent);opacity:1">Level 1 · 产品融入</div><p class="body-zh" style="margin-top:1vh">前景使用、背景使用、绿幕背景，让产品自然出现在故事里</p></div>
+<div class="anim-item"><div class="meta">Level 2 · 元素融入</div><p class="body-zh" style="margin-top:1vh">穿品牌色服装、用品牌色道具、对话中自然提及品牌名</p></div>
+<div class="anim-item"><div class="meta">Level 3 · 信息叠加</div><p class="body-zh" style="margin-top:1vh">分享 IG 账号、品牌名文字贴纸、品牌色文字贴纸，保持克制</p></div>
+</div>
+</div>
+</div>
+<div class="foot"><div>Meta Playbook · 第八节</div><div>12 / 20</div></div>
+</section>
+
+<!-- 13 L3-c dark w-note -->
+<section class="slide dark" data-theme="dark" data-screen-label="Advantage+" data-source="九、Advantage+ Creative自动优化" style="text-align:center;align-items:center">
+<div class="chrome" style="width:100%"><div>Advantage+</div><div>13 / 20</div></div>
+<div class="slide-body" style="align-items:center">
+<div class="w-note" style="display:flex;flex-direction:column;align-items:center;gap:clamp(1.4rem,3.5vh,2.6rem)">
+<div class="kicker anim-item">系统优化</div>
+<h2 class="h1-zh anim-item" style="max-width:13em">开启 Advantage+ Creative，让系统自动找最佳组合</h2>
+<p class="body-zh anim-item" style="max-width:22em;opacity:.62">每次结果成本降低 4%，增量购买 +26%，每美元加购量 +5.6%</p>
+</div>
+</div>
+<div class="foot" style="width:100%"><div>Meta Playbook · 第九节</div><div>13 / 20</div></div>
+</section>
+
+<!-- 14 表格 L16 light w-wide -->
+<section class="slide light" data-theme="light" data-screen-label="Advantage+ Data" data-source="九、Advantage+ Creative·具体指标">
+<div class="chrome"><div>Advantage+ 效果</div><div>14 / 20</div></div>
+<div class="slide-body">
+<div class="table-wrap">
+<h2 class="h1-zh anim-item" style="text-align:center;max-width:13em;margin:0 auto">Advantage+ Creative 效果数据</h2>
+<table class="data-table keyed anim-item">
+<thead><tr><th>指标</th><th>提升幅度</th><th>操作</th></tr></thead>
+<tbody>
+<tr><td>每次结果成本</td><td>降低 4%</td><td>开启所有 A+ optimizations</td></tr>
+<tr><td>增量购买</td><td>+26%</td><td>写 5 个版本主文案/标题/描述</td></tr>
+<tr><td>每美元加购量</td><td>+5.6%</td><td>开启 A+ Placements</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="foot"><div>Meta Playbook · 第九节</div><div>14 / 20</div></div>
+</section>
+
+<!-- 15 摘录侧注 L24 light callout-mark -->
+<section class="slide light" data-theme="light" data-screen-label="A/B Test" data-source="十、A/B测试框架">
+<div class="chrome"><div>A/B 测试</div><div>15 / 20</div></div>
+<div class="grid-2-6-6" style="flex:1;min-height:0;align-items:center">
+<div class="anim-item">
+<div class="kicker">Framework</div>
+<div class="callout callout-mark" style="max-width:14em;color:var(--ink);margin-top:clamp(1rem,2vh,1.6rem)">每次只改一个变量，跑 2 周看数据<cite>Meta 测试方法论</cite></div>
+</div>
+<div class="anim-item" style="padding-left:clamp(1rem,3vw,3rem)">
+<div class="kicker">推荐测试维度</div>
+<p class="body-zh" style="max-width:18em;margin-top:clamp(.6rem,1vh,1rem)">有旁白/音乐 vs 无声</p>
+<p class="body-zh" style="max-width:18em;margin-top:clamp(.6rem,1vh,1rem)">有文字贴纸 vs 无文字</p>
+<p class="body-zh" style="max-width:18em;margin-top:clamp(.6rem,1vh,1rem)">真人出镜 vs 纯产品</p>
+<p class="body-zh" style="max-width:18em;margin-top:clamp(.6rem,1vh,1rem)">9:16 vs 非 9:16</p>
+<p class="body-zh" style="max-width:18em;margin-top:clamp(.6rem,1vh,1rem);opacity:.6">预算两组相同，固定排期、版位、出价</p>
+</div>
+</div>
+<div class="foot"><div>Meta Playbook · 第十节</div><div>15 / 20</div></div>
+</section>
+
+<!-- 16 表格 L16 light w-wide -->
+<section class="slide light" data-theme="light" data-screen-label="Cases" data-source="十一、案例数据">
+<div class="chrome"><div>案例</div><div>16 / 20</div></div>
+<div class="slide-body">
+<div class="table-wrap">
+<h2 class="h1-zh anim-item" style="text-align:center;max-width:13em;margin:0 auto">三个品牌的实战效果</h2>
+<table class="data-table keyed anim-item">
+<thead><tr><th>品牌</th><th>行业</th><th>效果</th></tr></thead>
+<tbody>
+<tr><td>Prose</td><td>美国护发</td><td>CPA 降低 23%</td></tr>
+<tr><td>Juvia</td><td>德国家居服</td><td>销量提升 1.8x</td></tr>
+<tr><td>Toothsi</td><td>印度牙齿矫正</td><td>CPL 降低 36%</td></tr>
+</tbody>
+</table>
+<p class="body-zh anim-item" style="text-align:center;opacity:.55;margin-top:clamp(.5rem,1vh,.8rem)">Toothsi 使用创作者制作素材，Juvia 使用 Reels 叠加现有 campaign</p>
+</div>
+</div>
+<div class="foot"><div>Meta Playbook · 第十一节</div><div>16 / 20</div></div>
+</section>
+
+<!-- 17 L28 一句原话 bare dark w-quote callout-mark -->
+<section class="slide dark bare" data-theme="dark" data-screen-label="Pitfalls" data-source="十三、容易踩的坑">
+<div class="slide-body" style="align-items:center;text-align:center">
+<div class="w-quote">
+<div class="callout callout-mark anim-item" style="max-width:14em;margin:0 auto;text-align:left;color:var(--paper)">Reels 素材是加到现有 campaign，不是替换<cite>Meta Playbook · 核心动作清单第6条</cite></div>
+<p class="body-zh anim-item" style="max-width:22em;margin:clamp(2rem,4vh,3rem) auto 0;opacity:.55;text-align:left">叠加使用效果最好。用大 Logo 开场、文字放安全区外、不加声音、纯精修风格、用非商用音乐做广告，都是常见的亏钱操作。</p>
+</div>
+</div>
+<div class="foot" style="width:100%"><div>Meta Playbook</div><div>17 / 20</div></div>
+</section>
+
+<!-- 18 核心总结 L32 dark summary-num w-default -->
+<section class="slide dark" data-theme="dark" data-screen-label="Summary 1" data-source="核心总结01-03">
+<div class="chrome"><div>核心总结</div><div>18 / 20</div></div>
+<div class="slide-body">
+<div class="w-default" style="display:flex;flex-direction:column;gap:clamp(2rem,5vh,3.5rem)">
+<div class="anim-item" style="display:grid;grid-template-columns:auto 1fr;gap:clamp(1.5rem,3vw,3rem);align-items:start">
+<div class="summary-num">01</div>
+<p class="body-zh">9:16 竖版 + 有声音 + 安全区合规是及格线。竖版正向响应 +7pts，双轨声音 +15pts，安全区内放文字 CTR +39%。缺任何一项都在亏钱。</p>
+</div>
+<div class="anim-item" style="display:grid;grid-template-columns:auto 1fr;gap:clamp(1.5rem,3vw,3rem);align-items:start">
+<div class="summary-num">02</div>
+<p class="body-zh">前 3 秒是生死线。声音破圈、镜头运动、带入观众、提供知识、制造共鸣，5 种 Hook 技巧覆盖所有素材类型。不要用大 Logo 开场。</p>
+</div>
+<div class="anim-item" style="display:grid;grid-template-columns:auto 1fr;gap:clamp(1.5rem,3vw,3rem);align-items:start">
+<div class="summary-num">03</div>
+<p class="body-zh">真人出镜 CTR +27%，Lo-fi 手机拍优于精修大片。84% 的年轻消费者偏好不完美内容。让真人露脸演示产品效果远好于纯产品特写。</p>
+</div>
+</div>
+</div>
+<div class="foot"><div>Meta Playbook · 核心总结</div><div>18 / 20</div></div>
+</section>
+
+<!-- 19 核心总结 L32 dark summary-num w-default -->
+<section class="slide dark" data-theme="dark" data-screen-label="Summary 2" data-source="核心总结04-06">
+<div class="chrome"><div>核心总结</div><div>19 / 20</div></div>
+<div class="slide-body">
+<div class="w-default" style="display:flex;flex-direction:column;gap:clamp(2rem,5vh,3.5rem)">
+<div class="anim-item" style="display:grid;grid-template-columns:auto 1fr;gap:clamp(1.5rem,3vw,3rem);align-items:start">
+<div class="summary-num">04</div>
+<p class="body-zh">文字贴纸是被低估的武器。65% 的自然 Reels 在用，正向响应 +11pts。用原生字体和 emoji 营造 UGC 感，前 2 秒点明主题，结尾放 CTA。</p>
+</div>
+<div class="anim-item" style="display:grid;grid-template-columns:auto 1fr;gap:clamp(1.5rem,3vw,3rem);align-items:start">
+<div class="summary-num">05</div>
+<p class="body-zh">Advantage+ Creative 开启后每次结果成本降低 4%，增量购买 +26%。写 5 个版本文案让系统自动匹配，开启 A+ Placements 让系统决定版面投放。</p>
+</div>
+<div class="anim-item" style="display:grid;grid-template-columns:auto 1fr;gap:clamp(1.5rem,3vw,3rem);align-items:start">
+<div class="summary-num">06</div>
+<p class="body-zh">Reels 素材是加到现有 campaign，不是替换。A/B 测试每次只改一个变量跑 2 周。Prose CPA 降 23%，Juvia 销量 1.8x，Toothsi CPL 降 36%。</p>
+</div>
+</div>
+</div>
+<div class="foot"><div>Meta Playbook · 核心总结</div><div>19 / 20</div></div>
+</section>
+
+<!-- 20 结尾回扣 L21 bare dark w-statement -->
+<section class="slide dark bare" data-theme="dark" data-screen-label="Closing" data-source="结论·核心动作清单" style="text-align:center;align-items:center">
+<div class="slide-body" style="align-items:center">
+<div class="w-statement" style="display:flex;flex-direction:column;align-items:center;gap:clamp(1.4rem,3vh,2.4rem)">
+<div class="kicker anim-item" style="color:var(--accent);opacity:1">Takeaway</div>
+<h1 class="h1-zh anim-item" style="max-width:12em">先做对及格线，再用数据迭代到最优解</h1>
+<p class="lead-zh anim-item" style="max-width:24em;opacity:.5">Meta Reels Creative Playbook 精华总结</p>
+</div>
+</div>
+<div class="foot" style="width:100%"><div>Meta for Business</div><div>20 / 20</div></div>
+</section>
+
+</div>
+<div id="nav"></div>
+<script>
+(function(){
+var deck=document.getElementById('deck'),slides=Array.from(deck.querySelectorAll('.slide')),total=slides.length,current=0,isT=false;
+var nav=document.getElementById('nav');
+function rN(){nav.innerHTML='';slides.forEach(function(s,i){var d=document.createElement('button');d.className='dot'+(i===current?' active':'');d.setAttribute('aria-label','Go to slide '+(i+1));d.onclick=function(){goTo(i)};nav.appendChild(d)});var t=slides[current].dataset.theme;nav.style.background=t==='light'?'rgba(0,0,0,.12)':'rgba(255,255,255,.15)';Array.from(nav.querySelectorAll('.dot')).forEach(function(d,i){d.style.background=i===current?(t==='light'?'rgba(0,0,0,.7)':'rgba(255,255,255,.95)'):(t==='light'?'rgba(0,0,0,.18)':'rgba(255,255,255,.3)')})}
+function goTo(idx){if(idx<0||idx>=total||idx===current)return;isT=true;current=idx;deck.style.transform='translateX(-'+(current*100)+'vw)';slides.forEach(function(s){s.classList.remove('active')});setTimeout(function(){slides[current].classList.add('active');isT=false;rN();sP()},900)}
+document.addEventListener('keydown',function(e){if(isT)return;if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' '){e.preventDefault();goTo(current+1)}if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();goTo(current-1)}});
+var wT=null;document.addEventListener('wheel',function(e){if(isT||wT)return;wT=setTimeout(function(){wT=null},800);if(e.deltaY>30)goTo(current+1);if(e.deltaY<-30)goTo(current-1)},{passive:true});
+var tX=0;document.addEventListener('touchstart',function(e){tX=e.touches[0].clientX},{passive:true});document.addEventListener('touchend',function(e){if(isT)return;var d=tX-e.changedTouches[0].clientX;if(d>50)goTo(current+1);if(d<-50)goTo(current-1)},{passive:true});
+var SK='slides-reels-playbook';function sP(){try{localStorage.setItem(SK,current)}catch(e){}}function lP(){try{var p=parseInt(localStorage.getItem(SK),10);if(!isNaN(p)&&p>=0&&p<total){current=p;deck.style.transform='translateX(-'+(current*100)+'vw)'}}catch(e){}}
+lP();slides.forEach(function(s){s.classList.remove('active')});slides[current].classList.add('active');rN()
+})();
+</script>
+</body>
+</html>
