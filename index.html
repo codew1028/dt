@@ -6,195 +6,335 @@
 <title>QB Docs</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; overflow: hidden; }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans SC", sans-serif;
-  background: #0f1117;
-  color: #e4e4e7;
-  min-height: 100vh;
-  padding: 0;
-}
-.header {
-  background: linear-gradient(135deg, #1a1b2e 0%, #16213e 100%);
-  border-bottom: 1px solid #2a2d3e;
-  padding: 2.5rem 2rem 2rem;
-  text-align: center;
-}
-.header h1 {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #f0f0f0;
-  margin-bottom: 0.4rem;
-  letter-spacing: -0.02em;
-}
-.header .tagline {
-  font-size: 0.9rem;
-  color: #8b8fa3;
-}
-.header .stats {
-  margin-top: 0.8rem;
-  font-size: 0.8rem;
-  color: #6b7080;
-}
-.search-box {
-  max-width: 600px;
-  margin: 1.5rem auto 0;
-  position: relative;
-}
-.search-box input {
-  width: 100%;
-  padding: 0.7rem 1rem 0.7rem 2.4rem;
-  border-radius: 8px;
-  border: 1px solid #2a2d3e;
-  background: #1a1b26;
-  color: #e4e4e7;
-  font-size: 0.9rem;
-  outline: none;
-  transition: border-color 0.2s;
-}
-.search-box input:focus {
-  border-color: #4f6df5;
-}
-.search-box::before {
-  content: "🔍";
-  position: absolute;
-  left: 0.8rem;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 0.85rem;
-}
-.container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 2rem 1.5rem 3rem;
-}
-.section {
-  margin-bottom: 2.5rem;
-}
-.section-title {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #c8cad0;
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid #1e2030;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-.section-title .count {
-  font-size: 0.75rem;
-  color: #6b7080;
-  background: #1e2030;
-  padding: 0.15rem 0.5rem;
-  border-radius: 10px;
-}
-.items {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Noto Sans SC", sans-serif;
+  background: #f7f8fa;
+  color: #1f2329;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  height: 100vh;
 }
-.item {
+
+/* ── Top bar ── */
+.topbar {
+  height: 52px;
+  background: #fff;
+  border-bottom: 1px solid #e5e6eb;
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 0.75rem 1rem;
-  background: #16171f;
-  border: 1px solid #1e2030;
-  border-radius: 8px;
-  text-decoration: none;
-  color: #e4e4e7;
-  transition: background 0.15s, border-color 0.15s;
+  padding: 0 20px;
+  flex-shrink: 0;
+  gap: 16px;
 }
-.item:hover {
-  background: #1c1d2b;
-  border-color: #3a3d52;
-}
-.item .date {
-  font-size: 0.78rem;
-  color: #6b7080;
+.topbar .logo {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1f2329;
   white-space: nowrap;
-  min-width: 5.5rem;
 }
-.item .title {
-  font-size: 0.88rem;
-  color: #d1d5e0;
+.topbar .search-box {
+  flex: 1;
+  max-width: 360px;
+  position: relative;
+}
+.topbar .search-box input {
+  width: 100%;
+  padding: 6px 12px 6px 32px;
+  border: 1px solid #dee0e3;
+  border-radius: 6px;
+  font-size: 13px;
+  color: #1f2329;
+  background: #f7f8fa;
+  outline: none;
+  transition: border-color .2s, background .2s;
+}
+.topbar .search-box input:focus {
+  border-color: #3370ff;
+  background: #fff;
+}
+.topbar .search-box::before {
+  content: "🔍";
+  position: absolute;
+  left: 9px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  pointer-events: none;
+}
+.topbar .stats {
+  font-size: 12px;
+  color: #8f959e;
+  white-space: nowrap;
+}
+
+/* ── Layout ── */
+.main {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* ── Sidebar ── */
+.sidebar {
+  width: 260px;
+  min-width: 260px;
+  background: #fff;
+  border-right: 1px solid #e5e6eb;
+  overflow-y: auto;
+  padding: 12px 0;
+  flex-shrink: 0;
+}
+.nav-section {
+  margin-bottom: 4px;
+}
+.nav-header {
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #646a73;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  user-select: none;
+  transition: color .15s;
+}
+.nav-header:hover {
+  color: #1f2329;
+}
+.nav-arrow {
+  font-size: 10px;
+  transition: transform .2s;
+  display: inline-block;
+  width: 14px;
+}
+.nav-section.collapsed .nav-arrow {
+  transform: rotate(0deg);
+}
+.nav-section:not(.collapsed) .nav-arrow {
+  transform: rotate(90deg);
+}
+.nav-section.collapsed .nav-items {
+  display: none;
+}
+.nav-count {
+  font-size: 11px;
+  color: #8f959e;
+  font-weight: 400;
+  margin-left: auto;
+  background: #f2f3f5;
+  padding: 1px 6px;
+  border-radius: 8px;
+}
+.nav-items {
+  padding: 0;
+}
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px 6px 34px;
+  font-size: 13px;
+  color: #4e5969;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background .12s, color .12s;
+  line-height: 1.4;
   word-break: break-all;
 }
-.empty {
-  color: #4a4d5e;
-  font-size: 0.85rem;
-  padding: 1rem;
+.nav-item:hover {
+  background: #f2f3f5;
+  color: #1f2329;
 }
-.footer {
-  text-align: center;
-  padding: 2rem;
-  color: #3a3d4e;
-  font-size: 0.75rem;
+.nav-item.active {
+  background: #e8f3ff;
+  color: #3370ff;
+  font-weight: 500;
 }
-@media (max-width: 600px) {
-  .header { padding: 1.5rem 1rem; }
-  .header h1 { font-size: 1.4rem; }
-  .container { padding: 1.5rem 1rem; }
-  .item { padding: 0.6rem 0.8rem; gap: 0.6rem; }
-  .item .date { min-width: 4.5rem; font-size: 0.72rem; }
+.item-date {
+  font-size: 11px;
+  color: #8f959e;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.item-title {
+  flex: 1;
+}
+.ext-icon {
+  font-size: 11px;
+  color: #8f959e;
+  flex-shrink: 0;
+}
+.nav-empty {
+  padding: 8px 16px 8px 34px;
+  font-size: 12px;
+  color: #c9cdd4;
+}
+
+/* ── Content area ── */
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  overflow: hidden;
+}
+.content iframe {
+  flex: 1;
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+.welcome {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #c9cdd4;
+  gap: 12px;
+}
+.welcome .icon {
+  font-size: 48px;
+}
+.welcome .text {
+  font-size: 14px;
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 220px;
+    min-width: 220px;
+  }
+  .topbar .search-box {
+    max-width: 200px;
+  }
+}
+@media (max-width: 540px) {
+  .sidebar {
+    position: fixed;
+    left: 0; top: 52px; bottom: 0;
+    z-index: 100;
+    transform: translateX(-100%);
+    transition: transform .25s;
+    box-shadow: 2px 0 8px rgba(0,0,0,.08);
+  }
+  .sidebar.open {
+    transform: translateX(0);
+  }
+  .topbar .menu-btn {
+    display: block;
+  }
 }
 </style>
 </head>
 <body>
-<div class="header">
-  <h1>📄 QB Docs</h1>
-  <p class="tagline">AI 产出文档归档站</p>
-  <p class="stats">15 份文档</p>
+<div class="topbar">
+  <div class="logo">📄 QB Docs</div>
   <div class="search-box">
     <input type="text" id="search" placeholder="搜索文档..." autocomplete="off">
   </div>
+  <div class="stats">15 份文档</div>
 </div>
-<div class="container">
-  <div class="section" data-cat="digest">
-    <div class="section-title">📰 TG 日报 <span class="count">9</span></div>
-    <div class="items">
-      <a href="20260528-tg-digest.html" class="item" target="_blank" rel="noopener"><span class="date">2026-05-28</span><span class="title">tg-digest</span></a>
-<a href="20260527-tg-digest.html" class="item" target="_blank" rel="noopener"><span class="date">2026-05-27</span><span class="title">tg-digest</span></a>
-<a href="20260526-tg-digest.html" class="item" target="_blank" rel="noopener"><span class="date">2026-05-26</span><span class="title">tg-digest</span></a>
-<a href="20260525-tg-digest.html" class="item" target="_blank" rel="noopener"><span class="date">2026-05-25</span><span class="title">tg-digest</span></a>
-<a href="20260524-tg-digest.html" class="item" target="_blank" rel="noopener"><span class="date">2026-05-24</span><span class="title">tg-digest</span></a>
-<a href="20260523-tg-digest.html" class="item" target="_blank" rel="noopener"><span class="date">2026-05-23</span><span class="title">tg-digest</span></a>
-<a href="20260522-tg-digest.html" class="item" target="_blank" rel="noopener"><span class="date">2026-05-22</span><span class="title">tg-digest</span></a>
-<a href="2026-05-21-tg-digest.html" class="item" target="_blank" rel="noopener"><span class="date">2026-05-21</span><span class="title">tg-digest</span></a>
-<a href="2026-05-20-tg-digest.html" class="item" target="_blank" rel="noopener"><span class="date">2026-05-20</span><span class="title">tg-digest</span></a>
+<div class="main">
+  <div class="sidebar" id="sidebar">
+    
+    <div class="nav-section">
+      <div class="nav-header" onclick="toggleSection(this)">
+        <span class="nav-arrow">▸</span> 📰 TG 日报 <span class="nav-count">9</span>
+      </div>
+      <div class="nav-items">
+        <a href="20260528-tg-digest.html" class="nav-item" data-file="20260528-tg-digest.html" onclick='loadDoc("20260528-tg-digest.html",this);return false;'><span class="item-date">2026-05-28</span><span class="item-title">tg-digest</span></a>
+<a href="20260527-tg-digest.html" class="nav-item" data-file="20260527-tg-digest.html" onclick='loadDoc("20260527-tg-digest.html",this);return false;'><span class="item-date">2026-05-27</span><span class="item-title">tg-digest</span></a>
+<a href="20260526-tg-digest.html" class="nav-item" data-file="20260526-tg-digest.html" onclick='loadDoc("20260526-tg-digest.html",this);return false;'><span class="item-date">2026-05-26</span><span class="item-title">tg-digest</span></a>
+<a href="20260525-tg-digest.html" class="nav-item" data-file="20260525-tg-digest.html" onclick='loadDoc("20260525-tg-digest.html",this);return false;'><span class="item-date">2026-05-25</span><span class="item-title">tg-digest</span></a>
+<a href="20260524-tg-digest.html" class="nav-item" data-file="20260524-tg-digest.html" onclick='loadDoc("20260524-tg-digest.html",this);return false;'><span class="item-date">2026-05-24</span><span class="item-title">tg-digest</span></a>
+<a href="20260523-tg-digest.html" class="nav-item" data-file="20260523-tg-digest.html" onclick='loadDoc("20260523-tg-digest.html",this);return false;'><span class="item-date">2026-05-23</span><span class="item-title">tg-digest</span></a>
+<a href="20260522-tg-digest.html" class="nav-item" data-file="20260522-tg-digest.html" onclick='loadDoc("20260522-tg-digest.html",this);return false;'><span class="item-date">2026-05-22</span><span class="item-title">tg-digest</span></a>
+<a href="2026-05-21-tg-digest.html" class="nav-item" data-file="2026-05-21-tg-digest.html" onclick='loadDoc("2026-05-21-tg-digest.html",this);return false;'><span class="item-date">2026-05-21</span><span class="item-title">tg-digest</span></a>
+<a href="2026-05-20-tg-digest.html" class="nav-item" data-file="2026-05-20-tg-digest.html" onclick='loadDoc("2026-05-20-tg-digest.html",this);return false;'><span class="item-date">2026-05-20</span><span class="item-title">tg-digest</span></a>
+      </div>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-header" onclick="toggleSection(this)">
+        <span class="nav-arrow">▸</span> 📑 笔记 Slides <span class="nav-count">3</span>
+      </div>
+      <div class="nav-items">
+        <a href="20260528-Slides-Meta-Reels-Creative-Playbook-精华总结.html" class="nav-item" data-file="20260528-Slides-Meta-Reels-Creative-Playbook-精华总结.html" onclick='window.open("20260528-Slides-Meta-Reels-Creative-Playbook-精华总结.html","_blank");return false;'><span class="item-date">2026-05-28</span><span class="item-title">Slides-Meta-Reels-Creative-Playbook-精华总结</span> <span class="ext-icon" title="全屏打开">↗</span></a>
+<a href="20260513-Slides-欧洲流量劫持法规调研.html" class="nav-item" data-file="20260513-Slides-欧洲流量劫持法规调研.html" onclick='window.open("20260513-Slides-欧洲流量劫持法规调研.html","_blank");return false;'><span class="item-date">2026-05-13</span><span class="item-title">Slides-欧洲流量劫持法规调研</span> <span class="ext-icon" title="全屏打开">↗</span></a>
+<a href="20260512-Slides-夙愿学长：半个月，烧了500美金，我终于把OpenClaw折腾成了真干活的AI员工.html" class="nav-item" data-file="20260512-Slides-夙愿学长：半个月，烧了500美金，我终于把OpenClaw折腾成了真干活的AI员工.html" onclick='window.open("20260512-Slides-夙愿学长：半个月，烧了500美金，我终于把OpenClaw折腾成了真干活的AI员工.html","_blank");return false;'><span class="item-date">2026-05-12</span><span class="item-title">Slides-夙愿学长：半个月，烧了500美金，我终于把OpenClaw折腾成了真干活的AI员工</span> <span class="ext-icon" title="全屏打开">↗</span></a>
+      </div>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-header" onclick="toggleSection(this)">
+        <span class="nav-arrow">▸</span> 📄 其他文档 <span class="nav-count">3</span>
+      </div>
+      <div class="nav-items">
+        <a href="20260526-card-xiaohongshu-nexus-reading-notes.html" class="nav-item" data-file="20260526-card-xiaohongshu-nexus-reading-notes.html" onclick='loadDoc("20260526-card-xiaohongshu-nexus-reading-notes.html",this);return false;'><span class="item-date">2026-05-26</span><span class="item-title">card-xiaohongshu-nexus-reading-notes</span></a>
+<a href="20260518-docs-page-html-anything安装方案.html" class="nav-item" data-file="20260518-docs-page-html-anything安装方案.html" onclick='loadDoc("20260518-docs-page-html-anything安装方案.html",this);return false;'><span class="item-date">2026-05-18</span><span class="item-title">docs-page-html-anything安装方案</span></a>
+<a href="20260515-html-anything安装方案.html" class="nav-item" data-file="20260515-html-anything安装方案.html" onclick='loadDoc("20260515-html-anything安装方案.html",this);return false;'><span class="item-date">2026-05-15</span><span class="item-title">html-anything安装方案</span></a>
+      </div>
     </div>
   </div>
-  <div class="section" data-cat="slides">
-    <div class="section-title">📑 笔记 Slides <span class="count">3</span></div>
-    <div class="items">
-      <a href="20260528-Slides-Meta-Reels-Creative-Playbook-精华总结.html" class="item" target="_blank" rel="noopener"><span class="date">2026-05-28</span><span class="title">Slides-Meta-Reels-Creative-Playbook-精华总结</span></a>
-<a href="20260513-Slides-欧洲流量劫持法规调研.html" class="item" target="_blank" rel="noopener"><span class="date">2026-05-13</span><span class="title">Slides-欧洲流量劫持法规调研</span></a>
-<a href="20260512-Slides-夙愿学长：半个月，烧了500美金，我终于把OpenClaw折腾成了真干活的AI员工.html" class="item" target="_blank" rel="noopener"><span class="date">2026-05-12</span><span class="title">Slides-夙愿学长：半个月，烧了500美金，我终于把OpenClaw折腾成了真干活的AI员工</span></a>
-    </div>
-  </div>
-  <div class="section" data-cat="other">
-    <div class="section-title">📄 其他文档 <span class="count">3</span></div>
-    <div class="items">
-      <a href="20260526-card-xiaohongshu-nexus-reading-notes.html" class="item" target="_blank" rel="noopener"><span class="date">2026-05-26</span><span class="title">card-xiaohongshu-nexus-reading-notes</span></a>
-<a href="20260518-docs-page-html-anything安装方案.html" class="item" target="_blank" rel="noopener"><span class="date">2026-05-18</span><span class="title">docs-page-html-anything安装方案</span></a>
-<a href="20260515-html-anything安装方案.html" class="item" target="_blank" rel="noopener"><span class="date">2026-05-15</span><span class="title">html-anything安装方案</span></a>
+  <div class="content" id="content">
+    <div class="welcome" id="welcome">
+      <div class="icon">📂</div>
+      <div class="text">从左侧选择一篇文档开始阅读</div>
     </div>
   </div>
 </div>
-<div class="footer">Powered by OpenClaw · Auto-generated</div>
 <script>
+function loadDoc(url, el) {
+  // Remove old active
+  document.querySelectorAll('.nav-item.active').forEach(e => e.classList.remove('active'));
+  if (el) el.classList.add('active');
+  const content = document.getElementById('content');
+  // Remove welcome
+  const w = document.getElementById('welcome');
+  if (w) w.remove();
+  // Remove old iframe
+  const old = content.querySelector('iframe');
+  if (old) old.remove();
+  // Create iframe
+  const iframe = document.createElement('iframe');
+  iframe.src = url;
+  iframe.setAttribute('sandbox', 'allow-same-origin allow-scripts allow-popups');
+  content.appendChild(iframe);
+}
+
+function toggleSection(header) {
+  const section = header.parentElement;
+  section.classList.toggle('collapsed');
+}
+
+// Search
 document.getElementById('search').addEventListener('input', function() {
   const q = this.value.toLowerCase();
-  document.querySelectorAll('.item').forEach(el => {
+  document.querySelectorAll('.nav-item').forEach(el => {
     const text = el.textContent.toLowerCase();
     el.style.display = text.includes(q) ? '' : 'none';
   });
-  document.querySelectorAll('.section').forEach(sec => {
-    const visible = sec.querySelectorAll('.item[style=""], .item:not([style])');
-    const hasVisible = Array.from(sec.querySelectorAll('.item')).some(el => el.style.display !== 'none');
+  // Show/hide sections based on visible items
+  document.querySelectorAll('.nav-section').forEach(sec => {
+    const hasVisible = Array.from(sec.querySelectorAll('.nav-item')).some(el => el.style.display !== 'none');
     sec.style.display = hasVisible || !q ? '' : 'none';
+    // Auto expand when searching
+    if (q && hasVisible) sec.classList.remove('collapsed');
   });
 });
+
+// Auto-load first non-slides item
+(function() {
+  const first = document.querySelector('.nav-section:not([data-cat="slides"]) .nav-item');
+  if (first) {
+    const url = first.getAttribute('data-file');
+    if (url) loadDoc(url, first);
+  }
+})();
 </script>
 </body>
 </html>
