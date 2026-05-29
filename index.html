@@ -208,24 +208,6 @@ body {
   color: #c9cdd4;
 }
 
-/* Custom tooltip (fixed position, controlled by JS) */
-#custom-tooltip {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  background: #1f2329;
-  color: #fff;
-  font-size: 12px;
-  padding: 6px 12px;
-  border-radius: 6px;
-  white-space: nowrap;
-  max-width: 420px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  pointer-events: none;
-  box-shadow: 0 2px 8px rgba(0,0,0,.18);
-}
-
 /* ── Content area ── */
 .content {
   flex: 1;
@@ -301,15 +283,15 @@ body {
         <span class="nav-arrow">▸</span> 📰 TG 日报 <span class="nav-count">9</span>
       </div>
       <div class="nav-items">
-        <a href="20260528-tg-digest.html" class="nav-item" data-file="20260528-tg-digest.html" title="2026-05-28 tg-digest" onclick='loadDoc("20260528-tg-digest.html",this);return false;'><span class="item-date">2026-05-28</span><span class="item-title">tg-digest</span></a>
-<a href="20260527-tg-digest.html" class="nav-item" data-file="20260527-tg-digest.html" title="2026-05-27 tg-digest" onclick='loadDoc("20260527-tg-digest.html",this);return false;'><span class="item-date">2026-05-27</span><span class="item-title">tg-digest</span></a>
-<a href="20260526-tg-digest.html" class="nav-item" data-file="20260526-tg-digest.html" title="2026-05-26 tg-digest" onclick='loadDoc("20260526-tg-digest.html",this);return false;'><span class="item-date">2026-05-26</span><span class="item-title">tg-digest</span></a>
-<a href="20260525-tg-digest.html" class="nav-item" data-file="20260525-tg-digest.html" title="2026-05-25 tg-digest" onclick='loadDoc("20260525-tg-digest.html",this);return false;'><span class="item-date">2026-05-25</span><span class="item-title">tg-digest</span></a>
-<a href="20260524-tg-digest.html" class="nav-item" data-file="20260524-tg-digest.html" title="2026-05-24 tg-digest" onclick='loadDoc("20260524-tg-digest.html",this);return false;'><span class="item-date">2026-05-24</span><span class="item-title">tg-digest</span></a>
-<a href="20260523-tg-digest.html" class="nav-item" data-file="20260523-tg-digest.html" title="2026-05-23 tg-digest" onclick='loadDoc("20260523-tg-digest.html",this);return false;'><span class="item-date">2026-05-23</span><span class="item-title">tg-digest</span></a>
-<a href="20260522-tg-digest.html" class="nav-item" data-file="20260522-tg-digest.html" title="2026-05-22 tg-digest" onclick='loadDoc("20260522-tg-digest.html",this);return false;'><span class="item-date">2026-05-22</span><span class="item-title">tg-digest</span></a>
-<a href="2026-05-21-tg-digest.html" class="nav-item" data-file="2026-05-21-tg-digest.html" title="2026-05-21 tg-digest" onclick='loadDoc("2026-05-21-tg-digest.html",this);return false;'><span class="item-date">2026-05-21</span><span class="item-title">tg-digest</span></a>
-<a href="2026-05-20-tg-digest.html" class="nav-item" data-file="2026-05-20-tg-digest.html" title="2026-05-20 tg-digest" onclick='loadDoc("2026-05-20-tg-digest.html",this);return false;'><span class="item-date">2026-05-20</span><span class="item-title">tg-digest</span></a>
+        <a href="20260528-tg-digest.html" class="nav-item" data-file="20260528-tg-digest.html" data-title="2026-05-28 tg-digest" onclick='loadDoc("20260528-tg-digest.html",this);return false;'><span class="item-date">2026-05-28</span><span class="item-title">tg-digest</span></a>
+<a href="20260527-tg-digest.html" class="nav-item" data-file="20260527-tg-digest.html" data-title="2026-05-27 tg-digest" onclick='loadDoc("20260527-tg-digest.html",this);return false;'><span class="item-date">2026-05-27</span><span class="item-title">tg-digest</span></a>
+<a href="20260526-tg-digest.html" class="nav-item" data-file="20260526-tg-digest.html" data-title="2026-05-26 tg-digest" onclick='loadDoc("20260526-tg-digest.html",this);return false;'><span class="item-date">2026-05-26</span><span class="item-title">tg-digest</span></a>
+<a href="20260525-tg-digest.html" class="nav-item" data-file="20260525-tg-digest.html" data-title="2026-05-25 tg-digest" onclick='loadDoc("20260525-tg-digest.html",this);return false;'><span class="item-date">2026-05-25</span><span class="item-title">tg-digest</span></a>
+<a href="20260524-tg-digest.html" class="nav-item" data-file="20260524-tg-digest.html" data-title="2026-05-24 tg-digest" onclick='loadDoc("20260524-tg-digest.html",this);return false;'><span class="item-date">2026-05-24</span><span class="item-title">tg-digest</span></a>
+<a href="20260523-tg-digest.html" class="nav-item" data-file="20260523-tg-digest.html" data-title="2026-05-23 tg-digest" onclick='loadDoc("20260523-tg-digest.html",this);return false;'><span class="item-date">2026-05-23</span><span class="item-title">tg-digest</span></a>
+<a href="20260522-tg-digest.html" class="nav-item" data-file="20260522-tg-digest.html" data-title="2026-05-22 tg-digest" onclick='loadDoc("20260522-tg-digest.html",this);return false;'><span class="item-date">2026-05-22</span><span class="item-title">tg-digest</span></a>
+<a href="2026-05-21-tg-digest.html" class="nav-item" data-file="2026-05-21-tg-digest.html" data-title="2026-05-21 tg-digest" onclick='loadDoc("2026-05-21-tg-digest.html",this);return false;'><span class="item-date">2026-05-21</span><span class="item-title">tg-digest</span></a>
+<a href="2026-05-20-tg-digest.html" class="nav-item" data-file="2026-05-20-tg-digest.html" data-title="2026-05-20 tg-digest" onclick='loadDoc("2026-05-20-tg-digest.html",this);return false;'><span class="item-date">2026-05-20</span><span class="item-title">tg-digest</span></a>
       </div>
     </div>
 
@@ -318,9 +300,9 @@ body {
         <span class="nav-arrow">▸</span> 📑 笔记 Slides <span class="nav-count">3</span>
       </div>
       <div class="nav-items">
-        <a href="20260528-Slides-Meta-Reels-Creative-Playbook-精华总结.html" class="nav-item" data-file="20260528-Slides-Meta-Reels-Creative-Playbook-精华总结.html" title="2026-05-28 Slides-Meta-Reels-Creative-Playbook-精华总结" onclick='window.open("20260528-Slides-Meta-Reels-Creative-Playbook-精华总结.html","_blank");return false;'><span class="item-date">2026-05-28</span><span class="item-title">Slides-Meta-Reels-Creative-Playbook-精华总结</span> <span class="ext-icon" title="全屏打开">↗</span></a>
-<a href="20260513-Slides-欧洲流量劫持法规调研.html" class="nav-item" data-file="20260513-Slides-欧洲流量劫持法规调研.html" title="2026-05-13 Slides-欧洲流量劫持法规调研" onclick='window.open("20260513-Slides-欧洲流量劫持法规调研.html","_blank");return false;'><span class="item-date">2026-05-13</span><span class="item-title">Slides-欧洲流量劫持法规调研</span> <span class="ext-icon" title="全屏打开">↗</span></a>
-<a href="20260512-Slides-夙愿学长：半个月，烧了500美金，我终于把OpenClaw折腾成了真干活的AI员工.html" class="nav-item" data-file="20260512-Slides-夙愿学长：半个月，烧了500美金，我终于把OpenClaw折腾成了真干活的AI员工.html" title="2026-05-12 Slides-夙愿学长：半个月，烧了500美金，我终于把OpenClaw折腾成了真干活的AI员工" onclick='window.open("20260512-Slides-夙愿学长：半个月，烧了500美金，我终于把OpenClaw折腾成了真干活的AI员工.html","_blank");return false;'><span class="item-date">2026-05-12</span><span class="item-title">Slides-夙愿学长：半个月，烧了500美金，我终于把OpenClaw折腾成了真干活的AI员工</span> <span class="ext-icon" title="全屏打开">↗</span></a>
+        <a href="20260528-Slides-Meta-Reels-Creative-Playbook-精华总结.html" class="nav-item" data-file="20260528-Slides-Meta-Reels-Creative-Playbook-精华总结.html" data-title="2026-05-28 Slides-Meta-Reels-Creative-Playbook-精华总结" onclick='window.open("20260528-Slides-Meta-Reels-Creative-Playbook-精华总结.html","_blank");return false;'><span class="item-date">2026-05-28</span><span class="item-title">Slides-Meta-Reels-Creative-Playbook-精华总结</span> <span class="ext-icon" title="全屏打开">↗</span></a>
+<a href="20260513-Slides-欧洲流量劫持法规调研.html" class="nav-item" data-file="20260513-Slides-欧洲流量劫持法规调研.html" data-title="2026-05-13 Slides-欧洲流量劫持法规调研" onclick='window.open("20260513-Slides-欧洲流量劫持法规调研.html","_blank");return false;'><span class="item-date">2026-05-13</span><span class="item-title">Slides-欧洲流量劫持法规调研</span> <span class="ext-icon" title="全屏打开">↗</span></a>
+<a href="20260512-Slides-夙愿学长：半个月，烧了500美金，我终于把OpenClaw折腾成了真干活的AI员工.html" class="nav-item" data-file="20260512-Slides-夙愿学长：半个月，烧了500美金，我终于把OpenClaw折腾成了真干活的AI员工.html" data-title="2026-05-12 Slides-夙愿学长：半个月，烧了500美金，我终于把OpenClaw折腾成了真干活的AI员工" onclick='window.open("20260512-Slides-夙愿学长：半个月，烧了500美金，我终于把OpenClaw折腾成了真干活的AI员工.html","_blank");return false;'><span class="item-date">2026-05-12</span><span class="item-title">Slides-夙愿学长：半个月，烧了500美金，我终于把OpenClaw折腾成了真干活的AI员工</span> <span class="ext-icon" title="全屏打开">↗</span></a>
       </div>
     </div>
 
@@ -329,9 +311,9 @@ body {
         <span class="nav-arrow">▸</span> 📄 其他文档 <span class="nav-count">3</span>
       </div>
       <div class="nav-items">
-        <a href="20260526-card-xiaohongshu-nexus-reading-notes.html" class="nav-item" data-file="20260526-card-xiaohongshu-nexus-reading-notes.html" title="2026-05-26 card-xiaohongshu-nexus-reading-notes" onclick='loadDoc("20260526-card-xiaohongshu-nexus-reading-notes.html",this);return false;'><span class="item-date">2026-05-26</span><span class="item-title">card-xiaohongshu-nexus-reading-notes</span></a>
-<a href="20260518-docs-page-html-anything安装方案.html" class="nav-item" data-file="20260518-docs-page-html-anything安装方案.html" title="2026-05-18 docs-page-html-anything安装方案" onclick='loadDoc("20260518-docs-page-html-anything安装方案.html",this);return false;'><span class="item-date">2026-05-18</span><span class="item-title">docs-page-html-anything安装方案</span></a>
-<a href="20260515-html-anything安装方案.html" class="nav-item" data-file="20260515-html-anything安装方案.html" title="2026-05-15 html-anything安装方案" onclick='loadDoc("20260515-html-anything安装方案.html",this);return false;'><span class="item-date">2026-05-15</span><span class="item-title">html-anything安装方案</span></a>
+        <a href="20260526-card-xiaohongshu-nexus-reading-notes.html" class="nav-item" data-file="20260526-card-xiaohongshu-nexus-reading-notes.html" data-title="2026-05-26 card-xiaohongshu-nexus-reading-notes" onclick='loadDoc("20260526-card-xiaohongshu-nexus-reading-notes.html",this);return false;'><span class="item-date">2026-05-26</span><span class="item-title">card-xiaohongshu-nexus-reading-notes</span></a>
+<a href="20260518-docs-page-html-anything安装方案.html" class="nav-item" data-file="20260518-docs-page-html-anything安装方案.html" data-title="2026-05-18 docs-page-html-anything安装方案" onclick='loadDoc("20260518-docs-page-html-anything安装方案.html",this);return false;'><span class="item-date">2026-05-18</span><span class="item-title">docs-page-html-anything安装方案</span></a>
+<a href="20260515-html-anything安装方案.html" class="nav-item" data-file="20260515-html-anything安装方案.html" data-title="2026-05-15 html-anything安装方案" onclick='loadDoc("20260515-html-anything安装方案.html",this);return false;'><span class="item-date">2026-05-15</span><span class="item-title">html-anything安装方案</span></a>
       </div>
     </div>
   </div>
@@ -342,7 +324,6 @@ body {
     </div>
   </div>
 </div>
-<div id="custom-tooltip"></div>
 <script>
 function toggleSidebar() {
   const sidebar = document.getElementById('sidebar');
@@ -391,21 +372,16 @@ document.getElementById('search').addEventListener('input', function() {
   });
 });
 
-// Tooltip
+// Tooltip: only show title when text is truncated
 (function() {
-  const tip = document.getElementById('custom-tooltip');
   document.querySelectorAll('.nav-item').forEach(el => {
-    el.addEventListener('mouseenter', function(e) {
-      const t = this.getAttribute('title');
-      if (!t) return;
-      tip.textContent = t;
-      tip.style.display = 'block';
-      const rect = this.getBoundingClientRect();
-      tip.style.left = rect.left + 'px';
-      tip.style.top = (rect.bottom + 4) + 'px';
-    });
-    el.addEventListener('mouseleave', function() {
-      tip.style.display = 'none';
+    el.addEventListener('mouseenter', function() {
+      const titleSpan = this.querySelector('.item-title');
+      if (titleSpan && titleSpan.scrollWidth > titleSpan.clientWidth) {
+        this.setAttribute('title', this.getAttribute('data-title') || '');
+      } else {
+        this.removeAttribute('title');
+      }
     });
   });
 })();
