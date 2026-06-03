@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小八 · 能力矩阵架构图</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  body {
+    background: #0D0D1A;
+    font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", "Helvetica Neue", sans-serif;
+    color: #E0E0E0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+
+  .container {
+    width: 1200px;
+    max-width: 100%;
+    position: relative;
+  }
+
+  /* ===== 标题 ===== */
+  .header {
+    text-align: center;
+    margin-bottom: 48px;
+    position: relative;
+  }
+  .header::after {
+    content: "";
+    display: block;
+    width: 120px;
+    height: 3px;
+    background: linear-gradient(90deg, #FFD54F, #FF8F00);
+    margin: 18px auto 0;
+    border-radius: 2px;
+  }
+  .header h1 {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    background: linear-gradient(135deg, #FFFFFF 0%, #B0BEC5 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .header .subtitle {
+    margin-top: 10px;
+    font-size: 15px;
+    color: #78909C;
+    letter-spacing: 4px;
+  }
+
+  /* ===== 层标签 ===== */
+  .layer {
+    position: relative;
+    margin-bottom: 24px;
+  }
+  .layer-label {
+    position: absolute;
+    left: -8px;
+    top: 12px;
+    writing-mode: vertical-rl;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.35);
+    text-transform: uppercase;
+    z-index: 2;
+  }
+
+  /* ===== 层内容区域 ===== */
+  .layer-content {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 16px;
+    padding: 28px 24px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    position: relative;
+    overflow: hidden;
+  }
+  .layer-content::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    border-radius: 16px 16px 0 0;
+  }
+
+  .layer-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    padding-left: 12px;
+    border-left: 3px solid;
+    line-height: 1.4;
+  }
+
+  /* ===== 第1层 - 基础设施底座 ===== */
+  .layer-1 .layer-content::before {
+    background: linear-gradient(90deg, #1A237E, #3949AB, #3B5998);
+  }
+  .layer-1 .layer-title {
+    color: #7986CB;
+    border-color: #3949AB;
+  }
+  .layer-1 .cards {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+  }
+  .layer-1 .card {
+    background: linear-gradient(135deg, rgba(57,73,171,0.25) 0%, rgba(59,89,152,0.15) 100%);
+    border: 1px solid rgba(57,73,171,0.3);
+    border-radius: 10px;
+    padding: 16px 14px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .layer-1 .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(57,73,171,0.25);
+  }
+  .layer-1 .card .card-icon {
+    font-size: 26px;
+    margin-bottom: 8px;
+  }
+  .layer-1 .card .card-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: #90CAF9;
+    margin-bottom: 6px;
+  }
+  .layer-1 .card .card-desc {
+    font-size: 11px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.5;
+  }
+
+  /* ===== 连接箭头 ===== */
+  .connector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 36px;
+    position: relative;
+  }
+  .connector .arrow-line {
+    width: 2px;
+    height: 100%;
+    position: relative;
+  }
+  .connector .arrow-line::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to top, rgba(255,213,79,0.6), rgba(255,213,79,0.1));
+  }
+  .connector .arrow-line::after {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 8px solid rgba(255,213,79,0.6);
+  }
+  .connector-multi {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 36px;
+    padding: 0 100px;
+  }
+
+  /* ===== 第2层 - 核心能力 ===== */
+  .layer-2 .layer-content::before {
+    background: linear-gradient(90deg, #2E7D32, #E65100, #1565C0, #6A1B9A);
+  }
+  .layer-2 .layer-title {
+    color: #B0BEC5;
+    border-color: #546E7A;
+  }
+  .layer-2 .zones {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+  .zone {
+    border-radius: 10px;
+    padding: 18px 14px;
+    position: relative;
+    overflow: hidden;
+  }
+  .zone::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px;
+    height: 100%;
+    border-radius: 10px 0 0 10px;
+  }
+  .zone-green {
+    background: linear-gradient(135deg, rgba(46,125,50,0.2) 0%, rgba(46,125,50,0.05) 100%);
+    border: 1px solid rgba(46,125,50,0.25);
+  }
+  .zone-green::before { background: #43A047; }
+  .zone-green .zone-title { color: #81C784; }
+  
+  .zone-orange {
+    background: linear-gradient(135deg, rgba(230,81,0,0.2) 0%, rgba(230,81,0,0.05) 100%);
+    border: 1px solid rgba(230,81,0,0.25);
+  }
+  .zone-orange::before { background: #EF6C00; }
+  .zone-orange .zone-title { color: #FFB74D; }
+
+  .zone-blue {
+    background: linear-gradient(135deg, rgba(21,101,192,0.2) 0%, rgba(21,101,192,0.05) 100%);
+    border: 1px solid rgba(21,101,192,0.25);
+  }
+  .zone-blue::before { background: #1976D2; }
+  .zone-blue .zone-title { color: #64B5F6; }
+
+  .zone-purple {
+    background: linear-gradient(135deg, rgba(106,27,154,0.2) 0%, rgba(106,27,154,0.05) 100%);
+    border: 1px solid rgba(106,27,154,0.25);
+  }
+  .zone-purple::before { background: #8E24AA; }
+  .zone-purple .zone-title { color: #CE93D8; }
+
+  .zone-title {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .zone-title .zone-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+    background: rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.7);
+    flex-shrink: 0;
+  }
+  .zone-items {
+    list-style: none;
+  }
+  .zone-items li {
+    font-size: 12px;
+    color: rgba(255,255,255,0.55);
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    line-height: 1.5;
+  }
+  .zone-items li:last-child {
+    border-bottom: none;
+  }
+  .zone-items li::before {
+    content: "›";
+    color: rgba(255,255,255,0.25);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: -1px;
+  }
+
+  /* ===== 第3层 - 可视化产出与发布 ===== */
+  .layer-3 .layer-content::before {
+    background: linear-gradient(90deg, #4527A0, #5E35B1, #7E57C2);
+  }
+  .layer-3 .layer-title {
+    color: #B39DDB;
+    border-color: #5E35B1;
+  }
+  .layer-3 .cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+  .layer-3 .card {
+    background: linear-gradient(135deg, rgba(94,53,177,0.2) 0%, rgba(94,53,177,0.05) 100%);
+    border: 1px solid rgba(94,53,177,0.3);
+    border-radius: 10px;
+    padding: 18px 16px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .layer-3 .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(94,53,177,0.3);
+  }
+  .layer-3 .card .card-icon {
+    font-size: 28px;
+    margin-bottom: 8px;
+  }
+  .layer-3 .card .card-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #CE93D8;
+    margin-bottom: 6px;
+  }
+  .layer-3 .card .card-desc {
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.5;
+  }
+
+  /* ===== 底部数据指标 ===== */
+  .metrics {
+    background: linear-gradient(135deg, #1B1B2F 0%, #15152A 100%);
+    border: 1px solid rgba(255,213,79,0.12);
+    border-radius: 14px;
+    padding: 24px 32px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .metrics::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #FFD54F, transparent);
+  }
+  .metric {
+    text-align: center;
+  }
+  .metric .metric-value {
+    font-size: 30px;
+    font-weight: 800;
+    color: #FFD54F;
+    line-height: 1;
+    margin-bottom: 6px;
+    text-shadow: 0 0 20px rgba(255,213,79,0.3);
+  }
+  .metric .metric-value span {
+    font-size: 15px;
+    font-weight: 400;
+    color: rgba(255,213,79,0.6);
+  }
+  .metric .metric-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 1px;
+  }
+  .metric-divider {
+    width: 1px;
+    height: 40px;
+    background: rgba(255,255,255,0.08);
+  }
+
+  /* ===== 底部署名 ===== */
+  .footer {
+    text-align: center;
+    margin-top: 28px;
+    font-size: 11px;
+    color: rgba(255,255,255,0.15);
+    letter-spacing: 2px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- 标题 -->
+  <div class="header">
+    <h1>小八 · 能力矩阵架构图</h1>
+    <div class="subtitle">AI 协作助理 &nbsp;|&nbsp; 被 Boss 培养出来的全能小助手</div>
+  </div>
+
+  <!-- 第3层 - 可视化产出与发布（视觉上在最上方，架构上在最外层） -->
+  <div class="layer layer-3">
+    <div class="layer-content">
+      <div class="layer-title">LAYER 3 &nbsp;·&nbsp; 可视化产出与发布</div>
+      <div class="cards">
+        <div class="card">
+          <div class="card-icon">📊</div>
+          <div class="card-title">AI 图表生成</div>
+          <div class="card-desc">draw.io · 架构图 · 流程图</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">🌐</div>
+          <div class="card-title">GitHub Pages</div>
+          <div class="card-desc">一键 HTTPS · 自动目录页维护</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">📝</div>
+          <div class="card-title">飞书生态</div>
+          <div class="card-desc">文档 · 多维表格 · 知识库</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">💬</div>
+          <div class="card-title">Telegram 通讯</div>
+          <div class="card-desc">双向实时 · 含语音消息</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 连接箭头 -->
+  <div class="connector"><div class="arrow-line"></div></div>
+
+  <!-- 第2层 - 核心能力 -->
+  <div class="layer layer-2">
+    <div class="layer-content">
+      <div class="layer-title">LAYER 2 &nbsp;·&nbsp; 核心能力矩阵</div>
+      <div class="zones">
+        <!-- 内容生产 -->
+        <div class="zone zone-green">
+          <div class="zone-title"><span class="zone-num">1</span>内容生产</div>
+          <ul class="zone-items">
+            <li>Markdown 转 HTML 排版</li>
+            <li>笔记幻灯片生成</li>
+            <li>75 设计模板库</li>
+            <li>Seedance 视频 Prompt</li>
+            <li>TTS 语音合成发送</li>
+          </ul>
+        </div>
+        <!-- 智能调度 -->
+        <div class="zone zone-orange">
+          <div class="zone-title"><span class="zone-num">2</span>智能调度</div>
+          <ul class="zone-items">
+            <li>工作日早安消息推送</li>
+            <li>晚间 AI 对话总结</li>
+            <li>IP 续费到期提醒</li>
+            <li>Visa 卡消费日报</li>
+            <li>日志 Sheet 自动同步</li>
+          </ul>
+        </div>
+        <!-- 数据分析 -->
+        <div class="zone zone-blue">
+          <div class="zone-title"><span class="zone-num">3</span>数据分析</div>
+          <ul class="zone-items">
+            <li>账号批量清洗入库</li>
+            <li>Gmail 邮件简报生成</li>
+            <li>IP 信息批量管理</li>
+            <li>AI HOT 资讯日报</li>
+            <li>last30days 社区情报</li>
+          </ul>
+        </div>
+        <!-- 深度调研 -->
+        <div class="zone zone-purple">
+          <div class="zone-title"><span class="zone-num">4</span>深度调研</div>
+          <ul class="zone-items">
+            <li>横纵分析万字报告</li>
+            <li>平台广告政策调研</li>
+            <li>Web 多引擎搜索</li>
+            <li>竞品全维度扫描</li>
+            <li>报告结论前置交付</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 连接箭头 -->
+  <div class="connector"><div class="arrow-line"></div></div>
+
+  <!-- 第1层 - 基础设施底座 -->
+  <div class="layer layer-1">
+    <div class="layer-content">
+      <div class="layer-title">LAYER 1 &nbsp;·&nbsp; 基础设施底座</div>
+      <div class="cards">
+        <div class="card">
+          <div class="card-icon">🔌</div>
+          <div class="card-title">OpenClaw 网关</div>
+          <div class="card-desc">消息路由 · 会话管理 · 多通道分发</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">🧠</div>
+          <div class="card-title">记忆系统</div>
+          <div class="card-desc">MEMORY.md · 工作日志 · 语义检索 · 纠错沉淀</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">🔄</div>
+          <div class="card-title">自我进化引擎</div>
+          <div class="card-desc">自我纠错 · 执行优化 · 主动推进行为记忆</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">☁️</div>
+          <div class="card-title">Google 集成层</div>
+          <div class="card-desc">Gmail · Drive · Sheets · OAuth 自动续期</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">🔐</div>
+          <div class="card-title">凭据安全</div>
+          <div class="card-desc">.credentials/ 统一管理 · 零硬编码 · 热切换</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 底部数据指标 -->
+  <div class="metrics">
+    <div class="metric">
+      <div class="metric-value">16 <span>个</span></div>
+      <div class="metric-label">Skill 技能</div>
+    </div>
+    <div class="metric-divider"></div>
+    <div class="metric">
+      <div class="metric-value">75 <span>套</span></div>
+      <div class="metric-label">HTML 模板</div>
+    </div>
+    <div class="metric-divider"></div>
+    <div class="metric">
+      <div class="metric-value">13+ <span>项</span></div>
+      <div class="metric-label">cron 自动任务</div>
+    </div>
+    <div class="metric-divider"></div>
+    <div class="metric">
+      <div class="metric-value">3 <span>套</span></div>
+      <div class="metric-label">记忆子系统</div>
+    </div>
+    <div class="metric-divider"></div>
+    <div class="metric">
+      <div class="metric-value">5 <span>层</span></div>
+      <div class="metric-label">架构深度</div>
+    </div>
+  </div>
+
+  <!-- 署名 -->
+  <div class="footer">POWERED BY OPENCLAW &nbsp;·&nbsp; BUILT WITH BOSS</div>
+
+</div>
+</body>
+</html>
