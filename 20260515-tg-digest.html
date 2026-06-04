@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>TG 频道日报</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background: #060814;
+    color: #e8eaf0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    min-height: 100vh;
+    display: flex; justify-content: center;
+}
+
+a { color: #6ea0ff; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.main-wrap {
+    width: 100%;
+    max-width: 860px;
+    padding: 48px 40px 80px;
+}
+
+.hero {
+    padding-bottom: 36px;
+    margin-bottom: 36px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.hero-vol { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; color: #6ea0ff; margin-bottom: 10px; }
+.hero-title { font-size: 38px; font-weight: 800; line-height: 1.15; color: #fff; margin-bottom: 10px; }
+.hero-date { font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 16px; }
+.hero-stats { display: flex; gap: 28px; }
+.stat-item { display: flex; flex-direction: column; gap: 2px; }
+.stat-num { font-size: 22px; font-weight: 700; color: #fff; }
+.stat-label { font-size: 11px; color: rgba(255,255,255,0.35); letter-spacing: 0.08em; text-transform: uppercase; }
+
+.section { margin-bottom: 40px; }
+.section-head {
+    display: flex; align-items: baseline; gap: 16px;
+    margin-bottom: 20px; padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.section-num { font-size: 28px; font-weight: 800; color: rgba(255,255,255,0.07); line-height: 1; }
+.section-title { font-size: 17px; font-weight: 700; color: #fff; }
+.section-count {
+    margin-left: auto; font-size: 11px; font-weight: 600; color: #6ea0ff;
+    background: rgba(110,160,255,0.12); padding: 2px 8px; border-radius: 20px;
+}
+
+.card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 12px; padding: 18px 22px; margin-bottom: 12px;
+    transition: border-color 0.2s, background 0.2s;
+}
+.card:hover { border-color: rgba(110,160,255,0.3); background: rgba(110,160,255,0.04); }
+
+.card-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.channel-tag {
+    font-size: 12px; font-weight: 600; color: #fff;
+    background: rgba(110,160,255,0.25); padding: 2px 8px; border-radius: 20px; white-space: nowrap;
+}
+.time-tag { font-size: 12px; color: rgba(255,255,255,0.35); }
+
+.card-title {
+    font-size: 15px; font-weight: 700; color: #fff;
+    margin-bottom: 8px; line-height: 1.5;
+}
+.card-title a { color: inherit; }
+.card-title a:hover { color: #6ea0ff; text-decoration: none; }
+
+.card-summary {
+    font-size: 14px; color: rgba(255,255,255,0.6);
+    line-height: 1.8;
+}
+.card-summary p { margin-bottom: 6px; }
+.card-summary p:last-child { margin-bottom: 0; }
+
+.card-footer {
+    margin-top: 10px; display: flex; align-items: center;
+    gap: 12px; flex-wrap: wrap;
+}
+.source-link { font-size: 12px; color: rgba(255,255,255,0.35); }
+.source-link::before { content: "🔗 "; }
+.channel-links { margin-left: auto; font-size: 11px; color: rgba(255,255,255,0.25); }
+.channel-links a { color: rgba(255,255,255,0.3); margin-right: 6px; }
+.channel-links a:hover { color: #6ea0ff; }
+
+.brief-text { font-size: 15px; color: rgba(255,255,255,0.75); line-height: 1.7; }
+
+pre { background: rgba(0,0,0,0.4); border-radius: 8px; padding: 16px; overflow-x: auto; font-size: 13px; }
+code { font-family: "SF Mono", Consolas, monospace; font-size: 0.88em; }
+p code { background: rgba(110,160,255,0.1); color: #9ec5ff; padding: 1px 6px; border-radius: 4px; }
+
+.footer {
+    text-align: center; font-size: 12px; color: rgba(255,255,255,0.2);
+    padding: 30px 0 20px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .main-wrap { padding: 28px 20px 60px; }
+    .hero-title { font-size: 26px; }
+}
+</style>
+</head>
+<body>
+
+<div class="main-wrap">
+    <div class="hero">
+        <div class="hero-vol">VOL.20260515</div>
+        <h1 class="hero-title">TG 频道日报</h1>
+        <div class="hero-date">2026年05月15日 · 星期五 · 6 个频道 · 31 条内容</div>
+        <div class="hero-stats">
+            <div class="stat-item"><span class="stat-num">31</span><span class="stat-label">条内容</span></div>
+            <div class="stat-item"><span class="stat-num">6</span><span class="stat-label">个频道</span></div>
+        </div>
+    </div>
+
+    <div class="section"><div class="section-head"><span class="section-num">01</span><span class="section-title">TG 频道精选</span><span class="section-count">31 条</span></div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">01:36</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/20145)" target="_blank">Peter Thiel：AI三年内能解决所有奥赛数学。数学人的护城河，正在被技术碾压——跟当年国际象棋没两样。真正的能力，是机器替代不了的。</a></div>
+  <div class="card-summary"><hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/20145)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024">AI探索</a><a href="https://t.me/openclaw1024">Hermes/OpenClaw</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/aigc1024/20145">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">02:03</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/9740)" target="_blank">分享一条德国网站，评论外链，100%德国流量。回复1，私给链接</a></div>
+  <div class="card-summary"><hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/9740)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23/9740">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">04:56</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/78803)" target="_blank">一个教人翻墙的GitHub项目，名字言简意赅：就叫fanqiang，里面内容丰富多样，小到如何下载翻墙软件，注册gpt账号，大到如何搭建VPS，软路由等等。教你各种有关科学上网的技术。</a></div>
+  <div class="card-summary"><p>GitHub：https://github.com/bannedbook/fanqiang?tab=readme-ov-file</p>
+<p>AIGC的一切</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/78803)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/78803">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">05:09</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/9745)" target="_blank">经常有人问：刚开始做，担心卖不出去，做个低价品怎么样？</a></div>
+  <div class="card-summary"><p>这不是定价问题，而是商业模式的问题。</p>
+<p>如果商业模式错了，你越努力就离目标越远。这是方向的问题，非常重要。</p>
+<p>先说核心观点：一人公司做低客单，必死！</p>
+<p>不是低价品不能做，像诊断、资料、体验课..这种引流品肯定可以做，但不能成为主营业务。</p>
+<p>主业务一旦压在低客单上，会被拖进一个完全不适合自己的运营模式：</p>
+<p>拼流量、拼规模、拼效率、拼标准化交付，这些都是一人公司不擅长的。</p>
+<p>下面把这件事拆开讲。</p>
+<p>01 低客单的财务模型，一人公司根本撑不起</p>
+<p>先算算账，做到10万收入的构成。</p>
+<p>199的产品，需要500个客户</p>
+<p>980的产品，需要102个客户</p>
+<p>9800的产品，需要11个客户</p>
+<p>29800的产品，只需要4个客户...</p>
+<p>这不是数学题，是商业结构题。</p>
+<p>如果你要做低客单，也就是199的产品，你要知道：</p>
+<p>500个付费客户背后，意味着多少个意向客户，多少条客资，多少次答疑，生产多少条内容，有多少个退款投诉？</p>
+<p>我的经验是：</p>
+<p>你成交一个99元的客户和一个9800元的客户，消耗你的时间成本，没有100倍差。</p>
+<p>甚至还会反过来，便宜的客户问得更多，担心多，客诉多。</p>
+<p>低客单的财务模型，只在一种情况下成立：获客规模化、交付自动化、售后标准化、运营有团队。</p>
+<p>但，这是平台型公司的玩法。</p>
+<p>一人公司没有团队、没有投放预算、没有客服系统、没有自动化交付能力，这套模型是跑不通的。</p>
+<p>02 低客单会逼你去做泛流量</p>
+<p>做低客单，就要把订单量做大，这就必须把流量做起来。</p>
+<p>可一旦你开始追流量，内容就会变形。</p>
+<p>你会越来越关心什么话题容易火，什么标题容易点击，什么情绪容易共鸣。</p>
+<p>而不是谁是我的客户，我能解决为什么问题，为什么找我解决而不是找别人。</p>
+<p>这时候，一人公司就从强信任生意滑向了流量生意。</p>
+<p>流量生意的对手是谁?</p>
+<p>是MCN、是平台账号矩阵、是低价课团队、是投放公司、是比你早入场5年的人。</p>
+<p>你拿什么跟他们拼?</p>
+<p>我见过太多人，出来做一人公司第一年就掉进这个坑里。天天研究怎么涨粉、怎么爆文、怎么投流。</p>
+<p>研究了半年，粉丝有了一点，但收入没有。再研究半年，人累垮了，斗志也磨没了，最终业务也没起来。</p>
+<p>所以，一人公司不应该先问：我怎么把便宜产品卖给更多人，而是要问：我能不能用一个高价值问题，服务少量真正需要我的人。</p>
+<p>03 低客单吸引来的都是低质客户</p>
+<p>这一点，比前面两条更要命。</p>
+<p>我有个判断：低价吸引的是白嫖用户,不是付费用户。</p>
+<p>说学术一点，低客单天然吸引低决心用户。他们的画像是:</p>
+<p>想听听，但不想行动；想试试,但不想投入；想要建议，但不会往心里去。</p>
+<p>问得很多,做得很少、这种用户对一人公司的伤害有两层“</p>
+<p>第一层伤害：消耗判断力</p>
+<p>一人公司最贵的是判断力。</p>
+<p>真正让客户为你付费的，不是看你在他身上花了多长时间，而是看你能不能帮他看清问题、判断方向、拆出路径。</p>
+<p>但低决心用户，最擅长的就是消耗你的判断力。</p>
+<p>他问完不动手，过几天又来问。你给的建议他听了，但不执行，然后回来又说没效果。</p>
+<p>你还不能不理他们，否则就会在群里、在朋友圈骂你。</p>
+<p>第二层伤害：反向塑造你的产品</p>
+<p>为了留住这批低决心用户，你会不自觉地降低表达门槛、降低产品深度、降低交付密度。</p>
+<p>最后你的内容越来越浅，产品越来越散，用户越来越泛。</p>
+<p>等你想升单做5980、9800，会发现压根成交不了。这是一个底层定位被低价拖坏的过程，而且很难逆转。</p>
+<p>04 低客单堵死了真非标的可能</p>
+<p>这是商业模式上最致命的一层。</p>
+<p>低客单意味着单笔利润薄，你不可能为单个客户花5个小时做定制方案。必须把交付流程化、模板化、标准化。</p>
+<p>而流程化就是伪非标。</p>
+<p>我以前讲过一个判断标准：核心价值来自你这个人的组合，还是一套可以被复制的流程?</p>
+<p>是流程 → 伪非标，会被压价</p>
+<p>是组合 → 真非标，别人做不了</p>
+<p>留学中介、卖模板资料的等咨询服务，这些都是被低客单逼出来的伪非标。</p>
+<p>伪非标的终局，就是内卷，就是价格战。</p>
+<p>今天你收199，明天就有人收99，后天就有人敢买1块钱。没有护城河，你只有一个被不断压低的报价。</p>
+<p>而高客单的商业模式，天然要求真非标。</p>
+<p>客户付9800不是买一份资料，是买你的判断。判断没法复制，价格就守得住。</p>
+<p>低客单和真非标，在商业模式上是互斥的。</p>
+<p>05 低客单让你永远卖时间，沉淀不下产品</p>
+<p>一人公司最怕的状态，是一直靠本人硬扛。</p>
+<p>每个客户都重新沟通，每个问题都重新判断，每次交付都重新组织，每次成交都重新解释...</p>
+<p>亲测，真的挺累。</p>
+<p>这种状态下，收入可能不算低，但人会被锁死。</p>
+<p>能长期持续做下去的一人公司，应该把经验、判断、案例、流程、模板逐步沉淀下来：</p>
+<p>咨询沉淀成判断模型，交付沉淀成SOP，案例沉淀成内容，陪跑经验沉淀成标准节点...</p>
+<p>这样你卖的就不再是时间，是有复用能力的解决方案。</p>
+<p>但低客单可做不到这些。</p>
+<p>你想做深度交付都不行，利润不够，撑不起来。想沉淀经验方法SOP也不行，没有那个时间周期和厚度。</p>
+<p>最后你会陷在非常尴尬的状态：</p>
+<p>没赚到钱，还特别累。用户看起来挺多，但都质量极差。收入有一些，但业务没有复利。</p>
+<p>06 高客单不是定价问题，是结构问题</p>
+<p>高客单不是把价格抬高就行，是一整套结构:</p>
+<p>内容建立信任 → 问题筛选用户 → 产品承接需求 → 交付创造结果 → 案例反哺内容 → 复购和转介绍延长价值 → AI和知识库降低重复劳动</p>
+<p>这套结构对一人公司来说，是唯一的模式，必选项。</p>
+<p>它对应的特点是：小流量、深信任、真非标、高毛利、可复购。</p>
+<p>只要是知识服务的业务，不管你是什么行业，商业咨询、职场咨询、IP陪跑、女性成长、教育咨询等，都是适合的。</p>
+<p>这些行业，产品基本上就是这几种：课程、咨询、陪跑、圈子、代运营...</p>
+<p>符合这些条件，可以闭眼选这篇文章里讲的模式。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/9745)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23/9745">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">05:09</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/9743)" target="_blank">AI 可以很方便的洗稿，但可惜的是，有些细节，只有自己真的做了才会懂，特别是 SEO 这种特别注重实践经验的技艺，靠 AI 洗出来的东西是没有灵魂的，只是看起来是对的，但实际上经不住深究。</a></div>
+  <div class="card-summary"><hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/9743)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23/9743">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">05:09</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/9742)" target="_blank">抖音调整算法导致流量腰斩，微调了一下内容策略自救，结果点赞量没拉起来，评论蹭蹭涨，还得调。</a></div>
+  <div class="card-summary"><hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/9742)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23/9742">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">05:09</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/9741)" target="_blank">产品早期获取前 100 个用户，最有效的动作通常都很笨</a></div>
+  <div class="card-summary"><p>去 Facebook 群、LinkedIn 群、Subreddit、Quora、竞品差评区里一个个回复</p>
+<p>每天私信 10 个潜在用户</p>
+<p>做一个小工具、模板、水印、Powered By 链接，让用户顺手帮你传播</p>
+<p>早期增长别急着搭复杂系统，先把自己丢进用户已经聚集的地方，把前 100 个真实反馈捞出来。</p>
+<p>原图出自 igor 早前在出海去的一次内部分享，绝对值得收藏 打印出来放在桌边！</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/9741)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23/9741">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">06:13</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/20146)" target="_blank">随手拍一张产品图，就能一键生成三视图、精修主图、电商详情页，还能直接生成高质量广告片，快速应用到工作中，本次我将从上传产品图到生成宣传物料再到视频输出全流程演示，让你快速掌握这套工作流。</a></div>
+  <div class="card-summary"><hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/20146)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024">AI探索</a><a href="https://t.me/openclaw1024">Hermes/OpenClaw</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/aigc1024/20146">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@chunse1024</span>
+    <span class="time-tag">07:58</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/chunse1024/10373)" target="_blank">AI时代个体创业路径：</a></div>
+  <div class="card-summary"><p>1、如果你有本职工作，请先从副业开始</p>
+<p>2、先学会使用科学上网，再学会使用chatgpt，claude，gemini的御三家之一</p>
+<p>3、不要买任何课，但一定要买御三家任意一个会员，推荐chatgpt，因为有image-2的作图能力，可以解决很多引流问</p>
+<p>4、把你过往所有的经历，和你当下的想法，输入给ai</p>
+<p>5、让ai提供一些符合你的，低风险无成本创业方法</p>
+<p>6、问ai，客户是谁，他们在意什么，他们在哪儿聚集，该如何吸引客户</p>
+<p>7、让ai帮助你设计引流内容，image2出图</p>
+<p>8、发布内容，引流，设定失败目标，要求自己先失败100次（发100次内容找不到客户）</p>
+<p>9、设计销售术，售卖，成功后，找货，找服务</p>
+<p>10、交付，进入循环</p>
+<p>11、在这个过程中，不断把成果分享给ai，并询问ai，有什么可以优化的</p>
+<p>12、不断优化迭代，提高效率</p>
+<p>13、当自己的负载不够时，开始全职。考虑办个公司，申请个OPC场地，招俩学徒，继续扩展</p>
+<p>14、如果需求仍然很多，吃不下，考虑卖课，把模式卖出去，卖加盟，锁定好供应链做分销，这样降低了学徒工资的风险，还可以快速回笼资金</p>
+<p>15、不要把钱消费了，而是去买各种私董会，去破圈，提升认知</p>
+<p>16、找下一个机会，和你认可的人一同合作，继续循环</p>
+<p>错误创业路径：</p>
+<p>1、没有任何生意，先弄场地，雇人</p>
+<p>2、付费报课，加盟</p>
+<p>3、囤货</p>
+<p>动作顺序如果错了，就是高风险创业</p>
+<p>当风险高的时候，心态会扭曲，动作会变形</p>
+<p>保有这个顺序，期望你顺利创造自己的小事业</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/chunse1024/10373)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/chunse1024">优质「内容」</a><a href="https://t.me/meiriyishu">优质「资源」</a><a href="https://t.me/inside1024">你不知道的内幕消息🌳</a><a href="https://t.me/chunse1024/10373">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">08:10</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/20147)" target="_blank">塔勒布的箴言集太好看了，一口气读完。</a></div>
+  <div class="card-summary"><p>摘几句最喜欢的：</p>
+<ul>
+<li>
+<p>要是早晨起床时，你就能预测这一天会是什么样子，那么你已经开始靠近死亡了。预测得越准确，你离死亡就越近。</p>
+</li>
+<li>
+<p>只有当他们开始对你展开人身攻击时，你才算赢得了一场辩论。</p>
+</li>
+<li>
+<p>只有当你可以自由地做任何事情，不需要明显的目的、理由和别人的要求时，你才算真正存在于这世上。</p>
+</li>
+<li>
+<p>只有当拒绝手下一笔钱比收下这笔钱让你感觉更好时，你才算是富有。</p>
+</li>
+<li>
+<p>对效率的追求，是我们过上充满诗意的、高贵的、优雅的、富有活力的、英雄主义的生活的主要障碍。</p>
+</li>
+<li>
+<p>魅力就是侮辱别人又不让他们生气的能力。</p>
+</li>
+<li>
+<p>我们是猎人，我们只有在随机应变时才真正活着。没有日程安排，只有惊喜和刺激。</p>
+</li>
+<li>
+<p>用AI替他说话的人，他的话越来越多，听他话的人越来越少。</p>
+</li>
+<li>
+<p>许多人是如此缺乏独创精神，以至于他们需要去研究历史，寻找哪些错误</p>
+</li>
+</ul>
+<p>是自己可以重复的。</p>
+<ul>
+<li>
+<p>真正的爱是特殊性打败普遍性，并大获全胜。无条件打败有条件，并大获全胜。</p>
+</li>
+<li>
+<p>天才的想象力远超过他们的智力。</p>
+</li>
+<li>
+<p>人们对于自己没说出口的东西更有兴趣。</p>
+</li>
+<li>
+<p>理解事件的唯一方式，就是促使他们发生。</p>
+</li>
+</ul>
+<p>读到一半发现后半本竟然是英文原版，意外惊喜。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/20147)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/20147">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">09:17</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/9750)" target="_blank">Discord 可能是最被低估的社交平台。</a></div>
+  <div class="card-summary"><p>但对创作者、独立开发者、深度玩家来说，Discord 是最值得深耕的社区。</p>
+<p>很多人觉得它就是个聊天工具，加入几个服务器后发现玩不转，然后放弃。</p>
+<p>玩不转的原因很简单，我今天分享 4 个超实用实战经验，带你真正玩转Discord ！建议先收藏后阅读👇🏻</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/9750)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/yunying23/9750">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">10:12</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/78809)" target="_blank">如何做好爆款短视频？</a></div>
+  <div class="card-summary"><p>Meta最近发布了一份关于如何做好Reels短视频的文档。</p>
+<p>我帮大家总结出了几大要点，再结合我自己的洞察，希望对大家有帮助：</p>
+<ol>
+<li>娱乐性：短视频转化的核心在于非理性感官刺激。内容娱乐化永远是最好的选择。</li>
+</ol>
+<p>2.Text Overlays: 用静态文字制造预期，是拉长视频完播率的最好方式。</p>
+<p>3.UGC原生感：因为Meta本质上来说还是社交平台。内容越素越真实，用户才不会有被喂了广告的反感。</p>
+<p>4.使用绿屏：直接用绿屏对爆款视频进行二创，不仅极其容易规模化，也不用反复造轮子去测试选了。</p>
+<p>5.快节奏多帧：人类是节拍动物。应接不暇的画面+洗脑音乐节奏感 ，会让人忍不住反复观看。</p>
+<p>更多细节，欢迎大家加群直接下载原文档：</p>
+<p>https://discord.gg/sqAYvzKYp4</p>
+<p>自媒体/出海经验/赚美金/运营技巧</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/78809)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/78809">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">10:25</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/78811)" target="_blank">今天发现了一个扎心的真相：</a></div>
+  <div class="card-summary"><p>大部分人不是信息差，而是能力差</p>
+<p>最近，韭二哥</p>
+<p>服务协助了很多人注册了Google账号</p>
+<p>然后我韭多嘴问了一句</p>
+<p>“用起来了吗？”</p>
+<p>然后没有然后了</p>
+<p>今天陪女朋友玩豆包手机</p>
+<p>于是哆啦A梦告诉大家：</p>
+<p>1⃣有工具不会用，和没有工具一样</p>
+<p>2⃣信息差是短暂的，别过分追逐它</p>
+<p>3⃣能力是本金，信息差是利息，别因小失大</p>
+<p>4⃣会学习的人，永远不会被淘汰</p>
+<p>私人优质信息收藏夹</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/78811)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/78811">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@meiriyishu</span>
+    <span class="time-tag">10:55</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/meiriyishu/1173)" target="_blank">外网爆火：1.7亿人疯传，油管大神Dan Koe的万字长文</a></div>
+  <div class="card-summary"><p>如何在一天内彻底改变你的人生【中英文翻译版】</p>
+<p>————</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/meiriyishu/1173)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质内容</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/meiriyishu/1173">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">11:16</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/20150)" target="_blank">说实，今天看到这个，我直接把手里所有其他AI记忆方案全停了🤩🤩🤩</a></div>
+  <div class="card-summary"><p>YC总裁Garry Tan，把自己天天在用的生产级AI Agent记忆系统，完整开源了</p>
+<p>这是他自己跑了很久的真实配置，管着10000+Markdown文件，3000+人物档案，13年的日历数据，5800条苹果笔记，还有所有的会议记录、原创想法</p>
+<p>现在他把这套东西打包成了GBrain，MIT协议，所有人都可以免费抄作业</p>
+<p>github 地址老规矩这里自取👇</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/20150)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024">AI探索</a><a href="https://t.me/openclaw1024">Hermes/OpenClaw</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/aigc1024/20150">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">11:23</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/9751)" target="_blank">《华尔街之狼》里面出现了两位用生理功能做交易的高手</a></div>
+  <div class="card-summary"><p>一个是马修麦康纳演的 Mark Hanna，有交易之前先打✈️，会释放内啡肽和催产素，让人心境平和、头脑清晰，更容易做出理性决策。​​​​​​​​​</p>
+<p>一个是小李子演的 Jordan Belfort，这个绝招电影里没演，他在书里写了</p>
+<p>每次成交大客户的时候，把提前准备好的具有特殊香气的东西拿出来闻一闻</p>
+<p>人对嗅觉符号的记忆很敏感，会把这个气味和这种令人振奋的感觉联系起来</p>
+<p>下次有重大交易的时候，提前闻一下这个味道，让自己一秒回到金牌销售的言谈举止状态</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/9751)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/yunying23/9751">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@text1024</span>
+    <span class="time-tag">11:43</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/text1024/23030)" target="_blank">不管是想转型、搞副业，还是学生党想提前规划，《自由职业者生存手册》这本书都挺合适的。</a></div>
+  <div class="card-summary"><p>案例库和自检清单也很实用，跟着一步步来，从自己干到团队化运营都有方向。 这本书的📖分享⬇链接🔗👉https://pan.quark.cn/s/4bc284722fc0</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/text1024/23030)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/text1024">副业搞钱</a><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/chunse1024">优质内容</a><a href="https://t.me/text1024/23030">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">13:14</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/20151)" target="_blank">藏师傅的 PPT Skills，感觉 GitHub star 马上就要破万了呀！</a></div>
+  <div class="card-summary"><p>没点 star 的朋友点点 star 吧，谢谢了。</p>
+<p>顺便让 Codex 分析了一下安装的数据，还挺有意思的。</p>
+<p>这里尝试：github.com/op7418/guizang-ppt-skill</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/20151)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/20151">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@chunse1024</span>
+    <span class="time-tag">13:14</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/chunse1024/10376)" target="_blank">小红书卖绝版电子书实战，日峰值收益破千拆解</a></div>
+  <div class="card-summary"><p>核心思路不是拼资源数量，而是抓稀缺需求与搜索流量。课程把选定位、关键词布局、笔记结构和点赞转化路径一步步拆开讲。</p>
+<p>同时也提到合规与风险边界，更适合当作内容变现模型的案例参考。</p>
+<p>优质「资源⏬」收藏夹👇</p>
+<p>优质「信息✉️」收藏夹👇</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/chunse1024/10376)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/chunse1024/10376">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">14:25</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/9752)" target="_blank">二伯在深圳卖韭菜盒子，一年攒下了十万块</a></div>
+  <div class="card-summary"><p>这个老实本分的汉子自打我堂哥生下，就从没闲过</p>
+<p>堂哥读高中时需要花钱补课，伯母又病倒了</p>
+<p>家庭的重担只能他独自来扛</p>
+<p>凌晨四点的哈尔滨，天还黑着他就得爬起来送牛奶</p>
+<p>这可是东北的凌晨，冷得刺骨，黑得骇人</p>
+<p>送完周边的三个小区后，再推着大号三轮车去早市卖油饼</p>
+<p>忙活一上午，睡个午觉，醒了就去帮老丈人照看水果摊</p>
+<p>回来和好面，准备好食材，准时睡觉</p>
+<p>这样辛劳一天下来，能勉强维持生活</p>
+<p>去年是他来深圳的第二个年头，他感慨地和我说</p>
+<p>“深圳是个好地方，努力就会有回报。”</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/9752)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/yunying23/9752">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">15:18</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/20152)" target="_blank">今年有个最大的认知转变， 那就是先学会花钱。</a></div>
+  <div class="card-summary"><p>有些东西你必须舍得花钱才能打开视野， 才看见那些需要门槛才能见到的东西。</p>
+<p>当你看到了， 你自然就知道这钱该怎么花、应该怎么挣。</p>
+<p>能用钱就能获得的认知，实际上就是最划算的。</p>
+<p>举几个例子</p>
+<p>山姆会员的例子：</p>
+<p>比如之前一直都是山姆200块的会员， 去年把自己升级成了卓越会员， 年费不但返回来了， 还收获了品质， 我还深入了的解了山姆会员店的经营模式，也让我明白了为什么现在不管是大店还是小店，都喜欢搞会员制这种模式了， 而且这个会员费一定不能免费送，必须要用户付钱。</p>
+<p>AI算力和saas付费</p>
+<p>此外， 就是大方的把钱花在AI算力上， 从而更加自由利用AI实践自己很多的想法， 一年总的算下来， 也没有多少钱， 但是这点点花费， 让我用极低成成本去尝试我那些不靠普的想法。</p>
+<p>vercel 、supabase 的基础会员费 ，发布一个新的项目越来越快，也不用我花时间去维护。</p>
+<p>X 的Premium+ 的会员费</p>
+<p>今年 Premium+ 会员费没有优惠，年费还是挺多的，不过每个月我从X那里领到创作者收益至少这个年费的近10倍。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/20152)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024">AI探索</a><a href="https://t.me/openclaw1024">Hermes/OpenClaw</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/aigc1024/20152">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">16:29</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/9754)" target="_blank">2、新西兰 Skinny Sim 卡。</a></div>
+  <div class="card-summary"><p>这张卡无需实名认证，无任何月租。第一年使用无需充值。保号的，可以通过和朋友互赠1刀，也可以每年充值5刀。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/9754)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/yunying23/9754">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">16:39</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/20157)" target="_blank">Codex 终于支持手机上的 ChatGPT 远程控制了！</a></div>
+  <div class="card-summary"><p>可以自动同步你绑定的 Codex 设备上的所有对话，而且可以直接发送指令、审批权限、监控进度。</p>
+<p>我写一下设置的教程：</p>
+<ol>
+<li>
+<p>点击桌面端 Codex 客户端左侧的“设置 Codex 移动版”，点击后系统会引导你开始设置。</p>
+</li>
+<li>
+<p>如果你的 ChatGPT 没有设置多重因素验证（MFA），系统会弹出网页要求你设置。这里推荐使用 Google Authenticator（谷歌身份验证器）App，不要用手机短信。</p>
+</li>
+<li>
+<p>系统会要求你使用手机 ChatGPT 客户端扫码。如果你直接打开手机端 App，它通常会弹出授权请求，直接点击允许即可，不扫码也是可以的。</p>
+</li>
+<li>
+<p>绑定完成后即可开始使用。你会在手机 ChatGPT 上看到一个 Codex 侧边栏，进去后能看到当前绑定的桌面端设备的所有 Codex 对话。你可以点击进入任意对话并发送命令让它执行。</p>
+</li>
+</ol>
+<p>注意：目前仅支持 Mac 版 Codex，Windows 版本还在开发中。</p>
+<p>OpenAI 在封号上没有 Anthropic 那么激进和傻逼，所以你可以放心用。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/20157)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/20157">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">16:58</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/9755)" target="_blank">前两个月上的一个ai工具站，做的一个老词，买了大概5个导航站付费外链，其他的都是免费的，目前偶尔能出几单，谷歌流量几乎没有，都是gpt来的。后面也不准备付费买外链了，我打算就堆免费外链，准备堆到500+，甚至上千个。就是想测试下免费外链靠数量做老词到底行不行...接下来2周准备再做一个网站，也是老词，准备堆付费外链，也是测试下堆付费外链到底行不行，要堆多少才能行</a></div>
+  <div class="card-summary"><p>我到目前为止，外链带给我的反馈极少，不知道是执行不到位还是什么其他因素，所以这次就想一条路走到底看看到底行不行</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/9755)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23/9755">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">18:19</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/9757)" target="_blank">一个能出单的广告素材，应该至少具备这几点：</a></div>
+  <div class="card-summary"><ol>
+<li>色彩抓人眼球</li>
+</ol>
+<p>2.标简单直接说人</p>
+<p>3.文案反直觉</p>
+<p>4.只说一个核心卖点</p>
+<ol start="5">
+<li>Call to action明确</li>
+</ol>
+<p>更多出海干货，欢迎订阅：</p>
+<p>https://global-101.com</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/9757)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/yunying23/9757">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@text1024</span>
+    <span class="time-tag">18:26</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/text1024/23031)" target="_blank">一个网盘拉新的新玩法，在B站上传擦边视频，然后在这里放上网盘链接。</a></div>
+  <div class="card-summary"><p>视频的来源都很多，比如Ins，Tiktok等等，或者直接用AI批量生产。</p>
+<p>这个思路也可以延伸到小红书上，批量生产AI美女图片/视频，然后引流到私域分享写真集之类的。</p>
+<p>好色是人的天性，这类资料的留存率都很高，收益是同类型里最高的。</p>
+<p>相应的资料我已经准备好了，直接发就行👇</p>
+<p>https://pan.quark.cn/s/ff4dbaca21d5</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/text1024/23031)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/text1024">副业搞钱</a><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/chunse1024">优质内容</a><a href="https://t.me/text1024/23031">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">19:31</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/20159)" target="_blank">Lex Fridman 居然来中国了，就背个包。</a></div>
+  <div class="card-summary"><p>也会跟国内的 AI 工程师录播客，不知道是哪几家，他的量还是很猛的</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/20159)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/20159">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@text1024</span>
+    <span class="time-tag">22:14</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/text1024/23034)" target="_blank">又一个找到“BUG”爆赚的一人公司</a></div>
+  <div class="card-summary"><p>一个人，用AI卖袜子，30天狂赚1900万美金 看起来是卖袜子，本质是——跑系统 如果看懂这东西模式其实可以无限复制拓展</p>
+<p>今日感慨：赚钱的尽头，犹如游戏打金 要找到可以无限复制的“BUG” 来源：Reeze的ai笔记（YouTube）</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/text1024/23034)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/text1024">副业搞钱</a><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/chunse1024">优质内容</a><a href="https://t.me/text1024/23034">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">22:16</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/9759)" target="_blank">还得是 VLESS REALITY</a></div>
+  <div class="card-summary"><p>为什么不应该使用 Shadowsocks、VMess等不具有"客户端配置安全"的加密方式:</p>
+<p>⋅ 2025年第五届全国刑事技术技能比武个人赛目中，出现了关于 VLESS 代理的取证目</p>
+<p>⋅ 公安部将 VLESS 纳入考试内容，中国电信此前也将 Xray-core 塞进 APP</p>
+<p>一旦密码泄露即可解密所有历史及跨设备流量，所以应采用具有临时密钥交换和非对称认证的 VLESS/XTLS/REALITY等协议。</p>
+<p>https://github.com/XTLS/BBS/issues/2</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/9759)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/yunying23/9759">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">23:22</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/20163)" target="_blank">这个 SKILL 文件称之为 taste skill：https://github.com/Leonxlnx/taste-skill/blob/main/SKILL.md</a></div>
+  <div class="card-summary"><p>各种 AI slop 的页面太多了，现在产品的 “taste” 是最稀缺的，想写有品味的前端设计的都可以使用一下。</p>
+<p>总结的非常棒，从字体/配色/布局/卡片进行约束，各种</p>
+<p>anti slop 的规则，各种高级动效与微交互，非常丰富。</p>
+<p>还总结了 100 条 AI 常见低级模式</p>
+<p>什么最垃圾的渐变字体 超大 h1 都在里面</p>
+<p>很值得收藏</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/20163)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024">AI探索</a><a href="https://t.me/openclaw1024">Hermes/OpenClaw</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/aigc1024/20163">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">23:29</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/78836)" target="_blank">绿洲资本创始人张津剑专注AI，据说是东八区投AI最猛的投资人。他应该是中国最年轻也可能是最后一位美元VC基金创始人（后面可能就不会有新的美元基金了，Vintage/年份问，大家都懂）。我做analyst的时候，有幸面试了他，邀请他成为我们的intern。很高兴这次和老友做了一期节目。他分享到：“1.</a></div>
+  <div class="card-summary"><hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/78836)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024/78836">查看原文</a></div></div>
+</div></div>
+
+    <div class="footer">TG 频道日报 · 自动生成</div>
+</div>
+
+</body>
+</html>
