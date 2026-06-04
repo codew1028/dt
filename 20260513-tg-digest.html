@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>TG 频道日报</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background: #060814;
+    color: #e8eaf0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    min-height: 100vh;
+    display: flex; justify-content: center;
+}
+
+a { color: #6ea0ff; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.main-wrap {
+    width: 100%;
+    max-width: 860px;
+    padding: 48px 40px 80px;
+}
+
+.hero {
+    padding-bottom: 36px;
+    margin-bottom: 36px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.hero-vol { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; color: #6ea0ff; margin-bottom: 10px; }
+.hero-title { font-size: 38px; font-weight: 800; line-height: 1.15; color: #fff; margin-bottom: 10px; }
+.hero-date { font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 16px; }
+.hero-stats { display: flex; gap: 28px; }
+.stat-item { display: flex; flex-direction: column; gap: 2px; }
+.stat-num { font-size: 22px; font-weight: 700; color: #fff; }
+.stat-label { font-size: 11px; color: rgba(255,255,255,0.35); letter-spacing: 0.08em; text-transform: uppercase; }
+
+.section { margin-bottom: 40px; }
+.section-head {
+    display: flex; align-items: baseline; gap: 16px;
+    margin-bottom: 20px; padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.section-num { font-size: 28px; font-weight: 800; color: rgba(255,255,255,0.07); line-height: 1; }
+.section-title { font-size: 17px; font-weight: 700; color: #fff; }
+.section-count {
+    margin-left: auto; font-size: 11px; font-weight: 600; color: #6ea0ff;
+    background: rgba(110,160,255,0.12); padding: 2px 8px; border-radius: 20px;
+}
+
+.card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 12px; padding: 18px 22px; margin-bottom: 12px;
+    transition: border-color 0.2s, background 0.2s;
+}
+.card:hover { border-color: rgba(110,160,255,0.3); background: rgba(110,160,255,0.04); }
+
+.card-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.channel-tag {
+    font-size: 12px; font-weight: 600; color: #fff;
+    background: rgba(110,160,255,0.25); padding: 2px 8px; border-radius: 20px; white-space: nowrap;
+}
+.time-tag { font-size: 12px; color: rgba(255,255,255,0.35); }
+
+.card-title {
+    font-size: 15px; font-weight: 700; color: #fff;
+    margin-bottom: 8px; line-height: 1.5;
+}
+.card-title a { color: inherit; }
+.card-title a:hover { color: #6ea0ff; text-decoration: none; }
+
+.card-summary {
+    font-size: 14px; color: rgba(255,255,255,0.6);
+    line-height: 1.8;
+}
+.card-summary p { margin-bottom: 6px; }
+.card-summary p:last-child { margin-bottom: 0; }
+
+.card-footer {
+    margin-top: 10px; display: flex; align-items: center;
+    gap: 12px; flex-wrap: wrap;
+}
+.source-link { font-size: 12px; color: rgba(255,255,255,0.35); }
+.source-link::before { content: "🔗 "; }
+.channel-links { margin-left: auto; font-size: 11px; color: rgba(255,255,255,0.25); }
+.channel-links a { color: rgba(255,255,255,0.3); margin-right: 6px; }
+.channel-links a:hover { color: #6ea0ff; }
+
+.brief-text { font-size: 15px; color: rgba(255,255,255,0.75); line-height: 1.7; }
+
+pre { background: rgba(0,0,0,0.4); border-radius: 8px; padding: 16px; overflow-x: auto; font-size: 13px; }
+code { font-family: "SF Mono", Consolas, monospace; font-size: 0.88em; }
+p code { background: rgba(110,160,255,0.1); color: #9ec5ff; padding: 1px 6px; border-radius: 4px; }
+
+.footer {
+    text-align: center; font-size: 12px; color: rgba(255,255,255,0.2);
+    padding: 30px 0 20px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .main-wrap { padding: 28px 20px 60px; }
+    .hero-title { font-size: 26px; }
+}
+</style>
+</head>
+<body>
+
+<div class="main-wrap">
+    <div class="hero">
+        <div class="hero-vol">VOL.20260513</div>
+        <h1 class="hero-title">TG 频道日报</h1>
+        <div class="hero-date">2026年05月13日 · 星期三 · 3 个频道 · 12 条内容</div>
+        <div class="hero-stats">
+            <div class="stat-item"><span class="stat-num">12</span><span class="stat-label">条内容</span></div>
+            <div class="stat-item"><span class="stat-num">3</span><span class="stat-label">个频道</span></div>
+        </div>
+    </div>
+
+    <div class="section"><div class="section-head"><span class="section-num">01</span><span class="section-title">TG 频道精选</span><span class="section-count">12 条</span></div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">01:36</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/20099)" target="_blank">给大家表演一个空中转体720度接变身😂</a></div>
+  <div class="card-summary"><hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/20099)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024">AI探索</a><a href="https://t.me/openclaw1024">Hermes/OpenClaw</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/aigc1024/20099">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">06:13</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/20100)" target="_blank">OpenClaw 最近突然爆火，</a></div>
+  <div class="card-summary"><p>Claude 也在一轮一轮更新。</p>
+<p>很多人一边看一边焦虑：</p>
+<p>感觉不学就要落后了，</p>
+<p>但真要开始，又不知道从哪下手。</p>
+<p>其实不用想得太复杂。</p>
+<p>如果是完全从 0 开始，我会建议先走一条很简单的路。</p>
+<p>先把基础摸一下。</p>
+<p>一个是 Anthropic 的课程</p>
+<p>https://anthropic.skilljar.com/</p>
+<p>里面先看两个就够：</p>
+<p>Claude 101</p>
+<p>AI Fluency</p>
+<p>再看 Google 的 AI 课程</p>
+<p>https://grow.google/ai/</p>
+<p>先学：</p>
+<p>Prompting Essentials</p>
+<p>AI Essentials</p>
+<p>这些看完，其实就算有个基本概念了。</p>
+<p>接下来最重要的一步不是继续看教程，</p>
+<p>而是直接开始用 AI 学 AI。</p>
+<p>我当时做了一件很简单的事：</p>
+<p>在 Claude 里新建一个项目，名字叫 AI tutor。</p>
+<p>然后给它一句提示：</p>
+<p>你是我的 AI 导师。我对 AI 几乎一无所知，请帮我设计一个 30 天学习计划，并帮我记录学习进度。</p>
+<p>接下来就按它给的计划走。</p>
+<p>不用花很多时间，</p>
+<p>每天 30 分钟就够。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/20100)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024">AI探索</a><a href="https://t.me/openclaw1024">Hermes/OpenClaw</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/aigc1024/20100">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">07:28</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/20101)" target="_blank">花了大半天把张小珺访谈姚顺宇的4小时长访听了一遍。这位去年刚从Anthropic跳到Google DeepMind的哥们，参与过Claude 3.7/4.5和Gemini 3。他给了很多实诚的头部大模型一线研究员的视角。访谈信息密度相当高。说几条我觉得最有意思的：</a></div>
+  <div class="card-summary"><ol>
+<li>
+<p>Google禁止员工用Claude Code，但姚顺宇保守估计自己90%代码是AI生成的。不保守估计99%甚至100%。一个清华加斯坦福的物理博士、顶级大模型研究员都靠AI写代码，再有人说自己不能用AI写代码，别特么给自己脸上贴金了。但反过来想，Google连内部都不让用CC和Codex，员工效率得受多大影响啊，这家公司真挺神奇的。</p>
+</li>
+<li>
+<p>他离开Anthropic的原因里，反对Dario反华占40%。他自己说这不是首要但确实是大原因。他很烦Dario那套「我们必须拥有最强模型才能推AI安全」的逻辑。圈里敢直接喷半年前老东家的人确实不多。</p>
+</li>
+<li>
+<p>Claude 3.5/3.6/3.7的命名是个草台班子般的乌龙。Anthropic早期产品力极弱，「居然管两个模型叫一个名字」，外界为了区分自发叫3.6，Anthropic后来跟随社区习惯把下一个叫3.7。我之前一直以为3.6是个跳过的版本号。</p>
+</li>
+<li>
+<p>Claude Code是「个人英雄主义的开端」。一个叫Boris的研究员自己想做提效工具，后来变成Anthropic最重要的产品之一。完全是bottom-up长出来的，不是规划出来的。</p>
+</li>
+<li>
+<p>Anthropic创始团队一个人都没离开。来自OpenAI的那批核心是一起打过仗的，这才是top-down文化能跑通的根。对比OpenAI高管走光，姚顺宇似乎挺鄙视OpenAI的企业文化和部分高管。</p>
+</li>
+<li>
+<p>OpenAI救了Google一命。逻辑挺反共识：如果ChatGPT一鼓作气把search吃了，Google就完了；正因为做出可能性又没做到极致，反而留了Google反击时间。</p>
+</li>
+<li>
+<p>AI行业最重要的特质不是脑子，是靠谱。原话「那些东西多多脑子，本科生就能干」。一个物理博士说这话，算降维打击，也算给所有想转AI的人吃颗定心丸。</p>
+</li>
+<li>
+<p>他觉得程序员的未来是1/1000拿100倍工资。不是「程序员消失」，是「极度中心化」。绝大多数失去独特价值，少数顶级爆赚。</p>
+</li>
+<li>
+<p>他觉得现在很多人说的Scaling Law撞墙，多数是自己代码Bug。原话「修一个Bug带来的进展，远大于一些很神奇的技巧」。预训练在过去几个月还在变强，跟外界「预训练已死」的叙事完全相反。</p>
+</li>
+<li>
+<p>绝大多数New Lab都会死。</p>
+</li>
+</ol>
+<p>听完最大的感受是：这哥们说话真的没在留情面，又喷Anthropic又喷OpenAI又喷各种「老登」。但他敢喷的底气挺清楚，既不在SSI那条路上，也不靠LP吃饭。他自己原话说的是：「我这个行业又没什么导师又没什么旧友，我当然想喷谁喷谁。」</p>
+<p>以及，他在说估计自己也不会在Google待太久，把这话在播客里说出来，我觉得国内头部大模型公司可以去抢一波人了。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/20101)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/20101">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">08:49</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/20102)" target="_blank"># 字节跳动的 AI 编程团队，推荐了这 10 个 Skills</a></div>
+  <div class="card-summary"><hr />
+<p>上个月字节 TRAE 团队发布了一本《2026 企业级 AI 编程实践手册》，里面有一份 Skills Top 10 排行榜。这是目前我看到的第一份来自大厂的 Agent Skills 推荐清单。</p>
+<p>先说背景。TRAE 是字节基于 Doubao-Seed-2.0-Code 模型做的企业级 AI 编程工具，定位是「真正的 AI 工程师」——不只是帮你补全代码，是自主拆需求、做任务规划、写代码、跑测试、部署，全流程。</p>
+<p>他们内部大规模使用 Agent 之后，沉淀出了这 10 个最常用的 Skills。排名有先后：</p>
+<ol>
+<li>
+<p>frontend-design —— 前端设计。为什么排第一？因为 AI 写的 UI 真的太丑了。这个 Skill 教 AI 什么是好的设计。</p>
+</li>
+<li>
+<p>cache-components —— 组件缓存。让 AI 复用已生成的组件，而不是每次都重新造。省 token，也省时间。</p>
+</li>
+<li>
+<p>fullstack-developer —— 全栈开发。给 AI 一个全栈开发者的心智模型：前后端一起考虑，数据流怎么走，API 怎么设计。</p>
+</li>
+<li>
+<p>frontend-code-review —— 前端代码审查。</p>
+</li>
+<li>
+<p>code-reviewer —— 通用代码审查。注意：前 5 名里有两个 review Skill。说明字节很重视 AI 写出来的代码质量——不是能跑就行。</p>
+</li>
+<li>
+<p>webapp-testing —— Web 应用测试。</p>
+</li>
+<li>
+<p>pr-creator —— 自动创建 PR。写完代码 → 自动提 PR，省一步。</p>
+</li>
+<li>
+<p>fix —— Bug 修复。专门用来处理「这里有个 bug，帮我修」。</p>
+</li>
+<li>
+<p>update-docs —— 文档更新。代码改了，文档自动跟上。</p>
+</li>
+<li>
+<p>find-skills —— 发现 Skills。这个最特别——让 AI 自己去搜索和推荐 Skills。</p>
+</li>
+</ol>
+<p>看完这个清单，有几个观察：</p>
+<p>第一，设计类 Skill 排第一不是偶然。字节的人显然被 AI 生成的紫色渐变和圆角卡片折磨够了。任何人只要用过 AI 写前端，就知道 frontend-design 为什么是刚需。</p>
+<p>第二，Top 10 里有两个 review Skill 和一个 testing Skill。这说明字节对 AI 代码的策略是「写得多不如写得对」——和 SkillsBench 那篇论文的结论一致：好 Skills 能提升 51%，差 Skills 能拉低 39%。</p>
+<p>第三，find-skills 这个 Skill 很有意思。它本质是一个元技能（meta-skill）——让 AI 自己去发现还需要什么技能。这个思路和 EvoSkill 的「自动进化」一脉相承：最好的 Skills 配置不是人写的，是 AI 在实践中自己找出来的。</p>
+<p>如果你在用 Claude Code 或 Codex，这份清单可以直接照搬。前 5 个装上去，你的 Agent 就已经有了大厂级别的 Skills 配置。</p>
+<p>手册全文：https://lcnziv86vkx6.feishu.cn/wiki/XZOSwI51wi5a5okxCF4cAxHSnBh</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/20102)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/20102">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">10:12</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/78735)" target="_blank">在手机上设置“静态住宅 IP”最全教程（Shadowrocket 版）</a></div>
+  <div class="card-summary"><p>——给所有认真做号的人避坑用的。</p>
+<p>先说结论：</p>
+<p>你的账号安全，50% 取决于 IP 质量。</p>
+<p>我之前的大号被封，很大概率就是因为：</p>
+<p>用了“万人骑”式垃圾节点。</p>
+<p>今晚查了一下自己的节点情况，直接吓醒：</p>
+<p>风险爆表、用户共享几十万、基本等于裸奔。</p>
+<p>然后我立刻去研究、看教程、问 AI、实测……</p>
+<p>终于整个流程跑通了，现在把最干的步骤整理给你👇</p>
+<p>⸻</p>
+<p>📌 为什么必须用「静态住宅 IP」？</p>
+<p>因为非常看重三件事：</p>
+<p>1.IP 是否干净</p>
+<p>2.IP 是否稳定（不乱跳）</p>
+<p>3.IP 是否像真实用户，而不是机场节点</p>
+<p>如果你注册号、登录号、切换号</p>
+<p>都在同一个“万人骑”共享节点下完成，</p>
+<p>恭喜：</p>
+<p>系统直接判你为 高风险用户。</p>
+<p>静态住宅 IP 的意义就是：</p>
+<p>•独享、不共享</p>
+<p>•不跳变</p>
+<p>•看起来更像真实家庭宽带</p>
+<p>•养号无敌稳</p>
+<p>延迟高一点没关系，用来养号最安全。</p>
+<p>⸻</p>
+<p>📱手机端（Shadowrocket）设置流程</p>
+<p>① 购买一个“静态住宅 IP”</p>
+<p>（购买渠道我放在附贴）</p>
+<p>买到后你会得到四个信息：</p>
+<p>•IP 地址</p>
+<p>•端口</p>
+<p>•用户名</p>
+<p>•密码</p>
+<p>⸻</p>
+<p>② 打开 Shadowrocket → 点击右上角「＋」</p>
+<p>协议一般选择 HTTP 或 HTTPS，</p>
+<p>然后把刚买到的参数按顺序填进去：</p>
+<p>•Host：IP</p>
+<p>•Port：端口</p>
+<p>•Username：必须填（不填会没流量）</p>
+<p>•Password：密码</p>
+<p>⸻</p>
+<p>③ 设置出口流量（非常关键）</p>
+<p>在页面下方找到：</p>
+<p>“代理通过” → 添加一个机场节点</p>
+<p>注意：</p>
+<p>你用的节点是哪国无所谓，</p>
+<p>因为出口最终会固定到你的静态住宅 IP。</p>
+<p>⸻</p>
+<p>④ 保存 → 连通性测试</p>
+<p>•点一下“连通性测试”</p>
+<p>•再访问 Google / YouTube 验证下</p>
+<p>•能正常打开就说明配置成功</p>
+<p>到这里，你的手机已经跑在“住宅 IP”上了。</p>
+<p>⸻</p>
+<p>⚠️ 注意事项（很重要！）</p>
+<ol>
+<li>为什么一定要用静态住宅 IP？</li>
+</ol>
+<p>因为会把共享节点视为：</p>
+<p>•机器人</p>
+<p>•脚本</p>
+<p>•批量注册</p>
+<p>•风险用户</p>
+<p>尤其是新号，一上来就被封，就是 IP 问。</p>
+<p>⸻</p>
+<ol start="2">
+<li>静态住宅 IP 延迟普遍偏高</li>
+</ol>
+<p>所以只能用来：</p>
+<p>•登录</p>
+<p>•养号</p>
+<p>•平稳使用</p>
+<p>不建议用来撸毛、刷流量。</p>
+<p>⸻</p>
+<p>🧰 四个常用 IP 风险检测工具</p>
+<p>① 风险评分（参考项）</p>
+<p>https://ping0点cc/ip/</p>
+<p>可看风险等级，但准确性一般。</p>
+<p>② 风险评分（推荐）</p>
+<p>https://scamalytics点co</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/78735)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/78735">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">11:16</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/20105)" target="_blank">有人将数学曲线方程转化成了加载动画。玫瑰曲线、利萨如曲线漂移、蝴蝶相位、内摆线环，全部以粒子轨迹的形式呈现。数学一直都是美丽的。只是有人让它变得更有用了。</a></div>
+  <div class="card-summary"><hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/20105)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024">AI探索</a><a href="https://t.me/openclaw1024">Hermes/OpenClaw</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/aigc1024/20105">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">11:23</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/9708)" target="_blank">你要是稍微懂点网络知识，</a></div>
+  <div class="card-summary"><p>也懂一点AI技术。</p>
+<p>再稍微会点建站的本事，</p>
+<p>随手就能搭一个商业、财经、金融类的英文网站。</p>
+<p>平时天天用AI写文章，往网站上发一大堆内容。</p>
+<p>然后去各大社交平台，</p>
+<p>要么发评论、要么发帖子，把自己的网站给露出去。</p>
+<p>接着谷歌搜索爬虫就爬到了你的外链，</p>
+<p>谷歌也就把你的网站收录记下来了。</p>
+<p>你天天坚持给网站更内容，</p>
+<p>而且每天更新的量还不少，</p>
+<p>关键更新的全都是原创内容。</p>
+<p>谷歌爬虫也就天天来爬你的网站。</p>
+<p>过了15天，你会发现网站PR值涨上去了，</p>
+<p>在谷歌搜索页面也经常能搜到你的文章。</p>
+<p>一个月之后，网站每天访客能有一两百人，</p>
+<p>你顺便在网站挂上谷歌联盟的推广账号，</p>
+<p>发现每次点击收益都有四五美元以上。</p>
+<p>再慢慢用心运营，把网站做到日均访客一千人以上。</p>
+<p>这时候每天收入差不多能有100美金左右。</p>
+<p>就这么踏踏实实坚持做六个月，</p>
+<p>网站每天稳定访客也能有一千人上下，</p>
+<p>日收入直接涨到两三百美元。</p>
+<p>网站做上一年多，</p>
+<p>每天访客能冲到两三千人以上。</p>
+<p>之后干脆雇一两个员工帮忙打理，</p>
+<p>一年半下来，网站日常流量稳定在四五千人。</p>
+<p>到那时候你就会发现，二线城市的房价其实没多夸张。</p>
+<p>后面再照着套路复刻做很多同类网站，</p>
+<p>每个网站访客都能做到两三千到七八千人不等。</p>
+<p>慢慢你就会觉得，北京、上海的房价，也就那样而已。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/9708)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/yunying23/9708">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">15:18</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/20106)" target="_blank">想玩明白Claude Code，看这篇入门资源合集就够了</a></div>
+  <div class="card-summary"><p>Claude Code就是一个拥有无限智能的超级助手</p>
+<p>人都会有好点子，但因为各种限制无法变成实际成果</p>
+<p>有了CC，普通人只需要用大白讲清需求</p>
+<p>操作交给它，不论是工作上的任务还是自己编程做项目都能搞定</p>
+<p>1.最全面中文教程，从安装下载到基础使用</p>
+<p>再到更高级的综合实战项目等高级玩法一应俱全</p>
+<p>https://github.com/shareAI-lab/learn-claude-code/tree/main</p>
+<p>2.核心概念，五分钟让你知道核心概念与工作原理</p>
+<p>https://github.com/luongnv89/claude-howto</p>
+<p>3.基础命令与交互技巧</p>
+<p>https://github.com/luongnv89/claude-howto</p>
+<p>4.Claude Code skills库，有了这些技能，就可以直接让CC变成专业工程师、代码开发团队、市场营销员</p>
+<p>https://github.com/alirezarezvani/claude-skills</p>
+<p>5.实用技巧合集+工具包，让你把CC用的更好更高效</p>
+<p>https://github.com/ykdojo/claude-code-tips</p>
+<p>6.顶级技能库，包括自动化工作流、核心工作技能、安全审计等</p>
+<p>https://github.com/hesreallyhim/awesome-claude-code</p>
+<p>7.实用技能库</p>
+<p>https://github.com/ComposioHQ/awesome-claude-skills</p>
+<p>8.中文版实战教程与使用教程</p>
+<p>https://github.com/KimYx0207/Claude-Code-x-OpenClaw-Guide-Zh</p>
+<p>9.常见问故障排除</p>
+<p>https://github.com/Cranot/claude-code-guide</p>
+<p>如果你想看视频学习的可以看我引用的推文，中文的完整教学视频</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/20106)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024">AI探索</a><a href="https://t.me/openclaw1024">Hermes/OpenClaw</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/aigc1024/20106">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">17:39</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/20108)" target="_blank">OpenClaw🦞路演现场看到了当年加密狂牛的场景…</a></div>
+  <div class="card-summary"><hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/20108)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024">AI探索</a><a href="https://t.me/openclaw1024">Hermes/OpenClaw</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/aigc1024/20108">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">17:58</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/20111)" target="_blank">“给一个人装上传感器，他就是机器人”</a></div>
+  <div class="card-summary"><p>终于有人和我一样的看法，人类应对AI 冲击的唯一办法就是与之融合，与其等待机器人越来越像人，不如人类主动升级为“机器人”</p>
+<p>因此在人类身体上做AI硬件的都是这个赛道，可以把这种方式叫做“肉身机器人”，对标“具身机器人”🤖️</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/20111)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/20111">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">18:56</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/9715)" target="_blank">推荐一个免费的 AI SEO 审计工具：freeaiseoaudit.com</a></div>
+  <div class="card-summary"><p>输入你的域名，它会从 AI 引擎可见性的角度分析你的页面，不只是传统 SEO，而是针对 ChatGPT、Claude、Perplexity 这类 AI 搜索的优化建议。</p>
+<p>检测维度包括：</p>
+<p>• 技术可爬性（AI 爬虫能否正确抓取页面）</p>
+<p>• 内容结构（段落、标题层级、FAQ 格式是否适合 AI 引用）</p>
+<p>• 结构化数据（JSON-LD / schema 是否完整）</p>
+<p>• E-E-A-T 权威信号（品牌可信度、About 页面等）</p>
+<p>• 站外引用覆盖（是否关联了 GitHub、评测平台等权威来源）</p>
+<p>我拿自己的站跑了一下，得分 68/100，发现最大短板是完全没有 JSON-LD 结构化数据，还有品牌描述在各字段不一致的问题——这些在传统 SEO 工具里基本检测不到。</p>
+<p>每项都有具体的修复建议，甚至可以一键复制 prompt 直接丢给 AI 去修。适合做独立站、SaaS、内容站的朋友看看。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/9715)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23/9715">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">23:53</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/20114)" target="_blank">https://github.com/plidezus/flomo-save-reminder-skill</a></div>
+  <div class="card-summary"><p>写了个保存对话到 flomo 的 skill。</p>
+<p>比预想的要复杂很多，尤其是时机判断和写入风格。</p>
+<p>大致实现了：</p>
+<ul>
+<li>
+<p>宁可不提醒，也不打扰：普通问答、临时任务、AI 自己的总结，都不值得保存。只有未来你可能回来翻的内容，才停下来问你一句。</p>
+</li>
+<li>
+<p>写得像你，而不是像 AI：第一次使用会学你已有 memo 的格式、标签、语气——存下去的草稿，读起来是你写的，不是 ChatGPT 风格的小作文。</p>
+</li>
+<li>
+<p>写入前先确认：默认只起草和提醒，你点头才存。AI 越自动，越要给你留刹车。</p>
+</li>
+<li>
+<p>隐私只在本地发酵：你的写作风格画像存在本地，公开仓库里只有空结构。</p>
+</li>
+</ul>
+<p>下面是一张讨论中，让它整理的一张卡片。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/20114)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/20114">查看原文</a></div></div>
+</div></div>
+
+    <div class="footer">TG 频道日报 · 自动生成</div>
+</div>
+
+</body>
+</html>
