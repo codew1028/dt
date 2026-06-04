@@ -655,7 +655,7 @@ document.getElementById('search').addEventListener('input', function() {
   });
   function onMove(e) {
     const diff = e.clientX - startX;
-    const newW = Math.max(160, Math.min(500, startW + diff));
+    const newW = Math.max(260, Math.min(500, startW + diff));
     sidebar.style.width = newW + 'px';
     sidebar.style.minWidth = newW + 'px';
   }
