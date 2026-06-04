@@ -102,9 +102,28 @@ body {
   min-width: 160px;
   background: #fff;
   overflow-y: auto;
+  overflow-x: hidden;
   padding: 12px 0;
   flex-shrink: 0;
   transition: width .25s, min-width .25s, padding .25s, opacity .2s;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+.sidebar:hover {
+  scrollbar-color: rgba(0,0,0,0.15) transparent;
+}
+.sidebar::-webkit-scrollbar {
+  width: 4px;
+}
+.sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.sidebar::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 4px;
+}
+.sidebar:hover::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.15);
 }
 .sidebar.hidden {
   width: 0 !important;
