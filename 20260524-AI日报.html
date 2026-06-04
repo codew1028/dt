@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>🤖 AI 日报</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background: #060814;
+    color: #e8eaf0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    min-height: 100vh;
+    display: flex; justify-content: center;
+}
+
+a { color: #9ecca0; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.main-wrap {
+    width: 100%;
+    max-width: 860px;
+    padding: 48px 40px 80px;
+}
+
+.hero {
+    padding-bottom: 36px;
+    margin-bottom: 36px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.hero-vol { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; color: #30d498; margin-bottom: 10px; }
+.hero-title { font-size: 38px; font-weight: 800; line-height: 1.15; color: #fff; margin-bottom: 10px; }
+.hero-date { font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 16px; }
+.hero-stats { display: flex; gap: 28px; }
+.stat-item { display: flex; flex-direction: column; gap: 2px; }
+.stat-num { font-size: 22px; font-weight: 700; color: #fff; }
+.stat-label { font-size: 11px; color: rgba(255,255,255,0.35); letter-spacing: 0.08em; text-transform: uppercase; }
+
+.section { margin-bottom: 40px; }
+.section-head {
+    display: flex; align-items: baseline; gap: 12px;
+    margin-bottom: 16px; padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.section-num { font-size: 28px; font-weight: 800; color: #30d498; line-height: 1; }
+.section-title { font-size: 18px; font-weight: 700; color: #fff; }
+.section-count {
+    margin-left: auto; font-size: 12px; font-weight: 600; color: #6ea0ff;
+    background: rgba(110,160,255,0.12); padding: 2px 10px; border-radius: 20px;
+}
+
+.card {
+    background: rgba(255,255,255,0.025);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 10px; padding: 16px 20px; margin-bottom: 10px;
+    transition: border-color 0.2s, background 0.2s;
+}
+.card:hover { border-color: rgba(48,212,152,0.25); background: rgba(48,212,152,0.03); }
+
+.card-title {
+    font-size: 15px; font-weight: 700; color: #fff;
+    margin-bottom: 8px; line-height: 1.5;
+}
+.card-title a { color: inherit; }
+.card-title a:hover { color: #30d498; text-decoration: none; }
+
+.card-summary {
+    font-size: 14px; color: rgba(255,255,255,0.55);
+    line-height: 1.8;
+}
+.card-summary p { margin-bottom: 6px; }
+.card-summary p:last-child { margin-bottom: 0; }
+
+.card-meta { margin-top: 10px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.source-tag {
+    font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.45);
+    background: rgba(255,255,255,0.06); padding: 2px 8px; border-radius: 4px;
+    white-space: nowrap;
+}
+.source-text { font-size: 11px; color: rgba(255,255,255,0.3); }
+
+pre { background: rgba(0,0,0,0.4); border-radius: 8px; padding: 16px; overflow-x: auto; font-size: 13px; }
+code { font-family: "SF Mono", Consolas, monospace; font-size: 0.88em; }
+p code { background: rgba(48,212,152,0.1); color: #7ed8a6; padding: 1px 6px; border-radius: 4px; }
+
+.footer {
+    text-align: center; font-size: 12px; color: rgba(255,255,255,0.2);
+    padding: 30px 0 20px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .main-wrap { padding: 28px 20px 60px; }
+    .hero-title { font-size: 26px; }
+}
+</style>
+</head>
+<body>
+
+<div class="main-wrap">
+    <div class="hero">
+        <div class="hero-vol">VOL.20260524</div>
+        <h1 class="hero-title">🤖 AI 日报</h1>
+        <div class="hero-date">2026年05月24日 · 星期日 · 4 个板块 · 12 条内容</div>
+        <div class="hero-stats">
+            <div class="stat-item"><span class="stat-num">12</span><span class="stat-label">条内容</span></div>
+            <div class="stat-item"><span class="stat-num">4</span><span class="stat-label">个板块</span></div>
+        </div>
+    </div>
+
+    <div class="section"><div class="section-head"><span class="section-num">01</span><span class="section-title">产品发布/更新</span><span class="section-count">4 条</span></div>
+<div class="card">
+  <div class="card-title"><a href="https://x.com/StepFun_ai/status/2058303294544425197" target="_blank">StepAudio 2.5实时语音发布：副语言感知与人格化交互</a></div>
+  <div class="card-summary"><p>StepAudio 2.5 Realtime是一款实时语音模型，能够深度理解用户语音中的语气、语速、停顿乃至微表情等副语言特征。它支持通过API接入自定义人格，允许设定个性、背景故事和语言风格，并提供了上万种原生人格选项，可组合出数百万种特征。产品还内置了5个可直接体验的预设人格，并经过RLHF调优，确保在复杂的角色扮演压力测试中也能保持角色一致性。该模型支持中文和英文。</p></div>
+  <div class="card-meta"><span class="source-tag">X</span><span class="source-text">阶跃星辰 StepFun (@StepFun_ai)</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://github.com/anomalyco/models.dev" target="_blank">Models.dev：一个关于人工智能模型规格、定价和功能的开源数据库</a></div>
+  <div class="card-summary"><p>近期发布了开源数据库Models.dev，专门收录人工智能模型的各项规格、定价及功能信息。该项目在GitHub公开，便于开发者查询和比较不同AI模型。其在Hacker News社区获得101点关注度，显示出技术社区对这类集中化、透明化的模型信息资源的较大兴趣。</p></div>
+  <div class="card-meta"><span class="source-tag">Hacker News 热门（buzzing.cc 中文翻译）</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://x.com/Replit/status/2058261705998602548" target="_blank">Replit Agent与Squidler集成，实现全自动化AI质量保障</a></div>
+  <div class="card-summary"><p>Replit Agent与Squidler已完成集成，形成一套完整的AI驱动质量保障闭环。用户可通过自然语言描述应用功能，由Replit Agent负责构建。构建完成后，Squidler会像真实用户一样对线上应用进行自动化测试，无需编写任何测试脚本。测试中发现的问题会自动反馈给Replit Agent进行修复。该流程已通过Squidler加入Replit的MCP库正式上线，实现了从构建、测试到修复的全自动化，显著降低了应用测试与维护的门槛。</p></div>
+  <div class="card-meta"><span class="source-tag">X</span><span class="source-text">Replit (@Replit)</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.150" target="_blank">v2.1.150版本更新</a></div>
+  <div class="card-summary"><p>v2.1.150版本包含内部基础设施优化。此次更新主要聚焦于后台系统的改进，未引入任何用户可见的功能、界面或体验变更。</p></div>
+  <div class="card-meta"><span class="source-tag">Claude Code</span><span class="source-text">GitHub Releases（RSS）</span></div>
+</div></div><div class="section"><div class="section-head"><span class="section-num">02</span><span class="section-title">行业动态</span><span class="section-count">6 条</span></div>
+<div class="card">
+  <div class="card-title"><a href="https://fortune.com/2026/05/22/microsoft-ai-cost-problem-tokens-agents" target="_blank">微软称，使用人工智能的成本高于支付人工工资</a></div>
+  <div class="card-summary"><p>微软发布报告指出，在特定工作场景中，部署和使用人工智能（AI）的成本目前已高于支付相应的人工工资。报告分析了基于“tokens”（令牌）和“agents”（智能体）的AI使用模式，发现其综合开销超过了雇佣人类员工完成同类任务的费用。这一发现揭示了当前企业应用AI技术面临的现实经济挑战。</p></div>
+  <div class="card-meta"><span class="source-tag">Hacker News 热门（buzzing.cc 中文翻译）</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://www.ithome.com/0/954/452.htm" target="_blank">消息称 Anthropic 最快下周完成逾 300 亿美元融资，有望推动估值反超 OpenAI</a></div>
+  <div class="card-summary"><p>据彭博社报道，Anthropic即将完成一轮超300亿美元的融资，最快可能于下周敲定。此轮融资将使其估值突破9000亿美元，正式超越OpenAI，成为全球估值最高的AI初创企业。融资的迅速推进反映了市场的强烈追捧。同时，公司营收高速增长，预计第二季度营收将达109亿美元，环比增长超一倍，有望迎来首个盈利季度。</p></div>
+  <div class="card-meta"><span class="source-tag">IT之家（RSS）</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://www.ithome.com/0/954/235.htm" target="_blank">AI 替代入门级工作：科技行业受裁员冲击最重，74% CEO 冻结或缩减招聘</a></div>
+  <div class="card-summary"><p>奥纬咨询研究发现，AI工具正被广泛用于入门级任务，导致企业招聘重心转向高级岗位，年轻人求职难度加大。科技行业受冲击最严重，74%的CEO已冻结或缩减招聘。计划削减初级岗位的比例从17%跃升至43%，而招聘转向中层岗位的比例则升至30%。尽管超90%的企业在部署AI，但多数仍处试点阶段。报告警告，过快裁员或忽视初级人才储备，可能对人才梯队造成长远风险。</p></div>
+  <div class="card-meta"><span class="source-tag">IT之家（RSS）</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://mistral.ai/news/science-to-win-industrial-ai" target="_blank">加倍投入科学以赢得工业AI</a></div>
+  <div class="card-summary"><p>Mistral AI宣布与物理AI先驱Emmi AI达成最终收购协议，旨在加强其在工业AI领域的领导地位。通过整合Emmi AI在物理仿真与数字孪生方面的专长，Mistral AI将提升其工程解决方案能力，并加速科学研发路线。Emmi AI的30余名研究员与工程师将加入Mistral AI团队，共同构建由物理AI驱动的综合技术栈。此次合作将为航空航天、汽车等高风险行业提供实时仿真与复杂问题解决平台，推动工业研发的突破性进展。</p></div>
+  <div class="card-meta"><span class="source-tag">Mistral AI</span><span class="source-text">News（网页）</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://x.com/Kling_ai/status/2058013861404684739" target="_blank">Kling AI亮相戛纳，推动AI赋能电影制作</a></div>
+  <div class="card-summary"><p>Kling AI在戛纳电影市场（Marché du Film）举办官方会议，首次登上这一世界顶级电影舞台。会议汇集全球电影专业人士，共同探讨AI如何融入实际电影制作流程。Kling AI已证明其能力可服务于动画长片、好莱坞剧集、实验短片及影院电影等多种创作形式。未来，Kling AI将继续推进电影级AI影像技术，与全球创作者合作，将更多“不可能”的故事呈现在银幕上。</p></div>
+  <div class="card-meta"><span class="source-tag">X</span><span class="source-text">可灵 Kling AI (@Kling_ai)</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://x.com/GoogleDeepMind/status/2057985225100235022" target="_blank">扩大与新加坡合作，推动AI安全规模化部署</a></div>
+  <div class="card-summary"><p>我们正在扩大与新加坡的合作，以帮助安全地大规模部署AI。🇸🇬 与各国专家合作，我们的新项目将重点加速科学发现、加强大流行病防范并改善医疗保健。 了解更多 → https://goo.gle/49jGwjv</p></div>
+  <div class="card-meta"><span class="source-tag">X</span><span class="source-text">Google DeepMind (@GoogleDeepMind)</span></div>
+</div></div><div class="section"><div class="section-head"><span class="section-num">03</span><span class="section-title">论文研究</span><span class="section-count">1 条</span></div>
+<div class="card">
+  <div class="card-title"><a href="https://huggingface.co/blog/nvidia/nemotron-labs-diffusion" target="_blank">Nemotron-Labs 扩散语言模型实现光速级文本生成</a></div>
+  <div class="card-summary"><p>NVIDIA 在 Hugging Face 发布了关于 Nemotron-Labs 扩散语言模型的技术博客。该研究聚焦于通过扩散语言模型架构大幅提升文本生成速度，目标是逼近“光速级”生成效率。文章可能介绍了该模型在生成速度上的突破，以及相较于传统自回归模型在延迟和吞吐量方面的性能优势。具体技术细节或对比数据需参考原文。</p></div>
+  <div class="card-meta"><span class="source-tag">Hugging Face</span><span class="source-text">Blog（RSS）</span></div>
+</div></div><div class="section"><div class="section-head"><span class="section-num">04</span><span class="section-title">技巧与观点</span><span class="section-count">1 条</span></div>
+<div class="card">
+  <div class="card-title"><a href="https://x.com/dotey/status/2058084478459826432" target="_blank">飞书-Claude Code桥接开源项目</a></div>
+  <div class="card-summary"><p>feishu-claude-code-bridge是一个开源项目，可实现飞书与本机Claude Code CLI的双向连接。用户能从飞书消息中直接指挥Claude Code执行任务，Claude也能读取飞书中的工作上下文并创建、编辑飞书文档。其工作原理是将飞书消息转为Prompt通过命令行调用Claude CLI，并将流式输出实时同步回飞书。该模式可扩展连接Codex等其他本地工具。需注意，2026年6月15日起，Claude订阅计划对<code>claude -p</code>模式将独立计费。</p></div>
+  <div class="card-meta"><span class="source-tag">X</span><span class="source-text">宝玉 (@dotey)</span></div>
+</div></div>
+
+    <div class="footer">AI 日报 · 自动生成</div>
+</div>
+
+</body>
+</html>
