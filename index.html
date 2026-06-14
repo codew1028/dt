@@ -380,18 +380,27 @@ body {
   <div class="search-box">
     <input type="text" id="search" placeholder="搜索文档..." autocomplete="off">
   </div>
-  <div class="stats">85 份文档</div>
+  <div class="stats">86 份文档</div>
 </div>
 <div class="main">
   <div class="sidebar" id="sidebar">
     
     <div class="nav-section">
       <div class="nav-header" onclick="toggleSection(this)">
-        <span class="nav-arrow">▶</span> 📰 TG 日报 <span class="nav-count">38</span>
+        <span class="nav-arrow">▶</span> 📰 TG 日报 <span class="nav-count">39</span>
       </div>
       <div class="nav-items">
         
         <div class="nav-sub-section">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W25 (6/15-6/21)</span> <span class="nav-sub-count">1</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="2026-06-15-tg-digest.html" class="nav-item" data-file="2026-06-15-tg-digest.html" data-title="2026-06-15 tg-digest" onclick='loadDoc("2026-06-15-tg-digest.html",this);return false;'><span class="item-title">06-15 周一</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
           <div class="nav-sub-header" onclick="toggleSubSection(this)">
             <span class="nav-arrow">▶</span> <span class="sub-label">26W24 (6/8-6/14)</span> <span class="nav-sub-count">6</span>
           </div>
@@ -485,7 +494,7 @@ body {
       </div>
       <div class="nav-items">
         
-        <div class="nav-sub-section">
+        <div class="nav-sub-section collapsed">
           <div class="nav-sub-header" onclick="toggleSubSection(this)">
             <span class="nav-arrow">▶</span> <span class="sub-label">26W24 (6/8-6/14)</span> <span class="nav-sub-count">7</span>
           </div>
