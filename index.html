@@ -273,11 +273,10 @@ body {
   font-size: 11px;
   color: #8f959e;
   font-weight: 400;
-  margin-left: auto;
-  flex-shrink: 0;
-  min-width: 28px;
+  position: absolute;
+  right: 4px;
+  min-width: 32px;
   text-align: right;
-  display: inline-block;
 }
 
 /* ── Sub-section (周分组) ── */
@@ -297,6 +296,8 @@ body {
   border-radius: 4px;
   margin: 0 8px;
   transition: background .12s, color .12s;
+  position: relative;
+  padding-right: 44px;
 }
 .nav-sub-header:hover {
   background: #f0f1f3;
@@ -313,9 +314,10 @@ body {
   font-size: 11px;
   color: #bbb;
   font-weight: 400;
-  min-width: 28px;
+  position: absolute;
+  right: 4px;
+  min-width: 32px;
   text-align: right;
-  display: inline-block;
 }
 .nav-sub-section.collapsed .nav-sub-items {
   display: none;
@@ -328,7 +330,9 @@ body {
 }
 .nav-sub-items .nav-item {
   padding-left: 56px;
+  padding-right: 20px;
   font-size: 13px;
+  position: relative;
 }
 
 /* ── Content area ── */
