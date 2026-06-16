@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>TG 频道日报</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background: #060814;
+    color: #e8eaf0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    min-height: 100vh;
+    display: flex; justify-content: center;
+}
+
+a { color: #6ea0ff; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.main-wrap {
+    width: 100%;
+    max-width: 860px;
+    padding: 48px 40px 80px;
+}
+
+.hero {
+    padding-bottom: 36px;
+    margin-bottom: 36px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.hero-vol { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; color: #6ea0ff; margin-bottom: 10px; }
+.hero-title { font-size: 38px; font-weight: 800; line-height: 1.15; color: #fff; margin-bottom: 10px; }
+.hero-date { font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 16px; }
+.hero-stats { display: flex; gap: 28px; }
+.stat-item { display: flex; flex-direction: column; gap: 2px; }
+.stat-num { font-size: 22px; font-weight: 700; color: #fff; }
+.stat-label { font-size: 11px; color: rgba(255,255,255,0.35); letter-spacing: 0.08em; text-transform: uppercase; }
+
+.section { margin-bottom: 40px; }
+.section-head {
+    display: flex; align-items: baseline; gap: 16px;
+    margin-bottom: 20px; padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.section-num { font-size: 28px; font-weight: 800; color: rgba(255,255,255,0.25); line-height: 1; }
+.section-title { font-size: 17px; font-weight: 700; color: #fff; }
+.section-count {
+    margin-left: auto; font-size: 11px; font-weight: 600; color: #6ea0ff;
+    background: rgba(110,160,255,0.12); padding: 2px 8px; border-radius: 20px;
+}
+
+.card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 12px; padding: 18px 22px; margin-bottom: 12px;
+    transition: border-color 0.2s, background 0.2s;
+}
+.card:hover { border-color: rgba(110,160,255,0.3); background: rgba(110,160,255,0.04); }
+
+.card-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.channel-tag {
+    font-size: 12px; font-weight: 600; color: #fff;
+    background: rgba(110,160,255,0.25); padding: 2px 8px; border-radius: 20px; white-space: nowrap;
+}
+.time-tag { font-size: 12px; color: rgba(255,255,255,0.35); }
+
+.card-title {
+    font-size: 15px; font-weight: 700; color: #fff;
+    margin-bottom: 8px; line-height: 1.5;
+}
+.card-title a { color: inherit; }
+.card-title a:hover { color: #6ea0ff; text-decoration: none; }
+
+.card-summary {
+    font-size: 14px; color: rgba(255,255,255,0.6);
+    line-height: 1.8;
+}
+.card-summary p { margin-bottom: 6px; }
+.card-summary p:last-child { margin-bottom: 0; }
+
+.card-footer {
+    margin-top: 10px; display: flex; align-items: center;
+    gap: 12px; flex-wrap: wrap;
+}
+.source-link { font-size: 12px; color: rgba(255,255,255,0.35); }
+.source-link::before { content: "🔗 "; }
+.channel-links { margin-left: auto; font-size: 11px; color: rgba(255,255,255,0.25); }
+.channel-links a { color: rgba(255,255,255,0.3); margin-right: 6px; }
+.channel-links a:hover { color: #6ea0ff; }
+
+.brief-text { font-size: 15px; color: rgba(255,255,255,0.75); line-height: 1.7; }
+
+pre { background: rgba(0,0,0,0.4); border-radius: 8px; padding: 16px; overflow-x: auto; font-size: 13px; }
+code { font-family: "SF Mono", Consolas, monospace; font-size: 0.88em; }
+p code { background: rgba(110,160,255,0.1); color: #9ec5ff; padding: 1px 6px; border-radius: 4px; }
+
+.footer {
+    text-align: center; font-size: 12px; color: rgba(255,255,255,0.2);
+    padding: 30px 0 20px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .main-wrap { padding: 28px 20px 60px; }
+    .hero-title { font-size: 26px; }
+}
+</style>
+</head>
+<body>
+
+<div class="main-wrap">
+    <div class="hero">
+        <div class="hero-vol">VOL.20260617</div>
+        <h1 class="hero-title">TG 频道日报</h1>
+        <div class="hero-date">2026年06月17日 · 星期三 · 6 个频道 · 28 条内容</div>
+        <div class="hero-stats">
+            <div class="stat-item"><span class="stat-num">28</span><span class="stat-label">条内容</span></div>
+            <div class="stat-item"><span class="stat-num">6</span><span class="stat-label">个频道</span></div>
+        </div>
+    </div>
+
+    <div class="section"><div class="section-head"><span class="section-num">01</span><span class="section-title">TG 频道精选</span><span class="section-count">28 条</span></div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@text1024</span>
+    <span class="time-tag">03:11</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/text1024/23627)" target="_blank">北京姐妹在哪里🙋‍♀️</a></div>
+  <div class="card-summary"><p>0627她宇宙北京自媒体沙龙开放抢位ing</p>
+<p>(报名进度32/60，好可怕的报名速度，海报刚出，一半名额没了</p>
+<p>因为最近播客起号太快、吸引的听众过于优质，受邀开启全国巡回分享了，5 月第一站上海，6 月第二站北京，7 月第三站杭州。</p>
+<p>我会分享最新迭代做播客的经验，最近好多博主姐妹来问我怎么做播客，这次再系统拆解下。</p>
+<p>还有我 Mcn 创始人会分享价值千万最新的女性 IP 玩法，最近看她又布局了 6 个视频号同时在跑，想做女性 IP、创始人 IP 、吸引高价值人群的姐妹，一定要来听她的分享。</p>
+<p>以及创业博主佳欣分享，她从大厂到创业的经验。</p>
+<p>我们她宇宙 的IP矩阵依托城市流量，越来越丰富，也有越来越多城市的沙龙主理人、美学空间负责人、本地实体女老板关注到。</p>
+<p>一个人的力量铺矩阵，是有限的，一群人铺天盖地共创，就是强大的联盟势能。无论是学习商业玩法、自媒体思路、私域变现还是沙龙模式，我们保持开放欢迎来！</p>
+<p>期待和大家线下见呀～</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/text1024/23627)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/text1024/23627">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@text1024</span>
+    <span class="time-tag">07:54</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/text1024/23628)" target="_blank">当你周边的朋友开始：</a></div>
+  <div class="card-summary"><ol>
+<li>
+<p>研究AI；</p>
+</li>
+<li>
+<p>学会web coding；</p>
+</li>
+<li>
+<p>试着用AI做自己的产品；</p>
+</li>
+<li>
+<p>研究股票投资；</p>
+</li>
+<li>
+<p>建立被动收入来源；</p>
+</li>
+<li>
+<p>开始做自媒体了。</p>
+</li>
+</ol>
+<p>那么，他要么失业了，要么就要失业了。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/text1024/23628)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/text1024/23628">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@chunse1024</span>
+    <span class="time-tag">07:57</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/chunse1024/10775)" target="_blank">小红书的推荐算法相当靠谱呀</a></div>
+  <div class="card-summary"><p>第一条，是我 6 年前的校招生</p>
+<p>第三条，是我本人的播客…</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/chunse1024/10775)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/chunse1024/10775">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">10:12</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/80371)" target="_blank">某个人赚钱比你高好几个量级</a></div>
+  <div class="card-summary"><p>你也想做到这样，该怎么办？</p>
+<p>第一步</p>
+<p>整理好你的问</p>
+<p>第二步</p>
+<p>给他打钱，问问他怎么做的</p>
+<p>第三步</p>
+<p>照抄</p>
+<p>没赚到那么多钱</p>
+<p>不是认知不够</p>
+<p>不是执行力不行</p>
+<p>而是没抄明白</p>
+<p>既然是抄</p>
+<p>就不要代入自己的思考</p>
+<p>自媒体/出海经验/赚美金/运营技巧</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/80371)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/80371">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">10:30</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/41975)" target="_blank">🤖 **Anthropic 暂不调整 Claude 订阅付费模式，现有额度不变**</a></div>
+  <div class="card-summary"><p>Anthropic 推迟了原定今日生效的 Claude 付费方式变更。此前该公司在 5 月通知用户，Claude Agent SDK、命令行工具 claude -p 以及基于 Agent SDK 的第三方应用将从订阅限制中独立，改为按月分配使用额度。</p>
+<p>现在这项调整暂缓执行，所有功能继续按原有订阅规则运行，用户无需领取任何新额度。Anthropic 表示正在改进方案，在正式调整前会提前通知。</p>
+<p><a href="https://x.com/i/status/2066607128563851546">X</a></p>
+<p>via 群友</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/41975)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihuatg">备用频道</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/41975">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">10:31</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/10345)" target="_blank">这都什么狗屁文章，标题党加AI文案，灌水式推广。</a></div>
+  <div class="card-summary"><p>AI文案最爱 刺痛、隐蔽、扎心</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/10345)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23/10345">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">11:15</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/41976)" target="_blank">**支付宝推出 AI 版内测：右滑对话即可办事**</a></div>
+  <div class="card-summary"><p>支付宝上线新版内测，用户右滑即可在经典版与 AI 版之间切换。新版界面以对话框为主，用户可通过文字或语音向 AI 助手"阿宝"发出指令，由 AI 自动匹配小程序并完成入口跳转，覆盖政务、出行、生活等上万个服务。常用扫码和转账功能仍保留快捷入口。</p>
+<p>支付宝强调，AI 只负责跑腿和呈现操作界面，涉及资金变动的环节均需用户本人确认。平台同时全面开放服务入口，邀请更多服务商和开发者接入，为用户提供更丰富的办事体验。</p>
+<p><a href="https://mp.weixin.qq.com/s/bG3id7bNvBOPfZF811T6Jw">支付宝</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/41976)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihuatg">备用频道</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/41976">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">11:39</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/10348)" target="_blank">我和很多头部账号交流过，是认真的探讨，不是吹牛逼的那种。</a></div>
+  <div class="card-summary"><p>简单粗暴讲，他们做起来都是赶上了某一个红利。比如说平台的新功能上线、新业务扶持、新投放工具，甚至接甚至是策略的漏洞、某个大哥帮了你一把等等。</p>
+<p>现在我们在做内容，就踏踏实实地按规则来，也不要有太高的预期，重点不要在流量本身，而在于商业模式本身，只要能更好地契合整个商业体系就可以了。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/10348)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23/10348">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@text1024</span>
+    <span class="time-tag">11:41</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/text1024/23633)" target="_blank">一人公司不光要考虑流量 / 转化 / 后续留存的问题，还得考虑怎么把钱从公司里面取出来🤣…</a></div>
+  <div class="card-summary"><hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/text1024/23633)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/text1024/23633">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@chunse1024</span>
+    <span class="time-tag">11:43</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/chunse1024/10778)" target="_blank">一位投资人晚上向我展示他目前的AI使用情况。</a></div>
+  <div class="card-summary"><p>他会自己写程序，一个月在AI订阅上花1000美元，从Claude、OpenAI、Gemini、Grok、Cursor等等全部顶配买一遍。他从七月开始游泳，用Cursor自己写了一整套数据检测程序，从距离、速度、心率、摆臂效率等等，极为详尽的数据分析，由程序自动生成。</p>
+<p>他还有专门分析股票的专业程序，由多个模型配合；其中，需要实时分析的部分由Grok承担，因为Grok接入了实时社交媒体数据。每次看一家公司，他的AI程序会用巴菲特、彼得林奇、达里奥、芒格等传奇投资人的视角来给公司打分并进行分析。</p>
+<p>他是程序员出身，私下仍是极客，比如私下他会改装自家音响，自己动手操作Cursor写码，给里面装上语音AI助手。</p>
+<p>想想看，这两天Claude推出的Co-worker就是Anthropic程序员两天的机器代码做出来的产品，一推出就震撼全网。在人类向AGI转型的时代，可能不会操作AI coding tools就真的像文盲一样了，生产力是断崖式的不足。</p>
+<p>作为一个文科生，今天我也有了去试试Cursor的动力。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/chunse1024/10778)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/chunse1024">优质「内容」</a><a href="https://t.me/meiriyishu">优质「资源」</a><a href="https://t.me/inside1024">你不知道的内幕消息🌳</a><a href="https://t.me/chunse1024/10778">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">13:18</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/41979)" target="_blank">📱 **谷歌地球网页版上线免费飞行模拟器，可在浏览器里开飞机**</a></div>
+  <div class="card-summary"><p>谷歌在地球网页版中悄悄加入了“飞行模拟器”模式，免费向所有用户开放。该功能原本是 PC 客户端的隐藏玩法，现在无需下载，直接在浏览器中用键盘方向键和鼠标就能操控飞机，适合休闲体验。得益于实时生成的 3D 建筑，地景相比早期版本更加立体。</p>
+<p>该模式最早于 2007 年以彩蛋形式出现在谷歌地球客户端中。此次网页版上线后，相关演示视频在社交平台获得数百万人次观看，许多网友吐槽操控难度较高，但也有人乐在其中。</p>
+<p><a href="https://finance.sina.com.cn/tech/digi/2026-06-15/doc-inicmsvf5181034.shtml">新浪科技</a> | <a href="https://www.usatoday.com/story/money/2026/06/13/google-free-flight-simulator/90539296007/">USA TODAY</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/41979)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihuatg">备用频道</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/41979">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">13:46</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/10349)" target="_blank">现在做出海需求判断，我基本不看“点子”，只看四类信号：</a></div>
+  <div class="card-summary"><ol>
+<li>关键词信号（主动搜索）</li>
+</ol>
+<p>Google 仍然是最直接的需求入口。</p>
+<p>如果一个问题有人在持续搜索，说明：</p>
+<p>他已经知道自己要解决什么问题。</p>
+<p>比如这些词根：</p>
+<p>generator / converter / calculator / tracker / planner / analyzer</p>
+<p>组合之后会变成具体需求：</p>
+<p>pdf converter</p>
+<p>mortgage calculator</p>
+<p>workout plan generator</p>
+<p>caption generator</p>
+<p>特点：</p>
+<p>用户目标明确，只差工具。</p>
+<p>适合：</p>
+<p>SEO 工具站</p>
+<p>免费工具 + Pro</p>
+<p>轻 SaaS</p>
+<p>广告/联盟变现</p>
+<ol start="2">
+<li>抱怨信号（社区不满）</li>
+</ol>
+<p>来自 Reddit / X / GitHub / PH 评论等。</p>
+<p>高频表达：</p>
+<p>I hate…</p>
+<p>too slow</p>
+<p>too expensive</p>
+<p>is there a tool for…</p>
+<p>I need a way to…</p>
+<p>I wish there was…</p>
+<p>这些不是情绪，是未被满足的需求。</p>
+<p>特点：</p>
+<p>用户知道痛点，但不知道解决方案。</p>
+<p>适合：</p>
+<p>单点工具</p>
+<p>流程替代工具</p>
+<p>小型 SaaS</p>
+<ol start="3">
+<li>替代信号（Alternative）</li>
+</ol>
+<p>典型结构：</p>
+<p>X alternative</p>
+<p>X too expensive</p>
+<p>X sucks</p>
+<p>X missing feature</p>
+<p>说明：</p>
+<p>用户已经知道问题，也知道市场已有方案，但不满意。</p>
+<p>机会不在“大替代”，在“切片替代”：</p>
+<p>不是做 Notion 替代品，而是：</p>
+<p>某类人群的轻笔记导出工具</p>
+<p>不是做 Canva，而是：</p>
+<p>某类内容模板生成工具</p>
+<ol start="4">
+<li>付费信号（真实市场）</li>
+</ol>
+<p>看这些地方：</p>
+<p>Fiverr / Upwork / Gumroad / Etsy / SEO广告 / 竞品流量</p>
+<p>如果有人在付费，说明：</p>
+<p>需求已经成立。</p>
+<p>典型判断：</p>
+<p>长期外包需求</p>
+<p>模板/工具在卖钱</p>
+<p>有广告投放</p>
+<p>有订阅产品</p>
+<p>可以继续追问：</p>
+<p>能不能工具化？</p>
+<p>能不能自动化？</p>
+<p>能不能SaaS化？</p>
+<p>一个结论</p>
+<p>四类信号强度：</p>
+<p>关键词 &lt; 抱怨 &lt; 替代 &lt; 付费</p>
+<p>越靠后，商业确定性越高。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/10349)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23/10349">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">14:06</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/41980)" target="_blank">📱 **微软用 AWS 缓解 GitHub 服务器压力**</a></div>
+  <div class="card-summary"><p>微软旗下的代码托管平台 GitHub 因 AI 编程引发的负载激增而频繁宕机。尽管已将部分服务迁移至自家 Azure，但仍无法满足需求，转而求助竞争对手亚马逊 AWS 来保障平台稳定。亚马逊未予置评。</p>
+<p>GitHub 首席运营官 Kyle Daigle 此前预计，平台用户提交数将从 2025 年的 10 亿次增至 2026 年的 140 亿次。GitHub 在 2025 年 10 月原本计划将容量提升 10 倍，到 2026 年 2 月发现实际需要提升 30 倍，主要原因是 AI 编程工具大幅增加了代码托管负担。</p>
+<p><a href="https://www.solidot.org/story?sid=84590">奇客 Solidot</a> | <a href="https://runtimewire.com/article/microsoft-github-aws-ai-capacity-crunch">RuntimeWire</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/41980)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihuatg">备用频道</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/41980">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">14:25</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/10350)" target="_blank">我的一切拜 AI 所赐，它不是泡沫，而是救赎。</a></div>
+  <div class="card-summary"><p>起初，我的编程技术停留在 Java微服务+Vue的简单项目，手敲代码，企图用手敲出未来，每天处理各种配置和报错，效率低下。</p>
+<p>接触到GPT3.5，用它来提高开发和debug效率，并且用它开始做代写，成功赚到第一桶金。</p>
+<p>此后，我的生活中就越来越离不开AI，我用AI进行学习，将AI当做浏览器用，利用AI进行编码，尽可能将所有任务给它。</p>
+<p>Claude 3.5发布，开启了真正的vibecoding，编程不再是困难的事情，我开始将精力从技术转换到业务。</p>
+<p>此后，AI快速发展，我围绕AI做了一些盈利的产品，也将我的工作尽可能都交给AI，本来一周的工作，一天就可以完成。</p>
+<p>如果没有它，我一个人就算7＊24小时工作也做不了那么多。</p>
+<p>AI成就了太多人，它将任何事情的门槛降到最低，只要做就会有结果。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/10350)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/yunying23/10350">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@text1024</span>
+    <span class="time-tag">14:39</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/text1024/23636)" target="_blank">这半年来，我做副业的思考。</a></div>
+  <div class="card-summary"><p>今年春节那几天，我一个人在家里待着，脑子里反复想的，不是今年要不要更努力，而是另一件更现实的事。</p>
+<p>我 35 岁了。</p>
+<p>这个年纪放在互联网里，不算老，但也绝对不年轻了。以前总觉得只要自己还在上班、还有工资，很多事都能先拖着。可到了这个阶段，人会慢慢明白，工资是收入，不是安全感。你不能把所有希望都压在一份工作上。</p>
+<p>也是从那个春节开始，我第一次把“副业”当成一件必须认真想清楚的事。</p>
+<p>之前我不是没做过副业。我做过一对一陪跑，这几年断断续续下来，也赚了差不多小 10 万块钱。听起来还可以，但这个钱赚得特别累。因为陪跑本质上就是卖自己的时间。你要沟通，要跟进，要反复改，要对结果负责。每赚一笔钱，背后都跟着一整段精力消耗。</p>
+<p>以前我愿意做，是因为那时候没有别的路。能靠自己的能力换点钱，已经不错了。可做久了以后，我越来越清楚，这种模式很难放大。你今天能接三个人，不代表你永远能接三个人。你只要一停下来，收入也就停了。</p>
+<p>那段时间我重新想起《纳瓦尔宝典》里讲的杠杆。书里提到媒体，也提到没有边际成本的产品。我以前看这些话，觉得有道理，但感受不深。真正做过陪跑以后，再回头看，就知道自己之前一直在做一件很重的事。</p>
+<p>我慢慢意识到，我不能再继续把副业做成另一份兼职了。我得做一点能积累的东西。</p>
+<p>年初的时候，我还是从熟悉的地方开始试。我在小红书发过一些设计相关的内容，也顺手挂过陪跑广告。流量还可以，也有人来找我做。可做着做着，我心里还是不舒服。因为无论表面怎么变，最后卖的还是我这个人，还是我的时间。</p>
+<p>后来如果再有人来找我，我有时候会转给朋友做，中间收一点介绍费。这个方式轻了一点，但我慢慢也停了。因为别人来找我，本身就是信我。可后面的服务效果我并不能完全控制，我不想为了赚一点转介绍的钱，把自己的信用搭进去。</p>
+<p>所以今年开始，我慢慢把陪跑这条线收掉了。</p>
+<p>接下来我开始研究做产品。那阵子大家都在说一人公司，说一个人做产品、卖产品，也能跑出一条路。我也想试试。</p>
+<p>我先做了一个很小的产品，和公众号排版有关。那时候我用 Claude Code 做出来，挂到闲鱼上卖，9 块 9 一份。这个产品最后断断续续卖了一二十份，赚了两三百块钱。钱不多，但对我来说是一个提醒：原来不靠一对一，也会有人愿意为你做出来的东西付钱。</p>
+<p>但闲鱼这个平台很快也让我看清了另一件事。那里的人天然就想捡便宜，你卖 9 块 9，他也会来回问很多问题。你回慢一点，这单可能就没了。东西卖出去以后，对方稍微不满意，还可能给差评。最后你会发现，一个很便宜的产品，背后也跟着大量碎沟通，整个人还是很累。</p>
+<p>做了一段时间以后，我就不想继续了。不是产品有问题，是卖法有问题。</p>
+<p>后面我开始换个思路。我想，既然我已经做过一些产品，也上架过 App Store，那我能不能把“我怎么把这些东西做出来”也变成内容的一部分？于是我开始发图文，写自己怎么用 Vibe Coding 做产品，怎么一个人把一个想法落下来。</p>
+<p>其中有一条图文，跑到了一万二的浏览量。也有人开始来问我，你这个怎么做，能不能教，能不能展开讲。现在回头看，那其实已经是一个很明显的信号了：别人不只是对产品感兴趣，他们也对“你是怎么做的”感兴趣。</p>
+<p>可我当时没有太在意，商业嗅觉还是慢了一点。</p>
+<p>真正把我点醒的，是后来我在朋友圈看到一个女生卖 Vibe Coding 课程，一份 399。她面向的是设计师群体，我点开她的课程目录看了一遍，心里冒出来的第一个念头很直接：这些内容我都会，而且很多我比她更熟。</p>
+<p>她能卖，为什么我不能？</p>
+<p>那天以后，我开始把自己做 Vibe Coding 的经验整理成飞书文档，做成一个轻量化知识库。刚开始没敢卖高价，她卖 399，我先卖 99。挂出去以后，安静了很久，没人买。朋友圈发了，也没人回。我一度觉得这事可能不行。</p>
+<p>过了一段时间，突然有个人来找我，花 99 买了一份。</p>
+<p>那是我的第一单。</p>
+<p>钱不多，但那一单对我特别重要。因为它证明了一件事：我整理出来的东西，是可以独立成交的。我不用每次都亲自上场，才能把钱赚到。</p>
+<p>后来我又想到一个商业博主的模式：轻量化文档交付，再配一个答疑群。我觉得这个方式很适合我，于是也搭了一个群。用户付费以后，我把文档发给他，再拉进群里。到现在，群里差不多也有小 20 个人。</p>
+<p>这个规模不大，但它让我第一次有了一种“在积累资产”的感觉。文档写一次，可以卖很多次。群需要维护，但它不是那种从头到尾全靠我一小时一小时陪出来的交付。</p>
+<p>从这个时候开始，我慢慢觉得，这条路能走。</p>
+<p>后面我开始持续发抖音。刚开始很多内容数据一般，可发着发着，我发现内容这件事最重要的不是一条条去算，而是先保持频率。你发得够多，总会有一条跑出来。</p>
+<p>后来我真的等来了一条 60 万播放的视频。</p>
+<p>那条视频给我带来了不少粉丝，也带来了成交。也是从那时候开始，我第一次真正感受到内容的价值。你花半个小时做一条视频，它可能帮你找到很多原本接触不到的人。这和一对一完全是两种效率。</p>
+<p>但我也很快意识到，AI 赛道里做内容的人太多了。讲 Codex、Claude Code、大模型的人，到处都是。真要正面比，我很难拼得过那些有团队、有时间、专门做这件事的人。</p>
+<p>我不想和他们卷“谁更像 AI 博主”。</p>
+<p>真正让我找到方向的，是后来一个抖音上加我的人。他是做工程标书的，来问我能不能用 AI 帮他提效。这个场景我以前并不了解，但和他聊完以后，我就知道这背后有大量重复、繁琐、特别耗时间的工作。</p>
+<p>后来我根据他的需求和材料，给他写了一个 skill。做完以后，他反馈特别好，说效率提升得很明显。</p>
+<p>那次经历让我一下子想清楚了。</p>
+<p>我后面要做的，可能不是继续去讲那些泛泛的 AI 科普。我更适合做的，是把 AI 接进一个个具体岗位，去解决他们手头那些又重又烦的实际问题。</p>
+<p>比如写标书的人，比如传统行业里的岗位，他们未必关心模型更新了什么，也未必想听你讲太多概念。他们真正关心的是：我这件事能不能更快一点，能不能少折腾一点，能不能真帮我省时间。</p>
+<p>从那个时候开始，我慢慢把自己的商业模式看清了。</p>
+<p>C 端卖的是轻量知识产品，卖的是整理好的知识库，卖的是普通人能快速上手的路径，再配一个答疑群。</p>
+<p>B 端卖的是定制化服务，卖的是面向具体业务场景的解决方案。</p>
+<p>前者负责把人吸引过来，后者负责把价值做深。</p>
+<p>到现在为止，我靠这套东西赚的钱也不算多，大概也就是几千块。但这几千块背后的意义，不只是收入本身，而是我已经把整条链路跑通了。我知道内容怎么起，产品怎么卖，用户怎么接，后续怎么交付。</p>
+<p>更重要的是，我自己也变了。</p>
+<p>以前我做一条内容，会想很久，觉得这也没准备好，那也还不够完整。现在我基本上是脑子里有个想法，就先想清楚这条内容要讲什么，再去反推怎么讲。捋顺以后直接录，对着白板讲完，用抖音一键剪辑，字幕有点错别字我也不太在意，只要人能看懂就行。整个过程差不多半小时，一条内容就能发出去。</p>
+<p>到现在，我一周差不多能更新 5 条。</p>
+<p>这个频率对我来说已经很好了。因为它意味着，做内容这件事终于没那么重了。我不再像以前那样，每发一条都像在搬石头。</p>
+<p>回头看这四五个月，我其实一直在做一件事：把自己的副业，从卖时间，一点点改成能积累的东西。</p>
+<p>我没有一下子赚到很多钱，流量也没有彻底稳定下来，信任也还在慢慢攒。但和年初相比，我已经没那么慌了。至少我知道，自己接下来该往哪走，知道什么事情值得继续做，知道什么钱虽然能赚，但不值得我再回头。</p>
+<p>这对现在的我来说，已经很重要了。</p>
+<p>因为很多时候，一个人的转折，不是突然得到了什么，而是终于不想再按原来的方式活了。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/text1024/23636)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/text1024/23636">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">14:40</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/10351)" target="_blank">昨天有个做保健品出海欧美的同学问我，能不能找国内的服务商或者AI做商业模式的策划，我特别疑惑，这种全中国都没一家成功案例的，服务商要怎么给建议？</a></div>
+  <div class="card-summary"><p>保健品在跨境默认都是灰黑为主的，灰黑擦边就是商业模式本身😂</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/10351)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23/10351">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">14:41</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/10352)" target="_blank">没想到在公众号上写F1也能有四位数的阅读量</a></div>
+  <div class="card-summary"><p>努力尝试在流量与自我之间平衡🥹</p>
+<p>Invalid media: <a href="https://cdnv2.ruguoapp.com/FoiJzJVX8QCuHg8TMBBeuY7rZ_COv3.heic">image</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/10352)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23/10352">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">15:35</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/41982)" target="_blank">🤖 **OpenAI 去年支出 340 亿美元 研发投入近 190 亿美元**</a></div>
+  <div class="card-summary"><p>OpenAI 去年斥资 340 亿美元，旨在在计划中的首次公开募股（IPO）前主导蓬勃发展的 AI 市场。报道称，经审计的财务数据显示，这家 ChatGPT 开发商在 2025 年投入了约 190 亿美元用于研发，近 60 亿美元用于销售和营销以及其他费用。</p>
+<p><a href="https://www.ft.com/content/e15b0d7e-ff6b-4f16-ba7a-4068feddb828">金融时报</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/41982)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihuatg">备用频道</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/41982">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@text1024</span>
+    <span class="time-tag">16:11</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/text1024/23637)" target="_blank">周一，马斯克旗下火箭、卫星与AI公司SpaceX股价在其上市第二个交易日（首个完整交易日）大涨逾19.6%，收于192.5美元，延续了上周五上市首日的涨势。与此同时，马斯克旗下电动汽车公司特斯拉股价也小幅上涨了1.2%。</a></div>
+  <div class="card-summary"><p>SpaceX股价的进一步上涨令马斯克的净资产一日之内增加了1648亿美元（约合1.11万亿元人民币），使其身价达到创纪录的1.3万亿美元。</p>
+<p>这一数字让他比在富豪榜上排名第二的谷歌联合创始人拉里·佩奇（身家为3014亿美元）高出约1万亿美元。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/text1024/23637)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/text1024/23637">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">16:29</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/10354)" target="_blank">推荐一个独立开发者必备的 GitHub 仓库：Marketing for Founders。</a></div>
+  <div class="card-summary"><p>特别适合：产品已经做出来，但还不知道怎么拿前 10 / 100 / 1000 个用户的人</p>
+<p>如果你是会做产品、不会获客的创始人，这几乎就是现成的营销执行手册。</p>
+<p>里面把早期获客最关键的模块都教了一遍：</p>
+<ul>
+<li>
+<p>launch 渠道</p>
+</li>
+<li>
+<p>Product Hunt</p>
+</li>
+<li>
+<p>Social media</p>
+</li>
+<li>
+<p>冷启动销售</p>
+</li>
+<li>
+<p>SEO</p>
+</li>
+<li>
+<p>LLM SEO / AEO / GEO</p>
+</li>
+<li>
+<p>Reddit</p>
+</li>
+<li>
+<p>Email</p>
+</li>
+<li>
+<p>内容营销</p>
+</li>
+<li>
+<p>广告</p>
+</li>
+<li>
+<p>Influencer</p>
+</li>
+<li>
+<p>Referral</p>
+</li>
+<li>
+<p>免费工具营销</p>
+</li>
+<li>
+<p>Landing page / positioning / pricing / CRO</p>
+</li>
+</ul>
+<p>I- dea validation / user research</p>
+<p>项目地址：</p>
+<p>https://github.com/EdoStra/Marketing-for-Founders</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/10354)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/yunying23/10354">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">18:25</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/21308)" target="_blank">笑死，胡彦斌又有新作品了吗？</a></div>
+  <div class="card-summary"><p>你要的 token 全拿走 把 memory 化成空 不要在乎 model context 有所保留 说过的当 skill 附送</p>
+<p>我不必再为你 finetune 说一句 timeout 借口</p>
+<p>一轮两轮三轮 最后 token 耗尽 prompt 只是偶尔兑现的谎言 pretrain 的贪得无厌 也要为过去留一些 rag 散了我们就清空 cache</p>
+<p>——《你要的token全拿走》</p>
+<p>胡彦斌最近是歌唱事业和 vibe coding 两开花....</p>
+<p>在《我是歌手》用一首全新编曲的《你要的全拿走》炸完场，又跨界当评委，给 TRAE AI创造力大赛写了一首 coding 进行曲...（第一段是他写的，后面两段让 AI 补了一下）</p>
+<p>AI 大赛现在也是从黑客松这种偏 geek 的形式，逐渐泛化到各行各业 0 门槛参与的创造力大赛了</p>
+<p>TRAE AI创造力大赛是一场面向大众的 AI 创造力大赛，0门槛参赛，0token负担，全程课程培训，决赛奖池高达百万，单个项目最多能拿35万奖金。还有胡彦斌、罗永浩、王兴兴、影视飓风Tim等明星大佬助阵。</p>
+<p>其实今天不止是程序员，人人都可以用 AI，创造出好的作品。</p>
+<p>只是大部分人还不知道。</p>
+<p>TRAE AI 创造力大赛的官方介绍 https://mp.weixin.qq.com/s/_eEOo__9GpFSwMLDkopJdA</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/21308)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/21308">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">18:44</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/21311)" target="_blank">AI裁员潮：资本对劳动议价权的远期做空｜云涌AI观察</a></div>
+  <div class="card-summary"><p>https://mp.weixin.qq.com/s/vZpxTB3MBav8vtqDR3U6Nw</p>
+<p>这波AI裁员常被包装成效率革命，结构上却是资本对劳动议价权的一次“远期做空”：AI替代远未兑现，资本已按“终将兑现”提前给劳动重新定价。下行可控、上行近乎无限的不对称赔率，让科技巨头毫不犹豫地下注。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/21311)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/21311">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">19:50</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/41988)" target="_blank">**SpaceX 将以 600 亿美元收购 AI 编程工具 Cursor 母公司 Anysphere**</a></div>
+  <div class="card-summary"><p>马斯克旗下的 SpaceX 周二宣布，将以 600 亿美元收购 AI 编程助手 Cursor 的开发商 Anysphere，交易预计在 2026 年第三季度完成。</p>
+<p>SpaceX 近期在纳斯达克上市，估值超过 2 万亿美元，并已在今年 2 月与聊天机器人 Grok 的开发商 xAI 合并。这笔收购将帮助 SpaceX 扩大企业 AI 市场的影响力，同时为 Cursor 提供更多计算能力来开发 AI 模型。</p>
+<p><a href="https://www.reuters.com/legal/transactional/spacex-buy-anysphere-60-billion-2026-06-16/">Reuters</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/41988)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihuatg">备用频道</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/41988">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">20:39</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/80399)" target="_blank">小红书计划于香港上市，正与顾问洽谈上市事宜，有望成为港股近年最大规模新股之一。目前小红书估值已经超过2400亿港元，有望冲击4000亿港元。</a></div>
+  <div class="card-summary"><hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/80399)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/80399">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">22:05</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/41991)" target="_blank">🤖 **ChatGPT 全球市场份额首次降至 50% 以下**</a></div>
+  <div class="card-summary"><p>ChatGPT 的全球市场份额在 5 月末已降至 46.4%，首次跌破 50% 关口。Sensor Tower 报告显示，Google Gemini 和 Anthropic Claude 的份额分别升至 27.7% 和 10.3%，加速追赶。</p>
+<p>ChatGPT 仍是用户最多的 AI 助手，月活超 11 亿。用户在不同 AI 助手之间切换的意愿明显增强，某些事件如 OpenAI 与美国国防部合作曾引发卸载潮。整体市场仍高速增长，上半年全球 AI 应用下载量预计近 23 亿次、用户支出超 42 亿美元，但增速放缓，可能正进入成熟期。</p>
+<p><a href="https://techcrunch.com/2026/06/16/chatgpts-market-share-slips-below-50-for-first-time/">TechCrunch</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/41991)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihuatg">备用频道</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/41991">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">22:16</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/10360)" target="_blank">九毛九一份，卖了4415份，这就是四千多块钱了。</a></div>
+  <div class="card-summary"><p>我买了，发现实际发货出来的是某网站的免登录在线测试网址。</p>
+<p>也就是说，他找了个网址，然后上架了个商品到小红书，然后就开始自动赚钱了。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/10360)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/yunying23/10360">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">23:04</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/41993)" target="_blank">**支付巨头加速布局 AI 支付 微信“AI 专属卡”最快本周上线**</a></div>
+  <div class="card-summary"><p>微信支付正联合腾讯 WorkBuddy 测试 AI 支付功能，计划最快本周在微信钱包上线“AI 专属卡”，支付须经用户验密确认。同日，支付宝推出 AI 版“阿宝”，银联商务和京东也发布了各自的 AI 支付产品，赛道热度骤升。</p>
+<p>业内人士表示，当前“支付+AI”仍处前端交互的初级阶段，尚未触及底层清算与智能决策。分析认为，在前端体验趋同后，竞争将转向后端风控、商户覆盖、合规资质及清算网络能力，行业格局短期内难以被重构。</p>
+<p><a href="https://finance.sina.com.cn/jjxw/2026-06-16/doc-inicrcpp7616376.shtml">新浪财经</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/41993)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihuatg">备用频道</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/41993">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">23:30</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/41994)" target="_blank">**Open AI 全线出现性能下降**</a></div>
+  <div class="card-summary"><p>其中已确认 Codex 出现短时间故障</p>
+<p><a href="https://status.openai.com/">Open AI</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/41994)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihuatg">备用频道</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/41994">查看原文</a></div></div>
+</div></div>
+
+    <div class="footer">TG 频道日报 · 自动生成</div>
+</div>
+
+</body>
+</html>
