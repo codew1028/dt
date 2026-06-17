@@ -783,7 +783,7 @@ function loadDoc(url, el, keyword) {
         const idx = text.toLowerCase().indexOf(kw);
         const before = doc.createTextNode(text.slice(0, idx));
         const mark = doc.createElement('mark');
-        mark.style.cssText = 'background:#fff176;color:inherit;padding:1px 2px;border-radius:2px;';
+        mark.style.cssText = 'background:transparent;color:inherit;outline:2px solid #ff6b35;outline-offset:1px;border-radius:2px;';
         mark.textContent = text.slice(idx, idx + kw.length);
         const after = doc.createTextNode(text.slice(idx + kw.length));
         parent.replaceChild(after, targetNode);
