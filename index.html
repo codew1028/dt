@@ -441,6 +441,32 @@ body {
   font-size: 13px;
   color: #c9cdd4;
 }
+/* ── Search hint bar ── */
+.search-hint-bar {
+  display: none;
+  padding: 7px 16px;
+  background: #fffbe6;
+  border-bottom: 1px solid #ffe58f;
+  font-size: 12px;
+  color: #7c5a00;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.search-hint-bar.show {
+  display: flex;
+}
+.search-hint-bar .hint-kw {
+  font-weight: 600;
+  background: #fff3bf;
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+.search-hint-bar .hint-tip {
+  margin-left: auto;
+  color: #8f959e;
+  font-size: 11px;
+}
 
 /* ── Mobile ── */
 @media (max-width: 768px) {
@@ -721,6 +747,10 @@ body {
   </div>
   <div class="resize-handle" id="resizeHandle"></div>
   <div class="content" id="content">
+    <div class="search-hint-bar" id="searchHintBar">
+      <span>🔍 当前关键词：</span><span class="hint-kw" id="hintKw"></span>
+      <span class="hint-tip">按 Ctrl+F / Cmd+F 在页面内定位</span>
+    </div>
     <div class="welcome" id="welcome">
       <div class="icon">📂</div>
       <div class="text">从左侧选择一篇文档开始阅读</div>
@@ -744,7 +774,7 @@ function toggleSidebar() {
   btn.title = sidebar.classList.contains('hidden') ? '展开侧边栏' : '收起侧边栏';
 }
 
-function loadDoc(url, el) {
+function loadDoc(url, el, keepHint) {
   // Remove old active
   document.querySelectorAll('.nav-item.active').forEach(e => e.classList.remove('active'));
   if (el) el.classList.add('active');
@@ -752,6 +782,11 @@ function loadDoc(url, el) {
   // Remove welcome
   const w = document.getElementById('welcome');
   if (w) w.remove();
+  // 非搜索跳转时隐藏 hint bar
+  if (!keepHint) {
+    const hintBar = document.getElementById('searchHintBar');
+    if (hintBar) hintBar.classList.remove('show');
+  }
   // Remove old iframe
   const old = content.querySelector('iframe');
   if (old) old.remove();
@@ -817,8 +852,9 @@ function toggleSubSection(header) {
 
   function doSearch(query) {
     const q = query.toLowerCase().trim();
-    filterSidebar(q);
+    // 输入不足2字时只做侧边栏恢复
     if (!q || q.length < 2) {
+      filterSidebar('', false);
       resultsBox.classList.remove('open');
       return;
     }
@@ -843,6 +879,9 @@ function toggleSubSection(header) {
         if (a.titleMatch !== b.titleMatch) return a.titleMatch ? -1 : 1;
         return b.date.localeCompare(a.date);
       });
+      // 有正文结果 → 侧边栏不过滤
+      const hasBodyResults = results.some(r => r.bodyMatch && !r.titleMatch);
+      filterSidebar(q, hasBodyResults || results.length > 0);
       renderResults(results, q);
     });
   }
@@ -859,7 +898,9 @@ function toggleSubSection(header) {
     if (titleHits > 0 && bodyHits > 0) hint += '（' + titleHits + ' 篇标题匹配，' + bodyHits + ' 篇正文匹配）';
     let html = '<div class="sr-hint">' + escapeHtml(hint) + '</div>';
     for (const r of results) {
-      const badge = r.titleMatch ? '<span class="sr-badge">标题</span>' : '<span class="sr-badge" style="background:#ff9500">正文</span>';
+      const badge = r.titleMatch
+        ? '<span class="sr-badge">标题</span>'
+        : '<span class="sr-badge" style="background:#ff9500">正文</span>';
       const dateStr = r.date ? '<span class="sr-date">' + escapeHtml(r.date) + '</span>' : '';
       const snippet = r.snippet ? '<div class="sr-snippet">' + r.snippet + '</div>' : '';
       html += '<div class="sr-item" data-file="' + escapeHtml(r.file) + '">' +
@@ -880,10 +921,17 @@ function toggleSubSection(header) {
           if (navItem.querySelector('.ext-icon')) {
             window.open(file, '_blank');
           } else {
-            loadDoc(file, navItem);
+            loadDoc(file, navItem, true);
           }
         } else {
-          loadDoc(file, null);
+          loadDoc(file, null, true);
+        }
+        // 显示关键词提示条
+        const hintBar = document.getElementById('searchHintBar');
+        const hintKw = document.getElementById('hintKw');
+        if (hintBar && hintKw) {
+          hintKw.textContent = query;
+          hintBar.classList.add('show');
         }
         resultsBox.classList.remove('open');
         searchInput.blur();
@@ -891,9 +939,16 @@ function toggleSubSection(header) {
     });
   }
 
-  function filterSidebar(q) {
+  function filterSidebar(q, hasFulltextResults) {
+    // 有正文搜索结果时侧边栏不过滤，保留完整目录
+    if (hasFulltextResults) {
+      document.querySelectorAll('.nav-item').forEach(el => { el.style.display = ''; });
+      document.querySelectorAll('.nav-section, .nav-sub-section').forEach(el => { el.style.display = ''; });
+      return;
+    }
+    // 纯标题过滤
     document.querySelectorAll('.nav-item').forEach(el => {
-      const text = el.textContent.toLowerCase();
+      const text = el.getAttribute('data-title').toLowerCase();
       el.style.display = text.includes(q) || !q ? '' : 'none';
     });
     document.querySelectorAll('.nav-section').forEach(sec => {
