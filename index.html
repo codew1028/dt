@@ -779,10 +779,8 @@ function loadDoc(url, el, keyword, hitIndex) {
   // Remove welcome
   const w = document.getElementById('welcome');
   if (w) w.remove();
-  // Remove old iframe
-  const old = content.querySelector('iframe');
-  if (old) old.remove();
   // 问题2：目标页面已在 iframe 中，直接定位不重新加载
+  const old = content.querySelector('iframe');
   if (keyword && old) {
     const currentSrc = (old.getAttribute('src') || '').split('#')[0];
     if (currentSrc === url) {
@@ -792,6 +790,8 @@ function loadDoc(url, el, keyword, hitIndex) {
       return;
     }
   }
+  // Remove old iframe
+  if (old) old.remove();
   // Create iframe
   const iframe = document.createElement('iframe');
   iframe.src = url;
