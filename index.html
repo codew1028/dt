@@ -441,32 +441,6 @@ body {
   font-size: 13px;
   color: #c9cdd4;
 }
-/* ── Search hint bar ── */
-.search-hint-bar {
-  display: none;
-  padding: 7px 16px;
-  background: #fffbe6;
-  border-bottom: 1px solid #ffe58f;
-  font-size: 12px;
-  color: #7c5a00;
-  align-items: center;
-  gap: 8px;
-  flex-shrink: 0;
-}
-.search-hint-bar.show {
-  display: flex;
-}
-.search-hint-bar .hint-kw {
-  font-weight: 600;
-  background: #fff3bf;
-  padding: 1px 5px;
-  border-radius: 3px;
-}
-.search-hint-bar .hint-tip {
-  margin-left: auto;
-  color: #8f959e;
-  font-size: 11px;
-}
 
 /* ── Mobile ── */
 @media (max-width: 768px) {
@@ -747,11 +721,7 @@ body {
   </div>
   <div class="resize-handle" id="resizeHandle"></div>
   <div class="content" id="content">
-    <div class="search-hint-bar" id="searchHintBar">
-      <span>🔍 当前关键词：</span><span class="hint-kw" id="hintKw"></span>
-      <span class="hint-tip">按 Ctrl+F / Cmd+F 在页面内定位</span>
-    </div>
-    <div class="welcome" id="welcome">
+<div class="welcome" id="welcome">
       <div class="icon">📂</div>
       <div class="text">从左侧选择一篇文档开始阅读</div>
     </div>
@@ -774,7 +744,7 @@ function toggleSidebar() {
   btn.title = sidebar.classList.contains('hidden') ? '展开侧边栏' : '收起侧边栏';
 }
 
-function loadDoc(url, el, keepHint) {
+function loadDoc(url, el, keyword) {
   // Remove old active
   document.querySelectorAll('.nav-item.active').forEach(e => e.classList.remove('active'));
   if (el) el.classList.add('active');
@@ -782,11 +752,6 @@ function loadDoc(url, el, keepHint) {
   // Remove welcome
   const w = document.getElementById('welcome');
   if (w) w.remove();
-  // 非搜索跳转时隐藏 hint bar
-  if (!keepHint) {
-    const hintBar = document.getElementById('searchHintBar');
-    if (hintBar) hintBar.classList.remove('show');
-  }
   // Remove old iframe
   const old = content.querySelector('iframe');
   if (old) old.remove();
@@ -794,6 +759,43 @@ function loadDoc(url, el, keepHint) {
   const iframe = document.createElement('iframe');
   iframe.src = url;
   iframe.setAttribute('sandbox', 'allow-same-origin allow-scripts allow-popups');
+  // 搜索定位：onload 后注入高亮滚动脚本
+  if (keyword) {
+    iframe.addEventListener('load', function() {
+      try {
+        const doc = iframe.contentDocument || iframe.contentWindow.document;
+        if (!doc || !doc.body) return;
+        const kw = keyword.toLowerCase();
+        // 找第一个包含关键词的文本节点
+        const walker = doc.createTreeWalker(doc.body, NodeFilter.SHOW_TEXT, null, false);
+        let targetNode = null;
+        while (walker.nextNode()) {
+          if (walker.currentNode.nodeValue.toLowerCase().includes(kw)) {
+            targetNode = walker.currentNode;
+            break;
+          }
+        }
+        if (!targetNode) return;
+        // 用 <mark> 包裹高亮
+        const parent = targetNode.parentNode;
+        if (!parent || parent.nodeName === 'SCRIPT' || parent.nodeName === 'STYLE') return;
+        const text = targetNode.nodeValue;
+        const idx = text.toLowerCase().indexOf(kw);
+        const before = doc.createTextNode(text.slice(0, idx));
+        const mark = doc.createElement('mark');
+        mark.style.cssText = 'background:#fff176;color:inherit;padding:1px 2px;border-radius:2px;';
+        mark.textContent = text.slice(idx, idx + kw.length);
+        const after = doc.createTextNode(text.slice(idx + kw.length));
+        parent.replaceChild(after, targetNode);
+        parent.insertBefore(mark, after);
+        parent.insertBefore(before, mark);
+        // 滚动到高亮位置
+        mark.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } catch(e) {
+        console.warn('搜索定位失败:', e);
+      }
+    });
+  }
   content.appendChild(iframe);
 }
 
@@ -921,17 +923,10 @@ function toggleSubSection(header) {
           if (navItem.querySelector('.ext-icon')) {
             window.open(file, '_blank');
           } else {
-            loadDoc(file, navItem, true);
+            loadDoc(file, navItem, query);
           }
         } else {
-          loadDoc(file, null, true);
-        }
-        // 显示关键词提示条
-        const hintBar = document.getElementById('searchHintBar');
-        const hintKw = document.getElementById('hintKw');
-        if (hintBar && hintKw) {
-          hintKw.textContent = query;
-          hintBar.classList.add('show');
+          loadDoc(file, null, query);
         }
         resultsBox.classList.remove('open');
         searchInput.blur();
