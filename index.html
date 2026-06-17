@@ -784,7 +784,7 @@ function loadDoc(url, el, keyword, hitIndex) {
   if (keyword && old) {
     const currentSrc = (old.getAttribute('src') || '').split('#')[0];
     if (currentSrc === url) {
-      if (typeof highlightInCurrentIframe === 'function') {
+      if (window.highlightInCurrentIframe) {
         highlightInCurrentIframe(keyword, hitIndex);
       }
       return;
@@ -1046,7 +1046,7 @@ function toggleSubSection(header) {
   }
 
   // 在已加载的 iframe 内直接定位高亮，不重新加载
-  function highlightInCurrentIframe(keyword, hitIndex) {
+  window.highlightInCurrentIframe = function(keyword, hitIndex) {
     hitIndex = hitIndex || 0;
     const iframe = document.querySelector('#content iframe');
     if (!iframe) return false;
