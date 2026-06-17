@@ -63,6 +63,31 @@ body {
   font-size: 12px;
   pointer-events: none;
 }
+.topbar .search-box .search-clear {
+  display: none;
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: #c9cdd4;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 10px;
+  color: #fff;
+  line-height: 16px;
+  text-align: center;
+  padding: 0;
+  transition: background .15s;
+}
+.topbar .search-box .search-clear:hover {
+  background: #8f959e;
+}
+.topbar .search-box .search-clear.show {
+  display: block;
+}
 .topbar .stats {
   font-size: 12px;
   color: #8f959e;
@@ -476,6 +501,7 @@ body {
   <div class="logo">🐲 W·谛听</div>
   <div class="search-box">
     <input type="text" id="search" placeholder="搜索标题或正文..." autocomplete="off">
+    <button class="search-clear" id="searchClear" title="清空搜索">✕</button>
     <div class="search-results" id="searchResults"></div>
   </div>
   <div class="stats">92 份文档</div>
@@ -755,6 +781,16 @@ function loadDoc(url, el, keyword) {
   // Remove old iframe
   const old = content.querySelector('iframe');
   if (old) old.remove();
+  // 问题2：目标页面已在 iframe 中，直接定位不重新加载
+  if (keyword && old) {
+    const currentSrc = (old.getAttribute('src') || '').split('#')[0];
+    if (currentSrc === url) {
+      if (typeof highlightInCurrentIframe === 'function') {
+        highlightInCurrentIframe(keyword);
+      }
+      return;
+    }
+  }
   // Create iframe
   const iframe = document.createElement('iframe');
   iframe.src = url;
@@ -783,6 +819,7 @@ function loadDoc(url, el, keyword) {
         const idx = text.toLowerCase().indexOf(kw);
         const before = doc.createTextNode(text.slice(0, idx));
         const mark = doc.createElement('mark');
+        mark.setAttribute('data-search-mark','1');
         mark.style.cssText = 'background:transparent;color:inherit;outline:2px solid #ff6b35;outline-offset:1px;border-radius:2px;';
         mark.textContent = text.slice(idx, idx + kw.length);
         const after = doc.createTextNode(text.slice(idx + kw.length));
@@ -958,9 +995,89 @@ function toggleSubSection(header) {
     });
   }
 
+  const clearBtn = document.getElementById('searchClear');
+
+  // 清除 iframe 内所有 mark 高亮
+  function clearIframeHighlights() {
+    const iframe = document.querySelector('#content iframe');
+    if (!iframe) return;
+    try {
+      const doc = iframe.contentDocument || iframe.contentWindow.document;
+      if (!doc) return;
+      doc.querySelectorAll('mark[data-search-mark]').forEach(mark => {
+        const parent = mark.parentNode;
+        parent.replaceChild(doc.createTextNode(mark.textContent), mark);
+        parent.normalize();
+      });
+    } catch(e) {}
+  }
+
+  // 在已加载的 iframe 内直接定位高亮，不重新加载
+  function highlightInCurrentIframe(keyword) {
+    const iframe = document.querySelector('#content iframe');
+    if (!iframe) return false;
+    try {
+      const doc = iframe.contentDocument || iframe.contentWindow.document;
+      if (!doc || !doc.body) return false;
+      // 先清掉旧的高亮
+      doc.querySelectorAll('mark[data-search-mark]').forEach(mark => {
+        const parent = mark.parentNode;
+        parent.replaceChild(doc.createTextNode(mark.textContent), mark);
+        parent.normalize();
+      });
+      const kw = keyword.toLowerCase();
+      const walker = doc.createTreeWalker(doc.body, NodeFilter.SHOW_TEXT, null, false);
+      let targetNode = null;
+      while (walker.nextNode()) {
+        if (walker.currentNode.nodeValue.toLowerCase().includes(kw)) {
+          targetNode = walker.currentNode;
+          break;
+        }
+      }
+      if (!targetNode) return false;
+      const parent = targetNode.parentNode;
+      if (!parent || parent.nodeName === 'SCRIPT' || parent.nodeName === 'STYLE') return false;
+      const text = targetNode.nodeValue;
+      const idx = text.toLowerCase().indexOf(kw);
+      const before = doc.createTextNode(text.slice(0, idx));
+      const mark = doc.createElement('mark');
+      mark.setAttribute('data-search-mark', '1');
+        mark.style.cssText = 'background:transparent;color:inherit;outline:2px solid #ff6b35;outline-offset:1px;border-radius:2px;';
+      mark.textContent = text.slice(idx, idx + kw.length);
+      const after = doc.createTextNode(text.slice(idx + kw.length));
+      parent.replaceChild(after, targetNode);
+      parent.insertBefore(mark, after);
+      parent.insertBefore(before, mark);
+      mark.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return true;
+    } catch(e) {
+      return false;
+    }
+  }
+
+  // 清空搜索
+  function clearSearch() {
+    searchInput.value = '';
+    resultsBox.classList.remove('open');
+    clearBtn.classList.remove('show');
+    filterSidebar('', false);
+    clearIframeHighlights();
+  }
+
+  clearBtn.addEventListener('click', clearSearch);
+
+  // 输入监听
   searchInput.addEventListener('input', function() {
     clearTimeout(debounceTimer);
+    clearBtn.classList.toggle('show', this.value.length > 0);
     debounceTimer = setTimeout(() => doSearch(this.value), 300);
+  });
+
+  // 问题1：focus 时如果有值，重新触发下拉
+  searchInput.addEventListener('focus', function() {
+    if (this.value.trim().length >= 2) {
+      doSearch(this.value);
+    }
   });
 
   document.addEventListener('click', function(e) {
