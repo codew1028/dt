@@ -979,6 +979,7 @@ function toggleSubSection(header) {
         snippet + '</div>';
     }
     resultsBox.innerHTML = html;
+    resultsBox.scrollTop = 0;
     resultsBox.classList.add('open');
     resultsBox.querySelectorAll('.sr-item').forEach(el => {
       el.addEventListener('click', function() {
