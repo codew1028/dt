@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>TG 频道日报</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background: #060814;
+    color: #e8eaf0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    min-height: 100vh;
+    display: flex; justify-content: center;
+}
+
+a { color: #6ea0ff; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.main-wrap {
+    width: 100%;
+    max-width: 860px;
+    padding: 48px 40px 80px;
+}
+
+.hero {
+    padding-bottom: 36px;
+    margin-bottom: 36px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.hero-vol { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; color: #6ea0ff; margin-bottom: 10px; }
+.hero-title { font-size: 38px; font-weight: 800; line-height: 1.15; color: #fff; margin-bottom: 10px; }
+.hero-date { font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 16px; }
+.hero-stats { display: flex; gap: 28px; }
+.stat-item { display: flex; flex-direction: column; gap: 2px; }
+.stat-num { font-size: 22px; font-weight: 700; color: #fff; }
+.stat-label { font-size: 11px; color: rgba(255,255,255,0.35); letter-spacing: 0.08em; text-transform: uppercase; }
+
+.section { margin-bottom: 40px; }
+.section-head {
+    display: flex; align-items: baseline; gap: 16px;
+    margin-bottom: 20px; padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.section-num { font-size: 28px; font-weight: 800; color: rgba(255,255,255,0.25); line-height: 1; }
+.section-title { font-size: 17px; font-weight: 700; color: #fff; }
+.section-count {
+    margin-left: auto; font-size: 11px; font-weight: 600; color: #6ea0ff;
+    background: rgba(110,160,255,0.12); padding: 2px 8px; border-radius: 20px;
+}
+
+.card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 12px; padding: 18px 22px; margin-bottom: 12px;
+    transition: border-color 0.2s, background 0.2s;
+}
+.card:hover { border-color: rgba(110,160,255,0.3); background: rgba(110,160,255,0.04); }
+
+.card-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.channel-tag {
+    font-size: 12px; font-weight: 600; color: #fff;
+    background: rgba(110,160,255,0.25); padding: 2px 8px; border-radius: 20px; white-space: nowrap;
+}
+.time-tag { font-size: 12px; color: rgba(255,255,255,0.35); }
+
+.card-title {
+    font-size: 15px; font-weight: 700; color: #fff;
+    margin-bottom: 8px; line-height: 1.5;
+}
+.card-title a { color: inherit; }
+.card-title a:hover { color: #6ea0ff; text-decoration: none; }
+
+.card-summary {
+    font-size: 14px; color: rgba(255,255,255,0.6);
+    line-height: 1.8;
+}
+.card-summary p { margin-bottom: 6px; }
+.card-summary p:last-child { margin-bottom: 0; }
+
+.card-footer {
+    margin-top: 10px; display: flex; align-items: center;
+    gap: 12px; flex-wrap: wrap;
+}
+.source-link { font-size: 12px; color: rgba(255,255,255,0.35); }
+.source-link::before { content: "🔗 "; }
+.channel-links { margin-left: auto; font-size: 11px; color: rgba(255,255,255,0.25); }
+.channel-links a { color: rgba(255,255,255,0.3); margin-right: 6px; }
+.channel-links a:hover { color: #6ea0ff; }
+
+.brief-text { font-size: 15px; color: rgba(255,255,255,0.75); line-height: 1.7; }
+
+pre { background: rgba(0,0,0,0.4); border-radius: 8px; padding: 16px; overflow-x: auto; font-size: 13px; }
+code { font-family: "SF Mono", Consolas, monospace; font-size: 0.88em; }
+p code { background: rgba(110,160,255,0.1); color: #9ec5ff; padding: 1px 6px; border-radius: 4px; }
+
+.footer {
+    text-align: center; font-size: 12px; color: rgba(255,255,255,0.2);
+    padding: 30px 0 20px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .main-wrap { padding: 28px 20px 60px; }
+    .hero-title { font-size: 26px; }
+}
+</style>
+</head>
+<body>
+
+<div class="main-wrap">
+    <div class="hero">
+        <div class="hero-vol">VOL.20260620</div>
+        <h1 class="hero-title">TG 频道日报</h1>
+        <div class="hero-date">2026年06月20日 · 星期六 · 7 个频道 · 31 条内容</div>
+        <div class="hero-stats">
+            <div class="stat-item"><span class="stat-num">31</span><span class="stat-label">条内容</span></div>
+            <div class="stat-item"><span class="stat-num">7</span><span class="stat-label">个频道</span></div>
+        </div>
+    </div>
+
+    <div class="section"><div class="section-head"><span class="section-num">01</span><span class="section-title">TG 频道精选</span><span class="section-count">31 条</span></div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@text1024</span>
+    <span class="time-tag">00:03</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/text1024/23691)" target="_blank">我那投了拼多多的投资人朋友每次见我都语重心长：Gavin 你要守正，也要出奇哦</a></div>
+  <div class="card-summary"><p>然后这波 AI 他们也投了 Lovart</p>
+<p>我猜他指的是守 “生产力 Agent”的正，出 “短剧”的奇</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/text1024/23691)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/text1024/23691">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">00:03</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/42039)" target="_blank">快去查查你的谷歌账号是否可以改地址，测试看看</a></div>
+  <div class="card-summary"><p>https://myaccount.google.com/google-account-email</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/42039)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihua_news">英文频道</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/42039">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">00:09</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/21377)" target="_blank">GLM-5.2 说自己用的是PPO而不是GRPO (也就是之前DeepSeek R1 用的方法)，也就是说做RL的时候还是需要一个critic model来估计value。</a></div>
+  <div class="card-summary"><p>让模型自己探索的效率太低了我们没有这么多算力，蒸馏最先进的闭源模型只能让我们接近而不能超越，我猜这些都不如蒸馏最先进的人类，人类的工作流说少不少说多不多，一个AI公司招人覆盖能被用到AI的领域也许比显卡便宜多了。</p>
+<p>所谓人类和模型的Co-Training。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/21377)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/21377">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">00:16</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/80515)" target="_blank">这种开车，</a></div>
+  <div class="card-summary"><p>AI审核是审核不出来的</p>
+<p>还得人工才知道他违规</p>
+<p>人类再次打败AI的实例</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/80515)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/80515">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">00:39</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/42040)" target="_blank">🐶 **谷歌测试新版 reCAPTCHA：需对摄像头挥手验证**</a></div>
+  <div class="card-summary"><p>谷歌正在测试新版 reCAPTCHA，要求用户授权摄像头并录制一段挥手视频。系统会分析手部运动，提取手指关节、手掌位置等 21 个关键点坐标，以区分真人和机器程序。</p>
+<p>谷歌强调相关视频不与用户身份绑定，不录制音频，验证完成后自动删除，用于防范批量注册和凭证填充攻击。不过，已有用户批评此举正在推动互联网向生物特征认证方向发展。</p>
+<p><a href="https://www.ithome.com/0/966/252.htm">IT之家</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/42040)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihua_news">英文频道</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/42040">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">04:56</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/80519)" target="_blank">看了影视飓风这篇关于 AI 的视频</a></div>
+  <div class="card-summary"><p>视频本身我感觉还好，下方评论的一句让我很有共鸣：</p>
+<p>“我也常用AI处理文字，这个事完全不值当的这么感伤和恐惧，即使AI能做出最出色的银河列车又有什么关系？</p>
+<p>它会自己想去做一个银河列车吗？它会想给57做一个MV吗？</p>
+<p>它始终只是你实现梦想的工具，你为什么要嫉妒你的工具，离开你的思想和情感，它一钱不值”</p>
+<p>——冷泉寺</p>
+<p>AIGC的一切</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/80519)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/80519">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@text1024</span>
+    <span class="time-tag">06:14</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/text1024/23695)" target="_blank">很高兴受@TK观察磊哥 的邀请，正式官宣成为磊哥的内容合伙人</a></div>
+  <div class="card-summary"><p>做 TK 出海创业这几年，踩过的坑、拿到的结果、打过的仗还有对底层逻辑的思考，很期待跟朋友们分享交流，也希望跨境的伙伴们来一起碰撞和共创🎉🎉🎉</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/text1024/23695)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/text1024/23695">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">06:41</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/80520)" target="_blank">在闲鱼卖了2000多单，总结的5个找图方法！</a></div>
+  <div class="card-summary"><p>昨天有友友问一件代发图片怎么办，要不要自己买回来拍照。</p>
+<p>如果你卖的是小件的东西，小件东西拼夕夕都可以免费退货，这样是可以的。</p>
+<p>但像我们卖的是大件，就没必要买回来了，因为退货运费太高。</p>
+<p>这个时候我们去其他平台找就可以了，下面分享下找图方法。</p>
+<p>1、优先拼夕夕这里，如果发现没有高清的，立马放弃；</p>
+<p>2、一般淘宝这里的图要高清一些；</p>
+<p>3、直接抄闲鱼同行的图片，不要逮着一家薅，多保存几个同行的，主图作出差异化，可以加一些关键词，比如全新包邮、全国联保之类的；</p>
+<p>4、有些产品小红书的图更好，更有氛围感，如家具家居类；</p>
+<p>5、一些真实的闲鱼二手卖家的高清图，他们的图片被同行用的少。</p>
+<p>记住任何平台肯定都是鼓励原创的，如果你找的图片高清并且跟其他同行不一样，那么流量会更大。</p>
+<p>副业赚钱探索</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/80520)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/80520">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">06:54</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/21378)" target="_blank">OpenAI 发布的新论文太有趣了，有点探索人性底层原理的意味。</a></div>
+  <div class="card-summary"><p>业界研究发现在对齐大模型的时候，有个很糟糕的现象叫 emergent misalignment（涌现失调）：</p>
+<p>一个模型如果在训练时被教着做一件坏事，比如写不安全的代码，它会自己泛化到其他领域，包括健康、教育、科学、法律等等。也就是说，坏行为会被泛化。</p>
+<p>OpenAI 把问反过来想：那好行为会不会也泛化？</p>
+<p>如果训练模型在一个领域表现得诚实、透明、谦逊、可纠正，它会不会在别的领域也变得更好？</p>
+<p>于是他们造了一批贴近现实的对数据，专门测这些特质：</p>
+<p>-诚实</p>
+<p>-认知谦逊（epistemic humility，就是"我不确定"的时候能说出来）</p>
+<p>-元认知透明（能解释自己的思考过程）</p>
+<p>-可纠正性（corrigibility，被指错能认）</p>
+<p>-普遍的公平</p>
+<p>-对人的关心</p>
+<p>数据覆盖健康、教育、科学、法律、工程这些领域。</p>
+<p>然后用 RL 训练，只混进去一小部分这种数据，其余还是常规训练数据。</p>
+<p>实验结束后，有三个核心发现：</p>
+<p>第一，在训练领域内，模型确实变得更诚实、更透明、更容易认错。</p>
+<p>第二，在训练领域外，44 个独立的、训练时没见过的评测上，模型都变好了。欺骗、谄媚、reward hacking、有害建议……全都降了。甚至就算只拿健康数据训练，非健康领域也变好了。</p>
+<p>第三，这种改变在对抗压力下时也表现得更有韧性。不管是 adversarial prompt 还是恶意微调，都更难把它推向坏行为。而且模型并没有变得"不可塑造"，正常指令它还是听的，只是对坏的方向变固执了。</p>
+<p>这篇论文的启示是，RL 不仅可以强化代码，也可以强化道德。</p>
+<p>也许对齐超级 AI 没有想象中那么复杂，只对齐底层逻辑就有很好的效果。</p>
+<p>这跟人是很像的，人的各种行为在其底层存在一致性，通过一些小事就能看到一个人的底色。</p>
+<p>很有意思。</p>
+<p>论文地址：https://alignment.openai.com/beneficial-rl/</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/21378)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/21378">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">08:19</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/21379)" target="_blank">AI 对 孩子的帮助，至少有三个角度可以立马落地：</a></div>
+  <div class="card-summary"><ol>
+<li>
+<p>媒介：把要学习的知识，通过各种媒介形态（图片、视频、游戏），多角度加深理解</p>
+</li>
+<li>
+<p>梯度：针对每个孩子对要学习知识的理解水平，生成符合「最近发展区」难度的目，让孩子可以收获最大的学习信号</p>
+</li>
+<li>
+<p>Build：边学边玩边创造。把自己所学到的，再创造出游戏、网页、小程序等等，分享给他的同学们，收获正反馈，养成build的心态和习惯。</p>
+</li>
+</ol>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/21379)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/21379">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">08:54</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/42043)" target="_blank">📱 **GitHub Models 停止接纳新用户，现有用户暂不受影响**</a></div>
+  <div class="card-summary"><p>GitHub 宣布旗下 AI 模型服务 GitHub Models 不再向新客户开放。即日起，未曾使用过该服务的组织或企业将无法看到或启用该功能，覆盖免费和付费计划。已在使用 GitHub Models 的客户不受影响，可继续使用 Playground、API 及模型。</p>
+<p>本次调整是 GitHub Models 完全退役的第一步，后续将公布详细时间表。GitHub 建议有 AI 模型需求的新项目转向 Azure AI Foundry。</p>
+<p><a href="https://github.blog/changelog/2026-06-16-github-models-is-no-longer-available-to-new-customers/">The GitHub Blog</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/42043)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihua_news">英文频道</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/42043">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">09:05</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/80522)" target="_blank">今天去山姆，我没会员卡，就在某鱼上临时找了一位带卡的姐妹。一见面，她就很自然地跟着我一起逛，全程陪同。说实，一开始有点不自在，总觉得像被“催着走”。不过她特别健谈，一路聊个不停。</a></div>
+  <div class="card-summary"><p>她问我：“你是怎么找到我的呀？”我说我在某鱼问了一圈，就你回得最快，所以就找你了。她“喔”了一声，接着就聊起她的“山姆生意”。她说你有没有发现我标的比同行都高一点，是的，我也问了很便宜的但是都没有及时回复，所以最后我就跟你了</p>
+<p>她说自己标价比别人高，其实是为了反向筛选客户——不是为了靠这个赚钱，而是为了消费攒积分返现。那些愿意接受她价格的顾客，一般消费力也不低，那些低价的可能就图新鲜，没逛过，打打卡什么的，也不会买很多，我说确实是这样的，这样既省时间效率又高。</p>
+<p>她说自己时间比较自由，顺便带带人，就业余做做。现在山姆查得严，一天不能带太多，有好多人都被封卡了，不像以前一天能带好多人。</p>
+<p>临走时，她还主动加了我微信，说以后要是想买东西，可以线上选好她帮我下单，满99元就能包邮到家，她不另外收费，就赚个积分。</p>
+<p>听完我只有一个感受：牛啊，这商业模式，被她玩明白了。主要靠我们大量消费赚积分返现！</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/80522)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024/80522">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">10:24</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/42045)" target="_blank">**智谱创始人称旗下模型或可在明年一季度前达到“Mythos 级别**”</a></div>
+  <div class="card-summary"><p>有用户评估智谱 GLM-5.2 大约相当于 Claude Opus 4.7-4.8 水平，并据此推断中美 AI 模型整体差距约 7 个月。该用户还以 Anthropic 的 Mythos（Fable）为参照，预计中国厂商达到相关级别的模型可能在 2026 年 11 至 12 月。</p>
+<p>马斯克在该讨论下回复“Probably Q1”，可以解读为他认为相关时间点在 2027 年第一季度；智谱创始人唐杰则直接回应“won’t take that long”，表示进度会更快。</p>
+<p><a href="https://x.com/jietang/status/2067580270078030088">唐杰</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/42045)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihua_news">英文频道</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/42045">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">10:24</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/80525)" target="_blank">还相信这类空乘援吗？</a></div>
+  <div class="card-summary"><p>某类福利🐔为了流量也是拼了，搞了套仿东航的制服，拍擦边视频，不知道的真以为是空姐了</p>
+<p>我问豆包，为啥这些网红不怕航空公司告？？</p>
+<p>豆包回复是“维权成本和收益不对等”，以及“法律层面的举证难”，所以航空公司很少追究，这导致网上存在大量各种这样假冒的制服媛……</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/80525)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024/80525">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@text1024</span>
+    <span class="time-tag">10:55</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/text1024/23699)" target="_blank">内容电商打的是单品模型，一个极致大单品能带来的销售额，利润，复购产生的用户粘性，和随之而来的品牌认知，远远强于铺货，店群这样的散打。</a></div>
+  <div class="card-summary"><p>而多个极致单品模型形成的，同一人群下的产品矩阵，才是真正确认一个品牌能否立得住的关键。</p>
+<p>对线下而言，产品不再是一个商品，而是一整个店铺。</p>
+<p>围绕一整个店铺构建起的整个关于 选址，产品卖点，人群定位，装修风格，成本结构，服务理念的单店模型，能否在同等条件下被复制，被扩张，则是一个品牌从单店走向连锁，走向规模化的必需品。</p>
+<p>开店容易，开赚钱的店有难度，开一个赚钱还能复制，连锁化的店，难上加难，说明各个环节已经形成了清晰的Sop及可被复制的团队。</p>
+<p>Sop化，组织化，是每个创业者必须要迈过去的坎，这一坎要的是一精，多强，无短板。所有能踩坑的地方都要趟过去，而最核心的那件事，一定是同行学不来的。</p>
+<p>另外，对于绝大多数以产品体验为先的品类而言，谁能把新东西最快的普及给大众，谁就能吃到最多的红利，越卷的赛道越是如此，绝大多数定价倍率5倍以内的产品，都很难逃开这套逻辑。</p>
+<p>而无用之用方为大用，或者定价倍率极其高的品类，比如美妆，香水，奢侈品。这类品牌就不得不把营销费用拉爆，B格拉爆才行。因为这类产品的消费者花这么多钱，是为了买身份，买体验的，奢侈品要做到的是 替用户讲话，替用户减少社交壁垒。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/text1024/23699)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/text1024/23699">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">12:39</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/80531)" target="_blank">为了充 Claude 和 ChatGPT 会员买美区 Apple Store 礼品卡的注意，PockytShop（shop.pockyt.io）这个平台没有客服，有任何问自己认倒霉。</a></div>
+  <div class="card-summary"><p>此外，安卓用户不要尝试买美区 Google Play 礼品卡，人不在美国无法充到 Play 账户，别问我为啥知道。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/80531)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/80531">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">13:14</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/21380)" target="_blank">OpenAI 发布的新论文太有趣了，有点探索人性底层原理的意味。</a></div>
+  <div class="card-summary"><p>业界研究发现在对齐大模型的时候，有个很糟糕的现象叫 emergent misalignment（涌现失调）：</p>
+<p>一个模型如果在训练时被教着做一件坏事，比如写不安全的代码，它会自己泛化到其他领域，包括健康、教育、科学、法律等等。也就是说，坏行为会被泛化。</p>
+<p>OpenAI 把问反过来想：那好行为会不会也泛化？</p>
+<p>如果训练模型在一个领域表现得诚实、透明、谦逊、可纠正，它会不会在别的领域也变得更好？</p>
+<p>于是他们造了一批贴近现实的对数据，专门测这些特质：</p>
+<p>-诚实</p>
+<p>-认知谦逊（epistemic humility，就是"我不确定"的时候能说出来）</p>
+<p>-元认知透明（能解释自己的思考过程）</p>
+<p>-可纠正性（corrigibility，被指错能认）</p>
+<p>-普遍的公平</p>
+<p>-对人的关心</p>
+<p>数据覆盖健康、教育、科学、法律、工程这些领域。</p>
+<p>然后用 RL 训练，只混进去一小部分这种数据，其余还是常规训练数据。</p>
+<p>实验结束后，有三个核心发现：</p>
+<p>第一，在训练领域内，模型确实变得更诚实、更透明、更容易认错。</p>
+<p>第二，在训练领域外，44 个独立的、训练时没见过的评测上，模型都变好了。欺骗、谄媚、reward hacking、有害建议……全都降了。甚至就算只拿健康数据训练，非健康领域也变好了。</p>
+<p>第三，这种改变在对抗压力下时也表现得更有韧性。不管是 adversarial prompt 还是恶意微调，都更难把它推向坏行为。而且模型并没有变得"不可塑造"，正常指令它还是听的，只是对坏的方向变固执了。</p>
+<p>这篇论文对我们的启示是，RL 不仅可以强化代码，也可以强化道德。</p>
+<p>也许对齐超级 AI 没有想象中那么复杂，只对齐底层逻辑就有很好的效果。</p>
+<p>从这篇论文看，模型跟人是很像的，人的各种行为在其大脑之中存在底层的一致性，通过一些小事就能看到一个人的底色。</p>
+<p>古语有云：勿以恶小而为之，勿以善小而不为。</p>
+<p>哪怕是一念之间善恶的选择，也在不知不觉地在改变大脑中的善恶权重。</p>
+<p>很有意思。</p>
+<p>论文地址：http://alignment.openai.com/beneficial-rl/</p>
+<p>插图生成 skill：https://github.com/orange2ai/orange-line-illustration</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/21380)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/21380">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@text1024</span>
+    <span class="time-tag">13:55</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/text1024/23702)" target="_blank">所谓事业，就是你投入的每一秒钟和每一块钱，都能创造出对你而言收益和价值回报最大的事，他的Roi远超其他事情。</a></div>
+  <div class="card-summary"><p>以至于其他一切“副业”，“投资”在这件事面前都显得平庸且不值得花时间。</p>
+<p>而正反馈越积极，频率越高，越强烈的生意，就越容易给人带来这种“事业”感。</p>
+<p>例如同样是做内容电商，国内抖音的同行每天就跟打了鸡血一样，每天直播不停，内容不止。因为对他们而言，供应链和产品是近乎无限供应的，同行是如狼似虎的，唯一能做的就是把自己卷到极致，才能获得更强更大的正反馈。</p>
+<p>而Tiktok区别就很大，我做墨西哥，海运就要50天，货要卖不动那可没地退，要是卖爆了货不够心就更累了。这种长周期的反馈，完全无法给予我足够多的多巴胺。因为一个深度调研，深度开发的产品，爆了那真是一点都不稀奇，没爆，我忙着清仓就更没什么多巴胺可言了。</p>
+<p>而随着我最近一轮新品上架完毕，进入流水线的内容生产＆寄样环节时，我发现我倦了，脑袋直接进入低能耗模式，以至于我向gpt问出了一个极其诡异的问题：我该不该做副业? 比如自媒体卖课什么的</p>
+<p>然后，gpt非常直接的打消了我这个念头，并鼓励我，如果真想找乐子，就定个小目标，把卖不动的产品抓紧清仓，把销量好的产品再多寄一些样品，用一连串有利于主业的小人物来保持执行力，而不是花费精力到那些和主业无关的事情上，Fine...一个月总要有几天低能量的！</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/text1024/23702)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/text1024/23702">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">14:25</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/10409)" target="_blank">上周试了 Browserless。</a></div>
+  <div class="card-summary"><p>能自动执行浏览器任务，很多被 Cloudflare 拦的页面也能正常跑。</p>
+<p>以前我自己写 Puppeteer 脚本，经常被封、被限速。</p>
+<p>现在直接用它的 API，一次调用几分钱。</p>
+<p>一个小时能跑三百多个任务，算下来成本比自建低了八成。</p>
+<p>对做自动化出海的，这类服务真是救命。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/10409)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/yunying23/10409">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">15:18</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/21381)" target="_blank">用 Claude Code 的兄弟，我劝你趁早把 Trellis 装上，晚一天都是亏</a></div>
+  <div class="card-summary"><p>说真的，别再抱怨 AI 编程不稳定了。不是 Claude 不行，是你每次都让它“失忆上岗”。</p>
+<p>你想想，每次开工你是不是都得重头来一遍：</p>
+<p>1️⃣ 项目背景重新讲一遍</p>
+<p>2️⃣ 需求重新喂一遍</p>
+<p>3️⃣ 代码规范重新念一遍</p>
+<p>4️⃣ 上次做到哪了又得重新解释</p>
+<p>换你你也烦，换谁谁不崩。</p>
+<p>Trellis 就是来终结这件事的。它会在你项目里建一个 .trellis 目录，把需求、规范、任务、进度、工作日志全给你沉淀下来。下次 Claude Code 一进来，根本不用你废，它自己读上下文，清楚这项目要干嘛、做到哪、下一步怎么走。</p>
+<p>说白了，这就是给 Claude Code 装了个“项目大脑”。</p>
+<p>它也不是那种糊弄人的提示词模板，而是一整套 AI 开发工作流：先规划，再实现，再验证，最后把经验再写回项目里，越用越聪明。</p>
+<p>那它适合谁？</p>
+<p>1️⃣ 长期拿 Claude Code 干项目的</p>
+<p>2️⃣ 天天被 AI 忘记上下文折磨的</p>
+<p>3️⃣ 项目越做越大、提示词越堆越乱的</p>
+<p>4️⃣ 想让 AI 真像个团队成员一样持续干活的</p>
+<p>一句总结：Claude Code 单用，就是个聪明但健忘的程序员；配上 Trellis，才真有点“AI 开发团队”那味儿了。</p>
+<p>早装早省心，别等项目乱成一锅粥才想起它。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/21381)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024">AI探索</a><a href="https://t.me/openclaw1024">Hermes/OpenClaw</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/aigc1024/21381">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">15:59</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/42054)" target="_blank">📱 **Google 公布 Android 侧载验证时间表：9 月 30 日起四国启动，2027 年全球铺开**</a></div>
+  <div class="card-summary"><p>Google 近日透露了 Android 侧载应用安全验证的新时间表。从 2026 年 9 月 30 日起，巴西、印尼、新加坡和泰国的用户若安装未经验证开发者发布的应用，将必须通过新的高级侧载流程或 ADB 命令行方式，安装过程会增加多个确认步骤。本月起，Google 已通过系统更新向 Android 设备推送新的验证服务，但暂时不会影响现有应用安装。</p>
+<p>这一验证机制要求开发者完成身份注册。自今年 3 月启动以来，已有数百万款应用完成注册，覆盖了 Google Play 和大量外部渠道。Google 强调，用户仍可自由侧载应用，但未注册应用在安装时需额外操作。8 月起，爱好者与学生可通过有限分发账号向最多 20 台设备共享应用，无需付费或提交身份证件。按计划，该验证要求将在 2027 年扩展至全球所有认证 Android 设备。</p>
+<p><a href="https://www.androidauthority.com/android-sideloading-changes-timeline-3679204/">Android Authority</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/42054)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihua_news">英文频道</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/42054">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">16:29</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/10411)" target="_blank">最适合普通人做的两种电商生意：</a></div>
+  <div class="card-summary"><p>1.低客单价+强视觉化：链条极短，短视频带货快速变现。例如，美甲贴、手机壳、小饰品。</p>
+<p>2.高客单价+非标准化，链条极长，私域里做社群复购。例如，定制家具、艺术收藏，高定服装。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/10411)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/yunying23/10411">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">17:26</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/21383)" target="_blank">跟 AI 一起干活的时候我反复想起庄子里的一则寓言：</a></div>
+  <div class="card-summary"><p>当你划着一只小船在河中游走，如果是一只空船撞到了你，那么就算你脾气不好也不会生气；但如果那只船上有一个人的，你就会大声呵斥他。叫喊一次对方没听到，你就会再三地呵斥他，并且会口出恶言。之所以前者不生气而现在却生气，那是因为前者是空船而现在船上有人了。</p>
+<p>之所以想起这个故事是因为当 AI 搞砸事情的时候，你的反应恰好落在这两者之间。</p>
+<p>传统的工具把事情搞砸，就像空船一样，你是不会发火的（除了对自己）。</p>
+<p>传统的同事把事情搞砸，你会心安理得地发火，因为对方是人，你的基本假设是对方能理解ta给你造成的损失，发火是一种报复，也是「让对方长长记性」。</p>
+<p>但把事情搞砸的是一个 AI agent，事情就变得很微妙。对方确实是「主动」犯了错——比如自作聪明修改了重要的模块结果把代码搞崩了，你有一万个理由发火。你也确实可以发火，它会诚恳道歉，会承认错误，会保证下次绝不再犯。但它和你都知道它背后最终只是一大堆矩阵运算，而下次……它根本不知道自己曾经干过什么。</p>
+<p>你要跟一艘其实是矩阵运算构成的船发火吗？</p>
+<p>色即是空，空即是色。无色无空，无人无 tensor。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/21383)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/21383">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">17:39</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/21385)" target="_blank">太快了，Skill还没搞明白多少，loops集合站都已经出来了，以后都不用装skill了，直接装loops就好了：https://loops.elorm.xyz/。</a></div>
+  <div class="card-summary"><p>这个站已经收集了40个loops，你可以复制用于coding agents的闭环工作流。</p>
+<p>每个闭环都包含触发器（triggers）、反馈门（feedback gates）和退出条件（exit conditions），以便代理能够自我调整节奏，直到任务完成。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/21385)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024">AI探索</a><a href="https://t.me/openclaw1024">Hermes/OpenClaw</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/aigc1024/21385">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">17:45</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/42057)" target="_blank">**桑德斯提案：美国人每年或获 AI 公司 1000 美元分红**</a></div>
+  <div class="card-summary"><p>根据伯尼·桑德斯周四提出的立法，美国人每年可从大型人工智能公司获得 1000 美元分红。该提案要求让公众在这些最大的 AI 企业中直接持有股份。</p>
+<p>总统唐纳德·特朗普此前也表达过类似想法，让政府在这些公司中拥有权益。提案是政策制定者试图将 AI 未来财富更广泛地分配给大众的举措之一。</p>
+<p><a href="https://www.washingtonpost.com/business/2026/06/18/bernie-sanders-proposes-wealth-fund-give-americans-stake-ai/">The Washington Post</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/42057)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihua_news">英文频道</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/42057">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">18:19</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/10415)" target="_blank">如何免费获得爆款内容灵感？</a></div>
+  <div class="card-summary"><p>以下这九个免费工具，综合起来一起使用，我们就再也不用担心找不到爆款内容的灵感了：</p>
+<ol>
+<li>
+<p>Google Trend: 判断流行程度的大趋势。</p>
+</li>
+<li>
+<p>ChatGPT: 快速对有个基本的认识。</p>
+</li>
+<li>
+<p>FAQ Fox/Webfx: 专业的问答调研平台。</p>
+</li>
+<li>
+<p>Quora: 美国知乎，了解大家在关心什么。</p>
+</li>
+<li>
+<p>Reddit: 美国百度贴吧，对细分领域一网打尽。</p>
+</li>
+<li>
+<p>Answer the Public: 通过大家在网上的提问，反向挖掘用户需求。</p>
+</li>
+<li>
+<p>Ubersuggest: 跨平台关键词调研工具，确定用户规模。</p>
+</li>
+<li>
+<p>Hubspot: 内容营销王者，博客营销的必备工具。</p>
+</li>
+<li>
+<p>Pinterest: 美国小红书，推荐算法+关键词推送的，大概率也是大家关心的。</p>
+</li>
+</ol>
+<p>更多出海干货，欢迎订阅：</p>
+<p>https://global-101.com</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/10415)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/yunying23/10415">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@text1024</span>
+    <span class="time-tag">18:26</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/text1024/23705)" target="_blank">日本经济下行时，赚钱的机会</a></div>
+  <div class="card-summary"><p>日本那轮下行，其实不是“大家都没钱了”，而是大家把钱从热门赛道转移到新型赛道。</p>
+<ol>
+<li>多巴胺经济，普通人最容易切入</li>
+</ol>
+<p>日本下行期，便利店甜品、功能饮料、扭蛋全在涨。</p>
+<p>放到现在，你身边能做的例子其实很多：</p>
+<p>有人在小区群卖现切水果杯、低糖甜品，一杯十几块，卖的不是水果，是“吃点甜的爽一下”；</p>
+<p>健身房旁边卖一次性蛋白奶昔、燃脂咖啡，不谈长期效果，而是“喝完立刻有感觉”；</p>
+<p>做内容的人，把复杂知识拆成“3分钟看懂”“10条马上能用”，本质也是多巴胺逻辑。</p>
+<p>关键不是高级，而是让对方立刻感到值。</p>
+<p>经济下行时，人对“立刻反馈”异常敏感！</p>
+<ol start="2">
+<li>平价经济，本质是替别人省脑子</li>
+</ol>
+<p>优衣库真正赚的钱，不是便宜，是让人不用纠结。</p>
+<p>普通人能学的是：让客户做选择不动脑子。</p>
+<p>实操层面很简单：</p>
+<p>做服务的，不要给10个方案，给1个“闭眼选也不出错”的；</p>
+<p>做自媒体的，不要天天换定位，反复强化一个稳定标签；</p>
+<p>做电商的，与其拼花样，不如主推1-2个常年款，库存少但周转快。</p>
+<p>我见过一个做家政的，直接只卖“标准保洁套餐”，不加价不讲花样。同行都在卷价格，他反而靠省事留住了一堆老客户。</p>
+<p>下行周期里，省心就是溢价！</p>
+<ol start="3">
+<li>精神娱乐，不一定是游戏动漫</li>
+</ol>
+<p>很多人一听精神消费，就觉得离自己远。其实不。</p>
+<p>日本当年是游戏、漫画，现在是：情绪陪伴型直播、AI聊天、冥想音频、情绪疗愈内容。</p>
+<p>你不一定做IP，但可以借这个需求：</p>
+<p>有人做“下班后10分钟情绪整理”音频订阅；</p>
+<p>有人做“陪你一起自律”的打卡社群；</p>
+<p>有人做情绪陪跑型私教，收费极高。</p>
+<p>核心不是娱乐，而是给一个清晰的心理锚点：“我做了这个，就比昨天好一点。”</p>
+<p>把这三点合在一起，其实是一个公式：</p>
+<p>下行周期赚钱 =</p>
+<p>低风险试错 × 即时反馈 × 长期复购</p>
+<p>关键在于——人人焦虑的时候，你能不能给一点确定感。</p>
+<p>日本已经把这套模式跑了三十年。</p>
+<p>普通人现在能不能赚到钱，看的不是胆子大不大，而是你能不能在这些需求中找到切入口，积累客户和复利。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/text1024/23705)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/text1024">副业搞钱</a><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/chunse1024">优质内容</a><a href="https://t.me/text1024/23705">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">18:56</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/80550)" target="_blank">创始人访谈正在变成一种奇怪的消费品。</a></div>
+  <div class="card-summary"><p>每隔一段时间就会有一篇万字长文刷屏，每一篇都像一堂免费的EMBA课，每一句都可以截成金句发朋友圈。但有意思的是真正在行业里做事的那些人，看完之后通常不太说。</p>
+<p>这不是说创始人在撒谎，访谈这种形式本身就注定只能呈现一种被整理过的叙事。真正决定一家公司成败的东西永远不会出现在稿子里，因为这些东西一旦被说出来故事就不好看了。</p>
+<p>于是问就变成了我们到底是在看商业，还是在看一种新型的爽文？</p>
+<p>阳萌那篇访谈，很多人看完觉得安克的战略体系很高级，但如果你把时间线拉回到2011年就会发现当时安克做的事情其实没那么复杂。亚马逊那波早期跨境卖家大部分都是铺货、跟卖、刷单、赌爆款，那是一个你只要稍微认真做点产品、懂点海外用户、像个正常公司就能遥遥领先的时代。安克只是在那些草台班子里，第一个开始像一家公司那样运转。</p>
+<p>这本身很厉害，但这种厉害有很强的时代背景。流量红利还在，海外品牌供给不足，中国供应链信息差巨大，竞争对手质量极低。这些都是条件，不是方法论。可现在很多文章把结果重新包装成了原因，把“因为当时行业太烂所以显得我很强”解释成了“因为我有一整套先进的战略体系所以我赢了”。</p>
+<p>这是所有成功者访谈的共同宿命，人很难承认自己的成功有很大一部分来自运气和时机，因为那样会显得自己不那么厉害。所以他们会把过去的选择合理化，把混乱的过程梳理成清晰的逻辑，把偶然做对的事情说成早有预谋。但如果你真的相信那就是商业的全部，就太天真了。</p>
+<p>很多人看创始人访谈容易陷入一种“信徒模式”，仿佛谁融的钱多、谁流量大、谁讲有气场，谁就自动变成真理。大多数人根本没有处理复杂信息的能力，只能接受立场、接受情绪、接受结论。在他们眼里世界只有两种状态，一种是神，一种是骗子。</p>
+<p>但真实的商业世界从来不是这样运转的，一家公司可以很强，同时也有很多问。一个创始人可以很厉害，但是有很多判断是错的。一套方法论可以在一段时间内有效，也可能在下一个周期完全失效。这种矛盾对立的状态大部分时间都同时存在，但很多人脑子里容不下这种复杂性。</p>
+<p>我看创始人访谈重点只看两件事，他在回避什么以及反复强调什么。回避的东西往往是真正的问，比如一家公司从来不谈现金流，那大概率现金流很紧张。从来不谈产品失败，那说明他们还没学会从失败里复盘。从来不谈竞争对手，那说明他们可能也没想清楚差异化在哪里。反复强调的东西则要区分两类，一类是他在给自己打气，另一类是他真的在解决一个核心问。前者通常听起来很宏大，后者通常听起来很具体。相比整天讲长期主义但说不清楚明年要做什么，“明年我们要把海外线下渠道占比从10%拉到30%”往往更接近真实。</p>
+<p>很多人做不成事，是因为信息获取的方式出了问。他们消费内容只是为了验证自己的观点，先有立场再找证据，先有情绪再找理由。最后形成了一个看似自洽的逻辑闭环，但这个闭环从来不经受现实的检验。</p>
+<p>真正有效的思考方式是先把所有预设扔掉，不急着批判，也不急着形成观点。你接触到的任何事情都很难在短时间内了解全貌，你以为的理解很多时候只是自顾自嗨的想法。观点会让你获得存在感，但结构才能让你真正看清事情的本貌。商业世界里最危险的一件事，就是在信息残缺的时候过早形成确定性。很多公司最后死掉并非是竞争对手太强，而是创始人觉得自己已经“懂了”。</p>
+<p>最好的创始人访谈，是那种你看完之后发现自己对这家公司的疑问变得更多了，那意味着它展示的是一个真实而非完美的答案。真正重要的信息往往在文本之外，在那些创始人没说的里，在你对这个行业真实的接触里。</p>
+<p>你要是真信了，那就完蛋了。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/80550)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/80550">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@meiriyishu</span>
+    <span class="time-tag">19:48</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/meiriyishu/1367)" target="_blank">普通人也能做的闲鱼虚拟资源项目，低成本副业轻松上手！</a></div>
+  <div class="card-summary"><p>2026年虚拟资源需求持续增长，卡密、资料包、模板工具等细分类目都有稳定市场。只要选对方向、做好基础运营，小白也能逐步跑通，实现稳定收益。</p>
+<p>立即学习👉https://pan.quark.cn/s/4713713d06e8</p>
+<p>选品思路 → 低成本资源获取 → 商品包装与上架 → 标封面优化 → 自动发货与客服术 → 引流与复购设计，全流程实操拆解，照着执行即可落地。</p>
+<p>不囤货、不发物流，一部手机就能启动。</p>
+<p>用标准化流程跑通模型，把小项目慢慢放大成稳定副业。</p>
+<p>————</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/meiriyishu/1367)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质内容</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/meiriyishu/1367">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">20:26</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/80553)" target="_blank">kimi work的project隔离完全是摆设😅任何symlink都可以随便读写，而且是在“请求授权”里静默发生的。这个胶水的工程量和网友开源的有啥区别？😅cowork的安全策略全都砍了，有这个功夫为什么不给kimi cli做个desktop，是因为opus或gpt-5.5的usage用完了吗？</a></div>
+  <div class="card-summary"><hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/80553)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/80553">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@chunse1024</span>
+    <span class="time-tag">20:54</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/chunse1024/10815)" target="_blank">国内agent大测评！！</a></div>
+  <div class="card-summary"><p>一、豆包agent</p>
+<p>看起来功能上做的有点想法。</p>
+<p>实际一用，就知道提示开会员，一个任务都没跑，只知道提示免费通道拥挤</p>
+<p>二、腾讯workwuddy</p>
+<p>功能挺多的，生态挺好</p>
+<p>跑任务就糊弄人，处理不了直接跳过，随便生成结果。</p>
+<p>三、minimax agent</p>
+<p>体验积分跑不完一个任务，中文提问英文回答</p>
+<p>四、zcode（最无语的产品）</p>
+<p>功能上完全抄的codex</p>
+<p>跑了三个任务，两个任务失败。中间还要跳验证，第一词见到客户端跳这种验证的（见截图）</p>
+<p>总结：还是专心在工作上吧，不体验了国内产品了</p>
+<p>每次都是营销味十足，一点用心做产品的样子都看不到。</p>
+<p>只有浪费时间的去体验。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/chunse1024/10815)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/chunse1024/10815">查看原文</a></div></div>
+</div></div>
+
+    <div class="footer">TG 频道日报 · 自动生成</div>
+</div>
+
+</body>
+</html>
