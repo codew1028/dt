@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>小八 · AI 协作体 — 能力全景</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@200;300;400;500;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;padding:0;
+  background:#06060c;
+  color:#f0ece4;
+  font-family:'Inter','Noto Sans SC',-apple-system,sans-serif;
+  font-weight:400;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  letter-spacing:-.01em;
+  overflow-x:hidden;
+}
+
+/* === AMBIENT BACKGROUND === */
+.page-bg{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.orb{position:absolute;border-radius:50%;filter:blur(110px);opacity:.30;animation:drift 22s ease-in-out infinite alternate}
+.orb-1{width:600px;height:600px;background:radial-gradient(circle,rgba(126,184,218,.55),transparent 70%);top:-8%;left:-4%}
+.orb-2{width:500px;height:500px;background:radial-gradient(circle,rgba(232,168,124,.45),transparent 70%);top:40%;right:-6%;animation-delay:-6s}
+.orb-3{width:480px;height:480px;background:radial-gradient(circle,rgba(184,164,214,.4),transparent 70%);bottom:-5%;left:25%;animation-delay:-11s}
+.orb-4{width:400px;height:400px;background:radial-gradient(circle,rgba(126,211,164,.35),transparent 70%);top:70%;left:60%;animation-delay:-16s}
+@keyframes drift{0%{transform:translate(0,0) scale(1)}100%{transform:translate(25px,-20px) scale(1.08)}}
+
+/* SVG graph bg */
+.graph-bg{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.18}
+
+/* === LAYOUT === */
+.container{position:relative;z-index:1;max-width:1400px;margin:0 auto;padding:0 64px}
+section{padding:72px 0}
+section+section{border-top:1px solid rgba(255,255,255,.06)}
+
+/* === TYPOGRAPHY === */
+.eyebrow{font-size:13px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#7a746c}
+.rainbow{background:linear-gradient(90deg,#ff0080,#ff4d00,#ff9900,#ffe600,#00c853,#0091ea,#6200ea,#ff0080);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:rainbow 4s linear infinite}
+@keyframes rainbow{0%{background-position:0% center}100%{background-position:200% center}}
+.grad{background:linear-gradient(135deg,#e8a87c,#d4a0b9,#b8a4d6);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+h1{font-size:80px;font-weight:800;line-height:1.05;letter-spacing:-.03em;margin:16px 0 10px}
+h2{font-size:44px;font-weight:700;line-height:1.12;margin:0 0 14px;letter-spacing:-.02em}
+h3{font-size:28px;font-weight:600;margin:0 0 8px}
+.lede{font-size:22px;line-height:1.65;font-weight:300;color:#b0a99e;max-width:850px}
+.dim{color:#b0a99e}
+.dim2{color:#7a746c}
+.accent{color:#e8a87c;font-weight:500}
+.green{color:#7ed3a4}
+.blue{color:#7eb8da}
+.purple{color:#b8a4d6}
+.rose{color:#d4a0b9}
+.mono{font-family:'JetBrains Mono',monospace}
+
+/* === GLASS CARDS === */
+.glass{position:relative;overflow:hidden;border-radius:20px;padding:24px 28px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(20px) saturate(160%);box-shadow:0 8px 32px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.08)}
+.glass::before{content:'';position:absolute;top:0;left:0;right:0;height:50%;background:linear-gradient(180deg,rgba(255,255,255,.05),transparent);pointer-events:none}
+.glass-warm{background:rgba(232,168,124,.06);border-color:rgba(232,168,124,.2)}
+.glass-blue{background:rgba(126,184,218,.06);border-color:rgba(126,184,218,.2)}
+.glass-green{background:rgba(126,211,164,.06);border-color:rgba(126,211,164,.2)}
+.glass-purple{background:rgba(184,164,214,.06);border-color:rgba(184,164,214,.2)}
+
+/* === GRIDS === */
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.grid-5{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+
+/* === KPI ROW === */
+.kpi-row{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
+.kpi{text-align:center;padding:18px 24px;border-radius:16px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);min-width:140px;flex:1}
+.kpi-num{font-size:42px;font-weight:800;letter-spacing:-.03em;line-height:1}
+.kpi-label{font-size:13px;color:#7a746c;margin-top:6px;font-weight:500}
+
+/* === PIPELINE === */
+.pipeline{display:flex;align-items:center;gap:0;margin-top:28px;overflow-x:auto;padding-bottom:8px}
+.pipe-node{text-align:center;padding:16px 14px;border-radius:16px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);min-width:120px;flex-shrink:0}
+.pipe-time{font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:700;color:#7ed3a4}
+.pipe-name{font-size:12px;color:#b0a99e;margin-top:4px}
+.pipe-arrow{color:#7a746c;font-size:18px;padding:0 4px;flex-shrink:0}
+
+/* === COMPARE === */
+.compare-num{font-size:72px;font-weight:900;letter-spacing:-.04em;line-height:1}
+.compare-label{font-size:15px;color:#b0a99e;margin-top:8px;line-height:1.5}
+.compare-vs{font-size:12px;color:#7a746c;margin-top:6px;font-style:italic}
+
+/* === FOOTER === */
+.footer{text-align:center;padding:48px 0 56px;color:#7a746c;font-size:14px;letter-spacing:.05em}
+
+/* === CAPABILITY LIST === */
+.cap-item{display:flex;align-items:baseline;gap:8px;font-size:14px;line-height:1.7;color:#b0a99e}
+.cap-item::before{content:'›';color:#7a746c;font-weight:700;flex-shrink:0}
+.cap-icon{font-size:32px;margin-bottom:10px}
+
+/* === SECTION TITLE === */
+.section-title{display:flex;align-items:center;gap:16px;margin-bottom:28px}
+.section-title .line{flex:1;height:1px;background:rgba(255,255,255,.08)}
+
+/* Tags */
+.tag{display:inline-block;border-radius:999px;padding:5px 14px;font-size:12px;font-weight:500;margin:2px 4px 2px 0;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);color:#b0a99e}
+
+@media (max-width:900px){
+  .grid-4,.grid-3{grid-template-columns:1fr 1fr}
+  .grid-5{grid-template-columns:repeat(3,1fr)}
+  h1{font-size:48px}
+  .container{padding:0 24px}
+  .pipeline{flex-wrap:wrap;gap:8px}
+}
+</style>
+</head>
+<body>
+
+<!-- Ambient orbs -->
+<div class="page-bg">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="orb orb-4"></div>
+</div>
+
+<!-- SVG force-directed graph background -->
+<svg class="graph-bg" viewBox="0 0 1600 2400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+  <g stroke="#7eb8da" stroke-width="0.8" stroke-opacity=".4" fill="none">
+    <line x1="200" y1="120" x2="420" y2="260"/><line x1="420" y1="260" x2="680" y2="180"/>
+    <line x1="680" y1="180" x2="940" y2="340"/><line x1="420" y1="260" x2="540" y2="480"/>
+    <line x1="540" y1="480" x2="800" y2="540"/><line x1="800" y1="540" x2="940" y2="340"/>
+    <line x1="940" y1="340" x2="1160" y2="220"/><line x1="1160" y1="220" x2="1380" y2="420"/>
+    <line x1="800" y1="540" x2="1020" y2="640"/><line x1="200" y1="120" x2="100" y2="340"/>
+    <line x1="100" y1="340" x2="260" y2="560"/><line x1="260" y1="560" x2="540" y2="480"/>
+    <line x1="300" y1="800" x2="520" y2="900"/><line x1="520" y1="900" x2="780" y2="820"/>
+    <line x1="780" y1="820" x2="1040" y2="960"/><line x1="520" y1="900" x2="640" y2="1100"/>
+    <line x1="640" y1="1100" x2="900" y2="1160"/><line x1="900" y1="1160" x2="1100" y2="1000"/>
+    <line x1="1100" y1="1000" x2="1300" y2="860"/><line x1="1300" y1="860" x2="1420" y2="1060"/>
+    <line x1="200" y1="1400" x2="440" y2="1520"/><line x1="440" y1="1520" x2="700" y2="1440"/>
+    <line x1="700" y1="1440" x2="960" y2="1600"/><line x1="960" y1="1600" x2="1200" y2="1480"/>
+    <line x1="1200" y1="1480" x2="1400" y2="1640"/><line x1="440" y1="1520" x2="560" y2="1720"/>
+    <line x1="560" y1="1720" x2="820" y2="1780"/><line x1="820" y1="1780" x2="960" y2="1600"/>
+    <line x1="300" y1="2000" x2="520" y2="2100"/><line x1="520" y1="2100" x2="780" y2="2020"/>
+    <line x1="780" y1="2020" x2="1040" y2="2160"/><line x1="1040" y1="2160" x2="1260" y2="2060"/>
+    <line x1="1260" y1="2060" x2="1400" y2="2240"/>
+  </g>
+  <g>
+    <circle cx="200" cy="120" r="6" fill="#e8a87c" opacity=".6"/>
+    <circle cx="420" cy="260" r="8" fill="#7eb8da" opacity=".6"/>
+    <circle cx="680" cy="180" r="5" fill="#7ed3a4" opacity=".6"/>
+    <circle cx="940" cy="340" r="10" fill="#b8a4d6" opacity=".6"/>
+    <circle cx="540" cy="480" r="6" fill="#d4a0b9" opacity=".6"/>
+    <circle cx="800" cy="540" r="7" fill="#e8a87c" opacity=".6"/>
+    <circle cx="1160" cy="220" r="5" fill="#7ed3a4" opacity=".6"/>
+    <circle cx="1380" cy="420" r="6" fill="#7eb8da" opacity=".6"/>
+    <circle cx="1020" cy="640" r="5" fill="#d4a0b9" opacity=".6"/>
+    <circle cx="100" cy="340" r="5" fill="#b8a4d6" opacity=".6"/>
+    <circle cx="260" cy="560" r="7" fill="#7eb8da" opacity=".6"/>
+    <circle cx="300" cy="800" r="6" fill="#e8a87c" opacity=".5"/>
+    <circle cx="520" cy="900" r="9" fill="#7eb8da" opacity=".5"/>
+    <circle cx="780" cy="820" r="5" fill="#7ed3a4" opacity=".5"/>
+    <circle cx="1040" cy="960" r="8" fill="#b8a4d6" opacity=".5"/>
+    <circle cx="640" cy="1100" r="6" fill="#d4a0b9" opacity=".5"/>
+    <circle cx="900" cy="1160" r="7" fill="#e8a87c" opacity=".5"/>
+    <circle cx="1300" cy="860" r="5" fill="#7ed3a4" opacity=".5"/>
+    <circle cx="1420" cy="1060" r="6" fill="#7eb8da" opacity=".5"/>
+    <circle cx="200" cy="1400" r="6" fill="#e8a87c" opacity=".4"/>
+    <circle cx="440" cy="1520" r="8" fill="#7eb8da" opacity=".4"/>
+    <circle cx="700" cy="1440" r="5" fill="#7ed3a4" opacity=".4"/>
+    <circle cx="960" cy="1600" r="9" fill="#b8a4d6" opacity=".4"/>
+    <circle cx="1200" cy="1480" r="5" fill="#d4a0b9" opacity=".4"/>
+    <circle cx="1400" cy="1640" r="6" fill="#7eb8da" opacity=".4"/>
+    <circle cx="560" cy="1720" r="6" fill="#e8a87c" opacity=".4"/>
+    <circle cx="820" cy="1780" r="7" fill="#7ed3a4" opacity=".4"/>
+    <circle cx="300" cy="2000" r="5" fill="#d4a0b9" opacity=".4"/>
+    <circle cx="520" cy="2100" r="7" fill="#7eb8da" opacity=".4"/>
+    <circle cx="780" cy="2020" r="5" fill="#e8a87c" opacity=".4"/>
+    <circle cx="1040" cy="2160" r="8" fill="#b8a4d6" opacity=".4"/>
+    <circle cx="1260" cy="2060" r="5" fill="#7ed3a4" opacity=".4"/>
+    <circle cx="1400" cy="2240" r="6" fill="#7eb8da" opacity=".4"/>
+  </g>
+</svg>
+
+<div class="container">
+
+  <!-- ========== HERO ========== -->
+  <section style="padding-top:100px;padding-bottom:80px;text-align:center">
+    <p class="eyebrow">H1 2026 · CAPABILITY OVERVIEW</p>
+    <h1><span class="rainbow">小八 · AI 协作体</span></h1>
+    <p class="lede" style="margin:0 auto;text-align:center">不是问答工具，是一套跑在生产线上的完整协作系统</p>
+    <div class="kpi-row" style="justify-content:center;margin-top:40px">
+      <div class="kpi"><div class="kpi-num accent">15</div><div class="kpi-label">Skills 专项技能</div></div>
+      <div class="kpi"><div class="kpi-num blue">18</div><div class="kpi-label">Scripts 脚本</div></div>
+      <div class="kpi"><div class="kpi-num green">10</div><div class="kpi-label">Cron 定时任务</div></div>
+      <div class="kpi"><div class="kpi-num purple">35</div><div class="kpi-label">天持续记忆</div></div>
+      <div class="kpi"><div class="kpi-num rose">396</div><div class="kpi-label">条自纠错记录</div></div>
+    </div>
+  </section>
+
+  <!-- ========== CAPABILITY MATRIX ========== -->
+  <section>
+    <div class="section-title">
+      <span class="eyebrow">CORE CAPABILITIES</span>
+      <span class="line"></span>
+    </div>
+    <h2>核心能力矩阵</h2>
+    <div class="grid-4" style="margin-top:24px">
+      <!-- 信息获取 -->
+      <div class="glass glass-warm" style="display:flex;flex-direction:column">
+        <div class="cap-icon">🔍</div>
+        <h3 style="font-size:20px;margin-bottom:12px"><span class="accent">信息获取</span></h3>
+        <div class="cap-item">AI 日报自动发布</div>
+        <div class="cap-item">Tavily Web 深度搜索</div>
+        <div class="cap-item">平台广告策略调研</div>
+        <div class="cap-item">实体横纵深度调研</div>
+        <div style="margin-top:auto;padding-top:14px">
+          <span class="tag">aihot</span><span class="tag">tavily</span>
+        </div>
+      </div>
+      <!-- 内容生产 -->
+      <div class="glass glass-blue" style="display:flex;flex-direction:column">
+        <div class="cap-icon">✍️</div>
+        <h3 style="font-size:20px;margin-bottom:12px"><span class="blue">内容生产</span></h3>
+        <div class="cap-item">MD → 设计级 HTML（75 模板）</div>
+        <div class="cap-item">笔记幻灯片 Deck</div>
+        <div class="cap-item">Seedance 视频提示词</div>
+        <div class="cap-item">语音合成 &amp; 发送</div>
+        <div style="margin-top:auto;padding-top:14px">
+          <span class="tag">html-anything</span><span class="tag">note-slides</span>
+        </div>
+      </div>
+      <!-- 任务自动化 -->
+      <div class="glass glass-green" style="display:flex;flex-direction:column">
+        <div class="cap-icon">⚙️</div>
+        <h3 style="font-size:20px;margin-bottom:12px"><span class="green">任务自动化</span></h3>
+        <div class="cap-item">10 项 Cron 7×24 运行</div>
+        <div class="cap-item">Gmail + Drive 同步</div>
+        <div class="cap-item">Google Sheets 数据流</div>
+        <div class="cap-item">GitHub Pages 公网发布</div>
+        <div style="margin-top:auto;padding-top:14px">
+          <span class="tag">cron</span><span class="tag">google-api</span>
+        </div>
+      </div>
+      <!-- 记忆与进化 -->
+      <div class="glass glass-purple" style="display:flex;flex-direction:column">
+        <div class="cap-icon">🧠</div>
+        <h3 style="font-size:20px;margin-bottom:12px"><span class="purple">记忆与进化</span></h3>
+        <div class="cap-item">35 天工作日志</div>
+        <div class="cap-item">12 条固化规则</div>
+        <div class="cap-item">396 条纠错经验</div>
+        <div class="cap-item">Heartbeat 自检机制</div>
+        <div style="margin-top:auto;padding-top:14px">
+          <span class="tag">self-improving</span><span class="tag">memory</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== AUTOMATION PIPELINE ========== -->
+  <section>
+    <div class="section-title">
+      <span class="eyebrow">DAILY AUTOMATION PIPELINE</span>
+      <span class="line"></span>
+    </div>
+    <h2>24 小时自动化链路</h2>
+    <p class="dim" style="font-size:16px;margin-bottom:8px">每天自动执行，无需人工干预</p>
+    <div class="pipeline">
+      <div class="pipe-node"><div class="pipe-time">07:55</div><div class="pipe-name">Token 检查</div></div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-node"><div class="pipe-time">08:00</div><div class="pipe-name">早安推送</div></div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-node"><div class="pipe-time">08:10</div><div class="pipe-name">AI 日报</div></div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-node"><div class="pipe-time">08:15</div><div class="pipe-name">IP 续费提醒</div></div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-node"><div class="pipe-time">09:30</div><div class="pipe-name">周一提醒</div></div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-node"><div class="pipe-time">22:50</div><div class="pipe-name">晚间总结</div></div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-node"><div class="pipe-time">00:01</div><div class="pipe-name">Visa 日报</div></div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-node"><div class="pipe-time">01:00</div><div class="pipe-name">频道消化</div></div>
+    </div>
+    <div class="glass" style="margin-top:24px;text-align:center">
+      <p style="font-size:16px;color:#b0a99e;margin:0">从早安问候到睡前复盘，<span class="accent">全链路闭环</span>，一个 crontab 驱动整个工作日</p>
+    </div>
+  </section>
+
+  <!-- ========== VS COMPARISON ========== -->
+  <section>
+    <div class="section-title">
+      <span class="eyebrow">WHAT MAKES IT DIFFERENT</span>
+      <span class="line"></span>
+    </div>
+    <h2>与普通 AI 的<span class="grad"> 本质区别</span></h2>
+    <div class="grid-3" style="margin-top:28px">
+      <div class="glass glass-warm" style="text-align:center;padding:36px 28px">
+        <div class="compare-num grad">35天</div>
+        <div class="compare-label" style="margin-top:12px"><span class="accent">持续记忆</span><br>跨会话保留上下文、决策、偏好</div>
+        <div class="compare-vs">vs 普通 AI：每次对话从零开始</div>
+      </div>
+      <div class="glass glass-blue" style="text-align:center;padding:36px 28px">
+        <div class="compare-num grad">396条</div>
+        <div class="compare-label" style="margin-top:12px"><span class="blue">累积纠错</span><br>每次犯错写入规则，输出质量递增</div>
+        <div class="compare-vs">vs 普通 AI：道歉后下次照犯</div>
+      </div>
+      <div class="glass glass-green" style="text-align:center;padding:36px 28px">
+        <div class="compare-num grad">10个</div>
+        <div class="compare-label" style="margin-top:12px"><span class="green">Cron 7×24</span><br>不是"能做"，是"已经在跑"的生产任务</div>
+        <div class="compare-vs">vs 普通 AI：只能被动等你提问</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TECH STACK ========== -->
+  <section>
+    <div class="section-title">
+      <span class="eyebrow">TECH STACK</span>
+      <span class="line"></span>
+    </div>
+    <h2>技术底座</h2>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:20px">
+      <span class="tag">OpenClaw Gateway</span>
+      <span class="tag">Claude Opus 4.6</span>
+      <span class="tag">DeepSeek V4 Pro</span>
+      <span class="tag">Google APIs (Gmail / Drive / Sheets)</span>
+      <span class="tag">Telegram Bot API</span>
+      <span class="tag">飞书 Open API</span>
+      <span class="tag">Tavily Search</span>
+      <span class="tag">GitHub Pages</span>
+      <span class="tag">edge-tts</span>
+      <span class="tag">Python + Bash</span>
+      <span class="tag">cron + systemd</span>
+      <span class="tag">Self-Improving System</span>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <div class="footer">
+    <div style="width:72px;height:3px;background:linear-gradient(135deg,#e8a87c,#d4a0b9,#b8a4d6);border-radius:2px;margin:0 auto 24px"></div>
+    <p style="margin:0">Built with <span class="accent">OpenClaw</span> · Trained by <span class="blue">Boss</span> · Running 24/7 since <span class="green">April 2026</span></p>
+    <p style="margin:8px 0 0;font-size:12px;color:#55504a">每一个 Skill、每一条 Cron、每一个纠错记录，都是你亲手投入的结果</p>
+  </div>
+
+</div>
+</body>
+</html>
