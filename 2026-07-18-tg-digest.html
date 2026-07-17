@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>TG 频道日报</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background: #060814;
+    color: #e8eaf0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    min-height: 100vh;
+    display: flex; justify-content: center;
+}
+
+a { color: #6ea0ff; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.main-wrap {
+    width: 100%;
+    max-width: 860px;
+    padding: 48px 40px 80px;
+}
+
+.hero {
+    padding-bottom: 36px;
+    margin-bottom: 36px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.hero-vol { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; color: #6ea0ff; margin-bottom: 10px; }
+.hero-title { font-size: 38px; font-weight: 800; line-height: 1.15; color: #fff; margin-bottom: 10px; }
+.hero-date { font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 16px; }
+.hero-stats { display: flex; gap: 28px; }
+.stat-item { display: flex; flex-direction: column; gap: 2px; }
+.stat-num { font-size: 22px; font-weight: 700; color: #fff; }
+.stat-label { font-size: 11px; color: rgba(255,255,255,0.35); letter-spacing: 0.08em; text-transform: uppercase; }
+
+.section { margin-bottom: 40px; }
+.section-head {
+    display: flex; align-items: baseline; gap: 16px;
+    margin-bottom: 20px; padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.section-num { font-size: 28px; font-weight: 800; color: rgba(255,255,255,0.25); line-height: 1; }
+.section-title { font-size: 17px; font-weight: 700; color: #fff; }
+.section-count {
+    margin-left: auto; font-size: 11px; font-weight: 600; color: #6ea0ff;
+    background: rgba(110,160,255,0.12); padding: 2px 8px; border-radius: 20px;
+}
+
+.card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 12px; padding: 18px 22px; margin-bottom: 12px;
+    transition: border-color 0.2s, background 0.2s;
+}
+.card:hover { border-color: rgba(110,160,255,0.3); background: rgba(110,160,255,0.04); }
+
+.card-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.channel-tag {
+    font-size: 12px; font-weight: 600; color: #fff;
+    background: rgba(110,160,255,0.25); padding: 2px 8px; border-radius: 20px; white-space: nowrap;
+}
+.time-tag { font-size: 12px; color: rgba(255,255,255,0.35); }
+
+.card-title {
+    font-size: 15px; font-weight: 700; color: #fff;
+    margin-bottom: 8px; line-height: 1.5;
+}
+.card-title a { color: inherit; }
+.card-title a:hover { color: #6ea0ff; text-decoration: none; }
+
+.card-summary {
+    font-size: 14px; color: rgba(255,255,255,0.6);
+    line-height: 1.8;
+}
+.card-summary p { margin-bottom: 6px; }
+.card-summary p:last-child { margin-bottom: 0; }
+
+.card-footer {
+    margin-top: 10px; display: flex; align-items: center;
+    gap: 12px; flex-wrap: wrap;
+}
+.source-link { font-size: 12px; color: rgba(255,255,255,0.35); }
+.source-link::before { content: "🔗 "; }
+.channel-links { margin-left: auto; font-size: 11px; color: rgba(255,255,255,0.25); }
+.channel-links a { color: rgba(255,255,255,0.3); margin-right: 6px; }
+.channel-links a:hover { color: #6ea0ff; }
+
+.brief-text { font-size: 15px; color: rgba(255,255,255,0.75); line-height: 1.7; }
+
+pre { background: rgba(0,0,0,0.4); border-radius: 8px; padding: 16px; overflow-x: auto; font-size: 13px; }
+code { font-family: "SF Mono", Consolas, monospace; font-size: 0.88em; }
+p code { background: rgba(110,160,255,0.1); color: #9ec5ff; padding: 1px 6px; border-radius: 4px; }
+
+.footer {
+    text-align: center; font-size: 12px; color: rgba(255,255,255,0.2);
+    padding: 30px 0 20px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .main-wrap { padding: 28px 20px 60px; }
+    .hero-title { font-size: 26px; }
+}
+</style>
+</head>
+<body>
+
+<div class="main-wrap">
+    <div class="hero">
+        <div class="hero-vol">VOL.20260718</div>
+        <h1 class="hero-title">TG 频道日报</h1>
+        <div class="hero-date">2026年07月18日 · 星期六 · 8 个频道 · 25 条内容</div>
+        <div class="hero-stats">
+            <div class="stat-item"><span class="stat-num">25</span><span class="stat-label">条内容</span></div>
+            <div class="stat-item"><span class="stat-num">8</span><span class="stat-label">个频道</span></div>
+        </div>
+    </div>
+
+    <div class="section"><div class="section-head"><span class="section-num">01</span><span class="section-title">TG 频道精选</span><span class="section-count">25 条</span></div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">00:04</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/22191)" target="_blank">🚀 HTML 直接变专业视频！—— html-video</a></div>
+  <div class="card-summary"><p>html-video 你的 Agent 只需写 HTML + CSS + 数据，就能本地渲染出高质量 MP4！简直就是 HTML 版剪映！</p>
+<p>产品宣传、知识解说、数据可视化……各种场景统统搞定。内置 21 个精美专业模板，AI 智能生成配音与背景音乐，一键导出即用。</p>
+<p>✅ HTML → 专业 MP4</p>
+<p>✅ AI 自动配音 + 配乐</p>
+<p>✅ 21 套顶级模板</p>
+<p>✅ 支持 Claude Code、Cursor、Codex 等主流 Agent</p>
+<p>✅ 本地渲染，无云端费用</p>
+<p>✅ Apache 2.0 完全开源免费</p>
+<p>视频制作终于可以渲染出来！</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/22191)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024">AI探索</a><a href="https://t.me/openclaw1024">Hermes/OpenClaw</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/aigc1024/22191">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">00:32</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/22193)" target="_blank">相信是一种方法</a></div>
+  <div class="card-summary"><p>对人，对ai都适用</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/22193)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/22193">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">04:56</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/81873)" target="_blank">研究显示：对AI越粗鲁，AI 回答的越准确</a></div>
+  <div class="card-summary"><p>越礼貌反而会降低准确率🤣</p>
+<p>研究人员使用 ChatGPT 的 Deep Research 功能生成 50 道多项选择，涵盖数学、科学与历史等领域；</p>
+<p>每道有 4 个选项</p>
+<p>每分别使用5 种不同语气进行提问</p>
+<p>关键发现：</p>
+<ul>
+<li>
+<p>整体准确率随“语气粗鲁化”而提高</p>
+</li>
+<li>
+<p>“最粗鲁” 比 “最可气” 高出约 4个百分点</p>
+</li>
+<li>
+<p>表现最差的是“过于客气”的语气</p>
+</li>
+<li>
+<p>所有显著比较均指向同一趋势：语气越不礼貌，模型越准确</p>
+</li>
+</ul>
+<p>AIGC的一切</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/81873)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/81873">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@meiriyishu</span>
+    <span class="time-tag">08:02</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/meiriyishu/1512)" target="_blank">未来10年普通人可以尝试的9大风口赛道</a></div>
+  <div class="card-summary"><p>建议你现在就干三件事：</p>
+<ol>
+<li>
+<p>选择一个你有基础或愿意学的风口</p>
+</li>
+<li>
+<p>打爆一个内容入口（小红书、视频号、知乎等平台选一个死嗑）</p>
+</li>
+<li>
+<p>搭建可持续变现模型：信息差+情绪价值+信任通道。</p>
+</li>
+</ol>
+<p>全网100+网赚高质量教程 典藏版</p>
+<p>————</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/meiriyishu/1512)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质内容</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/meiriyishu/1512">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">08:02</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/42619)" target="_blank">🌙 **Kimi K3 发布：开源 2.8T 模型，前端编程在 Arena 中超越 Fable 5 跃居第一**</a></div>
+  <div class="card-summary"><p>月之暗面发布 Kimi K3，全球首个开源的 2.8 万亿参数模型。K3 基于 Kimi Delta Attention 与 Attention Residuals 架构，具备原生视觉能力和 100 万 token 上下文窗口。在第三方基准 Frontend Code Arena 中，K3 以 1679 分排名第一，从 Kimi k2.6 的第 18 名跃升至榜首，7 个评测领域中 6 项居首，仅游戏领域落后于 Claude Fable 5。</p>
+<p>K3 在编码、知识工作与多模态任务上表现强劲，但整体性能仍不及 Claude Fable 5 和 GPT 5.6 Sol。全量模型权重将于 2026 年 7 月 27 日开放。K3 已在 Kimi.com、Kimi Work、Kimi Code 及 API 上线，API 定价为缓存命中每百万 token 0.30 美元、缓存未命中 3.00 美元、输出 15.00 美元。</p>
+<p><a href="https://www.kimi.com/blog/kimi-k3">Kimi</a> | <a href="https://x.com/arena/status/2077824029126504525">Arena.ai</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/42619)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihuachat">茶馆水群</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/42619">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">09:05</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/81876)" target="_blank">那时候还没有 AI……</a></div>
+  <div class="card-summary"><hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/81876)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024/81876">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">10:12</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/81877)" target="_blank">为什么做亚马逊很难？</a></div>
+  <div class="card-summary"><p>因为你必须是个产品经理。</p>
+<p>为什么做独立站很难？</p>
+<p>因为你必须是个企业家。</p>
+<p>从这个角度上来说，一个人做亚马逊赚钱，理论上是可以的。</p>
+<p>但一个人做独立站，是绝无可能成功的。</p>
+<p>自媒体/出海经验/赚美金/运营技巧</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/81877)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/81877">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">10:25</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/81880)" target="_blank">偶尔需要远程控制家里的电脑，或者帮朋友解决技术问，用一些商业远程工具虽然方便，但各种连接限制，有时真的有点烦。</a></div>
+  <div class="card-summary"><p>无独有偶，在 GitHub 上发现 CrossDesk 这款开源的远程桌面软件，它最大的亮点是支持 Web 端，在浏览器上就能控制远程设备。</p>
+<p>并且具备了实时音频传输、网络透传、视频软硬编解码、音频编解码、传输加密等基础能力。</p>
+<p>GitHub：http://github.com/kunkundi/crossdesk</p>
+<p>同时支持 Windows、macOS 和 Linux 系统，轻量化的设计，资源占用低、运行速度快。</p>
+<p>除此之外，还支持 Docker 部署自托管，所有数据和连接更加安全放心。</p>
+<p>提供了开箱即用的安装包，可在项目的发布页面下载，还有详细的使用教程。</p>
+<p>私人优质信息收藏夹</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/81880)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/81880">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">11:23</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/10911)" target="_blank">发现个巨好用的视频下载站，</a></div>
+  <div class="card-summary"><p>强烈想推荐给你们：http://cobalt.tools。</p>
+<p>目前用过体验最好的开源视频下载神器（GitHub 3.9k+ stars），主打一个绝对纯净：</p>
+<p>✅ 不用注册，没有乱七八糟的广告弹窗。</p>
+<p>✅ 无广告、无跟踪、免登录</p>
+<p>✅ 支持 X (Twitter)、TikTok、Instagram、Snapchat、小红书、B站等几乎所有主流平台</p>
+<p>✅ 附带超实用功能：TikTok 无水印下载、 GIF 转换、直接提取音频</p>
+<p>轻量级单链接下载的首选，直接粘贴链接，选好格式，搞定。</p>
+<p>网址：http://cobalt.tools（看准后缀别进山寨站）</p>
+<p>好工具值得被更多人看见，赶紧偷偷收藏，觉得有用的兄弟转推支持一下！</p>
+<p>大家收藏夹里还有什么舍不得分享的效率神器？</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/10911)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/yunying23/10911">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">14:25</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/10912)" target="_blank">在广东参加了哥们的草台班子婚礼</a></div>
+  <div class="card-summary"><p>没有司仪，没有主持人，父母没有讲</p>
+<p>夫妻俩弄个小纸条，自己主持</p>
+<p>婚礼前一天才领证，白天领证，晚上剪视频（第二天放酒店大屏幕）</p>
+<p>临时开了剪映会员，再不剪视频，第二天就来不及了😂</p>
+<p>请了一个小乐队来唱歌，乐队是在小红书上刷到的</p>
+<p>唱完歌就干饭，干完饭去打德扑</p>
+<p>然后晚上接着干饭</p>
+<p>干完饭补个觉，半夜又去打台球</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/10912)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/yunying23/10912">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@chunse1024</span>
+    <span class="time-tag">15:06</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/chunse1024/11061)" target="_blank">分享一个信息获取方式：播客。</a></div>
+  <div class="card-summary"><p>非常长脑子。</p>
+<p>大家都太容易被信息污染了。当你觉得身处历史的垃圾时间，认为这个世界不会再好了的时候，一些清醒的声音就显得格外必要，它会提醒你：山高万仞，只登一步。</p>
+<p>推荐几个我常听的：</p>
+<p>1、《岩中花述》</p>
+<p>相信我，听一次，就会改变对鲁豫的刻板印象。</p>
+<p>《岩中花述》让我重新认识了鲁豫老师，也重新认识了自己。</p>
+<p>“把自身的努力和优势看得太轻，把外界的机遇和他人的光芒看得太重，始终无法客观衡量自己的价值。”</p>
+<p>我建议所有女性朋友都去听听，对男女有偏见的男性朋友也值得一听。</p>
+<p>2、《无人知晓》</p>
+<p>初听以为是聊投资，其实是聊人生。</p>
+<p>有人评价，如果播客有段位，那《无人知晓》就是皇冠上那颗最璀璨的明珠。</p>
+<p>“好的东西是生长出来的，而不是计划出来的。”</p>
+<p>在这里你能收获平静与松弛，我真的很庆幸订阅了这档播客。</p>
+<p>3、《西西弗高速》</p>
+<p>当你习惯把营销号和短视频当作主要信息来源时，听两位新闻从业者的播客，会让你有种被洗髓的感觉。</p>
+<p>你会获得更理性的视角去了解时事，也能更理智地看待性别对立、网络暴力、饭圈文化、女性独立等。</p>
+<p>4、《面基》</p>
+<p>嘉宾有基金经理，也有资深的保险从业者。</p>
+<p>这个节目能让你看到业内人士是如何做决策的，也能重新理解风险管理，以及什么是“风险预算”。</p>
+<p>“副业是对主业的看跌期权。”</p>
+<p>“工作祛魅，打消对工作的妄念。”</p>
+<p>这个世界上有三大成瘾物质，毒品、碳水、月薪。</p>
+<p>工作会摧毁你的灵魂，它在你不工作的时候偷偷侵入你的脑海，所以你得谨慎选择职业。</p>
+<p>“冰与火之间有没中间状态，但是生与死之间有中间状态，这个状态就是雇佣状态，活人的微死感。”</p>
+<p>如果你只想听轻松一点的，我推荐《李诞》、《春典》、《游荡集》、《姜思达》。</p>
+<p>一个管理千亿资产的基金经理，或者一位资深学者，他们不会去录短视频，但愿意坐下来和一个擅长提问的人聊上几个小时。</p>
+<p>如果你只靠短视频和算法推送获取信息，信息分布天然就会偏科。</p>
+<p>如何不被裹挟，如何反思个人如何坚守自己的精神世界？</p>
+<p>我觉得答案之一就是：去听一些独立清醒的声音，与贤者对。</p>
+<p>播客这种长时间、高浓度、高效的内容，本身就能弥补短视频的碎片化缺陷。</p>
+<p>与播客同等高效的信息获取方式，还有X（时事）、经典书籍（思维锚点），以及与AI的深度对（非公开知识）。</p>
+<p>除此之外，其他方式的信息获取成本都很高，且效率偏低。</p>
+<p>这一点，马斯克也非常认同。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/chunse1024/11061)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/chunse1024">优质「内容」</a><a href="https://t.me/meiriyishu">优质「资源」</a><a href="https://t.me/inside1024">你不知道的内幕消息🌳</a><a href="https://t.me/chunse1024/11061">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">15:18</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/81888)" target="_blank">给炒美股的友友一个小分享：你可以把你一年交易的每笔单子，搞一个表出来，扔给ChatGPT和gemini，让AI帮你分析一下你的交易特点。我最近拿几个月的交易流水记录，稍微试了试，AI分析对我帮助挺大的！很有用！我准备年底把全年的分析一次。强烈推荐大家做一下！真的很有帮助！</a></div>
+  <div class="card-summary"><hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/81888)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/81888">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">16:20</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/42627)" target="_blank">**百度：每月为员工发放 1000 元额度体验主流大模型**</a></div>
+  <div class="card-summary"><p>百度集团执行副总裁、百度智能云事业群总裁沈抖受访时表示，公司为每位在职员工每月发放 1000 元额度，可自由体验市面各类主流大模型产品，不限用途，也不与任何工作考核绑定。</p>
+<p>沈抖表示，强制推行 AI 办公难以见效，百度以正向引导和福利牵引为主，希望员工在亲身感受提效价值后，自然养成常态化使用习惯。</p>
+<p><a href="https://m.sohu.com/a/1051476193_211762?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334">搜狐新闻</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/42627)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihuachat">茶馆水群</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/42627">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">18:01</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/81892)" target="_blank">不知道大家对我之前写过那个瓜有没有印象。</a></div>
+  <div class="card-summary"><p>L 连续三家公司，都给老板的小三打工。</p>
+<p>第三次的时候，他手底下带的女孩成了小三，他终于绷不住了。</p>
+<p>他还是离职了。</p>
+<p>我本来以为故事到这里结束了。</p>
+<p>没想到后续比八卦更现实。</p>
+<p>——</p>
+<p>老板开了四家餐厅。</p>
+<p>其中两家，找小三做了 0 股法人。</p>
+<p>刚开始我还不太理解。</p>
+<p>后来 L 发了一份资料给我。</p>
+<p>才发现原来有些老板，恋爱和生意，从来都是一起做的。</p>
+<p>法人是小三。</p>
+<p>股份没有。</p>
+<p>店赚钱，她分不到多少。</p>
+<p>店如果出了事，签字的人先站出来。</p>
+<p>老板躲在最后一层。</p>
+<p>——</p>
+<p>最有意思的地方反而不是这里。</p>
+<p>而是老板又放了一个店长在前面。</p>
+<p>一个管运营。</p>
+<p>一个管法律。</p>
+<p>两个人互相牵制。</p>
+<p>真正的钱，谁也碰不到。</p>
+<p>老板自己反而最安全。</p>
+<p>L 说，他们圈子里把这种结构叫"三权分离"。</p>
+<p>我听完愣了一下。</p>
+<p>以前总觉得防火墙是技术词。</p>
+<p>后来才知道。</p>
+<p>原来有些人的人生，也是一层一层设计出来的。</p>
+<p>——</p>
+<p>资料里还有一句让我印象很深。</p>
+<p>如果小三突然醒悟，不肯再签字。</p>
+<p>整个项目都会卡住。</p>
+<p>老板要重新换法人，至少折腾一两个月。</p>
+<p>所以老板一定会不断告诉她：</p>
+<p>你很重要。</p>
+<p>不会抛弃你。</p>
+<p>你是特别的。</p>
+<p>原来有时候，情绪价值不是因为爱。</p>
+<p>只是因为流程需要。</p>
+<p>——</p>
+<p>后来再回头看 L 这几年的经历。</p>
+<p>突然觉得他不是一直在给小三打工。</p>
+<p>他是在看一个又一个人，相信自己是例外。</p>
+<p>可商业世界里最稳定的，从来不是感情。</p>
+<p>而是利益。</p>
+<p>等局散了。</p>
+<p>老板还会开下一家店。</p>
+<p>店长会换。</p>
+<p>小三会换。</p>
+<p>法人会换。</p>
+<p>只有剧本，大概还是那一本。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/81892)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/81892">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">18:16</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/81894)" target="_blank">7月9日公众号写了一篇科技股必将大幅回调的文章。</a></div>
+  <div class="card-summary"><p>极大共识带来的固有风险、国内外业务进展、应用端拖累几个事。</p>
+<p>结果留言被骂惨了，虽然我不翻出来但自己都实在看不过去了。</p>
+<p>骂什么的都有，不允许我对AI和存储唱衰的情绪演化成个人攻击。</p>
+<p>然后把文章删了，不受这份气了。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/81894)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/81894">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">18:19</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/10913)" target="_blank">“以付费为导向，而不是以市场为导向。”</a></div>
+  <div class="card-summary"><p>一个 A9 前辈频繁和我说过的一句，在我做产品的初期真的很受用。</p>
+<p>我当时总想着要做很牛的东西，就会有很多人给我付钱，结果什么都没做成。</p>
+<p>前辈说:“目前国内市场，一个小的创业者，如果以市场为导向，那就是去做慈善，你能帮助到别人，别人会给你付钱吗？</p>
+<p>前期重要的是原始资金积累，而不是去做慈善？</p>
+<p>”</p>
+<p>我问:“那我能满足他们的需求，他们为什么不会付费呢？</p>
+<p>”</p>
+<p>前辈说:“现在经济形势，没人愿意多花钱，你能做出帮人解决问的产品，他们会用，但是如果你收费的，他们可能就会觉得，就算不用你的产品，他们也同样可以做到，那干嘛用还用你的东西。</p>
+<p>”</p>
+<p>我说:“我怎么以付费为导向？”</p>
+<p>前辈说:“以付费为导向，说的就是刚需，就是人性。</p>
+<p>比如，你的产品能帮人赚钱，或者能帮人省钱，并且你需要考虑你的产品产生的价值是否足以让他们改变原来的模式呢？</p>
+<p>比如人的生老病死，男人好色，女人爱美，父母爱孩子，老人想长寿……</p>
+<p>”</p>
+<p>我问:“那我的产品该怎么做大？”</p>
+<p>前辈说:“当你一个产品能够打通闭环，你就需要做扩大，这是毋庸置疑的。</p>
+<p>你可以借用很多手段。</p>
+<p>比如政f，你可以借助城市的孵化机构，拿着你的项目在各种场合曝光。</p>
+<p>你可以投广告，给一场比赛投钱，打广告，也是变相给政f送钱，一场比赛下来，你的广告费打成了，并且你还和政f领导的关系加深了。</p>
+<p>太多了……</p>
+<p>”</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/10913)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/yunying23/10913">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@text1024</span>
+    <span class="time-tag">18:26</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/text1024/24156)" target="_blank">在选择副业或小业时，先审视自身的实力，包括资金、资源、运营和专业能力。若显性实力有限，寻找潜在的潜力，如语言表达、摄影技能等，将优势放在正确的领域，选择适合自己的赛道，才能事半功倍。</a></div>
+  <div class="card-summary"><hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/text1024/24156)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/text1024">副业搞钱</a><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/chunse1024">优质内容</a><a href="https://t.me/text1024/24156">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">22:00</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/42632)" target="_blank">**美议员要求封禁中国存储芯片并阻止其进入盟友供应链**</a></div>
+  <div class="card-summary"><p>美国众议院中国委员会主席 John Moolenaar 与民主党议员 George Whitesides 致信商务部长 Howard Lutnick，要求禁止美国公司采购中国存储芯片。两人呼吁将长鑫存储（CXMT）列入实体清单，并对长江存储（YMTC）施加额外限制，理由是依赖中国存储制造商对美国国家、经济及供应链安全构成“不可接受的风险”。</p>
+<p>议员们指出，苹果等美国科技公司正寻求采购中国产存储芯片，而相关中企与中国军方关系密切，每笔采购都可能直接资助解放军发展军民两用技术。两人还敦促美国政府与日本、韩国和欧盟协调，防止中国制造商利用供应短缺在盟友供应链中扎根，避免西方在 AI 基础设施关键组件上对中国形成战略依赖。</p>
+<p><a href="https://www.tomshardware.com/pc-components/dram/lawmakers-want-us-government-to-ban-memory-chips-from-china-even-in-allied-supply-chains-citing-unacceptable-risk-to-national-economic-and-supply-chain-security">Tom's Hardware</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/42632)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihuachat">茶馆水群</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/42632">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@text1024</span>
+    <span class="time-tag">22:14</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/text1024/24158)" target="_blank">小红书案例分享第55波-婴儿头型评估</a></div>
+  <div class="card-summary"><p>看了这么多案例，这个这个玩法我觉得挺狠。</p>
+<p>它不是上来就卖货，</p>
+<p>而是先做一个 “婴儿头型问评估”，</p>
+<p>先告诉家长：你家孩子现在到底有没有问，值不值得管，应该往哪个方向处理。 等这个判断一出来，后面再接店里的对应产品，转化就顺了。</p>
+<p>这套东西真正卖的是：</p>
+<p>焦虑识别。</p>
+<p>结果解释。</p>
+<p>解决方案。</p>
+<p>这才是这个案例值钱的地方。</p>
+<p>这类组合为什么少见？</p>
+<p>因为大多数母婴店脑子里只有一件事：</p>
+<p>把产品挂上去。</p>
+<p>但真正会赚钱的店，想的是另一件事：</p>
+<p>先把用户的不确定吃掉。</p>
+<p>新手爸妈最怕的不是花钱，</p>
+<p>最怕的是自己判断错。</p>
+<p>怕买早了，怕买晚了，怕白买，怕耽误孩子。</p>
+<p>所以“评估”这个动作一进来，</p>
+<p>用户买的就不是一个普通商品了，</p>
+<p>而是在买一个心理确认。</p>
+<p>一旦她测完，觉得“我家孩子可能真有这个问”，</p>
+<p>后面的产品就不是硬卖，</p>
+<p>而是顺着结果往下接。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/text1024/24158)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/text1024">副业搞钱</a><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/chunse1024">优质内容</a><a href="https://t.me/text1024/24158">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">22:16</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/10915)" target="_blank">我这周跟 10+ 位传统行业的老板聊了聊，</a></div>
+  <div class="card-summary"><p>最大的感受是——</p>
+<p>认知壁垒，比资金壁垒更可怕。</p>
+<p>他们大部分做的是制造、传统服务业这些领域，会发现一个共同点：</p>
+<p>行业基本没什么增长了，甚至在萎缩。</p>
+<p>他们也很清楚这个事实，都想找到个转型的方向，</p>
+<p>但问是他们根本找不到，以至于也很焦虑。</p>
+<p>其实，这些人被困在了一个行业认知壁垒里。</p>
+<p>他们接触的东西、认识的人、以及看到的信息，多年来都是同一批人、同圈子。</p>
+<p>以至于和他们聊天的时，会明显感觉到迂腐感，其实不是说他们人不行，而是他们一直用他们行业的那套眼光看一切。</p>
+<p>有个制造业老板请教我，聊“转型”。</p>
+<p>张口闭口都是“渠道”、“供应链”。</p>
+<p>但提到AI、数字化、新媒体——他一脸茫然。</p>
+<p>但是这就是现实。</p>
+<p>越传统的行业，越容易形成自我强化的闭环。</p>
+<p>大家都在互相印证同一套逻辑，</p>
+<p>久而久之，就真的信了：“我们行业不一样”。</p>
+<p>同样，其实也让我意识到了：认知壁垒比资金壁垒更可怕。</p>
+<p>他们手里有钱、有资源，但看不到新的可能性，而我们这些年轻人、互联网从业者，恰好是在一个信息流动极快，并且跨界资源丰富的环境。</p>
+<p>另一个感受是，传统行业的人太容易自我强化了。</p>
+<p>可能因为圈子固定，所以大家相互之间都印证同一套逻辑，久而久之就形成了一种思维定式。</p>
+<p>很难接受那种颠覆性的、跨界的思路，总觉得"我们行业不一样"。</p>
+<p>说实，几天的交流，我也更加坚定了一件事：持续学习、持续跨界、持续接触新东西新人。</p>
+<p>不管做什么，都不能把自己困在一个圈子里。</p>
+<p>否则几年后，我们可能就是下一个找不到方向的人。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/10915)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/yunying23/10915">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">22:29</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/22227)" target="_blank">微软出的 Go 版智能体框架，用来搭多智能体工作流并往生产环境部署。</a></div>
+  <div class="card-summary"><p>这是微软 Agent Framework 的 Go 语言版本，专门用来写能上生产的 AI 智能体和多智能体协作流程。它支持多家大模型提供方，配上可插拔的中间件，还有一张图把工作流串起来——顺序、并发、条件分支、检查点、人工介入都能画。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/22227)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024">AI探索</a><a href="https://t.me/openclaw1024">Hermes/OpenClaw</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/aigc1024/22227">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@openclaw1024</span>
+    <span class="time-tag">22:45</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/openclaw1024/1160)" target="_blank">90后这代人的基数人口（不是本硕以上、不是计算机毕业、 不是科技互联网大厂985本硕以上），</a></div>
+  <div class="card-summary"><p>99%是不会正确用SWE Agent进行编程的，90%是没接触过coding agent的，80%以上是摸不清豆包这种chatbot agent的能力边界的。</p>
+<p>就是说90后这批还算年轻的中年群体，绝大多数不了解不接触不会用general agent， 也对这类工具和技术的能力边界、利弊、使用场景没有任何了解。</p>
+<p>当年不会用手机电脑的至少都是中老年人，现在直接是30岁的这批人了。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/openclaw1024/1160)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/openclaw1024">Hermes/OpenClaw</a><a href="https://t.me/aigc1024">AI探索</a><a href="https://t.me/openclaw1024/1160">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">23:00</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/42633)" target="_blank">**OpenAI CFO 提出 AI 时代新提效指标：用每美元有用智能衡量 ROI**</a></div>
+  <div class="card-summary"><p>OpenAI CFO Sarah Friar 提出以"每美元有用智能"作为衡量 AI 投资回报的核心指标，取代传统的软件采用率（如用户数、许可证续费）评估方式。她指出，企业领导者应关注 AI 完成的工作价值是否超过其生产成本，而非仅看 token 成本。</p>
+<p>该框架包含四个维度：完成的有用工作量、每个成功任务的全成本、AI 输出的可靠性，以及随使用增长每美元投入是否产生更多价值。Friar 强调，最低 token 单价不等于最低任务成本，更强大的模型可能一次性给出正确答案反而更省钱。文章同时介绍了上周发布的 GPT-5.6 系列，其旗舰版本 Sol 在编码任务上创下新纪录，输出 token 比另一领先模型减少 54%。</p>
+<p><a href="https://openai.com/index/a-scorecard-for-the-ai-age">OpenAI</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/42633)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihuachat">茶馆水群</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/42633">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">23:22</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/22229)" target="_blank">想追最新AI时事的在这里点一下设置，把这个Grok亲手排好标的AI时间线置顶就行～超级方便！</a></div>
+  <div class="card-summary"><hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/22229)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024">AI探索</a><a href="https://t.me/openclaw1024">Hermes/OpenClaw</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/aigc1024/22229">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">23:29</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/81905)" target="_blank">腾讯向GitHub发函，要求下架有关用户可以获取自己微信聊天记录的仓库。受此影响，WeChat Clean仓库的维护者无奈停止维护。</a></div>
+  <div class="card-summary"><hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/81905)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024/81905">查看原文</a></div></div>
+</div></div>
+
+    <div class="footer">TG 频道日报 · 自动生成</div>
+</div>
+
+</body>
+</html>
