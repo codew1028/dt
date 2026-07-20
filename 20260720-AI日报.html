@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>🤖 AI 日报</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background: #060814;
+    color: #e8eaf0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    min-height: 100vh;
+    display: flex; justify-content: center;
+}
+
+a { color: #9ecca0; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.main-wrap {
+    width: 100%;
+    max-width: 860px;
+    padding: 48px 40px 80px;
+}
+
+.hero {
+    padding-bottom: 36px;
+    margin-bottom: 36px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.hero-vol { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; color: #30d498; margin-bottom: 10px; }
+.hero-title { font-size: 38px; font-weight: 800; line-height: 1.15; color: #fff; margin-bottom: 10px; }
+.hero-date { font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 16px; }
+.hero-stats { display: flex; gap: 28px; }
+.stat-item { display: flex; flex-direction: column; gap: 2px; }
+.stat-num { font-size: 22px; font-weight: 700; color: #fff; }
+.stat-label { font-size: 11px; color: rgba(255,255,255,0.35); letter-spacing: 0.08em; text-transform: uppercase; }
+
+.section { margin-bottom: 40px; }
+.section-head {
+    display: flex; align-items: baseline; gap: 12px;
+    margin-bottom: 16px; padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.section-num { font-size: 28px; font-weight: 800; color: #30d498; line-height: 1; }
+.section-title { font-size: 18px; font-weight: 700; color: #fff; }
+.section-count {
+    margin-left: auto; font-size: 12px; font-weight: 600; color: #6ea0ff;
+    background: rgba(110,160,255,0.12); padding: 2px 10px; border-radius: 20px;
+}
+
+.card {
+    background: rgba(255,255,255,0.025);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 10px; padding: 16px 20px; margin-bottom: 10px;
+    transition: border-color 0.2s, background 0.2s;
+}
+.card:hover { border-color: rgba(48,212,152,0.25); background: rgba(48,212,152,0.03); }
+
+.card-title {
+    font-size: 15px; font-weight: 700; color: #fff;
+    margin-bottom: 8px; line-height: 1.5;
+}
+.card-title a { color: inherit; }
+.card-title a:hover { color: #30d498; text-decoration: none; }
+
+.card-summary {
+    font-size: 14px; color: rgba(255,255,255,0.55);
+    line-height: 1.8;
+}
+.card-summary p { margin-bottom: 6px; }
+.card-summary p:last-child { margin-bottom: 0; }
+
+.card-meta { margin-top: 10px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.source-tag {
+    font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.45);
+    background: rgba(255,255,255,0.06); padding: 2px 8px; border-radius: 4px;
+    white-space: nowrap;
+}
+.source-text { font-size: 11px; color: rgba(255,255,255,0.3); }
+
+pre { background: rgba(0,0,0,0.4); border-radius: 8px; padding: 16px; overflow-x: auto; font-size: 13px; }
+code { font-family: "SF Mono", Consolas, monospace; font-size: 0.88em; }
+p code { background: rgba(48,212,152,0.1); color: #7ed8a6; padding: 1px 6px; border-radius: 4px; }
+
+.footer {
+    text-align: center; font-size: 12px; color: rgba(255,255,255,0.2);
+    padding: 30px 0 20px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .main-wrap { padding: 28px 20px 60px; }
+    .hero-title { font-size: 26px; }
+}
+</style>
+</head>
+<body>
+
+<div class="main-wrap">
+    <div class="hero">
+        <div class="hero-vol">VOL.20260720</div>
+        <h1 class="hero-title">🤖 AI 日报</h1>
+        <div class="hero-date">2026年07月20日 · 星期一 · 4 个板块 · 8 条内容</div>
+        <div class="hero-stats">
+            <div class="stat-item"><span class="stat-num">8</span><span class="stat-label">条内容</span></div>
+            <div class="stat-item"><span class="stat-num">4</span><span class="stat-label">个板块</span></div>
+        </div>
+    </div>
+
+    <div class="section"><div class="section-head"><span class="section-num">01</span><span class="section-title">模型发布/更新</span><span class="section-count">4 条</span></div>
+<div class="card">
+  <div class="card-title"><a href="https://x.com/Alibaba_Qwen/status/2078754377473601787" target="_blank">Qwen3.8 开源发布，2.4T 参数模型上线</a></div>
+  <div class="card-summary"><p>Qwen3.8 即将发布并很快开源权重！🌐 该模型拥有 2.4T 海量参数，正在持续进化。我们相信它是目前最强大的模型之一，可与领先的前沿 AI 模型媲美，仅次于 Fable 5。 你无需等待即可测试。就在刚才，Qwen3.8-Max-Preview 已在阿里巴巴的 Token Plan、Qoder 和 QoderWork 上首次亮相。快来抢先体验吧。 期待你的作品。敬请关注！🚀</p></div>
+  <div class="card-meta"><span class="source-tag">X</span><span class="source-text">通义千问 / Qwen (@Alibaba_Qwen)</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://mp.weixin.qq.com/s/LidvGePhOOoUY3KTor_w9g" target="_blank">昆仑万维宣布2026为“世界模型元年”，发布Matrix-Game 3.5等模型</a></div>
+  <div class="card-summary"><p>昆仑万维董事长方汉在WAIC上宣布2026年为“世界模型元年”，并发布Matrix-Game 3.5世界模型、Mureka v9.5与O3音乐模型。Matrix-Game 3.5实现Patch级记忆注入，5B模型在720p分辨率下单卡可达20FPS实时生成，核心架构已开源。</p></div>
+  <div class="card-meta"><span class="source-tag">公众号</span><span class="source-text">昆仑万维（天工）</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://x.com/OpenBMB/status/2078839529591759025" target="_blank">面壁智能开源 MiniCPM-Robot 具身智能模型系列</a></div>
+  <div class="card-summary"><p>面壁智能开源首个具身AI模型系列 MiniCPM-Robot，包含 1.5B 参数的通用视觉-语言-动作（VLA）模型 MiniCPM-RobotManip 和用于目标跟踪的 MiniCPM-RobotTrack。同时发布高性能推理框架 PhyAI，旨在让机器人实现理解、记忆与行动。</p></div>
+  <div class="card-meta"><span class="source-tag">X</span><span class="source-text">面壁智能 OpenBMB (@OpenBMB)</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://mp.weixin.qq.com/s/rjFxrUylyGMqa5QtgypCdw" target="_blank">MiniCPM5-2B发布：4B以下全球性能第一，适配9款芯片</a></div>
+  <div class="card-summary"><p>面壁智能联合OpenBMB发布端侧模型MiniCPM5-2B，以2B参数量在AA-Index榜单取得4B以下模型最高分17分，平均分54.26，超越Qwen3.5-2B等竞品。模型原生支持混合思考与512K上下文，已完成华为昇腾、英伟达等9款芯片的Day0适配，即将开源。</p></div>
+  <div class="card-meta"><span class="source-tag">公众号</span><span class="source-text">面壁智能（MiniCPM）</span></div>
+</div></div><div class="section"><div class="section-head"><span class="section-num">02</span><span class="section-title">产品发布/更新</span><span class="section-count">2 条</span></div>
+<div class="card">
+  <div class="card-title"><a href="https://workshop.cjpais.com/projects/transcribe-cpp" target="_blank">transcribe.cpp 发布：基于 ggml 的跨平台语音转录库，支持 16 个 ASR 模型族</a></div>
+  <div class="card-summary"><p>transcribe.cpp v0.1.0 发布，一个基于 ggml 的语音转录库，支持 16 个 ASR 模型族（60+ 模型），并通过 Vulkan、Metal、CUDA 和 TinyBLAS 实现 GPU 加速。</p></div>
+  <div class="card-meta"><span class="source-tag">Hacker News 热门（buzzing.cc 中文翻译）</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://x.com/thsottiaux/status/2078697631019303273" target="_blank">ChatGPT Work 功能：建站、邮件、文档处理</a></div>
+  <div class="card-summary"><p>ChatGPT Work 适用于 ✅ 创建和托管网站 ✅ 为你管理电子邮件 ✅ 总结海量文档 ✅ 制作一流的文档、表格和幻灯片 已在你的移动应用或 http://chatgpt.com 上提供，包含在 Plus、Pro、Business 和 Enterprise 套餐中。</p></div>
+  <div class="card-meta"><span class="source-tag">X</span><span class="source-text">Tibo (@thsottiaux)</span></div>
+</div></div><div class="section"><div class="section-head"><span class="section-num">03</span><span class="section-title">行业动态</span><span class="section-count">1 条</span></div>
+<div class="card">
+  <div class="card-title"><a href="https://techcrunch.com/2026/07/19/what-to-watch-for-after-jensen-huangs-japan-visit" target="_blank">黄仁勋访日：Nvidia 联手日本打造物理 AI 时代，Noetra 主权 AI 工厂与 Cosmos 机器人联盟落地</a></div>
+  <div class="card-summary"><p>Nvidia CEO 黄仁勋在 7 月 15-16 日访日期间，宣布为日本建设“Vera Rubin AI 工厂”，配备 13,750 颗 Vera CPU 和 27,500 颗 Rubin GPU，预计 2028 年投运。</p></div>
+  <div class="card-meta"><span class="source-tag">TechCrunch</span><span class="source-text">AI（RSS）</span></div>
+</div></div><div class="section"><div class="section-head"><span class="section-num">04</span><span class="section-title">技巧与观点</span><span class="section-count">1 条</span></div>
+<div class="card">
+  <div class="card-title"><a href="https://ludic.mataroa.blog/blog/ai-mania-is-eviscerating-global-decision-making" target="_blank">AI 热潮正在瓦解全球决策机制</a></div>
+  <div class="card-summary"><p>一位拥有 300 多次行业交流经验的从业者观察到，全球公私机构正陷入集体性 AI 狂热，决策层要么没有计划，要么只能低头回避。过去一年半中，其团队所见的所有 AI 项目均以失败告终（成功率 0%），失败原因常与 LLM 能力无关，而是企业本就难以有效运行软件项目，且 AI 项目叠加了额外风险。内部聊天机器人几乎无人使用，客户服务聊天机器人也极少带来良好体验，例如三菱的语音客服承诺回电却六周未兑现。</p></div>
+  <div class="card-meta"><span class="source-tag">Hacker News 热门（buzzing.cc 中文翻译）</span></div>
+</div></div>
+
+    <div class="footer">AI 日报 · 自动生成</div>
+</div>
+
+</body>
+</html>
