@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>TG 频道日报</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background: #060814;
+    color: #e8eaf0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    min-height: 100vh;
+    display: flex; justify-content: center;
+}
+
+a { color: #6ea0ff; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.main-wrap {
+    width: 100%;
+    max-width: 860px;
+    padding: 48px 40px 80px;
+}
+
+.hero {
+    padding-bottom: 36px;
+    margin-bottom: 36px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.hero-vol { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; color: #6ea0ff; margin-bottom: 10px; }
+.hero-title { font-size: 38px; font-weight: 800; line-height: 1.15; color: #fff; margin-bottom: 10px; }
+.hero-date { font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 16px; }
+.hero-stats { display: flex; gap: 28px; }
+.stat-item { display: flex; flex-direction: column; gap: 2px; }
+.stat-num { font-size: 22px; font-weight: 700; color: #fff; }
+.stat-label { font-size: 11px; color: rgba(255,255,255,0.35); letter-spacing: 0.08em; text-transform: uppercase; }
+
+.section { margin-bottom: 40px; }
+.section-head {
+    display: flex; align-items: baseline; gap: 16px;
+    margin-bottom: 20px; padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.section-num { font-size: 28px; font-weight: 800; color: rgba(255,255,255,0.25); line-height: 1; }
+.section-title { font-size: 17px; font-weight: 700; color: #fff; }
+.section-count {
+    margin-left: auto; font-size: 11px; font-weight: 600; color: #6ea0ff;
+    background: rgba(110,160,255,0.12); padding: 2px 8px; border-radius: 20px;
+}
+
+.card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 12px; padding: 18px 22px; margin-bottom: 12px;
+    transition: border-color 0.2s, background 0.2s;
+}
+.card:hover { border-color: rgba(110,160,255,0.3); background: rgba(110,160,255,0.04); }
+
+.card-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.channel-tag {
+    font-size: 12px; font-weight: 600; color: #fff;
+    background: rgba(110,160,255,0.25); padding: 2px 8px; border-radius: 20px; white-space: nowrap;
+}
+.time-tag { font-size: 12px; color: rgba(255,255,255,0.35); }
+
+.card-title {
+    font-size: 15px; font-weight: 700; color: #fff;
+    margin-bottom: 8px; line-height: 1.5;
+}
+.card-title a { color: inherit; }
+.card-title a:hover { color: #6ea0ff; text-decoration: none; }
+
+.card-summary {
+    font-size: 14px; color: rgba(255,255,255,0.6);
+    line-height: 1.8;
+}
+.card-summary p { margin-bottom: 6px; }
+.card-summary p:last-child { margin-bottom: 0; }
+
+.card-footer {
+    margin-top: 10px; display: flex; align-items: center;
+    gap: 12px; flex-wrap: wrap;
+}
+.source-link { font-size: 12px; color: rgba(255,255,255,0.35); }
+.source-link::before { content: "🔗 "; }
+.channel-links { margin-left: auto; font-size: 11px; color: rgba(255,255,255,0.25); }
+.channel-links a { color: rgba(255,255,255,0.3); margin-right: 6px; }
+.channel-links a:hover { color: #6ea0ff; }
+
+.brief-text { font-size: 15px; color: rgba(255,255,255,0.75); line-height: 1.7; }
+
+pre { background: rgba(0,0,0,0.4); border-radius: 8px; padding: 16px; overflow-x: auto; font-size: 13px; }
+code { font-family: "SF Mono", Consolas, monospace; font-size: 0.88em; }
+p code { background: rgba(110,160,255,0.1); color: #9ec5ff; padding: 1px 6px; border-radius: 4px; }
+
+.footer {
+    text-align: center; font-size: 12px; color: rgba(255,255,255,0.2);
+    padding: 30px 0 20px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .main-wrap { padding: 28px 20px 60px; }
+    .hero-title { font-size: 26px; }
+}
+</style>
+</head>
+<body>
+
+<div class="main-wrap">
+    <div class="hero">
+        <div class="hero-vol">VOL.20260812</div>
+        <h1 class="hero-title">TG 频道日报</h1>
+        <div class="hero-date">2026年08月12日 · 星期三 · 8 个频道 · 48 条内容</div>
+        <div class="hero-stats">
+            <div class="stat-item"><span class="stat-num">48</span><span class="stat-label">条内容</span></div>
+            <div class="stat-item"><span class="stat-num">8</span><span class="stat-label">个频道</span></div>
+        </div>
+    </div>
+
+    <div class="section"><div class="section-head"><span class="section-num">01</span><span class="section-title">TG 频道精选</span><span class="section-count">48 条</span></div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@openclaw1024</span>
+    <span class="time-tag">00:44</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/openclaw1024/1218)" target="_blank">现在我很多复杂一点的任务都是 Fable 5 写方案，Codex 去执行，Fable 5 验收，相对来说可以做出比较靠谱的方案，以及兼顾性价比。具体是这么做的：</a></div>
+  <div class="card-summary"><ol>
+<li>Fable 5 的产出是技术方案文档（图1）</li>
+</ol>
+<p>一方面文档方便批注修改，另一方面文档方便其他 Agent 快速上手</p>
+<ol start="2">
+<li>文档确认后在当前先 /compact 一次</li>
+</ol>
+<p>这一步不是必要的，但是有好处，因为后续还要在同一会去验证，/compact 压缩后，节约后续的上下文空间，之所以讨论方案就马上发送 /compact，因为这时候 Prompt Caching 还在，成本低，后面缓存过期了 compact 要贵一点。</p>
+<ol start="3">
+<li>把文档交给 Codex （GPT-5.6 Sol xhigh）去执行（图2）</li>
+</ol>
+<p>如果任务明显比较复杂，我一般会加上 /goal，这样中间就不需要反复去 continue，一次性把任务完成</p>
+<ol start="4">
+<li>Codex 完成后让 Fable 验证（图3）</li>
+</ol>
+<p>直接告诉 Fable 其他 Agent 已经实施了，让它确认有没有遗漏，或者方向有无偏离。</p>
+<p>如果有些遗漏之类的，把 Fable 的反馈发回给 Codex（图4），不需要新开会，在同一个 Codex 会，Codex 会根据反馈继续完善。</p>
+<hr />
+<p>如果用 Opus 5 替代 GPT 5.6 也可以，做法上可以跟上面一样新开会，用文档传递上下文。</p>
+<p>也可以直接让 Fable 5 开 SubAgent 并指定用 Opus 5 模型，并且要求在 SubAgent 完成任务后验证。</p>
+<p>但是我执行下来 Opus 5 不如 GPT 5.6 Sol 稳定，也不如 GPT 5.6 Token 耐用，所以宁愿麻烦一点。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/openclaw1024/1218)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/openclaw1024">Hermes/OpenClaw</a><a href="https://t.me/aigc1024">AI探索</a><a href="https://t.me/openclaw1024/1218">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">00:53</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/43100)" target="_blank">🍏 **分析师称苹果全玻璃 iPhone 设计或已取消**</a></div>
+  <div class="card-summary"><p>Jefferies 分析师 Edison Lee 将苹果股票评级下调至「跑输大盘」，理由是全玻璃 iPhone 设计可能已终止。供应链检查显示该项目因良率过低而停止开发，原计划 2027 年 9 月推出以纪念 iPhone 问世 20 周年。</p>
+<p>该机型预计混合零售价约 2060 美元，高于此前所有机型均价。苹果原本计划将全玻璃特性拓展至未来的 Pro 和 Pro Max 系列以提升售价和利润率。目前尚不清楚是整个设计被搁置还是仅部分特性取消。Lee 同时指出苹果 AI 策略及 iPhone 19 Pro 元件成本上涨是进一步下调评级的理由。</p>
+<p><a href="https://9to5mac.com/2026/08/10/next-years-iphone-redesign-with-all-glass-look-might-be-canceled-report/">9To5Mac</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/43100)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihuachat">茶馆水群</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/43100">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">01:36</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/23038)" target="_blank">📢好消息：</a></div>
+  <div class="card-summary"><p>Claude Code 桌面版现在支持 iOS 模拟器</p>
+<p>直接和苹果官方模拟器底座对接</p>
+<p>不抢占屏幕：模拟器画面直接内嵌在 Claude 软件旁边，AI 在后台自己操作，完全不影响你用电脑做别的事。</p>
+<p>支持人机协作：AI 跑测试的同时，你随时可以自己去上手点按、滑屏或按快捷键，操作是实时同步的</p>
+<p>启动方式：直接说“把 App 打包并在模拟器里运行，检查一下注册流程”。系统就会自动打开右侧的 iOS 模拟器面板。</p>
+<p>多窗口支持：每个独立会（Session）拥有独立的模拟器，互不打扰；单个会最多可同时开 4 个模拟器。</p>
+<p>手势与快捷键：用鼠标拖拽实现点击/滑动，支持快捷键（如 Cmd+Shift+H 回主界面，Cmd+R 录屏，Cmd+S 截图保存到桌面）。</p>
+<p>画质调节：如果电脑卡顿，可以降低画面帧率（FPS）、分辨率或切换编码格式。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/23038)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024">AI探索</a><a href="https://t.me/openclaw1024">Hermes/OpenClaw</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/aigc1024/23038">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">04:56</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/83057)" target="_blank">李飞飞：使用AI的最高原则</a></div>
+  <div class="card-summary"><ol>
+<li>
+<p>不要用工具做蠢事 要永远思考“我为什么要用AI”和“我该怎么用它”。</p>
+</li>
+<li>
+<p>不要因为AI而变懒 AI可以快速给你答案，但不能代替真正的学习和思考。</p>
+</li>
+</ol>
+<p>正确用法是：用AI帮你提出更好的问、理清思路，而不是直接抄答案。</p>
+<ol start="3">
+<li>不要用AI做坏事</li>
+</ol>
+<p>AIGC的一切</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/83057)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/83057">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@openclaw1024</span>
+    <span class="time-tag">06:40</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/openclaw1024/1223)" target="_blank">刚发现一个超实用的玩法：</a></div>
+  <div class="card-summary"><p>在 Codex 里直接跑 Opencode</p>
+<p>DeepSeek V4 Flash 替代 Opus 5，价格只要四分之一</p>
+<p>每月 $10 就能拿到 1 万次请求，还附带 Kimi K3 和 Qwen 3.5 Max</p>
+<p>安装步骤极简：</p>
+<p>安装 codex-router</p>
+<p>填入 Opencode Go API key</p>
+<p>直接用</p>
+<p>建议先收藏</p>
+<p>https://x.com/Av1dlive/status/2085002328420032819</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/openclaw1024/1223)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/openclaw1024">Hermes/OpenClaw</a><a href="https://t.me/aigc1024">AI探索</a><a href="https://t.me/openclaw1024/1223">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">06:41</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/83058)" target="_blank">年收入2.5亿美金的富翁告诉你，要让正确的人上车，一切都始于正确的人，然后融资和好的合作伙伴。创业非常困难，除非你有钱，银行不会借钱给你，因为私募和战略投资已经垄断了这个行业。</a></div>
+  <div class="card-summary"><p>副业赚钱探索</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/83058)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/83058">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">07:11</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/23040)" target="_blank">其实没必要追求什么GPT5.6,Fable5,Kimi K3</a></div>
+  <div class="card-summary"><p>难道你没意识到</p>
+<p>这世界上很多人的大脑也都只是一个2B的小模型啊</p>
+<p>没外部知识，缺少深度思考，输出质量堪忧</p>
+<p>指令简单的时候他理解不了，指令复杂了又记不住出幻觉</p>
+<p>上下文窗口极小，说了就忘</p>
+<p>多任务无法并发处理</p>
+<p>有的还用不明白工具</p>
+<p>但其实也一点儿没耽误生活</p>
+<p>不是吗</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/23040)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/23040">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">08:04</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/43102)" target="_blank">**OpenAI 为 ChatGPT Business 推出 Premium 高级席位**</a></div>
+  <div class="card-summary"><p>OpenAI 于 2026 年 8 月 10 日宣布为 ChatGPT Business 推出 Premium 高级席位。Premium 席位提供 5 倍于标准席位的使用量，并取消 5 小时使用限制，支持在同一工作空间内与标准席位混合搭配。该席位月付定价为 125 美元/用户，年付则为 100 美元/用户；标准席位维持 25 美元/月或年付 20 美元不变。</p>
+<p>作为限时优惠，前 10,000 名符合条件的工作区所有者若在 8 月 20 日前加入等待名单，每新增一个 Premium 席位可获得价值 100 美元的工作区积分，最高累计 500 美元。部分提前注册的客户还将获得抢先体验资格。</p>
+<p><a href="https://openai.com/index/premium-seats-chatgpt-business/">OpenAI</a></p>
+<p><strong>另外，Codex 重置啦。</strong></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/43102)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihuachat">茶馆水群</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/43102">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@openclaw1024</span>
+    <span class="time-tag">08:31</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/openclaw1024/1225)" target="_blank">很突然，学会了很多牛叉的技能！！</a></div>
+  <div class="card-summary"><p>半夜一个人，一手抱着娃，另一只手冲奶粉、喂奶、等娃拉了给他洗屁股、再换尿不湿。</p>
+<p>此时此刻，抱着娃一边哄睡，一边让Codex干活，有个方案明天ddl了，Codex必须加班干！</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/openclaw1024/1225)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/openclaw1024">Hermes/OpenClaw</a><a href="https://t.me/aigc1024">AI探索</a><a href="https://t.me/openclaw1024/1225">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">08:34</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/43103)" target="_blank">🤖 **OpenAI 推出 GPT-Daybreak 安全项目，已发现 Chrome V8 高危漏洞**</a></div>
+  <div class="card-summary"><p>OpenAI 宣布推出 GPT-Daybreak 项目的两个访问层级：Daybreak Blue 提供 GPT-5.6 Sol 等通用前沿模型，面向漏洞发现、恶意软件分析等防御性安全任务；Daybreak Red 则提供专门训练的 GPT-5.6-Cyber 模型，用于漏洞研究与漏洞利用验证。在内部测试中，GPT-5.6-Cyber 对高级网络安全请求的完成率达 95.0%，而 GPT-5.6 Sol 仅为 1.5%。</p>
+<p>在实际应用中，GPT-5.6-Cyber 已在 Chrome 的 V8 引擎中发现两个未知漏洞，其中 CVE-2026-15903 为高危漏洞，Google 已修复。此外，该模型还在一个流行移动操作系统中发现至少 5 个漏洞、一个数据库中发现 3 个关键漏洞，以及某操作系统内核中超过 400 个可导致提权的漏洞。OpenAI 表示将通过身份验证、账户监控、硬件安全密钥（2026 年 9 月 1 日起强制）等措施控制访问风险。</p>
+<p><a href="https://openai.com/index/accelerating-defenders-with-gpt-daybreak-legacy/">OpenAI</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/43103)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihuachat">茶馆水群</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/43103">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">09:12</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/23044)" target="_blank">我了个骚刚，把杜蕾斯黄金期的「双层语义」文案方法拆成一套可复用的规则，让 Claude 照着写文案、出海报。</a></div>
+  <div class="card-summary"><p>这是 Claude Code 用的一个 Skill，把杜蕾斯 2011 到 2017 年使用的文案方法做成了可复用的流程。</p>
+<p>仓库整理了 8 个文案公式，从谐音、数字双关，到最难的「反向克制」：所有人都等着你耍花活的时候不耍。视觉部分从 260 张原图里拆出来，包括主体判断树、六套配色、排版规矩，还有字体选型和商用授权红线。</p>
+<p>https://github.com/crawfordxx/xiaoma-durex-copywriter</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/23044)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024">AI探索</a><a href="https://t.me/openclaw1024">Hermes/OpenClaw</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/aigc1024/23044">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">09:17</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/11150)" target="_blank">5、从成本和好用程度的推荐顺序:</a></div>
+  <div class="card-summary"><p>新西兰 Skinny &gt; 英国 giffgaff &gt;香港 Club Sim &gt; 美国 Ultra Mobile</p>
+<p>从成本考虑，最合适的是新西兰 Skinny、giffgaff。</p>
+<p>如果偶尔需要使用漫游流量，可选香港Club sim预付卡。</p>
+<p>目前都可以从淘宝购买，如果从官方买的会很慢，而且可能发不到你手里。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/11150)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/yunying23/11150">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">09:19</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/43104)" target="_blank">🤖 **ChatGPT 上线餐厅预订功能，GPT-5.6 模型同步更新**</a></div>
+  <div class="card-summary"><p>ChatGPT 现已支持餐厅预订功能，用户可直接在对话中查找可用餐位。该功能集成 OpenTable、Resy 和 Yelp，用户只需说明用餐时间、地点、人数及偏好（如菜系、预算、氛围等），即可在回复中直接看到可预订时段，确认后即可完成预订。该功能面向所有 ChatGPT 套餐用户，覆盖网页、移动端和桌面端。其中 OpenTable 支持全球预订，Resy 限美国，Yelp 限美国和加拿大。</p>
+<p>此外，ChatGPT 本周还推送了 GPT-5.6 模型更新。Plus 和 Pro 用户可使用 GPT-5.6 Sol，回答更可靠、更聚焦，并可调节模型思考程度；Free 和 Go 用户将默认使用 GPT-5.6 Luna，下周起还将获得无限制文本聊天和新的 Think 按钮。</p>
+<p><a href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes">OpenAI Help Center</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/43104)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihuachat">茶馆水群</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/43104">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">09:32</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/43105)" target="_blank">🤖 **Claude 将黎曼 zeta 函数零点下界提升至 67.2%**</a></div>
+  <div class="card-summary"><p>Anthropic 披露，一个未发布的 Claude 研究版本在尝试黎曼猜想时，虽未能解决这一百年难题，却意外将黎曼 zeta 函数零点在临界线上的比例下界从 41.6% 提升至 67.2%。</p>
+<p>该成果借鉴了 Baluyot、Goldston 等数学家的近期研究。Claude 在 Claude Code 中耗费 3100 万输出 token，协调约 60 个子代理运行数千次数值检验。Anthropic 两位数学家与外部专家 Brian Conrey、Dan Goldston 已审查验证，Claude 还生成了可形式化验证的 Lean 证明。</p>
+<p><a href="https://www.anthropic.com/research/riemann-zeta">AnthropicAI</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/43105)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihuachat">茶馆水群</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/43105">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">09:53</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/43106)" target="_blank">🍏 **苹果研发照片来源验证技术，帮助确认图片是否由 iPhone 拍摄**</a></div>
+  <div class="card-summary"><p>苹果正在开发一种用于验证照片来源的新技术，旨在证明一张图片是否真实由 iPhone 相机拍摄。该功能可能通过相机硬件、系统签名和加密认证机制生成可验证信息，以帮助用户识别经过 AI 生成或篡改的图像。随着生成式 AI 让伪造照片越来越容易，苹果希望通过设备级认证提高照片真实性。不过，该技术目前仍处于研发阶段，具体发布时间和实现方式尚未公布。</p>
+<p><a href="https://9to5mac.com/2026/08/10/apple-is-working-on-a-way-to-authenticate-that-a-photo-came-from-an-iphone-camera/">9To5Mac</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/43106)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihuachat">茶馆水群</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/43106">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">10:11</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/43107)" target="_blank">**千问 App 推出付费版，办公助理会员最高包年费 1499 元**</a></div>
+  <div class="card-summary"><p>8 月 10 日，阿里旗下千问 App 推出办公助理专业会员及视频生成收费方案，成为继豆包之后国内第二款探索付费服务的头部 AI 应用。与豆包专业版将办公与视频打包收费不同，千问将二者分开计费。</p>
+<p>办公助理会员分高级、精英、旗舰三档，高级会员连续包月价为 19 元，连续包年价为 200 元；精英会员连续包月价为 49 元，连续包年价为 568 元；旗舰会员连续包月价为 128 元，连续包年价为 1499 元。</p>
+<p>视频生成额度的收费对应 5 个档位，分别是 26 元 10 个额度、116 元 50 个额度、228 元 100 个额度、438 元 200 个额度、968 元 500 个额度。用户每天有 10 个免费额度。</p>
+<p><a href="https://m.zhidx.com/p/583665.html">智东西</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/43107)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihuachat">茶馆水群</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/43107">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">10:12</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/83068)" target="_blank">做餐饮出海的朋友，一定要重点关注Beli这个平台。</a></div>
+  <div class="card-summary"><p>从宏观的流量端来说，一个常年霸榜前50的APP，流量绝对不小。</p>
+<p>从微观的个人观察来说，美国00后基本上是人手一个账号。</p>
+<p>而且因为主打的是好友之间的餐饮评分+社交，只要你的产品过硬，很容易直接在这个平台上一夜之间就火出圈。</p>
+<p>更重要的是，因为这个平台还没开始商业化，更没人做什么付费种草帖，可以说是餐饮行业营销最好的流量洼地了。</p>
+<p>即使你的营销预算再有限，铺个几百条帖子也花不了多少钱。</p>
+<p>甚至你完全有可能不花一分钱，就能找到Beli的头部博主，免费来你的店里做个探店。</p>
+<p>等到Beli被人看上了，完成收购了，也开始大规模做用户增长了。你这些早就沉淀在平台里的优质内容，就成了最值钱的流量资产。</p>
+<p>加上社交这个赛道自带强信任和高转化，到时候单靠自然流量就能把你喂得饱饱的。</p>
+<p>搞流量这件事情，就跟赌场一样。筹码越少，我们越应该提早下重注。</p>
+<p>自媒体/出海经验/赚美金/运营技巧</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/83068)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/83068">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@openclaw1024</span>
+    <span class="time-tag">10:17</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/openclaw1024/1226)" target="_blank">OpenAI 内部认为，3个月内Agent 会迎来一次新的使用范式。随着模型能力提升，单机运行很快触及瓶颈，未来一个 Agent 可能长期在线，同时处理大量任务，一台电脑已经难以支撑。</a></div>
+  <div class="card-summary"><p>下一阶段需要云端大规模推理、多机协作、更完善的工具生态和长期记忆系统。</p>
+<p>本质上，Agent 正从电脑里的一个程序，演变成一套持续运行的智能基础设施。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/openclaw1024/1226)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/openclaw1024">Hermes/OpenClaw</a><a href="https://t.me/aigc1024">AI探索</a><a href="https://t.me/openclaw1024/1226">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">10:26</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/23046)" target="_blank">Stanford CS329A 这门 Self-Improving AI Agents 公开课，把 test-time compute、verifier、工具调用、代码、记忆、多步规划和 agentic evaluation 放进了同一套课程里。</a></div>
+  <div class="card-summary"><p>我感觉这比零散追框架名词更适合补体系。做 Agent 很容易只盯 demo 和工具名，但这门课一直在讲模型怎么从反馈、验证和失败轨迹里继续变好，这个视角挺值得看。</p>
+<p>相关链接：https://cs329a.stanford.edu/</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/23046)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/23046">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@meiriyishu</span>
+    <span class="time-tag">10:55</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/meiriyishu/1650)" target="_blank">AI奇幻田园赛道，详细涨粉变现教程拆解</a></div>
+  <div class="card-summary"><p>https://pan.quark.cn/s/58a74514c01a</p>
+<p>————</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/meiriyishu/1650)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质内容</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/meiriyishu/1650">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">11:06</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/43108)" target="_blank">🤖 **Anthropic 将为 Claude 内容加入 AI 标记**</a></div>
+  <div class="card-summary"><p>Anthropic 已签署欧盟《人工智能法案》第 50(2)条关于 AI 生成内容透明度的行为准则。2026 年 8 月 2 日及以后在欧盟发布的新 Claude 模型，将从上线起为生成文本嵌入机器可读水印，并在支持的文件中加入数字签名来源元数据；相关标记适用于 Claude 的 API、Claude、Claude Code、Claude Cowork 和 Claude Tag 等产品，覆盖全球使用场景。</p>
+<p>文本水印不可见，支持的文件将采用 C2PA 来源标准。Anthropic 正在为 2026 年 8 月 2 日前发布的旧模型补充标记功能，并计划发布检测技术细节。检测到标记只能说明内容可能经过 Claude 处理，未检测到标记也不能证明内容不是由 AI 生成或处理。</p>
+<p><a href="https://support.claude.com/en/articles/16266773-how-claude-marks-ai-generated-content">Claude Help Center</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/43108)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihuachat">茶馆水群</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/43108">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">11:16</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/23047)" target="_blank">在 Mac 上本地运行的 AI 会议笔记和写作工具，转录、摘要、写作全走 Apple Silicon，数据不出本机。</a></div>
+  <div class="card-summary"><p>Bitwize 出品的 macOS 原生应用，把实时录音转文字、说人分离、会议纪要和写作编辑器都集成在一个本地 App 里。AI 推理用 MLX 框架，跑在 Apple Silicon 上，默认不联网，数据用 AES-256-GCM 加密存本地。</p>
+<p>https://github.com/bitwize-ai/Logue</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/23047)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024">AI探索</a><a href="https://t.me/openclaw1024">Hermes/OpenClaw</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/aigc1024/23047">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">11:39</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/43109)" target="_blank">**Anthropic 宣布 Claude Sonnet 5 优惠定价永久生效**</a></div>
+  <div class="card-summary"><p>Anthropic 于 8 月 10 日宣布，Claude Sonnet 5 的优惠定价将永久生效。该模型今年 6 月上线时，输入价格定为每百万 token 2 美元、输出每百万 token 10 美元，原计划优惠持续至 8 月 31 日，之后恢复标准价每百万 token 3 美元输入 / 15 美元输出。现在原定 9 月 1 日的涨价计划已取消，优惠价格保持不变。</p>
+<p><a href="https://x.com/claudeai/status/2086891169217122586">Claude(@claudeai)</a> | <a href="https://www.anthropic.com/news/claude-sonnet-5">AnthropicAI</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/43109)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihuachat">茶馆水群</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/43109">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@text1024</span>
+    <span class="time-tag">11:43</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/text1024/24299)" target="_blank">公众号流量主剧评赛道，从选到全流程拆解</a></div>
+  <div class="card-summary"><hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/text1024/24299)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/text1024">副业搞钱</a><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/chunse1024">优质内容</a><a href="https://t.me/text1024/24299">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">12:22</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/23048)" target="_blank">✨ Zuck ：未来属于每一个人</a></div>
+  <div class="card-summary"><p>这篇充满代表去中心化哲学的重磅好文，不仅有着代表着 Meta 理性乐观的开源精神，还提出大量真知灼见；对于安全和智能边界，甚至超越不少自诩以 AGI 为使命的团队。因为没有什么技术，比赋权个体的力量更有意义。</p>
+<p>🔢 部分要点：</p>
+<p>·超级智能最大的贡献，不是自动化，而是发明。</p>
+<p>·每个人都会有一个真正懂你的个人 Agent，24/7 代表你工作。</p>
+<p>·这个时代的决定性问是：谁能获得超级智能，我们又把它用向哪里？</p>
+<p>·没有任何定律规定，AI 的自动化速度一定会超过人的能力增长。</p>
+<p>·安全的基础，是权力平衡。不存在一个唯一而仁慈的超级智能。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/23048)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/23048">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">12:49</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/43111)" target="_blank">🤖 **iOS 27 Beta 5 为 Apple 智能预备好**</a></div>
+  <div class="card-summary"><p>iOS 27 beta 5 被发现已预埋中国版 Apple 智能的相关说明。苹果强调该功能为保护隐私而设计，为遵守中国法律法规，将采用本地公司提供的安全机制，用户请求全部在设备端处理，不会发送给苹果或安全机制提供商。</p>
+<p>根据法律要求，苹果会收集匿名的安全结果并以聚合形式共享，安全机制也将自动下载更新。这意味着 Apple 智能在中国的落地已进入适配阶段。</p>
+<p>**苹果内部代码文案：</p>
+<p>机器翻译，请以正式版文案为准：**</p>
+<p>AI_PRIVACY_FOOTER_TEXT_CHINA</p>
+<p>Apple 智能以隐私保护为设计出发点。为遵守法律法规，在中国大陆，Apple 智能会使用由当地公司提供的安全机制。你的请求会在设备端处理，不会发送给 Apple 或安全机制提供商。按照法律要求，Apple 将收集经过匿名化处理的安全结果，并以汇总形式共享。安全机制会自动下载和更新。[关于 Apple 智能与隐私…] (<a href="https://ai.privacy/">https://ai.privacy</a>)</p>
+<p>APPLE_INTELLIGENCE_DISABLEMENT_ALERT_BUTTON</p>
+<p>关闭 Apple 智能</p>
+<p>APPLE_INTELLIGENCE_DISABLEMENT_ALERT_TITLE</p>
+<p>确定要关闭 Apple 智能吗？</p>
+<p>APPLE_INTELLIGENCE_ENABLEMENT_ROW_TITLE</p>
+<p>打开 Apple 智能</p>
+<p><strong>原始代码：</strong></p>
+<p><key>AI_PRIVACY_FOOTER_TEXT_CHINA</key></p>
+<p>‹string&gt;Apple Intelligence is built for privacy. To comply with laws and regulations, Apple Intelligence in China uses a safety mechanism provided by a local company. Your requests are processed on-device and not sent to Apple or the safety mechanism provider. As required by law, Apple will collect anonymized safety results and share them in aggregate. The safety mechanism will download and update automatically. [About Apple Intelligence &amp; Privacy...] (<a href="https://ai.privacy/">https://ai.privacy</a>)</string></p>
+<p>‹key&gt;APPLE_INTELLIGENCE_DISABLEMENT_ALERT_BUTTON</key></p>
+<p><string>Turn Off Apple Intelligence</string></p>
+<p><key>APPLE_INTELLIGENCE_DISABLEMENT_ALERT_TITLE</key></p>
+<p>‹string&gt;Turn off Apple Intelligence?</string></p>
+<p><key>APPLE_INTELLIGENCE_ENABLEMENT_ROW_TITLE</key></p>
+<p>‹string&gt;Turn On Apple Intelligence</string></p>
+<p><a href="https://x.com/aaronp613/status/2086998697758351766">Aaron</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/43111)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihuachat">茶馆水群</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/43111">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">14:01</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/83076)" target="_blank">我见过最全的副业避坑指南，</a></div>
+  <div class="card-summary"><p>如果早看到他，能帮你省十万学费。</p>
+<p>频道导航👇</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/83076)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/83076">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@openclaw1024</span>
+    <span class="time-tag">14:22</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/openclaw1024/1227)" target="_blank">这两天被刷屏的Mirasim，</a></div>
+  <div class="card-summary"><p>是哪个无良团队搞出了的无耻玩意！</p>
+<p>简直没有任何底线！虚假宣传！流氓软件！！</p>
+<p>我今天早上安装的，还兴致勃勃分享了这个羊毛，</p>
+<p>确实送了“所谓的会员”，但是tmd根本没有额度可用，</p>
+<p>自家的会员都用不了，还有啥指望！</p>
+<p>还阴梭梭的用我Codex的额度！！</p>
+<p>然后一看，好家伙！简直劣迹斑斑！！</p>
+<p>已经下载的朋友们，赶紧卸载，卸干净！</p>
+<p>然后把这个软件、这个团队永远拉黑！</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/openclaw1024/1227)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/openclaw1024">Hermes/OpenClaw</a><a href="https://t.me/aigc1024">AI探索</a><a href="https://t.me/openclaw1024/1227">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">14:22</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/83078)" target="_blank">很多人误以为经济学是在教你“怎么赚钱”，其实它真正关心的是你如何做选择。</a></div>
+  <div class="card-summary"><p>《经济学的思维方式》一句就把核心讲透：</p>
+<p>当选择不可兼得时，你放弃了什么，才是关键。</p>
+<p>作者用极其清晰的方式解释稀缺、成本、激励这些概念，反复强调一个事实：</p>
+<p>任何决策都有代价，任何政策都有取舍，从来不存在免费的午餐。</p>
+<p>这本书最难得的是，把抽象理论拉回现实生活：</p>
+<p>买房、教育、医疗、税收，甚至日常消费，都能用这套思维拆解。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/83078)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024/83078">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">14:25</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/11152)" target="_blank">我不知道有没有人了解过站群这种模式。其实这套运营方案早在一二十年前，就已经有很多人在实操和布局了。一套完整的站群管理系统，能够同时管控几十个网站，甚至多达上百个站点，之后再配合优化做好SEO排名引流。接着在各个网站上投放广告、接入广告变现渠道，依靠广告流量来赚取收益，说实这套模式就算放到当下互联网环境里，依旧是特别靠谱、可落地性很强的赚钱方案。只不过想要做起来，必须投入足够的时间和精力踏踏实实去执行运营。只要用心把站群运营做好做稳定，每个月收入过万美金完全不是空想，反而概率非常大，运营得好甚至还能收获更高的收益。至于大家都担心的网站内容来源问，如今人工智能技术发展得特别成熟完善，完全可以借助AI工具批量生成、搭建内容，轻松解决站群长期更新内容的难。</a></div>
+  <div class="card-summary"><hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/11152)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/yunying23/11152">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@chunse1024</span>
+    <span class="time-tag">15:06</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/chunse1024/11185)" target="_blank">《捞偏门》：揭秘快速赚钱项目与灰色产业链内幕</a></div>
+  <div class="card-summary"><p>整理了各种快速赚钱方法与新兴项目，书中不仅揭开了灰色产业链的内幕，也提醒读者防范骗局，避免被割韭菜。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/chunse1024/11185)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/chunse1024">优质「内容」</a><a href="https://t.me/meiriyishu">优质「资源」</a><a href="https://t.me/inside1024">你不知道的内幕消息🌳</a><a href="https://t.me/chunse1024/11185">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">15:18</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/23058)" target="_blank">一个人，也能组建一支 7×24 小时在线的 AI 团队。</a></div>
+  <div class="card-summary"><p>LobeHub 正在从 AI 聊天工具，升级成一套开源的 Agent 协作平台，目前 GitHub 已拿下 80.6k Star。</p>
+<p>你可以创建不同分工的 Agent，让系统根据任务自动组队、并行执行和互相完善结果；还支持定时任务、项目空间、长期记忆，以及多模型统一调度。</p>
+<p>它更像一个 AI 团队操作系统：你负责目标和决策，Agent 负责研究、写作、开发与交付，还能随使用不断积累对你的理解。</p>
+<p>支持 Docker 私有部署。想把零散的 AI 工具，真正变成一套长期工作的执行系统，可以试试</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/23058)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024">AI探索</a><a href="https://t.me/openclaw1024">Hermes/OpenClaw</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/aigc1024/23058">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">15:21</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/43113)" target="_blank">**全球第二大外包半导体封装测试厂商 Amkor 据称考虑出售中国业务股份，估值或达 15 亿美元</a></div>
+  <div class="card-summary"><p>**</p>
+<p>知情人士透露，半导体封测服务商 Amkor Technology 正考虑出售其中国业务的部分股份，估值可能在 10 亿至 15 亿美元之间。总部位于亚利桑那州坦佩的 Amkor 已聘请顾问协助剥离该部门并试探初步意向，公司可能保留少数股权。Amkor 代表对此拒绝置评。</p>
+<p>Amkor 加入了一众重新审视在华业务的跨国公司行列。SK 海力士上周据称正为重庆工厂寻求投资者，Abercrombie &amp; Fitch 也在考虑中国业务选项，此前通用磨坊、星巴克和 Oatly 已采取类似行动。Amkor 于 2001 年在上海设立封装厂，今年 7 月刚宣布与英伟达达成 15 亿美元多年协议，共同开发下一代 AI 半导体封装技术。</p>
+<p><a href="https://www.bloomberg.com/news/articles/2026-08-11/amkor-is-said-to-explore-stake-sale-in-1-5-billion-china-unit">Bloomberg</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/43113)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihuachat">茶馆水群</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/43113">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">17:12</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/23060)" target="_blank">继续发一则和国内 model researcher 交流的 memo。今天和某模型厂的一位 post-train researcher 聊了聊。Ta 对「国内在 Pre-training 上更有优势、Post-training 相对落后」这件事，补充了一个视角：</a></div>
+  <div class="card-summary"><p>国内基本已经「会做」Pre-training 了，但 Post-training 可能还处在一个比较混沌的阶段。</p>
+<p>一个核心原因是，两者的 reward 清晰程度很不一样。</p>
+<p>Pre-training 的反馈很明确，比如可能就是在单位时间内，把 Next Token Loss 降得越低越好，同时尽可能降低训练成本。</p>
+<p>Post-training 要解决的，则是怎么让模型在下游应用中表现得更好。但怎么定义和评估这个「更好」，以及怎么确认模型是真的变强了、而不是在 hacking 某个指标，都非常 tricky。</p>
+<p>此外，Pre-training 的创新也更容易被外界看到。</p>
+<p>模型架构没有那么强的机密性，一开源大家就能看到，也可以写成 Paper、拿去做 PR。但一家模型公司的数据是怎么清洗的、具体用了什么训练 Recipe，通常不会拿出来讲。</p>
+<p>再加上众所周知的缺卡问，而模型的绝对能力又是模型厂的生死线，大家自然会把更多资源投入反馈更明确、也更容易获得声量的 Pre-training。</p>
+<p>Post-training 因此陷入了一个有点尴尬的循环：因为混沌，所以拿不到足够多的资源；又因为资源不够，这种混沌迟迟无法被解决。</p>
+<p>除了这个，我们还聊到了几个挺有意思的点：</p>
+<p>1/ 「大厂最终一定会赢」是一种偷懒的推论。</p>
+<p>模型竞争不是比身价。拥有更多钱、卡和人，不等于一定能训出最好的模型。</p>
+<p>在这位 researcher 看来，真正起决定性作用的，可能是组织里到底有多少人发自内心想把模型训好，以及组织摩擦会不会消耗掉这些人的热情。（没有说加入创业公司的人会更有梦想的意思。）</p>
+<p>2/ Agent 确实已经在替代 AI Lab 里的一部分工作。（所以我们最近和一些 researchers 交流，感觉有些人确实已经有失业焦虑了。）</p>
+<p>拿 Infra 举例，现在可以直接告诉 Agent：「每秒只能输出 50 个 Token，请优化到 60 个」，然后让它自己检查 Kernel 和整条链路。</p>
+<p>所以一些 Infra 工程师开始自己给自己找事干，比如跑去研究算法、理解训练需求。</p>
+<p>（从这里再往外延伸一步：如果说 AI Coding 模糊了产品、研发和设计之间的边界，那么 AI for AI / RSI 似乎也在逐渐模糊数据、算法和 Infra 之间的边界。</p>
+<p>3/ Model Research 本身，可能就是最 Science 的 AI for Science。</p>
+<p>我们还探讨了两个没有答案的问，也列在这里吧，欢迎有想法的朋友分享你的见解～</p>
+<p>Q1/ 怎么让模型拥有时间概念？</p>
+<p>这个之所以会是个问，是因为如果模型不交卷，它就可以一直保持「我没错」的状态。反正模型不老不死，所以从它自己的视角看，磨洋工可能并不是什么坏事。（GPT-5.6 一直写测试，是不是就是深刻践行了这一点啊 doge.jpg)</p>
+<p>就像《葬送的芙莉莲》里，对于一个能活几千年的精灵来说，花十年寻找一枚戒指完全合理。</p>
+<p>但我们这些凡胎肉体，根本等不起…（除非 AI 医疗让人类永生哈哈</p>
+<p>Q2/ OpenAI 是怎么持续相信 RL 这个方向，并最终把 o1 做出来的？</p>
+<p>我们好奇的不是具体的 Recipe，而是背后的组织问。</p>
+<p>想起之前请清华大学叉院的助理教授</p>
+<p>录过一期播客，他在节目里提到，OpenAI 很早就在做 RL，但之前做了很久都没有得到结果。</p>
+<p>那么，在一个方向连续失败很多年以后，他们的团队为什么还能继续相信它，招到人、说服老板、拿到资源，然后真的把事情做出来呢🤔</p>
+<p>这个问可能需要更了解 OpenAI 的朋友来回答了。</p>
+<p>最后，其实跟很多 researchers 交流，尤其是问他们觉得哪家模型更有希望时，大家最后都会强调组织文化。</p>
+<p>在一个快速变化、资源永远不够的行业里，怎么把人和算力分给那些还没有答案的创新，以及愿意等这些创新多久，可能和技术判断本身一样重要吧。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/23060)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/23060">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@openclaw1024</span>
+    <span class="time-tag">17:15</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/openclaw1024/1228)" target="_blank">卧槽，这哥们去霍霍 Codex 了吗？</a></div>
+  <div class="card-summary"><hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/openclaw1024/1228)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/openclaw1024/1228">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">17:21</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/23061)" target="_blank">ColaMD v1.8.1 已发布，macOS / Windows / Linux 均可下载：</a></div>
+  <div class="card-summary"><ul>
+<li>
+<p>换了全新的 macOS 应用图标</p>
+</li>
+<li>
+<p>新增源码模式，在所见即所得和原始 Markdown 之间切换</p>
+</li>
+<li>
+<p>新增 HTML 导出功能</p>
+</li>
+<li>
+<p>新增 VS Code 集成，可在 VS Code 中将当前文件直接打开到 ColaMD</p>
+</li>
+<li>
+<p>本地图片拖入编辑器后渲染正常，保存时自动恢复为相对路径，支持 Windows 路径、空格、Unicode 和带括号文件名</p>
+</li>
+<li>
+<p>修复了 HTML</p>
+</li>
+</ul>
+<p>标签中的绝对路径也会被写回源文件的问</p>
+<ul>
+<li>修复了代码块复制、Windows 本地图片显示、VS Code 未保存内容提示等若干社区反馈的细节问</li>
+</ul>
+<p>欢迎体验，感谢 Star ⭐</p>
+<p>https://colamd.com/</p>
+<p>转发</p>
+<p>: Markdown 已经成为 AI 时代写作、记录、文档和协作的事实标准。但很多人的电脑上依然没有一个免费、好看、好用的 Markdown 阅读器/编辑器。</p>
+<p>为此我开发了 ColaMD，一款开源、免费、轻量、优雅的 Markdown 编辑器</p>
+<p>它首先是一款简单、专注、好用的 Markdown 编辑器：所见即所得、主切换、富文本复制、智能换行、PDF 导出，并支持 macOS、Windows 和 Linux。</p>
+<p>同时，ColaMD 也是一款对 AI Agent 友好的编辑器。当 Claude Code、Codex、Cola 或其他 Agent 修改正在打开的 .md 文件时，ColaMD 会实时同步改动。不需要关闭文件、重新打开，也不需要手动刷新。</p>
+<p>上线几个月以来，收到了大家社区热情的反馈，感谢社区提交 Issue、Pull Request，以及参与测试、反馈和讨论的每一位朋友。ColaMD 还在继续成长，欢迎下载体验，也欢迎告诉我们你希望它变成什么样。</p>
+<p>我们的目标很明确：把 ColaMD 做成最好用的免费 Markdown 编辑器，也让它成为 AI 时代 Markdown 工作流的一块可靠基础设施。</p>
+<p>感谢大家，如果觉得有用，可以给我们一个⭐ Star 支持。</p>
+<p>https://github.com/marswaveai/ColaMD</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/23061)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/23061">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">17:31</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/23064)" target="_blank">文章一眼 AI 写的？试试这句提示词。</a></div>
+  <div class="card-summary"><p>把文章丢给 AI，加一句：</p>
+<p>“帮我重写这段文字，保留原意，但写得更像真人。减少过度工整的句式和机械分段，允许少量口语化和不规则表达，长短句自然交替。删掉空、套和重复总结，让文字更自然、更有个人表达感。”</p>
+<p>比一句“降低 AI 味”好用得多。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/23064)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/23064">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">17:39</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/23065)" target="_blank">Claude Code 宕机了</a></div>
+  <div class="card-summary"><p>529 Overloaded...</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/23065)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/23065">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">18:19</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/11153)" target="_blank">拆解一个视频号带货玩法，一张图片配上口播文案，加点动态效果，内容可以讲一些历史故事，视频号中老年用户居多，对这种内容天然感兴趣，带货相关图书转化效果还不错。</a></div>
+  <div class="card-summary"><p>这种号做起来很简单，基本不需要什么剪辑能力，视频发布出去纯靠自然流，一开始没流量也很正常，要持续去更新，还是比较适合新手入门试试的。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/11153)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/yunying23/11153">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">19:25</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/43118)" target="_blank">**字节跳动新成立AI数据与安全部门，与Seed、Flow、抖音等部门平行**</a></div>
+  <div class="card-summary"><p>36氪从多个独立信源处获悉，字节跳动近期成立了一个新的一级部门——AI数据与安全，与Seed、Flow、抖音等部门平行，负责人为王赢磊（Adam Wang）。这是继2023年底成立Seed和Flow两个AI一级部门后，字节围绕AI业务成立的又一个一级部门。负责人王赢磊此前为TikTok平台责任负责人和TikTok直播负责人。</p>
+<p><a href="https://36kr.com/newsflashes/3934989813710209">36Kr</a> | <a href="https://mp.weixin.qq.com/s/gNQWQQoHc_cWG3GIoGR_pw">智能涌现</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/43118)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihuachat">茶馆水群</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/43118">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">19:40</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/43119)" target="_blank">📱 **红米 K100 Pro Max 售价￥4499 起**</a></div>
+  <div class="card-summary"><p>REDMI 正式发布 K100 系列手机，率先推出 K100 Pro 与 K100 Pro Max 两款机型。全系搭载第五代骁龙 8 至尊版与 AI 独显芯片 D2，配备 185 Hz 刷新率、全 RGB 无损排列的超窄边直屏，局部峰值亮度达 4500nit，支持 3D 超声波指纹识别。影像方面全系采用 2 亿像素主摄，续航方面支持 100W 有线与 50W 无线快充，提供赤霞珠红配色。</p>
+<p>K100 Pro 采用 6.59 英寸直屏，内置 8500 mAh 电池，提供独占配色“流萤追光”；K100 Pro Max 升级为 6.9 英寸直屏与 9070 mAh 电池，支持 27W 有线反充。Pro Max 还独享 5000 万像素 5 倍潜望长焦镜头、含独立低音炮的 Bose 2.1 声道立体声系统，以及一体化金属 DECO 与悬浮灯环外观设计。</p>
+<p>K100 Pro</p>
+<p>12+256 ￥3999</p>
+<p>12+512 ￥4599</p>
+<p>16+256 ￥4399</p>
+<p>16+512 ￥4999</p>
+<p>K100 Pro Max</p>
+<p>12+256 ￥4499</p>
+<p>12+512 ￥5099</p>
+<p>16+256 ￥4899</p>
+<p>16+512 ￥5499</p>
+<p>16+1 TB ￥5999（限量 2 万台）</p>
+<p>首销优惠 300 元，另国补 500 元</p>
+<p>红米手机(<a href="https://weibo.com/3021514657/RcVz4eK0d">1</a>,<a href="https://weibo.com/3021514657/RcVAgauh6">2</a>)</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/43119)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihuachat">茶馆水群</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/43119">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">20:11</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/23066)" target="_blank">Anthropic 宣布将黎曼猜想里 ζ 函数临界线上的零点比例的已知下界从 41.6% 提高到了 67.2% 这事充份说明</a></div>
+  <div class="card-summary"><ol>
+<li>
+<p>AI 目前主要确实还是在摘低垂果实</p>
+</li>
+<li>
+<p>人类由于笨和懒错过的低垂果实还真tm多</p>
+</li>
+</ol>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/23066)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/23066">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">22:14</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/43122)" target="_blank">**Manus 宣布脱离 Meta 恢复独立，部分用户数据将被清除**</a></div>
+  <div class="card-summary"><p>AI 助手 Manus 宣布将从 Meta 剥离、恢复独立公司运营。受此影响，部分用户在 2025 年 12 月 29 日（Meta 收购当日）及之后生成的数据，将于 2026 年 8 月 23 日 8:00 至 24 日（新加坡时间）被删除。受影响用户可在 8 月 23 日 7:59 前通过备份工具导出数据，并于 8 月 25 日 8:00 起恢复访问。</p>
+<p>Manus 表示，此举是与 Meta 分离过程中为遵守特定司法管辖区监管要求的必要步骤。备份期间受影响付费用户不会被收费，恢复后还将提供回归奖励。不受影响的用户可正常使用，无需任何操作。</p>
+<p><a href="https://manus.im/zh-tw/blog/a-note-to-our-users">Manus</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/43122)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihuachat">茶馆水群</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/43122">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">22:16</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/11155)" target="_blank">《静态住宅 IP 教程 · 第二篇》</a></div>
+  <div class="card-summary"><p>——Clash Verge（最新版）链式代理设置指南</p>
+<p>上一篇我们讲了手机端 Shadowrocket 如何设置“静态住宅 IP”。</p>
+<p>这篇来讲 电脑端 Clash Verge 的配置方法：同样简单、同样稳、同样适合养号。</p>
+<p>很多人用 Clash 却不知道：</p>
+<p>最稳的做法，是链式代理：先机场，再住宅 IP。</p>
+<p>出口走住宅，既安全又不跳 IP。</p>
+<p>以下是完整教程👇</p>
+<p>⸻</p>
+<p>🍥 第 1 步：把你的住宅 IP 添加到节点里</p>
+<p>你在购买住宅 IP 后，会拿到：</p>
+<p>•IP</p>
+<p>•端口</p>
+<p>•用户名</p>
+<p>•密码</p>
+<p>打开 Clash Verge 最新版 → 左侧点击 “代理”</p>
+<p>在节点区域里手动添加（或导入）你的：</p>
+<p>Residential-IP（Socks5 或 HTTPS）</p>
+<p>写入后，它会出现在你的节点列表中。</p>
+<p>⸻</p>
+<p>右上角找到：</p>
+<p>「链式代理」按钮（Chain Proxy）」 → 开启</p>
+<p>这是关键！</p>
+<p>链式代理的逻辑是：</p>
+<p>先连机场节点 → 再通过住宅节点 → 再出去访问网络</p>
+<p>看到的出口 IP = 住宅 IP</p>
+<p>机场只是用于传输加速。</p>
+<p>⸻</p>
+<p>🧩 第 3 步：配置节点顺序</p>
+<p>在右侧的“代理链配置”里：</p>
+<p>1️⃣ 先点击一个你的 机场节点（如 新加坡 / 香港）</p>
+<p>它会出现在列表里，显示为第 1 个。</p>
+<p>2️⃣ 再点击你刚写入的 Residential-IP</p>
+<p>它会出现在列表里，显示为第 2 个。</p>
+<p>顺序必须是：</p>
+<p>① 机场节点 → ② 住宅节点</p>
+<p>（顺序错了会无法连通）</p>
+<p>如图中所示。</p>
+<p>⸻</p>
+<p>▶️ 第 4 步：点击连接，等待片刻</p>
+<p>点击“连接”。</p>
+<p>⚠️ 注意：</p>
+<p>住宅 IP 延迟比机场高一些，所以：</p>
+<p>👉 它会慢几秒连上</p>
+<p>👉 状态变绿表示成功</p>
+<p>👉 访问 Google / X 测试是否正常</p>
+<p>连上后，你现在的电脑已经在：</p>
+<p>✔ 出口使用住宅 IP</p>
+<p>✔ 稳定不跳 IP</p>
+<p>✔ 适配养号 &amp; 安全操作</p>
+<p>非常稳。</p>
+<p>⸻</p>
+<p>📌 使用技巧 &amp; 注意点</p>
+<ol>
+<li>链式代理保证稳定性（最重要）</li>
+</ol>
+<p>单独用住宅 IP = 延迟高、容易断</p>
+<p>链式代理 = 稳定加速 + 出口纯净</p>
+<ol start="2">
+<li>住宅 IP 不适合日常高速任务</li>
+</ol>
+<p>它更适合：</p>
+<p>•养号</p>
+<p>•稳定登陆</p>
+<p>•不跳 IP 的使用场景</p>
+<p>撸毛 / 大流量操作建议继续用机场。</p>
+<ol start="3">
+<li>节点顺序不能反</li>
+</ol>
+<p>顺序必须是：</p>
+<p>机场 → 住宅</p>
+<p>不是住宅 → 机场！</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/11155)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/yunying23/11155">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@openclaw1024</span>
+    <span class="time-tag">22:45</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/openclaw1024/1230)" target="_blank">我觉得像视频转录剪辑这样的 App 应该是被 Agent 调用的，App 主要是用来确认结果和微调的。</a></div>
+  <div class="card-summary"><p>所以我在设计的时候，砍掉了内置的 Harness，只保留了复制 prompt，然后去 Agent 操作。另外最新版本提供了网页界面，这样可以在 Agent 内置浏览器内打开，直接从对或者网页标记二次编辑。</p>
+<p>我坚信未来 Agent 才是入口，要做什么事是先打开 Agent 而不是打开 App。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/openclaw1024/1230)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/openclaw1024">Hermes/OpenClaw</a><a href="https://t.me/aigc1024">AI探索</a><a href="https://t.me/openclaw1024/1230">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">23:31</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/83098)" target="_blank">推荐瑞·达利欧最新一期深度访谈，信息量巨大。</a></div>
+  <div class="card-summary"><p>这期节目刚上线不到两周，播放量已经破400万。</p>
+<p>当然，这期访谈能火，很大一部分原因还是瑞·达利欧本人。</p>
+<p>他是全球最大的对冲基金之一的桥水基金创始人，累计给投资者赚了大约530亿美元。</p>
+<p>但真正让达利欧出名的，是2008年那场全球金融危机。</p>
+<p>当时标普500暴跌将近40%的时候，大量投资机构损失惨重，他的基金反而赚了9.5%。更早之前，他就警告过度借贷可能引发系统性危机。</p>
+<p>也正因为这样，当他在这次访谈里说，AI已经出现了经典的泡沫特征，很多人的第一反应不是反驳，是想知道他究竟看到了什么。</p>
+<p>但整场访谈听下来，我觉得最重要的，是他全程反复提到的一条线索：</p>
+<p>AI正在改变财富的流向。</p>
+<p>1</p>
+<p>访谈一开始，主持人问达利欧，我们是不是正处在一个AI泡沫里？</p>
+<p>达利欧没有急着给出一个涨跌判断，而是先讲了20世纪20年代的故事。</p>
+<p>那是一个技术爆发的年代，汽车开始普及，普通家庭第一次用上电灯和冰箱，广播与飞机也进入大众视野。</p>
+<p>所有人都知道，这些技术会改变未来。</p>
+<p>后来也确实改变了，可这并没有阻止1929年的崩盘。</p>
+<p>同样的事情也发生在互联网时代。</p>
+<p>互联网不是骗局，今天几乎所有人的生活都建立在它之上，但一家企业代表未来，不等于它在任何价格上都值得购买。</p>
+<p>这句放到今天仍然成立：AI是真的，AI泡沫也可以是真的，技术不断进步，与市场过度兴奋并不矛盾。</p>
+<p>很多人看到AI越来越强，就觉得AI公司的估值一定会继续上涨。可技术回答的是它能做什么，价格回答的是人们已经为这件事付了多少钱。</p>
+<p>达利欧在这里提到了一个特别关键的区别：财富不是钱。</p>
+<p>一家AI公司融资5000万元，市场却给了它10亿元估值。创始人因此拥有了巨额财富，但那主要是股份的账面价格。只有卖出股份，财富才会真正变成可以支付账单的钱。</p>
+<p>市场好的时候，人们可以拿股份抵押，借来的钱又会推高资产价格。</p>
+<p>等到利率上升，或者投资人突然需要现金，过程就会反过来。大家开始卖资产，价格下跌，抵押物随之缩水，原本看起来很坚固的财富会迅速消失。</p>
+<p>泡沫真正危险的地方，不是有人在屏幕上亏了一笔钱，是资产价格下跌后，公司开始削减成本。</p>
+<p>一个人少花的钱，会变成另一家公司的收入缺口。市场里的恐慌，最后会落到普通人的岗位上。</p>
+<p>2</p>
+<p>但这场访谈最关键的部分，是达利欧谈到了另一个问。</p>
+<p>AI创造的财富，到底会流向哪里？</p>
+<p>首先我们要认清一个现实：技术创造出来的钱，肯定不会自动平均落到每个人手里。</p>
+<p>AI</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/83098)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/83098">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">23:31</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/83099)" target="_blank">可以让整个社会更富，却也可能让一部分人的收入变得更不稳定。</a></div>
+  <div class="card-summary"><p>问不是AI会不会创造财富，它当然会。</p>
+<p>真正的问是，这些新增的财富最后会属于谁？</p>
+<p>在瑞·达利欧看来，AI创造的财富，会更容易流向资本家。他的解释如下。</p>
+<p>工业革命以来，机器一直在沿着人的身体向上替代。</p>
+<p>最早替代的是体力，拖拉机代替农民在土地上劳作，流水线接管了大量重复动作。</p>
+<p>现在，这条线已经来到了大脑，AI开始处理写作、分析和部分推理工作。</p>
+<p>以前一家企业赚到100元，需要拿出很大一部分支付工资。现在，同样的业务可以由更少的人配合AI完成。</p>
+<p>企业收入没有减少，人工成本却可能下降。省下来的部分不会凭空消失，它更可能进入利润，最后流向持有公司股份的人。</p>
+<p>这才是AI时代真正重要的财富变化。</p>
+<p>它不一定表现为所有人突然失业，更常见的情况是，一个行业仍然在增长，身处其中的普通人却没有明显变富。</p>
+<p>生产率提高了，工资只增加一点，资产价格却涨得更快。</p>
+<p>一个人会使用生产工具，与拥有生产工具带来的收益，是两码事。</p>
+<p>一个人用AI把一天的工作压缩到四小时，如果公司因此减少招聘，那么省下的成本首先属于公司。除非这个人能借此进入更高价值的岗位，或者拥有一部分业务成果，否则他只是帮助组织变得更有效率。</p>
+<p>所以AI时代的差距，可能不只发生在会用AI的人和不会用AI的人之间。</p>
+<p>更大的差距，会出现在参与分配的人和只领取固定工资的人之间。</p>
+<p>3</p>
+<p>主持人接着问，如果一个年轻人没有多少存款，也没有可以投资的资产，他该怎么办？</p>
+<p>达利欧回答，你唯一的资产就是自己。</p>
+<p>一个人的收入，不只取决于他会什么，还取决于市场愿意为这种能力付多少钱。</p>
+<p>同样是开车，网约车司机和为高净值客户服务的专职司机，出售的是相近的技能，价格却完全不同。</p>
+<p>同样擅长沟通，在低利润行业处理日常协调，与在高价值交易中参与关键谈判，得到的回报也不会一样。</p>
+<p>技能的价值从来不是固定的，而是由所处的场景决定。</p>
+<p>这不意味着每个人都要创业，而是需要想办法让收入逐渐靠近成果，不是永远只按投入的时间定价。</p>
+<p>你可以进入更需要判断的岗位，也可以积累可复用的作品。只要你对最终成果拥有更强的议价权，AI带来的效率才更可能成为你的收益。</p>
+<p>4</p>
+<p>对谈最后又回到了一个很实际的问：既然泡沫可能破裂，现在应该做什么？</p>
+<p>达利欧的答案是，不要试图预测那个精确的时点。</p>
+<p>与其把未来押在一次判断上，不如让自己在判断错误后依然能够生活。</p>
+<p>其实整场访谈里，达利欧谈分散投资，表面上说的是股票、现金和黄金，背后其实是同一个词：选择权。</p>
+<p>有一笔能覆盖生活的应急资金，你就不必在市场最低点卖出资产。拥有可以迁移的能力，公司裁员时，你也不至于只能等待。</p>
+<p>选择权无法让人躲过所有周期，但它能减少被迫做决定的次数。</p>
+<p>AI时代也是一样。当机器开始参与脑力劳动，单纯出售时间会越来越被动。</p>
+<p>未来最稳妥的位置，未必是离AI最远的地方，而是让AI提高你的产出，同时让自己保留对一部分成果的所有权。</p>
+<p>很推荐大家有时间可以看下这期访谈。我觉得瑞·达利欧很厉害的地方在于，他总在追问同一件事：一个变化发生以后，钱会从哪里来，又会流到哪里去？</p>
+<p>重点不是结论，是他的思考问的方式。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/83099)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/83099">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">23:43</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/43124)" target="_blank">**iOS 27 为 2TB 及以上 iCloud+ 用户新增家庭 App AI 功能**</a></div>
+  <div class="card-summary"><p>iOS 27 将为订阅 2TB 及以上 iCloud+ 计划的用户带来三项 Apple Intelligence 家庭 App 功能：HomeKit 安防视频生成描述、摄像头片段搜索，以及自动展示值得注意的片段。</p>
+<p>测试者发现，8TB 存储可支持最多 15 个摄像头的视频摘要，升级至最高 12TB 计划可能获得更高限额。部分 iCloud+ 计划还会提升图像生成等其他 AI 功能的每日使用上限。苹果称这些功能依赖强大的服务器模型，因此仅限付费用户，具体限额预计在 9 月 iOS 27 正式版发布时公布。</p>
+<p><a href="https://www.macrumors.com/2026/08/11/new-ios-27-icloud-plus-perks/">MacRumors</a></p>
+<hr />
+<!-- 已过滤 1 条重复内容（@aigc1024: 1） --></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/43124)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihuachat">茶馆水群</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/43124">查看原文</a></div></div>
+</div></div>
+
+    <div class="footer">TG 频道日报 · 自动生成</div>
+</div>
+
+</body>
+</html>
