@@ -2,11 +2,11 @@
   "date": "2026-08-20",
   "kind": "tg",
   "title": "TG 频道日报",
-  "generated_at": "2026-08-19T17:02:03Z",
+  "generated_at": "2026-08-20T01:48:30Z",
   "media_summary": {
     "image_count": 18,
-    "video_count": 2,
-    "published_video_count": 2,
+    "video_count": 1,
+    "published_video_count": 1,
     "poster_only_video_count": 0,
     "failed_count": 0
   },
@@ -405,7 +405,6 @@
           "media": [
             {
               "type": "video",
-              "poster_url": "assets/tg-media/2026-08-20/yunying23-11219-1-poster.webp",
               "url": "assets/tg-media/2026-08-20/yunying23-11219-1.mp4",
               "fallback_url": "https://t.me/yunying23/11219",
               "width": 0,
@@ -413,19 +412,8 @@
               "duration": 0,
               "size_bytes": 6878804,
               "publish_status": "published",
-              "has_audio": true
-            },
-            {
-              "type": "video",
-              "poster_url": "assets/tg-media/2026-08-20/yunying23-11219-2-poster.webp",
-              "url": "assets/tg-media/2026-08-20/yunying23-11219-2.mp4",
-              "fallback_url": "https://t.me/yunying23/11219",
-              "width": 0,
-              "height": 0,
-              "duration": 0,
-              "size_bytes": 6878804,
-              "publish_status": "published",
-              "has_audio": false
+              "has_audio": false,
+              "poster_url": "assets/tg-media/2026-08-20/yunying23-11219-1-poster.webp"
             }
           ]
         },
