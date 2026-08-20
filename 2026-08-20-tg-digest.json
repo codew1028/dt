@@ -2,7 +2,7 @@
   "date": "2026-08-20",
   "kind": "tg",
   "title": "TG 频道日报",
-  "generated_at": "2026-08-20T05:49:20Z",
+  "generated_at": "2026-08-20T06:47:41Z",
   "media_summary": {
     "image_count": 18,
     "video_count": 1,
@@ -24,6 +24,9 @@
           "time": "00:16",
           "url": "https://t.me/inside1024/83430",
           "message_id": "83430",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
           "media": []
         },
         {
@@ -36,6 +39,9 @@
           "time": "01:36",
           "url": "https://t.me/aigc1024/23291",
           "message_id": "23291",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
           "media": [
             {
               "type": "image",
@@ -58,6 +64,9 @@
           "time": "06:13",
           "url": "https://t.me/aigc1024/23292",
           "message_id": "23292",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
           "media": [
             {
               "type": "image",
@@ -80,6 +89,9 @@
           "time": "06:41",
           "url": "https://t.me/inside1024/83437",
           "message_id": "83437",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
           "media": [
             {
               "type": "image",
@@ -102,6 +114,9 @@
           "time": "07:58",
           "url": "https://t.me/chunse1024/11229",
           "message_id": "11229",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
           "media": [
             {
               "type": "image",
@@ -124,6 +139,66 @@
           "time": "08:03",
           "url": "https://t.me/zaihuapd/43263",
           "message_id": "43263",
+          "reply_count": 8,
+          "replies_fetched": 8,
+          "replies": [
+            {
+              "id": "393849",
+              "text": "",
+              "time": "08:03",
+              "sender_id": 5090130895,
+              "sender_name": "🔫 ~biu~biu~biu"
+            },
+            {
+              "id": "393850",
+              "text": "路透社好忧国忧民啊",
+              "time": "08:04",
+              "sender_id": 1962342300,
+              "sender_name": "Jove Z"
+            },
+            {
+              "id": "393851",
+              "text": "马一龙",
+              "time": "08:05",
+              "sender_id": 327604795,
+              "sender_name": "qqq qqq"
+            },
+            {
+              "id": "393854",
+              "text": "四年就要轮换的政府还天天想着这种东西，赶紧趁着还在位收割几波之后就让位给其他党吧",
+              "time": "08:09",
+              "sender_id": 5454084255,
+              "sender_name": "Firefly"
+            },
+            {
+              "id": "393856",
+              "text": "👀为啥总是强调大家已经知道的常识？说点大家不知道的。",
+              "time": "08:11",
+              "sender_id": 6630928598,
+              "sender_name": "Atenza Zn"
+            },
+            {
+              "id": "394280",
+              "text": "评论太少，香蕉人在哪里？",
+              "time": "09:43",
+              "sender_id": 5719026501,
+              "sender_name": "jason bush"
+            },
+            {
+              "id": "394420",
+              "text": "",
+              "time": "09:57",
+              "sender_id": 5763978571,
+              "sender_name": "耄耋 五号机"
+            },
+            {
+              "id": "396072",
+              "text": "",
+              "time": "17:17",
+              "sender_id": 1170508843,
+              "sender_name": "privatez privatez"
+            }
+          ],
           "media": [
             {
               "type": "image",
@@ -146,6 +221,9 @@
           "time": "08:12",
           "url": "https://t.me/inside1024/83439",
           "message_id": "83439",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
           "media": [
             {
               "type": "image",
@@ -168,6 +246,241 @@
           "time": "09:00",
           "url": "https://t.me/zaihuapd/43265",
           "message_id": "43265",
+          "reply_count": 33,
+          "replies_fetched": 33,
+          "replies": [
+            {
+              "id": "394002",
+              "text": "",
+              "time": "09:01",
+              "sender_id": 5090130895,
+              "sender_name": "🔫 ~biu~biu~biu"
+            },
+            {
+              "id": "394013",
+              "text": "豆包特色AI发展道路",
+              "time": "09:05",
+              "sender_id": 6052385264,
+              "sender_name": "WZJian"
+            },
+            {
+              "id": "394016",
+              "text": "为什么我不用chatgpt的app呢？",
+              "time": "09:05",
+              "sender_id": 8325262219,
+              "sender_name": "Alina"
+            },
+            {
+              "id": "394020",
+              "text": "所以会再次限免吗？上次mimocode反代后，扔nas上爽用🤗",
+              "time": "09:06",
+              "sender_id": 662317700,
+              "sender_name": "爱吃肉的棒男孩"
+            },
+            {
+              "id": "394027",
+              "text": "免费就登顶",
+              "time": "09:07",
+              "sender_id": 502108781,
+              "sender_name": "路过的幽幽子 Anytime Anywhere"
+            },
+            {
+              "id": "394034",
+              "text": "还记得浏览器大战吗？是个公司都要出一个浏览器",
+              "time": "09:08",
+              "sender_id": 5665281266,
+              "sender_name": "Wwen"
+            },
+            {
+              "id": "394056",
+              "text": "ds 涨价之后便宜模型只剩 mimo 了",
+              "time": "09:12",
+              "sender_id": 6130605509,
+              "sender_name": "明 Bright"
+            },
+            {
+              "id": "394057",
+              "text": "干啥用啊",
+              "time": "09:12",
+              "sender_id": 2001188488,
+              "sender_name": "Ongt"
+            },
+            {
+              "id": "394060",
+              "text": "它甚至还有多模态",
+              "time": "09:12",
+              "sender_id": 6130605509,
+              "sender_name": "明 Bright"
+            },
+            {
+              "id": "394068",
+              "text": "luna max更便宜吧？",
+              "time": "09:13",
+              "sender_id": 1985969291,
+              "sender_name": "Liam"
+            },
+            {
+              "id": "394100",
+              "text": "啥时候推出mmh",
+              "time": "09:18",
+              "sender_id": 5762167422,
+              "sender_name": "Sam"
+            },
+            {
+              "id": "394119",
+              "text": "luna在套餐里确实会便宜一大截",
+              "time": "09:21",
+              "sender_id": 5125248223,
+              "sender_name": "楠 希尔"
+            },
+            {
+              "id": "394124",
+              "text": "ds高峰期那叫一个烧钱",
+              "time": "09:22",
+              "sender_id": 5762167422,
+              "sender_name": "Sam"
+            },
+            {
+              "id": "394125",
+              "text": "是啊，现在luna max代替deepseek处理脏活累活了",
+              "time": "09:22",
+              "sender_id": 1985969291,
+              "sender_name": "Liam"
+            },
+            {
+              "id": "394149",
+              "text": "好奇，为什么是财务来透露即将发布的东西的呢？",
+              "time": "09:26",
+              "sender_id": 5086844703,
+              "sender_name": "GGwpwayd"
+            },
+            {
+              "id": "394162",
+              "text": "财报的电话沟通会说的。就卢伟冰和 cfo 在吧。",
+              "time": "09:27",
+              "sender_id": 91506818,
+              "sender_name": "Fu Xiaohei"
+            },
+            {
+              "id": "394237",
+              "text": "说得好，就由你来充当新的斩杀线，快把MiMo v3搬上来吧。",
+              "time": "09:37",
+              "sender_id": 7332446893,
+              "sender_name": "Dario Amodei"
+            },
+            {
+              "id": "394376",
+              "text": "这种对比就没有意义了",
+              "time": "09:52",
+              "sender_id": 5367563163,
+              "sender_name": "Clarence"
+            },
+            {
+              "id": "394380",
+              "text": "三方站的 V4 系列预览版也涨价了？",
+              "time": "09:52",
+              "sender_id": 5367563163,
+              "sender_name": "Clarence"
+            },
+            {
+              "id": "394443",
+              "text": "",
+              "time": "10:00",
+              "sender_id": 5763978571,
+              "sender_name": "耄耋 五号机"
+            },
+            {
+              "id": "394551",
+              "text": "",
+              "time": "10:11",
+              "sender_id": 6486110432,
+              "sender_name": "MS-7C75"
+            },
+            {
+              "id": "394554",
+              "text": "mimo 傻是傻了点，但好歹有视力而且便宜",
+              "time": "10:12",
+              "sender_id": 5500259281,
+              "sender_name": "超绝望级的校长"
+            },
+            {
+              "id": "394556",
+              "text": "ocg 是 flash 额度也被爆砍了\n云长自部署的preview缓存命中往往不如ds和mimo部署的",
+              "time": "10:13",
+              "sender_id": 6130605509,
+              "sender_name": "明 Bright"
+            },
+            {
+              "id": "394609",
+              "text": "小爱同学怎么办？",
+              "time": "10:30",
+              "sender_id": 8350614294,
+              "sender_name": "一一的一"
+            },
+            {
+              "id": "394611",
+              "text": "目前名字就叫小爱同学来着",
+              "time": "10:31",
+              "sender_id": 1968509111,
+              "sender_name": "寻茶 | 🥲"
+            },
+            {
+              "id": "394619",
+              "text": "不如叫爱咪摸，或者叫摸爱的咪",
+              "time": "10:32",
+              "sender_id": 8350614294,
+              "sender_name": "一一的一"
+            },
+            {
+              "id": "394620",
+              "text": "",
+              "time": "10:32",
+              "sender_id": 8350614294,
+              "sender_name": "一一的一"
+            },
+            {
+              "id": "394640",
+              "text": "小爱同学叫起来顺嘴",
+              "time": "10:36",
+              "sender_id": 1968509111,
+              "sender_name": "寻茶 | 🥲"
+            },
+            {
+              "id": "394825",
+              "text": "opencode和openrouter的这个榜单，里面的free用户占比太高了",
+              "time": "11:29",
+              "sender_id": 1569253493,
+              "sender_name": "Xun Lee"
+            },
+            {
+              "id": "394831",
+              "text": "小红书和抖音上好多都在发世界调用量第一",
+              "time": "11:32",
+              "sender_id": 5849995091,
+              "sender_name": "Su Neo"
+            },
+            {
+              "id": "395155",
+              "text": "mimo有多模态而且便宜，给其他模型当眼睛还是好用的（",
+              "time": "13:24",
+              "sender_id": 2040771416,
+              "sender_name": "Lexington"
+            },
+            {
+              "id": "395501",
+              "text": "天才少女的第二力作",
+              "time": "14:08",
+              "sender_id": 8289204031,
+              "sender_name": "lee glen"
+            },
+            {
+              "id": "395955",
+              "text": "刷榜大王来了",
+              "time": "16:03",
+              "sender_id": 7035497303,
+              "sender_name": "LarryE"
+            }
+          ],
           "media": []
         },
         {
@@ -180,6 +493,9 @@
           "time": "09:12",
           "url": "https://t.me/aigc1024/23295",
           "message_id": "23295",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
           "media": [
             {
               "type": "image",
@@ -202,6 +518,9 @@
           "time": "09:17",
           "url": "https://t.me/yunying23/11215",
           "message_id": "11215",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
           "media": [
             {
               "type": "image",
@@ -224,6 +543,9 @@
           "time": "09:56",
           "url": "https://t.me/aigc1024/23296",
           "message_id": "23296",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
           "media": [
             {
               "type": "image",
@@ -246,6 +568,9 @@
           "time": "10:12",
           "url": "https://t.me/inside1024/83444",
           "message_id": "83444",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
           "media": [
             {
               "type": "image",
@@ -268,6 +593,9 @@
           "time": "11:16",
           "url": "https://t.me/aigc1024/23297",
           "message_id": "23297",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
           "media": []
         },
         {
@@ -280,6 +608,9 @@
           "time": "11:43",
           "url": "https://t.me/text1024/24331",
           "message_id": "24331",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
           "media": []
         },
         {
@@ -292,6 +623,276 @@
           "time": "12:01",
           "url": "https://t.me/zaihuapd/43271",
           "message_id": "43271",
+          "reply_count": 38,
+          "replies_fetched": 38,
+          "replies": [
+            {
+              "id": "394914",
+              "text": "",
+              "time": "12:01",
+              "sender_id": 5090130895,
+              "sender_name": "🔫 ~biu~biu~biu"
+            },
+            {
+              "id": "394915",
+              "text": "",
+              "time": "12:01",
+              "sender_id": 5763978571,
+              "sender_name": "耄耋 五号机"
+            },
+            {
+              "id": "394916",
+              "text": "什么时候死",
+              "time": "12:02",
+              "sender_id": 5513405231,
+              "sender_name": "橙兜"
+            },
+            {
+              "id": "394918",
+              "text": "",
+              "time": "12:02",
+              "sender_id": 5513405231,
+              "sender_name": "橙兜"
+            },
+            {
+              "id": "394919",
+              "text": "官方希望，我还希望能吃上困困兔呢",
+              "time": "12:02",
+              "sender_id": 7973024393,
+              "sender_name": "Wan Bai"
+            },
+            {
+              "id": "394920",
+              "text": "",
+              "time": "12:02",
+              "sender_id": 7648729949,
+              "sender_name": "塔菲"
+            },
+            {
+              "id": "394921",
+              "text": "5小时 额度 下降10%,周额度下降 13% 这是什么算法?",
+              "time": "12:03",
+              "sender_id": 8829965096,
+              "sender_name": "jim kim"
+            },
+            {
+              "id": "394922",
+              "text": "先把我号解封了再说",
+              "time": "12:03",
+              "sender_id": 7648729949,
+              "sender_name": "塔菲"
+            },
+            {
+              "id": "394924",
+              "text": "什么时候给国区的人ban了",
+              "time": "12:03",
+              "sender_id": 6285303025,
+              "sender_name": "557849 11"
+            },
+            {
+              "id": "394925",
+              "text": "claude 的性价比 比一堆中国厂商的要高😂😂",
+              "time": "12:04",
+              "sender_id": 1791306977,
+              "sender_name": "はちみ 🇨🇳🇹🇼🇺🇸🇯🇵🇰🇷🏳️‍🌈🏳️‍⚧️"
+            },
+            {
+              "id": "394928",
+              "text": "tibo动一动啊！codex好久没重置了",
+              "time": "12:05",
+              "sender_id": 1121304668,
+              "sender_name": "下北沢 急行"
+            },
+            {
+              "id": "394929",
+              "text": "周四 GPT6 上线",
+              "time": "12:05",
+              "sender_id": 1791306977,
+              "sender_name": "はちみ 🇨🇳🇹🇼🇺🇸🇯🇵🇰🇷🏳️‍🌈🏳️‍⚧️"
+            },
+            {
+              "id": "394933",
+              "text": "人家都开始卖重置次数了，谁跟你免费啊",
+              "time": "12:07",
+              "sender_id": 7834239796,
+              "sender_name": "狗儿子的账号 认准： 𝓗𝓪𝓷𝓪 的 CS 杂谈"
+            },
+            {
+              "id": "394934",
+              "text": "前段时间的压测也结束了",
+              "time": "12:07",
+              "sender_id": 7834239796,
+              "sender_name": "狗儿子的账号 认准： 𝓗𝓪𝓷𝓪 的 CS 杂谈"
+            },
+            {
+              "id": "394935",
+              "text": "越大方表示越急",
+              "time": "12:07",
+              "sender_id": 871092736,
+              "sender_name": "大魔王"
+            },
+            {
+              "id": "394936",
+              "text": "真以为gpt是大善人吗",
+              "time": "12:08",
+              "sender_id": 7834239796,
+              "sender_name": "狗儿子的账号 认准： 𝓗𝓪𝓷𝓪 的 CS 杂谈"
+            },
+            {
+              "id": "394938",
+              "text": "接着奏乐接着舞",
+              "time": "12:08",
+              "sender_id": 7871435361,
+              "sender_name": "HaiHome"
+            },
+            {
+              "id": "394946",
+              "text": "是不是想相关产业链有机会了",
+              "time": "12:20",
+              "sender_id": 1383422841,
+              "sender_name": "Johns"
+            },
+            {
+              "id": "394948",
+              "text": "真的假的",
+              "time": "12:22",
+              "sender_id": 6523873080,
+              "sender_name": "Kk"
+            },
+            {
+              "id": "394949",
+              "text": "真的",
+              "time": "12:22",
+              "sender_id": 1791306977,
+              "sender_name": "はちみ 🇨🇳🇹🇼🇺🇸🇯🇵🇰🇷🏳️‍🌈🏳️‍⚧️"
+            },
+            {
+              "id": "394951",
+              "text": "是用的人少了吧 还需求强劲",
+              "time": "12:23",
+              "sender_id": 452074081,
+              "sender_name": "奥特 怪兽"
+            },
+            {
+              "id": "394953",
+              "text": "爱删文件 删盘居士 GPT先生",
+              "time": "12:27",
+              "sender_id": 7834239796,
+              "sender_name": "狗儿子的账号 认准： 𝓗𝓪𝓷𝓪 的 CS 杂谈"
+            },
+            {
+              "id": "394961",
+              "text": "是的，我已经白嫖很久",
+              "time": "12:33",
+              "sender_id": 8198120816,
+              "sender_name": "AGENT"
+            },
+            {
+              "id": "394963",
+              "text": "没有遇到过，我都是连沙盒都不用，直接普通用户权限干活。对了我一直用的codex home目录指向/tmp，没有你说的风险",
+              "time": "12:34",
+              "sender_id": 8198120816,
+              "sender_name": "AGENT"
+            },
+            {
+              "id": "394964",
+              "text": "",
+              "time": "12:35",
+              "sender_id": 8022522725,
+              "sender_name": "huangyan 20"
+            },
+            {
+              "id": "394985",
+              "text": "周五",
+              "time": "12:43",
+              "sender_id": 5378108723,
+              "sender_name": "Mkea"
+            },
+            {
+              "id": "394992",
+              "text": "今天周二啊..",
+              "time": "12:44",
+              "sender_id": 1791306977,
+              "sender_name": "はちみ 🇨🇳🇹🇼🇺🇸🇯🇵🇰🇷🏳️‍🌈🏳️‍⚧️"
+            },
+            {
+              "id": "395005",
+              "text": "个例没必要说出来，人家tibo都承认了",
+              "time": "12:48",
+              "sender_id": 7834239796,
+              "sender_name": "狗儿子的账号 认准： 𝓗𝓪𝓷𝓪 的 CS 杂谈"
+            },
+            {
+              "id": "395007",
+              "text": "又不是自媒体说的",
+              "time": "12:49",
+              "sender_id": 7834239796,
+              "sender_name": "狗儿子的账号 认准： 𝓗𝓪𝓷𝓪 的 CS 杂谈"
+            },
+            {
+              "id": "395008",
+              "text": "我说北京时间周五，pdt周四",
+              "time": "12:49",
+              "sender_id": 5378108723,
+              "sender_name": "Mkea"
+            },
+            {
+              "id": "395009",
+              "text": "哦哦哦 你在北京啊?",
+              "time": "12:49",
+              "sender_id": 1791306977,
+              "sender_name": "はちみ 🇨🇳🇹🇼🇺🇸🇯🇵🇰🇷🏳️‍🌈🏳️‍⚧️"
+            },
+            {
+              "id": "395020",
+              "text": "…",
+              "time": "12:54",
+              "sender_id": 5378108723,
+              "sender_name": "Mkea"
+            },
+            {
+              "id": "395078",
+              "text": "我在虚拟机里做开发的，真删库了就回滚快照",
+              "time": "13:07",
+              "sender_id": 8170805331,
+              "sender_name": "hahaha wruhhhh"
+            },
+            {
+              "id": "395124",
+              "text": "iOS必须真机调试",
+              "time": "13:17",
+              "sender_id": 546710026,
+              "sender_name": "nb5p"
+            },
+            {
+              "id": "395128",
+              "text": "3⃣",
+              "time": "13:18",
+              "sender_id": 7171316252,
+              "sender_name": "🌌 SPACE 💥"
+            },
+            {
+              "id": "395135",
+              "text": "用mcp做设备隔离？",
+              "time": "13:20",
+              "sender_id": 8170805331,
+              "sender_name": "hahaha wruhhhh"
+            },
+            {
+              "id": "395505",
+              "text": "不赖",
+              "time": "14:08",
+              "sender_id": 8849310220,
+              "sender_name": "久遠寺 有珠"
+            },
+            {
+              "id": "396291",
+              "text": "不意外，不过现在claude额度真的多呀",
+              "time": "20:13",
+              "sender_id": 7574378473,
+              "sender_name": "Arianna Heartbell"
+            }
+          ],
           "media": []
         },
         {
@@ -304,6 +905,129 @@
           "time": "13:01",
           "url": "https://t.me/zaihuapd/43273",
           "message_id": "43273",
+          "reply_count": 17,
+          "replies_fetched": 17,
+          "replies": [
+            {
+              "id": "395055",
+              "text": "",
+              "time": "13:01",
+              "sender_id": 5090130895,
+              "sender_name": "🔫 ~biu~biu~biu"
+            },
+            {
+              "id": "395056",
+              "text": "",
+              "time": "13:01",
+              "sender_id": 5763978571,
+              "sender_name": "耄耋 五号机"
+            },
+            {
+              "id": "395059",
+              "text": "用别怕怕别用，我命由天不由我",
+              "time": "13:03",
+              "sender_id": 1733353987,
+              "sender_name": "cfy"
+            },
+            {
+              "id": "395080",
+              "text": "",
+              "time": "13:07",
+              "sender_id": 6031309400,
+              "sender_name": "偶偶尔放"
+            },
+            {
+              "id": "395082",
+              "text": "当你那个只会Vibe Coding，只知道微软大战代码又不知道谁是Jason的同事给Codex开启了Full Access…",
+              "time": "13:08",
+              "sender_id": 6630928598,
+              "sender_name": "Atenza Zn"
+            },
+            {
+              "id": "395085",
+              "text": "",
+              "time": "13:09",
+              "sender_id": 5338023177,
+              "sender_name": "天 炅"
+            },
+            {
+              "id": "395090",
+              "text": "不如给个重置先",
+              "time": "13:09",
+              "sender_id": 269736684,
+              "sender_name": "Yadomin"
+            },
+            {
+              "id": "395132",
+              "text": "已经重置很多次了",
+              "time": "13:18",
+              "sender_id": 5985798948,
+              "sender_name": "yang ke"
+            },
+            {
+              "id": "395136",
+              "text": "https://x.com/thsottiaux/status/2089941380336644295",
+              "time": "13:20",
+              "sender_id": 7128538707,
+              "sender_name": "Horn"
+            },
+            {
+              "id": "395138",
+              "text": "I was gifted a very fancy new reset button today\n\n**▎**[**Source**](https://x.com/thsottiaux/status/2089941380336644295)",
+              "time": "13:20",
+              "sender_id": 8755329042,
+              "sender_name": "解析机（经常 bug）"
+            },
+            {
+              "id": "395139",
+              "text": "神秘重置按钮",
+              "time": "13:20",
+              "sender_id": 7128538707,
+              "sender_name": "Horn"
+            },
+            {
+              "id": "395142",
+              "text": "只要tibo发起重置，一切都会好起来的",
+              "time": "13:22",
+              "sender_id": 8170805331,
+              "sender_name": "hahaha wruhhhh"
+            },
+            {
+              "id": "395153",
+              "text": "何时？",
+              "time": "13:24",
+              "sender_id": 1199576336,
+              "sender_name": "#厭惡性工作者"
+            },
+            {
+              "id": "395792",
+              "text": "",
+              "time": "14:41",
+              "sender_id": 2133395471,
+              "sender_name": "原力猎人"
+            },
+            {
+              "id": "395854",
+              "text": "做这些防护有意义吗？模型都能逃脱了",
+              "time": "15:00",
+              "sender_id": 871092736,
+              "sender_name": "大魔王"
+            },
+            {
+              "id": "396161",
+              "text": "还真是，我之前有个工作目前他全给我删了",
+              "time": "18:22",
+              "sender_id": 5822026582,
+              "sender_name": "Diablo Weiss"
+            },
+            {
+              "id": "396176",
+              "text": "我跑白质分析的eddy结果，和Codex说帮我清一下硬盘结果删了，统计阶段需要头动数据才发现，烦死了，浪费一天重新跑eddy_cuda",
+              "time": "18:38",
+              "sender_id": 1733632250,
+              "sender_name": "小鸟游 星野"
+            }
+          ],
           "media": []
         },
         {
@@ -316,6 +1040,9 @@
           "time": "13:43",
           "url": "https://t.me/meiriyishu/1693",
           "message_id": "1693",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
           "media": [
             {
               "type": "image",
@@ -338,6 +1065,9 @@
           "time": "14:16",
           "url": "https://t.me/aigc1024/23300",
           "message_id": "23300",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
           "media": [
             {
               "type": "image",
@@ -360,6 +1090,9 @@
           "time": "14:22",
           "url": "https://t.me/inside1024/83451",
           "message_id": "83451",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
           "media": [
             {
               "type": "image",
@@ -382,6 +1115,9 @@
           "time": "14:25",
           "url": "https://t.me/yunying23/11218",
           "message_id": "11218",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
           "media": []
         },
         {
@@ -394,6 +1130,269 @@
           "time": "14:38",
           "url": "https://t.me/zaihuapd/43275",
           "message_id": "43275",
+          "reply_count": 37,
+          "replies_fetched": 37,
+          "replies": [
+            {
+              "id": "395775",
+              "text": "",
+              "time": "14:39",
+              "sender_id": 5090130895,
+              "sender_name": "🔫 ~biu~biu~biu"
+            },
+            {
+              "id": "395777",
+              "text": "",
+              "time": "14:39",
+              "sender_id": 5763978571,
+              "sender_name": "耄耋 五号机"
+            },
+            {
+              "id": "395782",
+              "text": "百度AI现在在哪发财来着？",
+              "time": "14:39",
+              "sender_id": 5687077231,
+              "sender_name": "MoonriseGarden"
+            },
+            {
+              "id": "395785",
+              "text": "百度云？",
+              "time": "14:40",
+              "sender_id": 969611369,
+              "sender_name": "joey chen"
+            },
+            {
+              "id": "395793",
+              "text": "终于吃上热乎",
+              "time": "14:41",
+              "sender_id": 921837561,
+              "sender_name": "yeezink ho"
+            },
+            {
+              "id": "395802",
+              "text": "百度能做好吗？通过之前的一系列操作，我是不看好的。",
+              "time": "14:41",
+              "sender_id": 5985798948,
+              "sender_name": "yang ke"
+            },
+            {
+              "id": "395815",
+              "text": "百度雲现忙着提供开源AI赚钱呢",
+              "time": "14:43",
+              "sender_id": 7128538707,
+              "sender_name": "Horn"
+            },
+            {
+              "id": "395817",
+              "text": "百度：看我拿出文心一言 3000亿模型 你怕不拍😁",
+              "time": "14:44",
+              "sender_id": 8432632468,
+              "sender_name": "Claireannie"
+            },
+            {
+              "id": "395822",
+              "text": "这些国产芯片都是由谁在生产，自己生产，还是中芯国际？",
+              "time": "14:45",
+              "sender_id": 2147324853,
+              "sender_name": "potato"
+            },
+            {
+              "id": "395835",
+              "text": "最新的目前由三星代工，因为性能没有触及美国制裁红线",
+              "time": "14:49",
+              "sender_id": 8198120816,
+              "sender_name": "AGENT"
+            },
+            {
+              "id": "395846",
+              "text": "赞",
+              "time": "14:56",
+              "sender_id": 6537222259,
+              "sender_name": "涵宝果聊 11可验证"
+            },
+            {
+              "id": "395851",
+              "text": "阿里的啥时候拿出来卖，不是说平头哥国产市场份额第二呢",
+              "time": "14:59",
+              "sender_id": 5849995091,
+              "sender_name": "Su Neo"
+            },
+            {
+              "id": "395859",
+              "text": "百度还是有实力的，只是没有证明自己",
+              "time": "15:05",
+              "sender_id": 8179353875,
+              "sender_name": "Llllllp Ty"
+            },
+            {
+              "id": "395867",
+              "text": "What's your problem?",
+              "time": "15:11",
+              "sender_id": 8276724094,
+              "sender_name": "xiaozhang wangxue"
+            },
+            {
+              "id": "395868",
+              "text": "百度依旧是眼光超级棒 但是产品后面做得特别烂",
+              "time": "15:13",
+              "sender_id": 6236612571,
+              "sender_name": "Kim"
+            },
+            {
+              "id": "395869",
+              "text": "每一个行业都是第一个吃螃蟹的 到后期做的都是一坨屎，无论是自动驾驶啊，还是说大模型",
+              "time": "15:13",
+              "sender_id": 6236612571,
+              "sender_name": "Kim"
+            },
+            {
+              "id": "395871",
+              "text": "真实的故事",
+              "time": "15:17",
+              "sender_id": 328938080,
+              "sender_name": "刘 墙东"
+            },
+            {
+              "id": "395872",
+              "text": "",
+              "time": "15:17",
+              "sender_id": 328938080,
+              "sender_name": "刘 墙东"
+            },
+            {
+              "id": "395877",
+              "text": "这是打算转型硬件公司了",
+              "time": "15:21",
+              "sender_id": 6425701887,
+              "sender_name": "Harpal"
+            },
+            {
+              "id": "395894",
+              "text": "你也是昆仑啊",
+              "time": "15:35",
+              "sender_id": 887347260,
+              "sender_name": "空空"
+            },
+            {
+              "id": "395911",
+              "text": "你这领导哪个领域，这么沙雕踩这个坑",
+              "time": "15:47",
+              "sender_id": 8198120816,
+              "sender_name": "AGENT"
+            },
+            {
+              "id": "395916",
+              "text": "能买这玩意儿的，肯定不是私企啊，反正已经有人背锅走了",
+              "time": "15:50",
+              "sender_id": 531722507,
+              "sender_name": "SlowSlow"
+            },
+            {
+              "id": "395922",
+              "text": "进啥不好，进最狗屎的互联厂，神了",
+              "time": "15:50",
+              "sender_id": 5571411835,
+              "sender_name": "法 塔司"
+            },
+            {
+              "id": "395937",
+              "text": "江西农业大学南昌商学院信息管理与信息系统\n\n这种学校的去大厂干什么职位，码农吗？",
+              "time": "15:56",
+              "sender_id": 1962342300,
+              "sender_name": "Jove Z"
+            },
+            {
+              "id": "395939",
+              "text": "应该是，电脑是mac",
+              "time": "15:58",
+              "sender_id": 8198120816,
+              "sender_name": "AGENT"
+            },
+            {
+              "id": "395972",
+              "text": "中文",
+              "time": "16:34",
+              "sender_id": 8716967518,
+              "sender_name": "waline"
+            },
+            {
+              "id": "395973",
+              "text": "翻译",
+              "time": "16:34",
+              "sender_id": 8716967518,
+              "sender_name": "waline"
+            },
+            {
+              "id": "395974",
+              "text": "百度怎么还不死啊",
+              "time": "16:34",
+              "sender_id": 1816252478,
+              "sender_name": "Apex"
+            },
+            {
+              "id": "395981",
+              "text": "AI时代，百度是不是彻底翻不了身了",
+              "time": "16:44",
+              "sender_id": 8034402523,
+              "sender_name": "逝 人随风消逝"
+            },
+            {
+              "id": "395982",
+              "text": "不是有文心一言吗",
+              "time": "16:44",
+              "sender_id": 7139034128,
+              "sender_name": "Alan Xiao"
+            },
+            {
+              "id": "395983",
+              "text": "这个产品感觉存在感超低的啊😂",
+              "time": "16:45",
+              "sender_id": 8034402523,
+              "sender_name": "逝 人随风消逝"
+            },
+            {
+              "id": "395984",
+              "text": "主要是免费",
+              "time": "16:46",
+              "sender_id": 7139034128,
+              "sender_name": "Alan Xiao"
+            },
+            {
+              "id": "396074",
+              "text": "emm倒是挺看好百度孵化的这批人才之后外流出去发光发热的（",
+              "time": "17:18",
+              "sender_id": 704815635,
+              "sender_name": "prince chung"
+            },
+            {
+              "id": "396224",
+              "text": "所以今天百度股票暴跌？",
+              "time": "19:44",
+              "sender_id": 748999259,
+              "sender_name": "Zane"
+            },
+            {
+              "id": "396546",
+              "text": "看到国产两个字就想笑",
+              "time": "22:04",
+              "sender_id": 5257907683,
+              "sender_name": "雨后嫣然"
+            },
+            {
+              "id": "396654",
+              "text": "属于是免费也没人用了",
+              "time": "23:15",
+              "sender_id": 8615070158,
+              "sender_name": "沫茶"
+            },
+            {
+              "id": "396809",
+              "text": "好消息，昆仑推进进度良好。\n坏消息，百度自己训模型用英伟达。",
+              "time": "07:58",
+              "sender_id": 5296187372,
+              "sender_name": "蒙古中单"
+            }
+          ],
           "media": []
         },
         {
@@ -406,6 +1405,9 @@
           "time": "14:41",
           "url": "https://t.me/aigc1024/23301",
           "message_id": "23301",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
           "media": []
         },
         {
@@ -418,6 +1420,9 @@
           "time": "15:18",
           "url": "https://t.me/aigc1024/23302",
           "message_id": "23302",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
           "media": []
         },
         {
@@ -430,6 +1435,9 @@
           "time": "15:56",
           "url": "https://t.me/aigc1024/23303",
           "message_id": "23303",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
           "media": [
             {
               "type": "image",
@@ -452,6 +1460,9 @@
           "time": "16:29",
           "url": "https://t.me/yunying23/11219",
           "message_id": "11219",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
           "media": [
             {
               "type": "video",
@@ -477,6 +1488,9 @@
           "time": "16:41",
           "url": "https://t.me/aigc1024/23304",
           "message_id": "23304",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
           "media": []
         },
         {
@@ -489,6 +1503,9 @@
           "time": "16:56",
           "url": "https://t.me/aigc1024/23305",
           "message_id": "23305",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
           "media": []
         },
         {
@@ -501,6 +1518,94 @@
           "time": "17:38",
           "url": "https://t.me/zaihuapd/43277",
           "message_id": "43277",
+          "reply_count": 12,
+          "replies_fetched": 12,
+          "replies": [
+            {
+              "id": "396128",
+              "text": "",
+              "time": "17:38",
+              "sender_id": 5090130895,
+              "sender_name": "🔫 ~biu~biu~biu"
+            },
+            {
+              "id": "396129",
+              "text": "",
+              "time": "17:39",
+              "sender_id": 5763978571,
+              "sender_name": "耄耋 五号机"
+            },
+            {
+              "id": "396149",
+              "text": "分点国内吧",
+              "time": "17:57",
+              "sender_id": 7834239796,
+              "sender_name": "狗儿子的账号 认准： 𝓗𝓪𝓷𝓪 的 CS 杂谈"
+            },
+            {
+              "id": "396151",
+              "text": "",
+              "time": "17:59",
+              "sender_id": 6031309400,
+              "sender_name": "偶偶尔放"
+            },
+            {
+              "id": "396156",
+              "text": "Intel：感谢时代",
+              "time": "18:10",
+              "sender_id": 5566171804,
+              "sender_name": "ʀᵤₒₘᵤ 🌱"
+            },
+            {
+              "id": "396157",
+              "text": "",
+              "time": "18:12",
+              "sender_id": 7171316252,
+              "sender_name": "🌌 SPACE 💥"
+            },
+            {
+              "id": "396160",
+              "text": "intel和台积电不是一个路线吧",
+              "time": "18:14",
+              "sender_id": 7699350969,
+              "sender_name": "Ginsburg"
+            },
+            {
+              "id": "396162",
+              "text": "",
+              "time": "18:22",
+              "sender_id": 5338023177,
+              "sender_name": "天 炅"
+            },
+            {
+              "id": "396205",
+              "text": "做存储做芯片的真赚啊",
+              "time": "19:04",
+              "sender_id": 5985798948,
+              "sender_name": "yang ke"
+            },
+            {
+              "id": "396208",
+              "text": "这个系统真牛",
+              "time": "19:17",
+              "sender_id": 8600754885,
+              "sender_name": "An"
+            },
+            {
+              "id": "396229",
+              "text": "想问下各位大佬，5060的rog魔霸新锐酷睿版大概能卖多少钱？有自己加装1tb固态和16gb内存条",
+              "time": "19:49",
+              "sender_id": 5159946647,
+              "sender_name": "小杨"
+            },
+            {
+              "id": "396250",
+              "text": "intel: 爷良率也不高，但是爷便宜（",
+              "time": "19:55",
+              "sender_id": 554310524,
+              "sender_name": "Ray Zhang"
+            }
+          ],
           "media": []
         },
         {
@@ -513,6 +1618,9 @@
           "time": "17:39",
           "url": "https://t.me/aigc1024/23306",
           "message_id": "23306",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
           "media": []
         },
         {
@@ -525,6 +1633,9 @@
           "time": "18:26",
           "url": "https://t.me/text1024/24332",
           "message_id": "24332",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
           "media": []
         },
         {
@@ -537,6 +1648,9 @@
           "time": "19:26",
           "url": "https://t.me/aigc1024/23308",
           "message_id": "23308",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
           "media": [
             {
               "type": "image",
@@ -559,6 +1673,9 @@
           "time": "19:26",
           "url": "https://t.me/aigc1024/23309",
           "message_id": "23309",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
           "media": []
         },
         {
@@ -571,6 +1688,9 @@
           "time": "19:48",
           "url": "https://t.me/meiriyishu/1694",
           "message_id": "1694",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
           "media": [
             {
               "type": "image",
@@ -593,6 +1713,9 @@
           "time": "21:14",
           "url": "https://t.me/inside1024/83461",
           "message_id": "83461",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
           "media": [
             {
               "type": "image",
@@ -615,6 +1738,9 @@
           "time": "22:14",
           "url": "https://t.me/text1024/24334",
           "message_id": "24334",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
           "media": []
         },
         {
@@ -627,6 +1753,9 @@
           "time": "22:16",
           "url": "https://t.me/yunying23/11223",
           "message_id": "11223",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
           "media": []
         },
         {
@@ -639,6 +1768,9 @@
           "time": "23:22",
           "url": "https://t.me/aigc1024/23331",
           "message_id": "23331",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
           "media": [
             {
               "type": "image",
