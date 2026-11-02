@@ -1,0 +1,1782 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>W·谛听</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐲</text></svg>">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; overflow: hidden; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Noto Sans SC", sans-serif;
+  background: #f7f8fa;
+  color: #1f2329;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* ── Top bar ── */
+.topbar {
+  height: 52px;
+  background: #fff;
+  border-bottom: 1px solid #e5e6eb;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  flex-shrink: 0;
+  gap: 16px;
+}
+.topbar .logo {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1f2329;
+  white-space: nowrap;
+}
+.topbar .search-box {
+  flex: 1;
+  max-width: 420px;
+  position: relative;
+}
+.topbar .search-box input {
+  width: 100%;
+  padding: 6px 12px 6px 32px;
+  border: 1px solid #dee0e3;
+  border-radius: 6px;
+  font-size: 13px;
+  color: #1f2329;
+  background: #f7f8fa;
+  outline: none;
+  transition: border-color .2s, background .2s;
+}
+.topbar .search-box input:focus {
+  border-color: #3370ff;
+  background: #fff;
+}
+.topbar .search-box::before {
+  content: "🔍";
+  position: absolute;
+  left: 9px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  pointer-events: none;
+}
+.topbar .search-box .search-clear {
+  display: none;
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: #c9cdd4;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 10px;
+  color: #fff;
+  line-height: 16px;
+  text-align: center;
+  padding: 0;
+  transition: background .15s;
+}
+.topbar .search-box .search-clear:hover {
+  background: #8f959e;
+}
+.topbar .search-box .search-clear.show {
+  display: block;
+}
+.topbar .stats {
+  font-size: 12px;
+  color: #8f959e;
+  white-space: nowrap;
+}
+
+/* ── Sidebar toggle ── */
+.sidebar-toggle {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: #f2f3f5;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #646a73;
+  transition: background .15s;
+  flex-shrink: 0;
+}
+.sidebar-toggle:hover {
+  background: #e5e6eb;
+}
+
+/* ── Layout ── */
+.main {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* ── Sidebar ── */
+.sidebar {
+  width: 260px;
+  min-width: 160px;
+  background: #fff;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 12px 0;
+  flex-shrink: 0;
+  transition: width .25s, min-width .25s, padding .25s, opacity .2s;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+.sidebar:hover {
+  scrollbar-color: rgba(0,0,0,0.15) transparent;
+}
+.sidebar::-webkit-scrollbar {
+  width: 4px;
+}
+.sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.sidebar::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 4px;
+}
+.sidebar:hover::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.15);
+}
+.sidebar.hidden {
+  width: 0 !important;
+  min-width: 0 !important;
+  padding: 0;
+  overflow: hidden;
+  opacity: 0;
+}
+.sidebar.resizing {
+  transition: none;
+  user-select: none;
+}
+
+/* Resize handle: thin line between sidebar and content */
+.resize-handle {
+  width: 1px;
+  margin: 0;
+  cursor: col-resize;
+  background: #e5e6eb;
+  transition: background .15s;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 10;
+  padding: 0 2px;
+  background-clip: content-box;
+}
+.resize-handle:hover,
+.resize-handle.active {
+  background: #3370ff;
+  background-clip: content-box;
+}
+
+/* Overlay to prevent iframe from stealing mouse events during resize */
+.resize-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 9999;
+  cursor: col-resize;
+}
+.nav-section {
+  margin-bottom: 4px;
+}
+.nav-header {
+  padding: 8px 20px 8px 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #646a73;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  user-select: none;
+  border-radius: 4px;
+  margin: 0 0 0 8px;
+  transition: background .12s, color .12s;
+}
+.nav-header:hover {
+  background: #f0f1f3;
+  color: #1f2329;
+}
+.nav-arrow {
+  font-size: 9px;
+  transition: transform .2s ease;
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  line-height: 14px;
+  text-align: center;
+  color: #8f959e;
+  flex-shrink: 0;
+}
+.nav-section.collapsed .nav-arrow {
+  transform: rotate(0deg);
+}
+.nav-section:not(.collapsed) .nav-arrow {
+  transform: rotate(90deg);
+}
+.nav-section.collapsed .nav-items {
+  display: none;
+}
+.nav-count {
+  font-size: 12px;
+  color: #8f959e;
+  font-weight: 400;
+  margin-left: auto;
+  text-align: right;
+  flex-shrink: 0;
+  background: #f2f3f5;
+  padding: 2px 6px;
+  border-radius: 8px;
+}
+
+.nav-items {
+  padding: 0;
+}
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 16px 9px 34px;
+  font-size: 13px;
+  color: #4e5969;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background .12s, color .12s;
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: relative;
+}
+.nav-item:hover {
+  background: #f2f3f5;
+  color: #1f2329;
+}
+.nav-item.active {
+  background: #e8f3ff;
+  color: #3370ff;
+  font-weight: 500;
+}
+.item-date {
+  font-size: 12px;
+  color: #b0b5bd;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.item-title {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #4e5969;
+}
+.ext-icon {
+  font-size: 11px;
+  color: #8f959e;
+  flex-shrink: 0;
+}
+.nav-empty {
+  padding: 8px 16px 8px 34px;
+  font-size: 12px;
+  color: #c9cdd4;
+}
+.item-count {
+  font-size: 11px;
+  color: #8f959e;
+  font-weight: 400;
+  margin-left: auto;
+  min-width: 30px;
+  text-align: right;
+  flex-shrink: 0;
+  padding-right: 6px;
+}
+
+/* ── Sub-section (周分组) ── */
+.nav-sub-section {
+  margin-bottom: 2px;
+}
+.nav-sub-header {
+  padding: 5px 20px 5px 30px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #8f959e;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  user-select: none;
+  border-radius: 4px;
+  margin: 0 0 0 8px;
+  transition: background .12s, color .12s;
+}
+.nav-sub-header:hover {
+  background: #f0f1f3;
+  color: #646a73;
+}
+.nav-sub-header .nav-arrow {
+  font-size: 8px;
+  color: #bbb;
+}
+.sub-label {
+  flex: 1;
+}
+.nav-sub-count {
+  font-size: 11px;
+  color: #bbb;
+  font-weight: 400;
+  margin-left: auto;
+  min-width: 30px;
+  text-align: right;
+  flex-shrink: 0;
+  padding-right: 6px;
+}
+.nav-sub-section.collapsed .nav-sub-items {
+  display: none;
+}
+.nav-sub-section:not(.collapsed) > .nav-sub-header .nav-arrow {
+  transform: rotate(90deg);
+}
+.nav-sub-section.collapsed > .nav-sub-header .nav-arrow {
+  transform: rotate(0deg);
+}
+.nav-sub-items .nav-item {
+  padding-left: 56px;
+  padding-right: 20px;
+  font-size: 13px;
+}
+
+/* ── Content area ── */
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  overflow: hidden;
+}
+.content iframe {
+  flex: 1;
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+.welcome {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #c9cdd4;
+  gap: 12px;
+}
+.welcome .icon {
+  font-size: 48px;
+}
+.welcome .text {
+  font-size: 14px;
+}
+
+/* ── Search results dropdown ── */
+.search-results {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 4px;
+  background: #fff;
+  border: 1px solid #dee0e3;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.12);
+  max-height: 420px;
+  overflow-y: auto;
+  z-index: 200;
+  scrollbar-width: thin;
+}
+.search-results.open {
+  display: block;
+}
+.search-results .sr-hint {
+  padding: 10px 14px;
+  font-size: 12px;
+  color: #8f959e;
+  border-bottom: 1px solid #f2f3f5;
+}
+.search-results .sr-item {
+  padding: 10px 14px;
+  cursor: pointer;
+  border-bottom: 1px solid #f7f8fa;
+  transition: background .1s;
+}
+.search-results .sr-item:last-child {
+  border-bottom: none;
+}
+.search-results .sr-item:hover {
+  background: #f2f3f5;
+}
+.search-results .sr-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1f2329;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.search-results .sr-title .sr-date {
+  font-size: 11px;
+  color: #8f959e;
+  font-weight: 400;
+}
+.search-results .sr-title .sr-badge {
+  font-size: 10px;
+  color: #fff;
+  background: #3370ff;
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-weight: 400;
+}
+.search-results .sr-snippet {
+  font-size: 12px;
+  color: #646a73;
+  line-height: 1.6;
+  word-break: break-all;
+}
+.search-results .sr-snippet mark {
+  background: #fff3bf;
+  color: #1f2329;
+  padding: 0 1px;
+  border-radius: 2px;
+}
+.search-results .sr-empty {
+  padding: 20px 14px;
+  text-align: center;
+  font-size: 13px;
+  color: #c9cdd4;
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 220px;
+    min-width: 220px;
+  }
+  .topbar .search-box {
+    max-width: 200px;
+  }
+}
+@media (max-width: 540px) {
+  .sidebar {
+    position: fixed;
+    left: 0; top: 52px; bottom: 0;
+    z-index: 100;
+    transform: translateX(-100%);
+    transition: transform .25s;
+    box-shadow: 2px 0 8px rgba(0,0,0,.08);
+  }
+  .sidebar.open {
+    transform: translateX(0);
+  }
+  .topbar .menu-btn {
+    display: block;
+  }
+}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <button class="sidebar-toggle" id="sidebarToggle" onclick="toggleSidebar()" title="展开/收起侧边栏">☰</button>
+  <div class="logo">🐲 W·谛听</div>
+  <div class="search-box">
+    <input type="text" id="search" placeholder="搜索标题或正文..." autocomplete="off">
+    <button class="search-clear" id="searchClear" type="button" title="清空搜索">×</button>
+    <div class="search-results" id="searchResults"></div>
+  </div>
+  <div class="stats">366 份文档</div>
+</div>
+<div class="main">
+  <div class="sidebar" id="sidebar">
+    
+    <div class="nav-section">
+      <div class="nav-header" onclick="toggleSection(this)">
+        <span class="nav-arrow">▶</span> 📰 TG 日报 <span class="nav-count">180篇/8121条</span>
+      </div>
+      <div class="nav-items">
+        
+        <div class="nav-sub-section">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W45 (11/2-11/8)</span> <span class="nav-sub-count">45</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="2026-11-02-tg-digest.html" class="nav-item" data-file="2026-11-02-tg-digest.html" data-title="2026-11-02 tg-digest" onclick='loadDoc("2026-11-02-tg-digest.html",this);return false;'><span class="item-title">11-02 周一</span><span class="item-count">45</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W44 (10/26-11/1)</span> <span class="nav-sub-count">408</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="2026-11-01-tg-digest.html" class="nav-item" data-file="2026-11-01-tg-digest.html" data-title="2026-11-01 tg-digest" onclick='loadDoc("2026-11-01-tg-digest.html",this);return false;'><span class="item-title">11-01 周日</span><span class="item-count">45</span></a>
+<a href="2026-10-31-tg-digest.html" class="nav-item" data-file="2026-10-31-tg-digest.html" data-title="2026-10-31 tg-digest" onclick='loadDoc("2026-10-31-tg-digest.html",this);return false;'><span class="item-title">10-31 周六</span><span class="item-count">51</span></a>
+<a href="2026-10-30-tg-digest.html" class="nav-item" data-file="2026-10-30-tg-digest.html" data-title="2026-10-30 tg-digest" onclick='loadDoc("2026-10-30-tg-digest.html",this);return false;'><span class="item-title">10-30 周五</span><span class="item-count">64</span></a>
+<a href="2026-10-29-tg-digest.html" class="nav-item" data-file="2026-10-29-tg-digest.html" data-title="2026-10-29 tg-digest" onclick='loadDoc("2026-10-29-tg-digest.html",this);return false;'><span class="item-title">10-29 周四</span><span class="item-count">67</span></a>
+<a href="2026-10-28-tg-digest.html" class="nav-item" data-file="2026-10-28-tg-digest.html" data-title="2026-10-28 tg-digest" onclick='loadDoc("2026-10-28-tg-digest.html",this);return false;'><span class="item-title">10-28 周三</span><span class="item-count">64</span></a>
+<a href="2026-10-27-tg-digest.html" class="nav-item" data-file="2026-10-27-tg-digest.html" data-title="2026-10-27 tg-digest" onclick='loadDoc("2026-10-27-tg-digest.html",this);return false;'><span class="item-title">10-27 周二</span><span class="item-count">57</span></a>
+<a href="2026-10-26-tg-digest.html" class="nav-item" data-file="2026-10-26-tg-digest.html" data-title="2026-10-26 tg-digest" onclick='loadDoc("2026-10-26-tg-digest.html",this);return false;'><span class="item-title">10-26 周一</span><span class="item-count">60</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W43 (10/19-10/25)</span> <span class="nav-sub-count">501</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="2026-10-25-tg-digest.html" class="nav-item" data-file="2026-10-25-tg-digest.html" data-title="2026-10-25 tg-digest" onclick='loadDoc("2026-10-25-tg-digest.html",this);return false;'><span class="item-title">10-25 周日</span><span class="item-count">60</span></a>
+<a href="2026-10-24-tg-digest.html" class="nav-item" data-file="2026-10-24-tg-digest.html" data-title="2026-10-24 tg-digest" onclick='loadDoc("2026-10-24-tg-digest.html",this);return false;'><span class="item-title">10-24 周六</span><span class="item-count">65</span></a>
+<a href="2026-10-23-tg-digest.html" class="nav-item" data-file="2026-10-23-tg-digest.html" data-title="2026-10-23 tg-digest" onclick='loadDoc("2026-10-23-tg-digest.html",this);return false;'><span class="item-title">10-23 周五</span><span class="item-count">63</span></a>
+<a href="2026-10-22-tg-digest.html" class="nav-item" data-file="2026-10-22-tg-digest.html" data-title="2026-10-22 tg-digest" onclick='loadDoc("2026-10-22-tg-digest.html",this);return false;'><span class="item-title">10-22 周四</span><span class="item-count">79</span></a>
+<a href="2026-10-21-tg-digest.html" class="nav-item" data-file="2026-10-21-tg-digest.html" data-title="2026-10-21 tg-digest" onclick='loadDoc("2026-10-21-tg-digest.html",this);return false;'><span class="item-title">10-21 周三</span><span class="item-count">85</span></a>
+<a href="2026-10-20-tg-digest.html" class="nav-item" data-file="2026-10-20-tg-digest.html" data-title="2026-10-20 tg-digest" onclick='loadDoc("2026-10-20-tg-digest.html",this);return false;'><span class="item-title">10-20 周二</span><span class="item-count">71</span></a>
+<a href="2026-10-19-tg-digest.html" class="nav-item" data-file="2026-10-19-tg-digest.html" data-title="2026-10-19 tg-digest" onclick='loadDoc("2026-10-19-tg-digest.html",this);return false;'><span class="item-title">10-19 周一</span><span class="item-count">78</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W42 (10/12-10/18)</span> <span class="nav-sub-count">470</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="2026-10-18-tg-digest.html" class="nav-item" data-file="2026-10-18-tg-digest.html" data-title="2026-10-18 tg-digest" onclick='loadDoc("2026-10-18-tg-digest.html",this);return false;'><span class="item-title">10-18 周日</span><span class="item-count">51</span></a>
+<a href="2026-10-17-tg-digest.html" class="nav-item" data-file="2026-10-17-tg-digest.html" data-title="2026-10-17 tg-digest" onclick='loadDoc("2026-10-17-tg-digest.html",this);return false;'><span class="item-title">10-17 周六</span><span class="item-count">73</span></a>
+<a href="2026-10-16-tg-digest.html" class="nav-item" data-file="2026-10-16-tg-digest.html" data-title="2026-10-16 tg-digest" onclick='loadDoc("2026-10-16-tg-digest.html",this);return false;'><span class="item-title">10-16 周五</span><span class="item-count">71</span></a>
+<a href="2026-10-15-tg-digest.html" class="nav-item" data-file="2026-10-15-tg-digest.html" data-title="2026-10-15 tg-digest" onclick='loadDoc("2026-10-15-tg-digest.html",this);return false;'><span class="item-title">10-15 周四</span><span class="item-count">79</span></a>
+<a href="2026-10-14-tg-digest.html" class="nav-item" data-file="2026-10-14-tg-digest.html" data-title="2026-10-14 tg-digest" onclick='loadDoc("2026-10-14-tg-digest.html",this);return false;'><span class="item-title">10-14 周三</span><span class="item-count">72</span></a>
+<a href="2026-10-13-tg-digest.html" class="nav-item" data-file="2026-10-13-tg-digest.html" data-title="2026-10-13 tg-digest" onclick='loadDoc("2026-10-13-tg-digest.html",this);return false;'><span class="item-title">10-13 周二</span><span class="item-count">63</span></a>
+<a href="2026-10-12-tg-digest.html" class="nav-item" data-file="2026-10-12-tg-digest.html" data-title="2026-10-12 tg-digest" onclick='loadDoc("2026-10-12-tg-digest.html",this);return false;'><span class="item-title">10-12 周一</span><span class="item-count">61</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W41 (10/5-10/11)</span> <span class="nav-sub-count">457</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="2026-10-11-tg-digest.html" class="nav-item" data-file="2026-10-11-tg-digest.html" data-title="2026-10-11 tg-digest" onclick='loadDoc("2026-10-11-tg-digest.html",this);return false;'><span class="item-title">10-11 周日</span><span class="item-count">72</span></a>
+<a href="2026-10-10-tg-digest.html" class="nav-item" data-file="2026-10-10-tg-digest.html" data-title="2026-10-10 tg-digest" onclick='loadDoc("2026-10-10-tg-digest.html",this);return false;'><span class="item-title">10-10 周六</span><span class="item-count">77</span></a>
+<a href="2026-10-09-tg-digest.html" class="nav-item" data-file="2026-10-09-tg-digest.html" data-title="2026-10-09 tg-digest" onclick='loadDoc("2026-10-09-tg-digest.html",this);return false;'><span class="item-title">10-09 周五</span><span class="item-count">58</span></a>
+<a href="2026-10-08-tg-digest.html" class="nav-item" data-file="2026-10-08-tg-digest.html" data-title="2026-10-08 tg-digest" onclick='loadDoc("2026-10-08-tg-digest.html",this);return false;'><span class="item-title">10-08 周四</span><span class="item-count">79</span></a>
+<a href="2026-10-07-tg-digest.html" class="nav-item" data-file="2026-10-07-tg-digest.html" data-title="2026-10-07 tg-digest" onclick='loadDoc("2026-10-07-tg-digest.html",this);return false;'><span class="item-title">10-07 周三</span><span class="item-count">66</span></a>
+<a href="2026-10-06-tg-digest.html" class="nav-item" data-file="2026-10-06-tg-digest.html" data-title="2026-10-06 tg-digest" onclick='loadDoc("2026-10-06-tg-digest.html",this);return false;'><span class="item-title">10-06 周二</span><span class="item-count">61</span></a>
+<a href="2026-10-05-tg-digest.html" class="nav-item" data-file="2026-10-05-tg-digest.html" data-title="2026-10-05 tg-digest" onclick='loadDoc("2026-10-05-tg-digest.html",this);return false;'><span class="item-title">10-05 周一</span><span class="item-count">44</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W40 (9/28-10/4)</span> <span class="nav-sub-count">404</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="2026-10-04-tg-digest.html" class="nav-item" data-file="2026-10-04-tg-digest.html" data-title="2026-10-04 tg-digest" onclick='loadDoc("2026-10-04-tg-digest.html",this);return false;'><span class="item-title">10-04 周日</span><span class="item-count">49</span></a>
+<a href="2026-10-03-tg-digest.html" class="nav-item" data-file="2026-10-03-tg-digest.html" data-title="2026-10-03 tg-digest" onclick='loadDoc("2026-10-03-tg-digest.html",this);return false;'><span class="item-title">10-03 周六</span><span class="item-count">51</span></a>
+<a href="2026-10-02-tg-digest.html" class="nav-item" data-file="2026-10-02-tg-digest.html" data-title="2026-10-02 tg-digest" onclick='loadDoc("2026-10-02-tg-digest.html",this);return false;'><span class="item-title">10-02 周五</span><span class="item-count">61</span></a>
+<a href="2026-10-01-tg-digest.html" class="nav-item" data-file="2026-10-01-tg-digest.html" data-title="2026-10-01 tg-digest" onclick='loadDoc("2026-10-01-tg-digest.html",this);return false;'><span class="item-title">10-01 周四</span><span class="item-count">75</span></a>
+<a href="2026-09-30-tg-digest.html" class="nav-item" data-file="2026-09-30-tg-digest.html" data-title="2026-09-30 tg-digest" onclick='loadDoc("2026-09-30-tg-digest.html",this);return false;'><span class="item-title">09-30 周三</span><span class="item-count">57</span></a>
+<a href="2026-09-29-tg-digest.html" class="nav-item" data-file="2026-09-29-tg-digest.html" data-title="2026-09-29 tg-digest" onclick='loadDoc("2026-09-29-tg-digest.html",this);return false;'><span class="item-title">09-29 周二</span><span class="item-count">52</span></a>
+<a href="2026-09-28-tg-digest.html" class="nav-item" data-file="2026-09-28-tg-digest.html" data-title="2026-09-28 tg-digest" onclick='loadDoc("2026-09-28-tg-digest.html",this);return false;'><span class="item-title">09-28 周一</span><span class="item-count">59</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W39 (9/21-9/27)</span> <span class="nav-sub-count">410</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="2026-09-27-tg-digest.html" class="nav-item" data-file="2026-09-27-tg-digest.html" data-title="2026-09-27 tg-digest" onclick='loadDoc("2026-09-27-tg-digest.html",this);return false;'><span class="item-title">09-27 周日</span><span class="item-count">55</span></a>
+<a href="2026-09-26-tg-digest.html" class="nav-item" data-file="2026-09-26-tg-digest.html" data-title="2026-09-26 tg-digest" onclick='loadDoc("2026-09-26-tg-digest.html",this);return false;'><span class="item-title">09-26 周六</span><span class="item-count">48</span></a>
+<a href="2026-09-25-tg-digest.html" class="nav-item" data-file="2026-09-25-tg-digest.html" data-title="2026-09-25 tg-digest" onclick='loadDoc("2026-09-25-tg-digest.html",this);return false;'><span class="item-title">09-25 周五</span><span class="item-count">64</span></a>
+<a href="2026-09-24-tg-digest.html" class="nav-item" data-file="2026-09-24-tg-digest.html" data-title="2026-09-24 tg-digest" onclick='loadDoc("2026-09-24-tg-digest.html",this);return false;'><span class="item-title">09-24 周四</span><span class="item-count">57</span></a>
+<a href="2026-09-23-tg-digest.html" class="nav-item" data-file="2026-09-23-tg-digest.html" data-title="2026-09-23 tg-digest" onclick='loadDoc("2026-09-23-tg-digest.html",this);return false;'><span class="item-title">09-23 周三</span><span class="item-count">69</span></a>
+<a href="2026-09-22-tg-digest.html" class="nav-item" data-file="2026-09-22-tg-digest.html" data-title="2026-09-22 tg-digest" onclick='loadDoc("2026-09-22-tg-digest.html",this);return false;'><span class="item-title">09-22 周二</span><span class="item-count">56</span></a>
+<a href="2026-09-21-tg-digest.html" class="nav-item" data-file="2026-09-21-tg-digest.html" data-title="2026-09-21 tg-digest" onclick='loadDoc("2026-09-21-tg-digest.html",this);return false;'><span class="item-title">09-21 周一</span><span class="item-count">61</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W38 (9/14-9/20)</span> <span class="nav-sub-count">448</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="2026-09-20-tg-digest.html" class="nav-item" data-file="2026-09-20-tg-digest.html" data-title="2026-09-20 tg-digest" onclick='loadDoc("2026-09-20-tg-digest.html",this);return false;'><span class="item-title">09-20 周日</span><span class="item-count">45</span></a>
+<a href="2026-09-19-tg-digest.html" class="nav-item" data-file="2026-09-19-tg-digest.html" data-title="2026-09-19 tg-digest" onclick='loadDoc("2026-09-19-tg-digest.html",this);return false;'><span class="item-title">09-19 周六</span><span class="item-count">64</span></a>
+<a href="2026-09-18-tg-digest.html" class="nav-item" data-file="2026-09-18-tg-digest.html" data-title="2026-09-18 tg-digest" onclick='loadDoc("2026-09-18-tg-digest.html",this);return false;'><span class="item-title">09-18 周五</span><span class="item-count">72</span></a>
+<a href="2026-09-17-tg-digest.html" class="nav-item" data-file="2026-09-17-tg-digest.html" data-title="2026-09-17 tg-digest" onclick='loadDoc("2026-09-17-tg-digest.html",this);return false;'><span class="item-title">09-17 周四</span><span class="item-count">82</span></a>
+<a href="2026-09-16-tg-digest.html" class="nav-item" data-file="2026-09-16-tg-digest.html" data-title="2026-09-16 tg-digest" onclick='loadDoc("2026-09-16-tg-digest.html",this);return false;'><span class="item-title">09-16 周三</span><span class="item-count">62</span></a>
+<a href="2026-09-15-tg-digest.html" class="nav-item" data-file="2026-09-15-tg-digest.html" data-title="2026-09-15 tg-digest" onclick='loadDoc("2026-09-15-tg-digest.html",this);return false;'><span class="item-title">09-15 周二</span><span class="item-count">60</span></a>
+<a href="2026-09-14-tg-digest.html" class="nav-item" data-file="2026-09-14-tg-digest.html" data-title="2026-09-14 tg-digest" onclick='loadDoc("2026-09-14-tg-digest.html",this);return false;'><span class="item-title">09-14 周一</span><span class="item-count">63</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W37 (9/7-9/13)</span> <span class="nav-sub-count">449</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="2026-09-13-tg-digest.html" class="nav-item" data-file="2026-09-13-tg-digest.html" data-title="2026-09-13 tg-digest" onclick='loadDoc("2026-09-13-tg-digest.html",this);return false;'><span class="item-title">09-13 周日</span><span class="item-count">61</span></a>
+<a href="2026-09-12-tg-digest.html" class="nav-item" data-file="2026-09-12-tg-digest.html" data-title="2026-09-12 tg-digest" onclick='loadDoc("2026-09-12-tg-digest.html",this);return false;'><span class="item-title">09-12 周六</span><span class="item-count">69</span></a>
+<a href="2026-09-11-tg-digest.html" class="nav-item" data-file="2026-09-11-tg-digest.html" data-title="2026-09-11 tg-digest" onclick='loadDoc("2026-09-11-tg-digest.html",this);return false;'><span class="item-title">09-11 周五</span><span class="item-count">66</span></a>
+<a href="2026-09-10-tg-digest.html" class="nav-item" data-file="2026-09-10-tg-digest.html" data-title="2026-09-10 tg-digest" onclick='loadDoc("2026-09-10-tg-digest.html",this);return false;'><span class="item-title">09-10 周四</span><span class="item-count">74</span></a>
+<a href="2026-09-09-tg-digest.html" class="nav-item" data-file="2026-09-09-tg-digest.html" data-title="2026-09-09 tg-digest" onclick='loadDoc("2026-09-09-tg-digest.html",this);return false;'><span class="item-title">09-09 周三</span><span class="item-count">58</span></a>
+<a href="2026-09-08-tg-digest.html" class="nav-item" data-file="2026-09-08-tg-digest.html" data-title="2026-09-08 tg-digest" onclick='loadDoc("2026-09-08-tg-digest.html",this);return false;'><span class="item-title">09-08 周二</span><span class="item-count">63</span></a>
+<a href="2026-09-07-tg-digest.html" class="nav-item" data-file="2026-09-07-tg-digest.html" data-title="2026-09-07 tg-digest" onclick='loadDoc("2026-09-07-tg-digest.html",this);return false;'><span class="item-title">09-07 周一</span><span class="item-count">58</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W36 (8/31-9/6)</span> <span class="nav-sub-count">376</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="2026-09-06-tg-digest.html" class="nav-item" data-file="2026-09-06-tg-digest.html" data-title="2026-09-06 tg-digest" onclick='loadDoc("2026-09-06-tg-digest.html",this);return false;'><span class="item-title">09-06 周日</span><span class="item-count">75</span></a>
+<a href="2026-09-05-tg-digest.html" class="nav-item" data-file="2026-09-05-tg-digest.html" data-title="2026-09-05 tg-digest" onclick='loadDoc("2026-09-05-tg-digest.html",this);return false;'><span class="item-title">09-05 周六</span><span class="item-count">56</span></a>
+<a href="2026-09-04-tg-digest.html" class="nav-item" data-file="2026-09-04-tg-digest.html" data-title="2026-09-04 tg-digest" onclick='loadDoc("2026-09-04-tg-digest.html",this);return false;'><span class="item-title">09-04 周五</span><span class="item-count">48</span></a>
+<a href="2026-09-03-tg-digest.html" class="nav-item" data-file="2026-09-03-tg-digest.html" data-title="2026-09-03 tg-digest" onclick='loadDoc("2026-09-03-tg-digest.html",this);return false;'><span class="item-title">09-03 周四</span><span class="item-count">55</span></a>
+<a href="2026-09-02-tg-digest.html" class="nav-item" data-file="2026-09-02-tg-digest.html" data-title="2026-09-02 tg-digest" onclick='loadDoc("2026-09-02-tg-digest.html",this);return false;'><span class="item-title">09-02 周三</span><span class="item-count">47</span></a>
+<a href="2026-09-01-tg-digest.html" class="nav-item" data-file="2026-09-01-tg-digest.html" data-title="2026-09-01 tg-digest" onclick='loadDoc("2026-09-01-tg-digest.html",this);return false;'><span class="item-title">09-01 周二</span><span class="item-count">57</span></a>
+<a href="2026-08-31-tg-digest.html" class="nav-item" data-file="2026-08-31-tg-digest.html" data-title="2026-08-31 tg-digest" onclick='loadDoc("2026-08-31-tg-digest.html",this);return false;'><span class="item-title">08-31 周一</span><span class="item-count">38</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W35 (8/24-8/30)</span> <span class="nav-sub-count">311</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="2026-08-30-tg-digest.html" class="nav-item" data-file="2026-08-30-tg-digest.html" data-title="2026-08-30 tg-digest" onclick='loadDoc("2026-08-30-tg-digest.html",this);return false;'><span class="item-title">08-30 周日</span><span class="item-count">55</span></a>
+<a href="2026-08-29-tg-digest.html" class="nav-item" data-file="2026-08-29-tg-digest.html" data-title="2026-08-29 tg-digest" onclick='loadDoc("2026-08-29-tg-digest.html",this);return false;'><span class="item-title">08-29 周六</span><span class="item-count">68</span></a>
+<a href="2026-08-28-tg-digest.html" class="nav-item" data-file="2026-08-28-tg-digest.html" data-title="2026-08-28 tg-digest" onclick='loadDoc("2026-08-28-tg-digest.html",this);return false;'><span class="item-title">08-28 周五</span><span class="item-count">33</span></a>
+<a href="2026-08-27-tg-digest.html" class="nav-item" data-file="2026-08-27-tg-digest.html" data-title="2026-08-27 tg-digest" onclick='loadDoc("2026-08-27-tg-digest.html",this);return false;'><span class="item-title">08-27 周四</span><span class="item-count">37</span></a>
+<a href="2026-08-26-tg-digest.html" class="nav-item" data-file="2026-08-26-tg-digest.html" data-title="2026-08-26 tg-digest" onclick='loadDoc("2026-08-26-tg-digest.html",this);return false;'><span class="item-title">08-26 周三</span><span class="item-count">43</span></a>
+<a href="2026-08-25-tg-digest.html" class="nav-item" data-file="2026-08-25-tg-digest.html" data-title="2026-08-25 tg-digest" onclick='loadDoc("2026-08-25-tg-digest.html",this);return false;'><span class="item-title">08-25 周二</span><span class="item-count">44</span></a>
+<a href="2026-08-24-tg-digest.html" class="nav-item" data-file="2026-08-24-tg-digest.html" data-title="2026-08-24 tg-digest" onclick='loadDoc("2026-08-24-tg-digest.html",this);return false;'><span class="item-title">08-24 周一</span><span class="item-count">31</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W34 (8/17-8/23)</span> <span class="nav-sub-count">246</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="2026-08-23-tg-digest.html" class="nav-item" data-file="2026-08-23-tg-digest.html" data-title="2026-08-23 tg-digest" onclick='loadDoc("2026-08-23-tg-digest.html",this);return false;'><span class="item-title">08-23 周日</span><span class="item-count">38</span></a>
+<a href="2026-08-22-tg-digest.html" class="nav-item" data-file="2026-08-22-tg-digest.html" data-title="2026-08-22 tg-digest" onclick='loadDoc("2026-08-22-tg-digest.html",this);return false;'><span class="item-title">08-22 周六</span><span class="item-count">36</span></a>
+<a href="2026-08-21-tg-digest.html" class="nav-item" data-file="2026-08-21-tg-digest.html" data-title="2026-08-21 tg-digest" onclick='loadDoc("2026-08-21-tg-digest.html",this);return false;'><span class="item-title">08-21 周五</span><span class="item-count">38</span></a>
+<a href="2026-08-20-tg-digest.html" class="nav-item" data-file="2026-08-20-tg-digest.html" data-title="2026-08-20 tg-digest" onclick='loadDoc("2026-08-20-tg-digest.html",this);return false;'><span class="item-title">08-20 周四</span><span class="item-count">37</span></a>
+<a href="2026-08-19-tg-digest.html" class="nav-item" data-file="2026-08-19-tg-digest.html" data-title="2026-08-19 tg-digest" onclick='loadDoc("2026-08-19-tg-digest.html",this);return false;'><span class="item-title">08-19 周三</span><span class="item-count">29</span></a>
+<a href="2026-08-18-tg-digest.html" class="nav-item" data-file="2026-08-18-tg-digest.html" data-title="2026-08-18 tg-digest" onclick='loadDoc("2026-08-18-tg-digest.html",this);return false;'><span class="item-title">08-18 周二</span><span class="item-count">36</span></a>
+<a href="2026-08-17-tg-digest.html" class="nav-item" data-file="2026-08-17-tg-digest.html" data-title="2026-08-17 tg-digest" onclick='loadDoc("2026-08-17-tg-digest.html",this);return false;'><span class="item-title">08-17 周一</span><span class="item-count">32</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W33 (8/10-8/16)</span> <span class="nav-sub-count">278</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="2026-08-16-tg-digest.html" class="nav-item" data-file="2026-08-16-tg-digest.html" data-title="2026-08-16 tg-digest" onclick='loadDoc("2026-08-16-tg-digest.html",this);return false;'><span class="item-title">08-16 周日</span><span class="item-count">41</span></a>
+<a href="2026-08-15-tg-digest.html" class="nav-item" data-file="2026-08-15-tg-digest.html" data-title="2026-08-15 tg-digest" onclick='loadDoc("2026-08-15-tg-digest.html",this);return false;'><span class="item-title">08-15 周六</span><span class="item-count">33</span></a>
+<a href="2026-08-14-tg-digest.html" class="nav-item" data-file="2026-08-14-tg-digest.html" data-title="2026-08-14 tg-digest" onclick='loadDoc("2026-08-14-tg-digest.html",this);return false;'><span class="item-title">08-14 周五</span><span class="item-count">41</span></a>
+<a href="2026-08-13-tg-digest.html" class="nav-item" data-file="2026-08-13-tg-digest.html" data-title="2026-08-13 tg-digest" onclick='loadDoc("2026-08-13-tg-digest.html",this);return false;'><span class="item-title">08-13 周四</span><span class="item-count">44</span></a>
+<a href="2026-08-12-tg-digest.html" class="nav-item" data-file="2026-08-12-tg-digest.html" data-title="2026-08-12 tg-digest" onclick='loadDoc("2026-08-12-tg-digest.html",this);return false;'><span class="item-title">08-12 周三</span><span class="item-count">48</span></a>
+<a href="2026-08-11-tg-digest.html" class="nav-item" data-file="2026-08-11-tg-digest.html" data-title="2026-08-11 tg-digest" onclick='loadDoc("2026-08-11-tg-digest.html",this);return false;'><span class="item-title">08-11 周二</span><span class="item-count">41</span></a>
+<a href="2026-08-10-tg-digest.html" class="nav-item" data-file="2026-08-10-tg-digest.html" data-title="2026-08-10 tg-digest" onclick='loadDoc("2026-08-10-tg-digest.html",this);return false;'><span class="item-title">08-10 周一</span><span class="item-count">30</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W32 (8/3-8/9)</span> <span class="nav-sub-count">270</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="2026-08-09-tg-digest.html" class="nav-item" data-file="2026-08-09-tg-digest.html" data-title="2026-08-09 tg-digest" onclick='loadDoc("2026-08-09-tg-digest.html",this);return false;'><span class="item-title">08-09 周日</span><span class="item-count">35</span></a>
+<a href="2026-08-08-tg-digest.html" class="nav-item" data-file="2026-08-08-tg-digest.html" data-title="2026-08-08 tg-digest" onclick='loadDoc("2026-08-08-tg-digest.html",this);return false;'><span class="item-title">08-08 周六</span><span class="item-count">47</span></a>
+<a href="2026-08-07-tg-digest.html" class="nav-item" data-file="2026-08-07-tg-digest.html" data-title="2026-08-07 tg-digest" onclick='loadDoc("2026-08-07-tg-digest.html",this);return false;'><span class="item-title">08-07 周五</span><span class="item-count">46</span></a>
+<a href="2026-08-06-tg-digest.html" class="nav-item" data-file="2026-08-06-tg-digest.html" data-title="2026-08-06 tg-digest" onclick='loadDoc("2026-08-06-tg-digest.html",this);return false;'><span class="item-title">08-06 周四</span><span class="item-count">39</span></a>
+<a href="2026-08-05-tg-digest.html" class="nav-item" data-file="2026-08-05-tg-digest.html" data-title="2026-08-05 tg-digest" onclick='loadDoc("2026-08-05-tg-digest.html",this);return false;'><span class="item-title">08-05 周三</span><span class="item-count">43</span></a>
+<a href="2026-08-04-tg-digest.html" class="nav-item" data-file="2026-08-04-tg-digest.html" data-title="2026-08-04 tg-digest" onclick='loadDoc("2026-08-04-tg-digest.html",this);return false;'><span class="item-title">08-04 周二</span><span class="item-count">31</span></a>
+<a href="2026-08-03-tg-digest.html" class="nav-item" data-file="2026-08-03-tg-digest.html" data-title="2026-08-03 tg-digest" onclick='loadDoc("2026-08-03-tg-digest.html",this);return false;'><span class="item-title">08-03 周一</span><span class="item-count">29</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W31 (7/27-8/2)</span> <span class="nav-sub-count">312</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="2026-08-02-tg-digest.html" class="nav-item" data-file="2026-08-02-tg-digest.html" data-title="2026-08-02 tg-digest" onclick='loadDoc("2026-08-02-tg-digest.html",this);return false;'><span class="item-title">08-02 周日</span><span class="item-count">43</span></a>
+<a href="2026-08-01-tg-digest.html" class="nav-item" data-file="2026-08-01-tg-digest.html" data-title="2026-08-01 tg-digest" onclick='loadDoc("2026-08-01-tg-digest.html",this);return false;'><span class="item-title">08-01 周六</span><span class="item-count">44</span></a>
+<a href="2026-07-31-tg-digest.html" class="nav-item" data-file="2026-07-31-tg-digest.html" data-title="2026-07-31 tg-digest" onclick='loadDoc("2026-07-31-tg-digest.html",this);return false;'><span class="item-title">07-31 周五</span><span class="item-count">53</span></a>
+<a href="2026-07-30-tg-digest.html" class="nav-item" data-file="2026-07-30-tg-digest.html" data-title="2026-07-30 tg-digest" onclick='loadDoc("2026-07-30-tg-digest.html",this);return false;'><span class="item-title">07-30 周四</span><span class="item-count">50</span></a>
+<a href="2026-07-29-tg-digest.html" class="nav-item" data-file="2026-07-29-tg-digest.html" data-title="2026-07-29 tg-digest" onclick='loadDoc("2026-07-29-tg-digest.html",this);return false;'><span class="item-title">07-29 周三</span><span class="item-count">38</span></a>
+<a href="2026-07-28-tg-digest.html" class="nav-item" data-file="2026-07-28-tg-digest.html" data-title="2026-07-28 tg-digest" onclick='loadDoc("2026-07-28-tg-digest.html",this);return false;'><span class="item-title">07-28 周二</span><span class="item-count">49</span></a>
+<a href="2026-07-27-tg-digest.html" class="nav-item" data-file="2026-07-27-tg-digest.html" data-title="2026-07-27 tg-digest" onclick='loadDoc("2026-07-27-tg-digest.html",this);return false;'><span class="item-title">07-27 周一</span><span class="item-count">35</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W30 (7/20-7/26)</span> <span class="nav-sub-count">272</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="2026-07-26-tg-digest.html" class="nav-item" data-file="2026-07-26-tg-digest.html" data-title="2026-07-26 tg-digest" onclick='loadDoc("2026-07-26-tg-digest.html",this);return false;'><span class="item-title">07-26 周日</span><span class="item-count">39</span></a>
+<a href="2026-07-25-tg-digest.html" class="nav-item" data-file="2026-07-25-tg-digest.html" data-title="2026-07-25 tg-digest" onclick='loadDoc("2026-07-25-tg-digest.html",this);return false;'><span class="item-title">07-25 周六</span><span class="item-count">42</span></a>
+<a href="2026-07-24-tg-digest.html" class="nav-item" data-file="2026-07-24-tg-digest.html" data-title="2026-07-24 tg-digest" onclick='loadDoc("2026-07-24-tg-digest.html",this);return false;'><span class="item-title">07-24 周五</span><span class="item-count">43</span></a>
+<a href="2026-07-23-tg-digest.html" class="nav-item" data-file="2026-07-23-tg-digest.html" data-title="2026-07-23 tg-digest" onclick='loadDoc("2026-07-23-tg-digest.html",this);return false;'><span class="item-title">07-23 周四</span><span class="item-count">41</span></a>
+<a href="2026-07-22-tg-digest.html" class="nav-item" data-file="2026-07-22-tg-digest.html" data-title="2026-07-22 tg-digest" onclick='loadDoc("2026-07-22-tg-digest.html",this);return false;'><span class="item-title">07-22 周三</span><span class="item-count">37</span></a>
+<a href="2026-07-21-tg-digest.html" class="nav-item" data-file="2026-07-21-tg-digest.html" data-title="2026-07-21 tg-digest" onclick='loadDoc("2026-07-21-tg-digest.html",this);return false;'><span class="item-title">07-21 周二</span><span class="item-count">35</span></a>
+<a href="2026-07-20-tg-digest.html" class="nav-item" data-file="2026-07-20-tg-digest.html" data-title="2026-07-20 tg-digest" onclick='loadDoc("2026-07-20-tg-digest.html",this);return false;'><span class="item-title">07-20 周一</span><span class="item-count">35</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W29 (7/13-7/19)</span> <span class="nav-sub-count">239</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="2026-07-19-tg-digest.html" class="nav-item" data-file="2026-07-19-tg-digest.html" data-title="2026-07-19 tg-digest" onclick='loadDoc("2026-07-19-tg-digest.html",this);return false;'><span class="item-title">07-19 周日</span><span class="item-count">39</span></a>
+<a href="2026-07-18-tg-digest.html" class="nav-item" data-file="2026-07-18-tg-digest.html" data-title="2026-07-18 tg-digest" onclick='loadDoc("2026-07-18-tg-digest.html",this);return false;'><span class="item-title">07-18 周六</span><span class="item-count">25</span></a>
+<a href="2026-07-17-tg-digest.html" class="nav-item" data-file="2026-07-17-tg-digest.html" data-title="2026-07-17 tg-digest" onclick='loadDoc("2026-07-17-tg-digest.html",this);return false;'><span class="item-title">07-17 周五</span><span class="item-count">36</span></a>
+<a href="2026-07-16-tg-digest.html" class="nav-item" data-file="2026-07-16-tg-digest.html" data-title="2026-07-16 tg-digest" onclick='loadDoc("2026-07-16-tg-digest.html",this);return false;'><span class="item-title">07-16 周四</span><span class="item-count">37</span></a>
+<a href="2026-07-15-tg-digest.html" class="nav-item" data-file="2026-07-15-tg-digest.html" data-title="2026-07-15 tg-digest" onclick='loadDoc("2026-07-15-tg-digest.html",this);return false;'><span class="item-title">07-15 周三</span><span class="item-count">36</span></a>
+<a href="2026-07-14-tg-digest.html" class="nav-item" data-file="2026-07-14-tg-digest.html" data-title="2026-07-14 tg-digest" onclick='loadDoc("2026-07-14-tg-digest.html",this);return false;'><span class="item-title">07-14 周二</span><span class="item-count">42</span></a>
+<a href="2026-07-13-tg-digest.html" class="nav-item" data-file="2026-07-13-tg-digest.html" data-title="2026-07-13 tg-digest" onclick='loadDoc("2026-07-13-tg-digest.html",this);return false;'><span class="item-title">07-13 周一</span><span class="item-count">24</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W28 (7/6-7/12)</span> <span class="nav-sub-count">262</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="2026-07-12-tg-digest.html" class="nav-item" data-file="2026-07-12-tg-digest.html" data-title="2026-07-12 tg-digest" onclick='loadDoc("2026-07-12-tg-digest.html",this);return false;'><span class="item-title">07-12 周日</span><span class="item-count">27</span></a>
+<a href="2026-07-11-tg-digest.html" class="nav-item" data-file="2026-07-11-tg-digest.html" data-title="2026-07-11 tg-digest" onclick='loadDoc("2026-07-11-tg-digest.html",this);return false;'><span class="item-title">07-11 周六</span><span class="item-count">43</span></a>
+<a href="2026-07-10-tg-digest.html" class="nav-item" data-file="2026-07-10-tg-digest.html" data-title="2026-07-10 tg-digest" onclick='loadDoc("2026-07-10-tg-digest.html",this);return false;'><span class="item-title">07-10 周五</span><span class="item-count">18</span></a>
+<a href="2026-07-09-tg-digest.html" class="nav-item" data-file="2026-07-09-tg-digest.html" data-title="2026-07-09 tg-digest" onclick='loadDoc("2026-07-09-tg-digest.html",this);return false;'><span class="item-title">07-09 周四</span><span class="item-count">39</span></a>
+<a href="2026-07-08-tg-digest.html" class="nav-item" data-file="2026-07-08-tg-digest.html" data-title="2026-07-08 tg-digest" onclick='loadDoc("2026-07-08-tg-digest.html",this);return false;'><span class="item-title">07-08 周三</span><span class="item-count">48</span></a>
+<a href="2026-07-07-tg-digest.html" class="nav-item" data-file="2026-07-07-tg-digest.html" data-title="2026-07-07 tg-digest" onclick='loadDoc("2026-07-07-tg-digest.html",this);return false;'><span class="item-title">07-07 周二</span><span class="item-count">57</span></a>
+<a href="2026-07-06-tg-digest.html" class="nav-item" data-file="2026-07-06-tg-digest.html" data-title="2026-07-06 tg-digest" onclick='loadDoc("2026-07-06-tg-digest.html",this);return false;'><span class="item-title">07-06 周一</span><span class="item-count">30</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W27 (6/29-7/5)</span> <span class="nav-sub-count">257</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="2026-07-05-tg-digest.html" class="nav-item" data-file="2026-07-05-tg-digest.html" data-title="2026-07-05 tg-digest" onclick='loadDoc("2026-07-05-tg-digest.html",this);return false;'><span class="item-title">07-05 周日</span><span class="item-count">28</span></a>
+<a href="2026-07-04-tg-digest.html" class="nav-item" data-file="2026-07-04-tg-digest.html" data-title="2026-07-04 tg-digest" onclick='loadDoc("2026-07-04-tg-digest.html",this);return false;'><span class="item-title">07-04 周六</span><span class="item-count">36</span></a>
+<a href="2026-07-03-tg-digest.html" class="nav-item" data-file="2026-07-03-tg-digest.html" data-title="2026-07-03 tg-digest" onclick='loadDoc("2026-07-03-tg-digest.html",this);return false;'><span class="item-title">07-03 周五</span><span class="item-count">37</span></a>
+<a href="2026-07-02-tg-digest.html" class="nav-item" data-file="2026-07-02-tg-digest.html" data-title="2026-07-02 tg-digest" onclick='loadDoc("2026-07-02-tg-digest.html",this);return false;'><span class="item-title">07-02 周四</span><span class="item-count">46</span></a>
+<a href="2026-07-01-tg-digest.html" class="nav-item" data-file="2026-07-01-tg-digest.html" data-title="2026-07-01 tg-digest" onclick='loadDoc("2026-07-01-tg-digest.html",this);return false;'><span class="item-title">07-01 周三</span><span class="item-count">44</span></a>
+<a href="2026-06-30-tg-digest.html" class="nav-item" data-file="2026-06-30-tg-digest.html" data-title="2026-06-30 tg-digest" onclick='loadDoc("2026-06-30-tg-digest.html",this);return false;'><span class="item-title">06-30 周二</span><span class="item-count">30</span></a>
+<a href="2026-06-29-tg-digest.html" class="nav-item" data-file="2026-06-29-tg-digest.html" data-title="2026-06-29 tg-digest" onclick='loadDoc("2026-06-29-tg-digest.html",this);return false;'><span class="item-title">06-29 周一</span><span class="item-count">36</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W26 (6/22-6/28)</span> <span class="nav-sub-count">261</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="2026-06-28-tg-digest.html" class="nav-item" data-file="2026-06-28-tg-digest.html" data-title="2026-06-28 tg-digest" onclick='loadDoc("2026-06-28-tg-digest.html",this);return false;'><span class="item-title">06-28 周日</span><span class="item-count">44</span></a>
+<a href="2026-06-27-tg-digest.html" class="nav-item" data-file="2026-06-27-tg-digest.html" data-title="2026-06-27 tg-digest" onclick='loadDoc("2026-06-27-tg-digest.html",this);return false;'><span class="item-title">06-27 周六</span><span class="item-count">39</span></a>
+<a href="2026-06-26-tg-digest.html" class="nav-item" data-file="2026-06-26-tg-digest.html" data-title="2026-06-26 tg-digest" onclick='loadDoc("2026-06-26-tg-digest.html",this);return false;'><span class="item-title">06-26 周五</span><span class="item-count">34</span></a>
+<a href="2026-06-25-tg-digest.html" class="nav-item" data-file="2026-06-25-tg-digest.html" data-title="2026-06-25 tg-digest" onclick='loadDoc("2026-06-25-tg-digest.html",this);return false;'><span class="item-title">06-25 周四</span><span class="item-count">41</span></a>
+<a href="2026-06-24-tg-digest.html" class="nav-item" data-file="2026-06-24-tg-digest.html" data-title="2026-06-24 tg-digest" onclick='loadDoc("2026-06-24-tg-digest.html",this);return false;'><span class="item-title">06-24 周三</span><span class="item-count">32</span></a>
+<a href="2026-06-23-tg-digest.html" class="nav-item" data-file="2026-06-23-tg-digest.html" data-title="2026-06-23 tg-digest" onclick='loadDoc("2026-06-23-tg-digest.html",this);return false;'><span class="item-title">06-23 周二</span><span class="item-count">40</span></a>
+<a href="2026-06-22-tg-digest.html" class="nav-item" data-file="2026-06-22-tg-digest.html" data-title="2026-06-22 tg-digest" onclick='loadDoc("2026-06-22-tg-digest.html",this);return false;'><span class="item-title">06-22 周一</span><span class="item-count">31</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W25 (6/15-6/21)</span> <span class="nav-sub-count">226</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="2026-06-21-tg-digest.html" class="nav-item" data-file="2026-06-21-tg-digest.html" data-title="2026-06-21 tg-digest" onclick='loadDoc("2026-06-21-tg-digest.html",this);return false;'><span class="item-title">06-21 周日</span><span class="item-count">34</span></a>
+<a href="2026-06-20-tg-digest.html" class="nav-item" data-file="2026-06-20-tg-digest.html" data-title="2026-06-20 tg-digest" onclick='loadDoc("2026-06-20-tg-digest.html",this);return false;'><span class="item-title">06-20 周六</span><span class="item-count">31</span></a>
+<a href="2026-06-19-tg-digest.html" class="nav-item" data-file="2026-06-19-tg-digest.html" data-title="2026-06-19 tg-digest" onclick='loadDoc("2026-06-19-tg-digest.html",this);return false;'><span class="item-title">06-19 周五</span><span class="item-count">30</span></a>
+<a href="2026-06-18-tg-digest.html" class="nav-item" data-file="2026-06-18-tg-digest.html" data-title="2026-06-18 tg-digest" onclick='loadDoc("2026-06-18-tg-digest.html",this);return false;'><span class="item-title">06-18 周四</span><span class="item-count">41</span></a>
+<a href="2026-06-17-tg-digest.html" class="nav-item" data-file="2026-06-17-tg-digest.html" data-title="2026-06-17 tg-digest" onclick='loadDoc("2026-06-17-tg-digest.html",this);return false;'><span class="item-title">06-17 周三</span><span class="item-count">28</span></a>
+<a href="2026-06-16-tg-digest.html" class="nav-item" data-file="2026-06-16-tg-digest.html" data-title="2026-06-16 tg-digest" onclick='loadDoc("2026-06-16-tg-digest.html",this);return false;'><span class="item-title">06-16 周二</span><span class="item-count">33</span></a>
+<a href="2026-06-15-tg-digest.html" class="nav-item" data-file="2026-06-15-tg-digest.html" data-title="2026-06-15 tg-digest" onclick='loadDoc("2026-06-15-tg-digest.html",this);return false;'><span class="item-title">06-15 周一</span><span class="item-count">29</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W24 (6/8-6/14)</span> <span class="nav-sub-count">232</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="2026-06-14-tg-digest.html" class="nav-item" data-file="2026-06-14-tg-digest.html" data-title="2026-06-14 tg-digest" onclick='loadDoc("2026-06-14-tg-digest.html",this);return false;'><span class="item-title">06-14 周日</span><span class="item-count">26</span></a>
+<a href="2026-06-13-tg-digest.html" class="nav-item" data-file="2026-06-13-tg-digest.html" data-title="2026-06-13 tg-digest" onclick='loadDoc("2026-06-13-tg-digest.html",this);return false;'><span class="item-title">06-13 周六</span><span class="item-count">32</span></a>
+<a href="2026-06-12-tg-digest.html" class="nav-item" data-file="2026-06-12-tg-digest.html" data-title="2026-06-12 tg-digest" onclick='loadDoc("2026-06-12-tg-digest.html",this);return false;'><span class="item-title">06-12 周五</span><span class="item-count">34</span></a>
+<a href="2026-06-11-tg-digest.html" class="nav-item" data-file="2026-06-11-tg-digest.html" data-title="2026-06-11 tg-digest" onclick='loadDoc("2026-06-11-tg-digest.html",this);return false;'><span class="item-title">06-11 周四</span><span class="item-count">27</span></a>
+<a href="2026-06-10-tg-digest.html" class="nav-item" data-file="2026-06-10-tg-digest.html" data-title="2026-06-10 tg-digest" onclick='loadDoc("2026-06-10-tg-digest.html",this);return false;'><span class="item-title">06-10 周三</span><span class="item-count">32</span></a>
+<a href="2026-06-09-tg-digest.html" class="nav-item" data-file="2026-06-09-tg-digest.html" data-title="2026-06-09 tg-digest" onclick='loadDoc("2026-06-09-tg-digest.html",this);return false;'><span class="item-title">06-09 周二</span><span class="item-count">47</span></a>
+<a href="2026-06-08-tg-digest.html" class="nav-item" data-file="2026-06-08-tg-digest.html" data-title="2026-06-08 tg-digest" onclick='loadDoc("2026-06-08-tg-digest.html",this);return false;'><span class="item-title">06-08 周一</span><span class="item-count">34</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W23 (6/1-6/7)</span> <span class="nav-sub-count">226</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="2026-06-07-tg-digest.html" class="nav-item" data-file="2026-06-07-tg-digest.html" data-title="2026-06-07 tg-digest" onclick='loadDoc("2026-06-07-tg-digest.html",this);return false;'><span class="item-title">06-07 周日</span><span class="item-count">28</span></a>
+<a href="2026-06-06-tg-digest.html" class="nav-item" data-file="2026-06-06-tg-digest.html" data-title="2026-06-06 tg-digest" onclick='loadDoc("2026-06-06-tg-digest.html",this);return false;'><span class="item-title">06-06 周六</span><span class="item-count">22</span></a>
+<a href="2026-06-05-tg-digest.html" class="nav-item" data-file="2026-06-05-tg-digest.html" data-title="2026-06-05 tg-digest" onclick='loadDoc("2026-06-05-tg-digest.html",this);return false;'><span class="item-title">06-05 周五</span><span class="item-count">37</span></a>
+<a href="2026-06-04-tg-digest.html" class="nav-item" data-file="2026-06-04-tg-digest.html" data-title="2026-06-04 tg-digest" onclick='loadDoc("2026-06-04-tg-digest.html",this);return false;'><span class="item-title">06-04 周四</span><span class="item-count">33</span></a>
+<a href="2026-06-03-tg-digest.html" class="nav-item" data-file="2026-06-03-tg-digest.html" data-title="2026-06-03 tg-digest" onclick='loadDoc("2026-06-03-tg-digest.html",this);return false;'><span class="item-title">06-03 周三</span><span class="item-count">35</span></a>
+<a href="2026-06-02-tg-digest.html" class="nav-item" data-file="2026-06-02-tg-digest.html" data-title="2026-06-02 tg-digest" onclick='loadDoc("2026-06-02-tg-digest.html",this);return false;'><span class="item-title">06-02 周二</span><span class="item-count">28</span></a>
+<a href="2026-06-01-tg-digest.html" class="nav-item" data-file="2026-06-01-tg-digest.html" data-title="2026-06-01 tg-digest" onclick='loadDoc("2026-06-01-tg-digest.html",this);return false;'><span class="item-title">06-01 周一</span><span class="item-count">43</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W22 (5/25-5/31)</span> <span class="nav-sub-count">279</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="2026-05-31-tg-digest.html" class="nav-item" data-file="2026-05-31-tg-digest.html" data-title="2026-05-31 tg-digest" onclick='loadDoc("2026-05-31-tg-digest.html",this);return false;'><span class="item-title">05-31 周日</span><span class="item-count">38</span></a>
+<a href="2026-05-30-tg-digest.html" class="nav-item" data-file="2026-05-30-tg-digest.html" data-title="2026-05-30 tg-digest" onclick='loadDoc("2026-05-30-tg-digest.html",this);return false;'><span class="item-title">05-30 周六</span><span class="item-count">36</span></a>
+<a href="2026-05-29-tg-digest.html" class="nav-item" data-file="2026-05-29-tg-digest.html" data-title="2026-05-29 tg-digest" onclick='loadDoc("2026-05-29-tg-digest.html",this);return false;'><span class="item-title">05-29 周五</span><span class="item-count">52</span></a>
+<a href="2026-05-28-tg-digest.html" class="nav-item" data-file="2026-05-28-tg-digest.html" data-title="2026-05-28 tg-digest" onclick='loadDoc("2026-05-28-tg-digest.html",this);return false;'><span class="item-title">05-28 周四</span><span class="item-count">43</span></a>
+<a href="2026-05-27-tg-digest.html" class="nav-item" data-file="2026-05-27-tg-digest.html" data-title="2026-05-27 tg-digest" onclick='loadDoc("2026-05-27-tg-digest.html",this);return false;'><span class="item-title">05-27 周三</span><span class="item-count">36</span></a>
+<a href="2026-05-26-tg-digest.html" class="nav-item" data-file="2026-05-26-tg-digest.html" data-title="2026-05-26 tg-digest" onclick='loadDoc("2026-05-26-tg-digest.html",this);return false;'><span class="item-title">05-26 周二</span><span class="item-count">43</span></a>
+<a href="2026-05-25-tg-digest.html" class="nav-item" data-file="2026-05-25-tg-digest.html" data-title="2026-05-25 tg-digest" onclick='loadDoc("2026-05-25-tg-digest.html",this);return false;'><span class="item-title">05-25 周一</span><span class="item-count">31</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W21 (5/18-5/24)</span> <span class="nav-sub-count">287</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="2026-05-24-tg-digest.html" class="nav-item" data-file="2026-05-24-tg-digest.html" data-title="2026-05-24 tg-digest" onclick='loadDoc("2026-05-24-tg-digest.html",this);return false;'><span class="item-title">05-24 周日</span><span class="item-count">62</span></a>
+<a href="2026-05-23-tg-digest.html" class="nav-item" data-file="2026-05-23-tg-digest.html" data-title="2026-05-23 tg-digest" onclick='loadDoc("2026-05-23-tg-digest.html",this);return false;'><span class="item-title">05-23 周六</span><span class="item-count">42</span></a>
+<a href="2026-05-22-tg-digest.html" class="nav-item" data-file="2026-05-22-tg-digest.html" data-title="2026-05-22 tg-digest" onclick='loadDoc("2026-05-22-tg-digest.html",this);return false;'><span class="item-title">05-22 周五</span><span class="item-count">43</span></a>
+<a href="2026-05-21-tg-digest.html" class="nav-item" data-file="2026-05-21-tg-digest.html" data-title="2026-05-21 tg-digest" onclick='loadDoc("2026-05-21-tg-digest.html",this);return false;'><span class="item-title">05-21 周四</span><span class="item-count">41</span></a>
+<a href="2026-05-20-tg-digest.html" class="nav-item" data-file="2026-05-20-tg-digest.html" data-title="2026-05-20 tg-digest" onclick='loadDoc("2026-05-20-tg-digest.html",this);return false;'><span class="item-title">05-20 周三</span><span class="item-count">32</span></a>
+<a href="2026-05-19-tg-digest.html" class="nav-item" data-file="2026-05-19-tg-digest.html" data-title="2026-05-19 tg-digest" onclick='loadDoc("2026-05-19-tg-digest.html",this);return false;'><span class="item-title">05-19 周二</span><span class="item-count">35</span></a>
+<a href="2026-05-18-tg-digest.html" class="nav-item" data-file="2026-05-18-tg-digest.html" data-title="2026-05-18 tg-digest" onclick='loadDoc("2026-05-18-tg-digest.html",this);return false;'><span class="item-title">05-18 周一</span><span class="item-count">32</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W20 (5/11-5/17)</span> <span class="nav-sub-count">146</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="2026-05-17-tg-digest.html" class="nav-item" data-file="2026-05-17-tg-digest.html" data-title="2026-05-17 tg-digest" onclick='loadDoc("2026-05-17-tg-digest.html",this);return false;'><span class="item-title">05-17 周日</span><span class="item-count">30</span></a>
+<a href="2026-05-16-tg-digest.html" class="nav-item" data-file="2026-05-16-tg-digest.html" data-title="2026-05-16 tg-digest" onclick='loadDoc("2026-05-16-tg-digest.html",this);return false;'><span class="item-title">05-16 周六</span><span class="item-count">31</span></a>
+<a href="2026-05-15-tg-digest.html" class="nav-item" data-file="2026-05-15-tg-digest.html" data-title="2026-05-15 tg-digest" onclick='loadDoc("2026-05-15-tg-digest.html",this);return false;'><span class="item-title">05-15 周五</span><span class="item-count">26</span></a>
+<a href="2026-05-14-tg-digest.html" class="nav-item" data-file="2026-05-14-tg-digest.html" data-title="2026-05-14 tg-digest" onclick='loadDoc("2026-05-14-tg-digest.html",this);return false;'><span class="item-title">05-14 周四</span><span class="item-count">12</span></a>
+<a href="2026-05-13-tg-digest.html" class="nav-item" data-file="2026-05-13-tg-digest.html" data-title="2026-05-13 tg-digest" onclick='loadDoc("2026-05-13-tg-digest.html",this);return false;'><span class="item-title">05-13 周三</span><span class="item-count">16</span></a>
+<a href="2026-05-12-tg-digest.html" class="nav-item" data-file="2026-05-12-tg-digest.html" data-title="2026-05-12 tg-digest" onclick='loadDoc("2026-05-12-tg-digest.html",this);return false;'><span class="item-title">05-12 周二</span><span class="item-count">27</span></a>
+<a href="2026-05-11-tg-digest.html" class="nav-item" data-file="2026-05-11-tg-digest.html" data-title="2026-05-11 tg-digest" onclick='loadDoc("2026-05-11-tg-digest.html",this);return false;'><span class="item-title">05-11 周一</span><span class="item-count">4</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W19 (5/4-5/10)</span> <span class="nav-sub-count">49</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="2026-05-10-tg-digest.html" class="nav-item" data-file="2026-05-10-tg-digest.html" data-title="2026-05-10 tg-digest" onclick='loadDoc("2026-05-10-tg-digest.html",this);return false;'><span class="item-title">05-10 周日</span><span class="item-count">13</span></a>
+<a href="2026-05-09-tg-digest.html" class="nav-item" data-file="2026-05-09-tg-digest.html" data-title="2026-05-09 tg-digest" onclick='loadDoc("2026-05-09-tg-digest.html",this);return false;'><span class="item-title">05-09 周六</span><span class="item-count">16</span></a>
+<a href="2026-05-08-tg-digest.html" class="nav-item" data-file="2026-05-08-tg-digest.html" data-title="2026-05-08 tg-digest" onclick='loadDoc("2026-05-08-tg-digest.html",this);return false;'><span class="item-title">05-08 周五</span><span class="item-count">13</span></a>
+<a href="2026-05-07-tg-digest.html" class="nav-item" data-file="2026-05-07-tg-digest.html" data-title="2026-05-07 tg-digest" onclick='loadDoc("2026-05-07-tg-digest.html",this);return false;'><span class="item-title">05-07 周四</span><span class="item-count">7</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-header" onclick="toggleSection(this)">
+        <span class="nav-arrow">▶</span> 🤖 AI 日报 <span class="nav-count">173篇/2860条</span>
+      </div>
+      <div class="nav-items">
+        
+        <div class="nav-sub-section">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W45 (11/2-11/8)</span> <span class="nav-sub-count">3</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="20261102-AI日报.html" class="nav-item" data-file="20261102-AI日报.html" data-title="2026-11-02 AI日报" onclick='loadDoc("20261102-AI日报.html",this);return false;'><span class="item-title">11-02 周一</span><span class="item-count">3</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W44 (10/26-11/1)</span> <span class="nav-sub-count">99</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="20261101-AI日报.html" class="nav-item" data-file="20261101-AI日报.html" data-title="2026-11-01 AI日报" onclick='loadDoc("20261101-AI日报.html",this);return false;'><span class="item-title">11-01 周日</span><span class="item-count">6</span></a>
+<a href="20261031-AI日报.html" class="nav-item" data-file="20261031-AI日报.html" data-title="2026-10-31 AI日报" onclick='loadDoc("20261031-AI日报.html",this);return false;'><span class="item-title">10-31 周六</span><span class="item-count">16</span></a>
+<a href="20261030-AI日报.html" class="nav-item" data-file="20261030-AI日报.html" data-title="2026-10-30 AI日报" onclick='loadDoc("20261030-AI日报.html",this);return false;'><span class="item-title">10-30 周五</span><span class="item-count">21</span></a>
+<a href="20261029-AI日报.html" class="nav-item" data-file="20261029-AI日报.html" data-title="2026-10-29 AI日报" onclick='loadDoc("20261029-AI日报.html",this);return false;'><span class="item-title">10-29 周四</span><span class="item-count">19</span></a>
+<a href="20261028-AI日报.html" class="nav-item" data-file="20261028-AI日报.html" data-title="2026-10-28 AI日报" onclick='loadDoc("20261028-AI日报.html",this);return false;'><span class="item-title">10-28 周三</span><span class="item-count">20</span></a>
+<a href="20261027-AI日报.html" class="nav-item" data-file="20261027-AI日报.html" data-title="2026-10-27 AI日报" onclick='loadDoc("20261027-AI日报.html",this);return false;'><span class="item-title">10-27 周二</span><span class="item-count">17</span></a>
+<a href="20261026-AI日报.html" class="nav-item" data-file="20261026-AI日报.html" data-title="2026-10-26 AI日报" onclick='loadDoc("20261026-AI日报.html",this);return false;'><span class="item-title">10-26 周一</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W43 (10/19-10/25)</span> <span class="nav-sub-count">100</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="20261025-AI日报.html" class="nav-item" data-file="20261025-AI日报.html" data-title="2026-10-25 AI日报" onclick='loadDoc("20261025-AI日报.html",this);return false;'><span class="item-title">10-25 周日</span><span class="item-count">1</span></a>
+<a href="20261024-AI日报.html" class="nav-item" data-file="20261024-AI日报.html" data-title="2026-10-24 AI日报" onclick='loadDoc("20261024-AI日报.html",this);return false;'><span class="item-title">10-24 周六</span><span class="item-count">15</span></a>
+<a href="20261023-AI日报.html" class="nav-item" data-file="20261023-AI日报.html" data-title="2026-10-23 AI日报" onclick='loadDoc("20261023-AI日报.html",this);return false;'><span class="item-title">10-23 周五</span><span class="item-count">19</span></a>
+<a href="20261022-AI日报.html" class="nav-item" data-file="20261022-AI日报.html" data-title="2026-10-22 AI日报" onclick='loadDoc("20261022-AI日报.html",this);return false;'><span class="item-title">10-22 周四</span><span class="item-count">19</span></a>
+<a href="20261021-AI日报.html" class="nav-item" data-file="20261021-AI日报.html" data-title="2026-10-21 AI日报" onclick='loadDoc("20261021-AI日报.html",this);return false;'><span class="item-title">10-21 周三</span><span class="item-count">22</span></a>
+<a href="20261020-AI日报.html" class="nav-item" data-file="20261020-AI日报.html" data-title="2026-10-20 AI日报" onclick='loadDoc("20261020-AI日报.html",this);return false;'><span class="item-title">10-20 周二</span><span class="item-count">20</span></a>
+<a href="20261019-AI日报.html" class="nav-item" data-file="20261019-AI日报.html" data-title="2026-10-19 AI日报" onclick='loadDoc("20261019-AI日报.html",this);return false;'><span class="item-title">10-19 周一</span><span class="item-count">4</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W42 (10/12-10/18)</span> <span class="nav-sub-count">101</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="20261018-AI日报.html" class="nav-item" data-file="20261018-AI日报.html" data-title="2026-10-18 AI日报" onclick='loadDoc("20261018-AI日报.html",this);return false;'><span class="item-title">10-18 周日</span><span class="item-count">3</span></a>
+<a href="20261017-AI日报.html" class="nav-item" data-file="20261017-AI日报.html" data-title="2026-10-17 AI日报" onclick='loadDoc("20261017-AI日报.html",this);return false;'><span class="item-title">10-17 周六</span><span class="item-count">22</span></a>
+<a href="20261016-AI日报.html" class="nav-item" data-file="20261016-AI日报.html" data-title="2026-10-16 AI日报" onclick='loadDoc("20261016-AI日报.html",this);return false;'><span class="item-title">10-16 周五</span><span class="item-count">22</span></a>
+<a href="20261015-AI日报.html" class="nav-item" data-file="20261015-AI日报.html" data-title="2026-10-15 AI日报" onclick='loadDoc("20261015-AI日报.html",this);return false;'><span class="item-title">10-15 周四</span><span class="item-count">16</span></a>
+<a href="20261014-AI日报.html" class="nav-item" data-file="20261014-AI日报.html" data-title="2026-10-14 AI日报" onclick='loadDoc("20261014-AI日报.html",this);return false;'><span class="item-title">10-14 周三</span><span class="item-count">22</span></a>
+<a href="20261013-AI日报.html" class="nav-item" data-file="20261013-AI日报.html" data-title="2026-10-13 AI日报" onclick='loadDoc("20261013-AI日报.html",this);return false;'><span class="item-title">10-13 周二</span><span class="item-count">15</span></a>
+<a href="20261012-AI日报.html" class="nav-item" data-file="20261012-AI日报.html" data-title="2026-10-12 AI日报" onclick='loadDoc("20261012-AI日报.html",this);return false;'><span class="item-title">10-12 周一</span><span class="item-count">1</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W41 (10/5-10/11)</span> <span class="nav-sub-count">93</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="20261011-AI日报.html" class="nav-item" data-file="20261011-AI日报.html" data-title="2026-10-11 AI日报" onclick='loadDoc("20261011-AI日报.html",this);return false;'><span class="item-title">10-11 周日</span><span class="item-count">8</span></a>
+<a href="20261010-AI日报.html" class="nav-item" data-file="20261010-AI日报.html" data-title="2026-10-10 AI日报" onclick='loadDoc("20261010-AI日报.html",this);return false;'><span class="item-title">10-10 周六</span><span class="item-count">12</span></a>
+<a href="20261009-AI日报.html" class="nav-item" data-file="20261009-AI日报.html" data-title="2026-10-09 AI日报" onclick='loadDoc("20261009-AI日报.html",this);return false;'><span class="item-title">10-09 周五</span><span class="item-count">22</span></a>
+<a href="20261008-AI日报.html" class="nav-item" data-file="20261008-AI日报.html" data-title="2026-10-08 AI日报" onclick='loadDoc("20261008-AI日报.html",this);return false;'><span class="item-title">10-08 周四</span><span class="item-count">22</span></a>
+<a href="20261007-AI日报.html" class="nav-item" data-file="20261007-AI日报.html" data-title="2026-10-07 AI日报" onclick='loadDoc("20261007-AI日报.html",this);return false;'><span class="item-title">10-07 周三</span><span class="item-count">22</span></a>
+<a href="20261006-AI日报.html" class="nav-item" data-file="20261006-AI日报.html" data-title="2026-10-06 AI日报" onclick='loadDoc("20261006-AI日报.html",this);return false;'><span class="item-title">10-06 周二</span><span class="item-count">7</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W40 (9/28-10/4)</span> <span class="nav-sub-count">138</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="20261004-AI日报.html" class="nav-item" data-file="20261004-AI日报.html" data-title="2026-10-04 AI日报" onclick='loadDoc("20261004-AI日报.html",this);return false;'><span class="item-title">10-04 周日</span><span class="item-count">6</span></a>
+<a href="20261003-AI日报.html" class="nav-item" data-file="20261003-AI日报.html" data-title="2026-10-03 AI日报" onclick='loadDoc("20261003-AI日报.html",this);return false;'><span class="item-title">10-03 周六</span><span class="item-count">22</span></a>
+<a href="20261002-AI日报.html" class="nav-item" data-file="20261002-AI日报.html" data-title="2026-10-02 AI日报" onclick='loadDoc("20261002-AI日报.html",this);return false;'><span class="item-title">10-02 周五</span><span class="item-count">22</span></a>
+<a href="20261001-AI日报.html" class="nav-item" data-file="20261001-AI日报.html" data-title="2026-10-01 AI日报" onclick='loadDoc("20261001-AI日报.html",this);return false;'><span class="item-title">10-01 周四</span><span class="item-count">30</span></a>
+<a href="20260930-AI日报.html" class="nav-item" data-file="20260930-AI日报.html" data-title="2026-09-30 AI日报" onclick='loadDoc("20260930-AI日报.html",this);return false;'><span class="item-title">09-30 周三</span><span class="item-count">32</span></a>
+<a href="20260929-AI日报.html" class="nav-item" data-file="20260929-AI日报.html" data-title="2026-09-29 AI日报" onclick='loadDoc("20260929-AI日报.html",this);return false;'><span class="item-title">09-29 周二</span><span class="item-count">24</span></a>
+<a href="20260928-AI日报.html" class="nav-item" data-file="20260928-AI日报.html" data-title="2026-09-28 AI日报" onclick='loadDoc("20260928-AI日报.html",this);return false;'><span class="item-title">09-28 周一</span><span class="item-count">2</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W39 (9/21-9/27)</span> <span class="nav-sub-count">82</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="20260927-AI日报.html" class="nav-item" data-file="20260927-AI日报.html" data-title="2026-09-27 AI日报" onclick='loadDoc("20260927-AI日报.html",this);return false;'><span class="item-title">09-27 周日</span><span class="item-count">4</span></a>
+<a href="20260926-AI日报.html" class="nav-item" data-file="20260926-AI日报.html" data-title="2026-09-26 AI日报" onclick='loadDoc("20260926-AI日报.html",this);return false;'><span class="item-title">09-26 周六</span><span class="item-count">15</span></a>
+<a href="20260925-AI日报.html" class="nav-item" data-file="20260925-AI日报.html" data-title="2026-09-25 AI日报" onclick='loadDoc("20260925-AI日报.html",this);return false;'><span class="item-title">09-25 周五</span><span class="item-count">15</span></a>
+<a href="20260924-AI日报.html" class="nav-item" data-file="20260924-AI日报.html" data-title="2026-09-24 AI日报" onclick='loadDoc("20260924-AI日报.html",this);return false;'><span class="item-title">09-24 周四</span><span class="item-count">19</span></a>
+<a href="20260923-AI日报.html" class="nav-item" data-file="20260923-AI日报.html" data-title="2026-09-23 AI日报" onclick='loadDoc("20260923-AI日报.html",this);return false;'><span class="item-title">09-23 周三</span><span class="item-count">25</span></a>
+<a href="20260921-AI日报.html" class="nav-item" data-file="20260921-AI日报.html" data-title="2026-09-21 AI日报" onclick='loadDoc("20260921-AI日报.html",this);return false;'><span class="item-title">09-21 周一</span><span class="item-count">4</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W38 (9/14-9/20)</span> <span class="nav-sub-count">61</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="20260920-AI日报.html" class="nav-item" data-file="20260920-AI日报.html" data-title="2026-09-20 AI日报" onclick='loadDoc("20260920-AI日报.html",this);return false;'><span class="item-title">09-20 周日</span><span class="item-count">2</span></a>
+<a href="20260919-AI日报.html" class="nav-item" data-file="20260919-AI日报.html" data-title="2026-09-19 AI日报" onclick='loadDoc("20260919-AI日报.html",this);return false;'><span class="item-title">09-19 周六</span><span class="item-count">13</span></a>
+<a href="20260918-AI日报.html" class="nav-item" data-file="20260918-AI日报.html" data-title="2026-09-18 AI日报" onclick='loadDoc("20260918-AI日报.html",this);return false;'><span class="item-title">09-18 周五</span><span class="item-count">15</span></a>
+<a href="20260917-AI日报.html" class="nav-item" data-file="20260917-AI日报.html" data-title="2026-09-17 AI日报" onclick='loadDoc("20260917-AI日报.html",this);return false;'><span class="item-title">09-17 周四</span><span class="item-count">6</span></a>
+<a href="20260916-AI日报.html" class="nav-item" data-file="20260916-AI日报.html" data-title="2026-09-16 AI日报" onclick='loadDoc("20260916-AI日报.html",this);return false;'><span class="item-title">09-16 周三</span><span class="item-count">13</span></a>
+<a href="20260915-AI日报.html" class="nav-item" data-file="20260915-AI日报.html" data-title="2026-09-15 AI日报" onclick='loadDoc("20260915-AI日报.html",this);return false;'><span class="item-title">09-15 周二</span><span class="item-count">9</span></a>
+<a href="20260914-AI日报.html" class="nav-item" data-file="20260914-AI日报.html" data-title="2026-09-14 AI日报" onclick='loadDoc("20260914-AI日报.html",this);return false;'><span class="item-title">09-14 周一</span><span class="item-count">3</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W37 (9/7-9/13)</span> <span class="nav-sub-count">63</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="20260913-AI日报.html" class="nav-item" data-file="20260913-AI日报.html" data-title="2026-09-13 AI日报" onclick='loadDoc("20260913-AI日报.html",this);return false;'><span class="item-title">09-13 周日</span><span class="item-count">6</span></a>
+<a href="20260912-AI日报.html" class="nav-item" data-file="20260912-AI日报.html" data-title="2026-09-12 AI日报" onclick='loadDoc("20260912-AI日报.html",this);return false;'><span class="item-title">09-12 周六</span><span class="item-count">6</span></a>
+<a href="20260911-AI日报.html" class="nav-item" data-file="20260911-AI日报.html" data-title="2026-09-11 AI日报" onclick='loadDoc("20260911-AI日报.html",this);return false;'><span class="item-title">09-11 周五</span><span class="item-count">16</span></a>
+<a href="20260910-AI日报.html" class="nav-item" data-file="20260910-AI日报.html" data-title="2026-09-10 AI日报" onclick='loadDoc("20260910-AI日报.html",this);return false;'><span class="item-title">09-10 周四</span><span class="item-count">17</span></a>
+<a href="20260909-AI日报.html" class="nav-item" data-file="20260909-AI日报.html" data-title="2026-09-09 AI日报" onclick='loadDoc("20260909-AI日报.html",this);return false;'><span class="item-title">09-09 周三</span><span class="item-count">13</span></a>
+<a href="20260908-AI日报.html" class="nav-item" data-file="20260908-AI日报.html" data-title="2026-09-08 AI日报" onclick='loadDoc("20260908-AI日报.html",this);return false;'><span class="item-title">09-08 周二</span><span class="item-count">2</span></a>
+<a href="20260907-AI日报.html" class="nav-item" data-file="20260907-AI日报.html" data-title="2026-09-07 AI日报" onclick='loadDoc("20260907-AI日报.html",this);return false;'><span class="item-title">09-07 周一</span><span class="item-count">3</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W36 (8/31-9/6)</span> <span class="nav-sub-count">79</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="20260906-AI日报.html" class="nav-item" data-file="20260906-AI日报.html" data-title="2026-09-06 AI日报" onclick='loadDoc("20260906-AI日报.html",this);return false;'><span class="item-title">09-06 周日</span><span class="item-count">12</span></a>
+<a href="20260905-AI日报.html" class="nav-item" data-file="20260905-AI日报.html" data-title="2026-09-05 AI日报" onclick='loadDoc("20260905-AI日报.html",this);return false;'><span class="item-title">09-05 周六</span><span class="item-count">12</span></a>
+<a href="20260904-AI日报.html" class="nav-item" data-file="20260904-AI日报.html" data-title="2026-09-04 AI日报" onclick='loadDoc("20260904-AI日报.html",this);return false;'><span class="item-title">09-04 周五</span><span class="item-count">21</span></a>
+<a href="20260903-AI日报.html" class="nav-item" data-file="20260903-AI日报.html" data-title="2026-09-03 AI日报" onclick='loadDoc("20260903-AI日报.html",this);return false;'><span class="item-title">09-03 周四</span><span class="item-count">15</span></a>
+<a href="20260902-AI日报.html" class="nav-item" data-file="20260902-AI日报.html" data-title="2026-09-02 AI日报" onclick='loadDoc("20260902-AI日报.html",this);return false;'><span class="item-title">09-02 周三</span><span class="item-count">9</span></a>
+<a href="20260901-AI日报.html" class="nav-item" data-file="20260901-AI日报.html" data-title="2026-09-01 AI日报" onclick='loadDoc("20260901-AI日报.html",this);return false;'><span class="item-title">09-01 周二</span><span class="item-count">8</span></a>
+<a href="20260831-AI日报.html" class="nav-item" data-file="20260831-AI日报.html" data-title="2026-08-31 AI日报" onclick='loadDoc("20260831-AI日报.html",this);return false;'><span class="item-title">08-31 周一</span><span class="item-count">2</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W35 (8/24-8/30)</span> <span class="nav-sub-count">102</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="20260830-AI日报.html" class="nav-item" data-file="20260830-AI日报.html" data-title="2026-08-30 AI日报" onclick='loadDoc("20260830-AI日报.html",this);return false;'><span class="item-title">08-30 周日</span><span class="item-count">6</span></a>
+<a href="20260829-AI日报.html" class="nav-item" data-file="20260829-AI日报.html" data-title="2026-08-29 AI日报" onclick='loadDoc("20260829-AI日报.html",this);return false;'><span class="item-title">08-29 周六</span><span class="item-count">16</span></a>
+<a href="20260828-AI日报.html" class="nav-item" data-file="20260828-AI日报.html" data-title="2026-08-28 AI日报" onclick='loadDoc("20260828-AI日报.html",this);return false;'><span class="item-title">08-28 周五</span><span class="item-count">17</span></a>
+<a href="20260827-AI日报.html" class="nav-item" data-file="20260827-AI日报.html" data-title="2026-08-27 AI日报" onclick='loadDoc("20260827-AI日报.html",this);return false;'><span class="item-title">08-27 周四</span><span class="item-count">28</span></a>
+<a href="20260826-AI日报.html" class="nav-item" data-file="20260826-AI日报.html" data-title="2026-08-26 AI日报" onclick='loadDoc("20260826-AI日报.html",this);return false;'><span class="item-title">08-26 周三</span><span class="item-count">19</span></a>
+<a href="20260825-AI日报.html" class="nav-item" data-file="20260825-AI日报.html" data-title="2026-08-25 AI日报" onclick='loadDoc("20260825-AI日报.html",this);return false;'><span class="item-title">08-25 周二</span><span class="item-count">14</span></a>
+<a href="20260824-AI日报.html" class="nav-item" data-file="20260824-AI日报.html" data-title="2026-08-24 AI日报" onclick='loadDoc("20260824-AI日报.html",this);return false;'><span class="item-title">08-24 周一</span><span class="item-count">2</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W34 (8/17-8/23)</span> <span class="nav-sub-count">83</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="20260823-AI日报.html" class="nav-item" data-file="20260823-AI日报.html" data-title="2026-08-23 AI日报" onclick='loadDoc("20260823-AI日报.html",this);return false;'><span class="item-title">08-23 周日</span><span class="item-count">1</span></a>
+<a href="20260822-AI日报.html" class="nav-item" data-file="20260822-AI日报.html" data-title="2026-08-22 AI日报" onclick='loadDoc("20260822-AI日报.html",this);return false;'><span class="item-title">08-22 周六</span><span class="item-count">15</span></a>
+<a href="20260821-AI日报.html" class="nav-item" data-file="20260821-AI日报.html" data-title="2026-08-21 AI日报" onclick='loadDoc("20260821-AI日报.html",this);return false;'><span class="item-title">08-21 周五</span><span class="item-count">17</span></a>
+<a href="20260820-AI日报.html" class="nav-item" data-file="20260820-AI日报.html" data-title="2026-08-20 AI日报" onclick='loadDoc("20260820-AI日报.html",this);return false;'><span class="item-title">08-20 周四</span><span class="item-count">14</span></a>
+<a href="20260819-AI日报.html" class="nav-item" data-file="20260819-AI日报.html" data-title="2026-08-19 AI日报" onclick='loadDoc("20260819-AI日报.html",this);return false;'><span class="item-title">08-19 周三</span><span class="item-count">16</span></a>
+<a href="20260818-AI日报.html" class="nav-item" data-file="20260818-AI日报.html" data-title="2026-08-18 AI日报" onclick='loadDoc("20260818-AI日报.html",this);return false;'><span class="item-title">08-18 周二</span><span class="item-count">18</span></a>
+<a href="20260817-AI日报.html" class="nav-item" data-file="20260817-AI日报.html" data-title="2026-08-17 AI日报" onclick='loadDoc("20260817-AI日报.html",this);return false;'><span class="item-title">08-17 周一</span><span class="item-count">2</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W33 (8/10-8/16)</span> <span class="nav-sub-count">109</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="20260816-AI日报.html" class="nav-item" data-file="20260816-AI日报.html" data-title="2026-08-16 AI日报" onclick='loadDoc("20260816-AI日报.html",this);return false;'><span class="item-title">08-16 周日</span><span class="item-count">1</span></a>
+<a href="20260815-AI日报.html" class="nav-item" data-file="20260815-AI日报.html" data-title="2026-08-15 AI日报" onclick='loadDoc("20260815-AI日报.html",this);return false;'><span class="item-title">08-15 周六</span><span class="item-count">15</span></a>
+<a href="20260814-AI日报.html" class="nav-item" data-file="20260814-AI日报.html" data-title="2026-08-14 AI日报" onclick='loadDoc("20260814-AI日报.html",this);return false;'><span class="item-title">08-14 周五</span><span class="item-count">23</span></a>
+<a href="20260813-AI日报.html" class="nav-item" data-file="20260813-AI日报.html" data-title="2026-08-13 AI日报" onclick='loadDoc("20260813-AI日报.html",this);return false;'><span class="item-title">08-13 周四</span><span class="item-count">20</span></a>
+<a href="20260812-AI日报.html" class="nav-item" data-file="20260812-AI日报.html" data-title="2026-08-12 AI日报" onclick='loadDoc("20260812-AI日报.html",this);return false;'><span class="item-title">08-12 周三</span><span class="item-count">26</span></a>
+<a href="20260811-AI日报.html" class="nav-item" data-file="20260811-AI日报.html" data-title="2026-08-11 AI日报" onclick='loadDoc("20260811-AI日报.html",this);return false;'><span class="item-title">08-11 周二</span><span class="item-count">20</span></a>
+<a href="20260810-AI日报.html" class="nav-item" data-file="20260810-AI日报.html" data-title="2026-08-10 AI日报" onclick='loadDoc("20260810-AI日报.html",this);return false;'><span class="item-title">08-10 周一</span><span class="item-count">4</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W32 (8/3-8/9)</span> <span class="nav-sub-count">86</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="20260809-AI日报.html" class="nav-item" data-file="20260809-AI日报.html" data-title="2026-08-09 AI日报" onclick='loadDoc("20260809-AI日报.html",this);return false;'><span class="item-title">08-09 周日</span><span class="item-count">6</span></a>
+<a href="20260807-AI日报.html" class="nav-item" data-file="20260807-AI日报.html" data-title="2026-08-07 AI日报" onclick='loadDoc("20260807-AI日报.html",this);return false;'><span class="item-title">08-07 周五</span><span class="item-count">25</span></a>
+<a href="20260805-AI日报.html" class="nav-item" data-file="20260805-AI日报.html" data-title="2026-08-05 AI日报" onclick='loadDoc("20260805-AI日报.html",this);return false;'><span class="item-title">08-05 周三</span><span class="item-count">29</span></a>
+<a href="20260804-AI日报.html" class="nav-item" data-file="20260804-AI日报.html" data-title="2026-08-04 AI日报" onclick='loadDoc("20260804-AI日报.html",this);return false;'><span class="item-title">08-04 周二</span><span class="item-count">21</span></a>
+<a href="20260803-AI日报.html" class="nav-item" data-file="20260803-AI日报.html" data-title="2026-08-03 AI日报" onclick='loadDoc("20260803-AI日报.html",this);return false;'><span class="item-title">08-03 周一</span><span class="item-count">5</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W31 (7/27-8/2)</span> <span class="nav-sub-count">93</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="20260802-AI日报.html" class="nav-item" data-file="20260802-AI日报.html" data-title="2026-08-02 AI日报" onclick='loadDoc("20260802-AI日报.html",this);return false;'><span class="item-title">08-02 周日</span><span class="item-count">2</span></a>
+<a href="20260731-AI日报.html" class="nav-item" data-file="20260731-AI日报.html" data-title="2026-07-31 AI日报" onclick='loadDoc("20260731-AI日报.html",this);return false;'><span class="item-title">07-31 周五</span><span class="item-count">24</span></a>
+<a href="20260730-AI日报.html" class="nav-item" data-file="20260730-AI日报.html" data-title="2026-07-30 AI日报" onclick='loadDoc("20260730-AI日报.html",this);return false;'><span class="item-title">07-30 周四</span><span class="item-count">21</span></a>
+<a href="20260729-AI日报.html" class="nav-item" data-file="20260729-AI日报.html" data-title="2026-07-29 AI日报" onclick='loadDoc("20260729-AI日报.html",this);return false;'><span class="item-title">07-29 周三</span><span class="item-count">24</span></a>
+<a href="20260728-AI日报.html" class="nav-item" data-file="20260728-AI日报.html" data-title="2026-07-28 AI日报" onclick='loadDoc("20260728-AI日报.html",this);return false;'><span class="item-title">07-28 周二</span><span class="item-count">16</span></a>
+<a href="20260727-AI日报.html" class="nav-item" data-file="20260727-AI日报.html" data-title="2026-07-27 AI日报" onclick='loadDoc("20260727-AI日报.html",this);return false;'><span class="item-title">07-27 周一</span><span class="item-count">6</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W30 (7/20-7/26)</span> <span class="nav-sub-count">119</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="20260726-AI日报.html" class="nav-item" data-file="20260726-AI日报.html" data-title="2026-07-26 AI日报" onclick='loadDoc("20260726-AI日报.html",this);return false;'><span class="item-title">07-26 周日</span><span class="item-count">1</span></a>
+<a href="20260725-AI日报.html" class="nav-item" data-file="20260725-AI日报.html" data-title="2026-07-25 AI日报" onclick='loadDoc("20260725-AI日报.html",this);return false;'><span class="item-title">07-25 周六</span><span class="item-count">18</span></a>
+<a href="20260724-AI日报.html" class="nav-item" data-file="20260724-AI日报.html" data-title="2026-07-24 AI日报" onclick='loadDoc("20260724-AI日报.html",this);return false;'><span class="item-title">07-24 周五</span><span class="item-count">15</span></a>
+<a href="20260723-AI日报.html" class="nav-item" data-file="20260723-AI日报.html" data-title="2026-07-23 AI日报" onclick='loadDoc("20260723-AI日报.html",this);return false;'><span class="item-title">07-23 周四</span><span class="item-count">24</span></a>
+<a href="20260722-AI日报.html" class="nav-item" data-file="20260722-AI日报.html" data-title="2026-07-22 AI日报" onclick='loadDoc("20260722-AI日报.html",this);return false;'><span class="item-title">07-22 周三</span><span class="item-count">31</span></a>
+<a href="20260721-AI日报.html" class="nav-item" data-file="20260721-AI日报.html" data-title="2026-07-21 AI日报" onclick='loadDoc("20260721-AI日报.html",this);return false;'><span class="item-title">07-21 周二</span><span class="item-count">22</span></a>
+<a href="20260720-AI日报.html" class="nav-item" data-file="20260720-AI日报.html" data-title="2026-07-20 AI日报" onclick='loadDoc("20260720-AI日报.html",this);return false;'><span class="item-title">07-20 周一</span><span class="item-count">8</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W29 (7/13-7/19)</span> <span class="nav-sub-count">92</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="20260719-AI日报.html" class="nav-item" data-file="20260719-AI日报.html" data-title="2026-07-19 AI日报" onclick='loadDoc("20260719-AI日报.html",this);return false;'><span class="item-title">07-19 周日</span><span class="item-count">2</span></a>
+<a href="20260718-AI日报.html" class="nav-item" data-file="20260718-AI日报.html" data-title="2026-07-18 AI日报" onclick='loadDoc("20260718-AI日报.html",this);return false;'><span class="item-title">07-18 周六</span><span class="item-count">18</span></a>
+<a href="20260717-AI日报.html" class="nav-item" data-file="20260717-AI日报.html" data-title="2026-07-17 AI日报" onclick='loadDoc("20260717-AI日报.html",this);return false;'><span class="item-title">07-17 周五</span><span class="item-count">26</span></a>
+<a href="20260716-AI日报.html" class="nav-item" data-file="20260716-AI日报.html" data-title="2026-07-16 AI日报" onclick='loadDoc("20260716-AI日报.html",this);return false;'><span class="item-title">07-16 周四</span><span class="item-count">23</span></a>
+<a href="20260714-AI日报.html" class="nav-item" data-file="20260714-AI日报.html" data-title="2026-07-14 AI日报" onclick='loadDoc("20260714-AI日报.html",this);return false;'><span class="item-title">07-14 周二</span><span class="item-count">12</span></a>
+<a href="20260713-AI日报.html" class="nav-item" data-file="20260713-AI日报.html" data-title="2026-07-13 AI日报" onclick='loadDoc("20260713-AI日报.html",this);return false;'><span class="item-title">07-13 周一</span><span class="item-count">11</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W28 (7/6-7/12)</span> <span class="nav-sub-count">133</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="20260712-AI日报.html" class="nav-item" data-file="20260712-AI日报.html" data-title="2026-07-12 AI日报" onclick='loadDoc("20260712-AI日报.html",this);return false;'><span class="item-title">07-12 周日</span><span class="item-count">8</span></a>
+<a href="20260711-AI日报.html" class="nav-item" data-file="20260711-AI日报.html" data-title="2026-07-11 AI日报" onclick='loadDoc("20260711-AI日报.html",this);return false;'><span class="item-title">07-11 周六</span><span class="item-count">17</span></a>
+<a href="20260710-AI日报.html" class="nav-item" data-file="20260710-AI日报.html" data-title="2026-07-10 AI日报" onclick='loadDoc("20260710-AI日报.html",this);return false;'><span class="item-title">07-10 周五</span><span class="item-count">25</span></a>
+<a href="20260709-AI日报.html" class="nav-item" data-file="20260709-AI日报.html" data-title="2026-07-09 AI日报" onclick='loadDoc("20260709-AI日报.html",this);return false;'><span class="item-title">07-09 周四</span><span class="item-count">31</span></a>
+<a href="2026-07-08-AI日报.html" class="nav-item" data-file="2026-07-08-AI日报.html" data-title="2026-07-08 AI日报" onclick='loadDoc("2026-07-08-AI日报.html",this);return false;'><span class="item-title">07-08 周三</span><span class="item-count">24</span></a>
+<a href="2026-07-07-AI日报.html" class="nav-item" data-file="2026-07-07-AI日报.html" data-title="2026-07-07 AI日报" onclick='loadDoc("2026-07-07-AI日报.html",this);return false;'><span class="item-title">07-07 周二</span><span class="item-count">21</span></a>
+<a href="20260706-AI日报.html" class="nav-item" data-file="20260706-AI日报.html" data-title="2026-07-06 AI日报" onclick='loadDoc("20260706-AI日报.html",this);return false;'><span class="item-title">07-06 周一</span><span class="item-count">7</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W27 (6/29-7/5)</span> <span class="nav-sub-count">119</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="20260705-AI日报.html" class="nav-item" data-file="20260705-AI日报.html" data-title="2026-07-05 AI日报" onclick='loadDoc("20260705-AI日报.html",this);return false;'><span class="item-title">07-05 周日</span><span class="item-count">3</span></a>
+<a href="20260704-AI日报.html" class="nav-item" data-file="20260704-AI日报.html" data-title="2026-07-04 AI日报" onclick='loadDoc("20260704-AI日报.html",this);return false;'><span class="item-title">07-04 周六</span><span class="item-count">15</span></a>
+<a href="20260703-AI日报.html" class="nav-item" data-file="20260703-AI日报.html" data-title="2026-07-03 AI日报" onclick='loadDoc("20260703-AI日报.html",this);return false;'><span class="item-title">07-03 周五</span><span class="item-count">24</span></a>
+<a href="20260702-AI日报.html" class="nav-item" data-file="20260702-AI日报.html" data-title="2026-07-02 AI日报" onclick='loadDoc("20260702-AI日报.html",this);return false;'><span class="item-title">07-02 周四</span><span class="item-count">22</span></a>
+<a href="20260701-AI日报.html" class="nav-item" data-file="20260701-AI日报.html" data-title="2026-07-01 AI日报" onclick='loadDoc("20260701-AI日报.html",this);return false;'><span class="item-title">07-01 周三</span><span class="item-count">26</span></a>
+<a href="20260630-AI日报.html" class="nav-item" data-file="20260630-AI日报.html" data-title="2026-06-30 AI日报" onclick='loadDoc("20260630-AI日报.html",this);return false;'><span class="item-title">06-30 周二</span><span class="item-count">22</span></a>
+<a href="20260629-AI日报.html" class="nav-item" data-file="20260629-AI日报.html" data-title="2026-06-29 AI日报" onclick='loadDoc("20260629-AI日报.html",this);return false;'><span class="item-title">06-29 周一</span><span class="item-count">7</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W26 (6/22-6/28)</span> <span class="nav-sub-count">115</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="20260628-AI日报.html" class="nav-item" data-file="20260628-AI日报.html" data-title="2026-06-28 AI日报" onclick='loadDoc("20260628-AI日报.html",this);return false;'><span class="item-title">06-28 周日</span><span class="item-count">10</span></a>
+<a href="20260627-AI日报.html" class="nav-item" data-file="20260627-AI日报.html" data-title="2026-06-27 AI日报" onclick='loadDoc("20260627-AI日报.html",this);return false;'><span class="item-title">06-27 周六</span><span class="item-count">12</span></a>
+<a href="20260626-AI日报.html" class="nav-item" data-file="20260626-AI日报.html" data-title="2026-06-26 AI日报" onclick='loadDoc("20260626-AI日报.html",this);return false;'><span class="item-title">06-26 周五</span><span class="item-count">25</span></a>
+<a href="20260625-AI日报.html" class="nav-item" data-file="20260625-AI日报.html" data-title="2026-06-25 AI日报" onclick='loadDoc("20260625-AI日报.html",this);return false;'><span class="item-title">06-25 周四</span><span class="item-count">21</span></a>
+<a href="20260624-AI日报.html" class="nav-item" data-file="20260624-AI日报.html" data-title="2026-06-24 AI日报" onclick='loadDoc("20260624-AI日报.html",this);return false;'><span class="item-title">06-24 周三</span><span class="item-count">26</span></a>
+<a href="20260623-AI日报.html" class="nav-item" data-file="20260623-AI日报.html" data-title="2026-06-23 AI日报" onclick='loadDoc("20260623-AI日报.html",this);return false;'><span class="item-title">06-23 周二</span><span class="item-count">17</span></a>
+<a href="20260622-AI日报.html" class="nav-item" data-file="20260622-AI日报.html" data-title="2026-06-22 AI日报" onclick='loadDoc("20260622-AI日报.html",this);return false;'><span class="item-title">06-22 周一</span><span class="item-count">4</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W25 (6/15-6/21)</span> <span class="nav-sub-count">127</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="20260621-AI日报.html" class="nav-item" data-file="20260621-AI日报.html" data-title="2026-06-21 AI日报" onclick='loadDoc("20260621-AI日报.html",this);return false;'><span class="item-title">06-21 周日</span><span class="item-count">2</span></a>
+<a href="20260620-AI日报.html" class="nav-item" data-file="20260620-AI日报.html" data-title="2026-06-20 AI日报" onclick='loadDoc("20260620-AI日报.html",this);return false;'><span class="item-title">06-20 周六</span><span class="item-count">16</span></a>
+<a href="20260619-AI日报.html" class="nav-item" data-file="20260619-AI日报.html" data-title="2026-06-19 AI日报" onclick='loadDoc("20260619-AI日报.html",this);return false;'><span class="item-title">06-19 周五</span><span class="item-count">28</span></a>
+<a href="20260618-AI日报.html" class="nav-item" data-file="20260618-AI日报.html" data-title="2026-06-18 AI日报" onclick='loadDoc("20260618-AI日报.html",this);return false;'><span class="item-title">06-18 周四</span><span class="item-count">29</span></a>
+<a href="20260617-AI日报.html" class="nav-item" data-file="20260617-AI日报.html" data-title="2026-06-17 AI日报" onclick='loadDoc("20260617-AI日报.html",this);return false;'><span class="item-title">06-17 周三</span><span class="item-count">29</span></a>
+<a href="20260616-AI日报.html" class="nav-item" data-file="20260616-AI日报.html" data-title="2026-06-16 AI日报" onclick='loadDoc("20260616-AI日报.html",this);return false;'><span class="item-title">06-16 周二</span><span class="item-count">17</span></a>
+<a href="20260615-AI日报.html" class="nav-item" data-file="20260615-AI日报.html" data-title="2026-06-15 AI日报" onclick='loadDoc("20260615-AI日报.html",this);return false;'><span class="item-title">06-15 周一</span><span class="item-count">6</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W24 (6/8-6/14)</span> <span class="nav-sub-count">159</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="20260614-AI日报.html" class="nav-item" data-file="20260614-AI日报.html" data-title="2026-06-14 AI日报" onclick='loadDoc("20260614-AI日报.html",this);return false;'><span class="item-title">06-14 周日</span><span class="item-count">11</span></a>
+<a href="20260613-AI日报.html" class="nav-item" data-file="20260613-AI日报.html" data-title="2026-06-13 AI日报" onclick='loadDoc("20260613-AI日报.html",this);return false;'><span class="item-title">06-13 周六</span><span class="item-count">19</span></a>
+<a href="20260612-AI日报.html" class="nav-item" data-file="20260612-AI日报.html" data-title="2026-06-12 AI日报" onclick='loadDoc("20260612-AI日报.html",this);return false;'><span class="item-title">06-12 周五</span><span class="item-count">27</span></a>
+<a href="20260611-AI日报.html" class="nav-item" data-file="20260611-AI日报.html" data-title="2026-06-11 AI日报" onclick='loadDoc("20260611-AI日报.html",this);return false;'><span class="item-title">06-11 周四</span><span class="item-count">28</span></a>
+<a href="20260610-AI日报.html" class="nav-item" data-file="20260610-AI日报.html" data-title="2026-06-10 AI日报" onclick='loadDoc("20260610-AI日报.html",this);return false;'><span class="item-title">06-10 周三</span><span class="item-count">30</span></a>
+<a href="20260609-AI日报.html" class="nav-item" data-file="20260609-AI日报.html" data-title="2026-06-09 AI日报" onclick='loadDoc("20260609-AI日报.html",this);return false;'><span class="item-title">06-09 周二</span><span class="item-count">31</span></a>
+<a href="20260608-AI日报.html" class="nav-item" data-file="20260608-AI日报.html" data-title="2026-06-08 AI日报" onclick='loadDoc("20260608-AI日报.html",this);return false;'><span class="item-title">06-08 周一</span><span class="item-count">13</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W23 (6/1-6/7)</span> <span class="nav-sub-count">172</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="20260607-AI日报.html" class="nav-item" data-file="20260607-AI日报.html" data-title="2026-06-07 AI日报" onclick='loadDoc("20260607-AI日报.html",this);return false;'><span class="item-title">06-07 周日</span><span class="item-count">13</span></a>
+<a href="20260606-AI日报.html" class="nav-item" data-file="20260606-AI日报.html" data-title="2026-06-06 AI日报" onclick='loadDoc("20260606-AI日报.html",this);return false;'><span class="item-title">06-06 周六</span><span class="item-count">30</span></a>
+<a href="20260605-AI日报.html" class="nav-item" data-file="20260605-AI日报.html" data-title="2026-06-05 AI日报" onclick='loadDoc("20260605-AI日报.html",this);return false;'><span class="item-title">06-05 周五</span><span class="item-count">29</span></a>
+<a href="20260604-AI日报.html" class="nav-item" data-file="20260604-AI日报.html" data-title="2026-06-04 AI日报" onclick='loadDoc("20260604-AI日报.html",this);return false;'><span class="item-title">06-04 周四</span><span class="item-count">32</span></a>
+<a href="20260603-AI日报.html" class="nav-item" data-file="20260603-AI日报.html" data-title="2026-06-03 AI日报" onclick='loadDoc("20260603-AI日报.html",this);return false;'><span class="item-title">06-03 周三</span><span class="item-count">29</span></a>
+<a href="20260602-AI日报.html" class="nav-item" data-file="20260602-AI日报.html" data-title="2026-06-02 AI日报" onclick='loadDoc("20260602-AI日报.html",this);return false;'><span class="item-title">06-02 周二</span><span class="item-count">31</span></a>
+<a href="20260601-AI日报.html" class="nav-item" data-file="20260601-AI日报.html" data-title="2026-06-01 AI日报" onclick='loadDoc("20260601-AI日报.html",this);return false;'><span class="item-title">06-01 周一</span><span class="item-count">8</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W22 (5/25-5/31)</span> <span class="nav-sub-count">138</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="20260531-AI日报.html" class="nav-item" data-file="20260531-AI日报.html" data-title="2026-05-31 AI日报" onclick='loadDoc("20260531-AI日报.html",this);return false;'><span class="item-title">05-31 周日</span><span class="item-count">14</span></a>
+<a href="20260530-AI日报.html" class="nav-item" data-file="20260530-AI日报.html" data-title="2026-05-30 AI日报" onclick='loadDoc("20260530-AI日报.html",this);return false;'><span class="item-title">05-30 周六</span><span class="item-count">24</span></a>
+<a href="20260529-AI日报.html" class="nav-item" data-file="20260529-AI日报.html" data-title="2026-05-29 AI日报" onclick='loadDoc("20260529-AI日报.html",this);return false;'><span class="item-title">05-29 周五</span><span class="item-count">30</span></a>
+<a href="20260528-AI日报.html" class="nav-item" data-file="20260528-AI日报.html" data-title="2026-05-28 AI日报" onclick='loadDoc("20260528-AI日报.html",this);return false;'><span class="item-title">05-28 周四</span><span class="item-count">28</span></a>
+<a href="20260527-AI日报.html" class="nav-item" data-file="20260527-AI日报.html" data-title="2026-05-27 AI日报" onclick='loadDoc("20260527-AI日报.html",this);return false;'><span class="item-title">05-27 周三</span><span class="item-count">23</span></a>
+<a href="20260526-AI日报.html" class="nav-item" data-file="20260526-AI日报.html" data-title="2026-05-26 AI日报" onclick='loadDoc("20260526-AI日报.html",this);return false;'><span class="item-title">05-26 周二</span><span class="item-count">11</span></a>
+<a href="20260525-AI日报.html" class="nav-item" data-file="20260525-AI日报.html" data-title="2026-05-25 AI日报" onclick='loadDoc("20260525-AI日报.html",this);return false;'><span class="item-title">05-25 周一</span><span class="item-count">8</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W21 (5/18-5/24)</span> <span class="nav-sub-count">146</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="20260524-AI日报.html" class="nav-item" data-file="20260524-AI日报.html" data-title="2026-05-24 AI日报" onclick='loadDoc("20260524-AI日报.html",this);return false;'><span class="item-title">05-24 周日</span><span class="item-count">12</span></a>
+<a href="20260523-AI日报.html" class="nav-item" data-file="20260523-AI日报.html" data-title="2026-05-23 AI日报" onclick='loadDoc("20260523-AI日报.html",this);return false;'><span class="item-title">05-23 周六</span><span class="item-count">28</span></a>
+<a href="20260522-AI日报.html" class="nav-item" data-file="20260522-AI日报.html" data-title="2026-05-22 AI日报" onclick='loadDoc("20260522-AI日报.html",this);return false;'><span class="item-title">05-22 周五</span><span class="item-count">26</span></a>
+<a href="20260521-AI日报.html" class="nav-item" data-file="20260521-AI日报.html" data-title="2026-05-21 AI日报" onclick='loadDoc("20260521-AI日报.html",this);return false;'><span class="item-title">05-21 周四</span><span class="item-count">28</span></a>
+<a href="20260520-AI日报.html" class="nav-item" data-file="20260520-AI日报.html" data-title="2026-05-20 AI日报" onclick='loadDoc("20260520-AI日报.html",this);return false;'><span class="item-title">05-20 周三</span><span class="item-count">34</span></a>
+<a href="20260519-AI日报.html" class="nav-item" data-file="20260519-AI日报.html" data-title="2026-05-19 AI日报" onclick='loadDoc("20260519-AI日报.html",this);return false;'><span class="item-title">05-19 周二</span><span class="item-count">6</span></a>
+<a href="20260518-AI日报.html" class="nav-item" data-file="20260518-AI日报.html" data-title="2026-05-18 AI日报" onclick='loadDoc("20260518-AI日报.html",this);return false;'><span class="item-title">05-18 周一</span><span class="item-count">12</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W20 (5/11-5/17)</span> <span class="nav-sub-count">165</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="20260517-AI日报.html" class="nav-item" data-file="20260517-AI日报.html" data-title="2026-05-17 AI日报" onclick='loadDoc("20260517-AI日报.html",this);return false;'><span class="item-title">05-17 周日</span><span class="item-count">20</span></a>
+<a href="20260516-AI日报.html" class="nav-item" data-file="20260516-AI日报.html" data-title="2026-05-16 AI日报" onclick='loadDoc("20260516-AI日报.html",this);return false;'><span class="item-title">05-16 周六</span><span class="item-count">24</span></a>
+<a href="20260515-AI日报.html" class="nav-item" data-file="20260515-AI日报.html" data-title="2026-05-15 AI日报" onclick='loadDoc("20260515-AI日报.html",this);return false;'><span class="item-title">05-15 周五</span><span class="item-count">29</span></a>
+<a href="20260514-AI日报.html" class="nav-item" data-file="20260514-AI日报.html" data-title="2026-05-14 AI日报" onclick='loadDoc("20260514-AI日报.html",this);return false;'><span class="item-title">05-14 周四</span><span class="item-count">24</span></a>
+<a href="20260513-AI日报.html" class="nav-item" data-file="20260513-AI日报.html" data-title="2026-05-13 AI日报" onclick='loadDoc("20260513-AI日报.html",this);return false;'><span class="item-title">05-13 周三</span><span class="item-count">29</span></a>
+<a href="20260512-AI日报.html" class="nav-item" data-file="20260512-AI日报.html" data-title="2026-05-12 AI日报" onclick='loadDoc("20260512-AI日报.html",this);return false;'><span class="item-title">05-12 周二</span><span class="item-count">28</span></a>
+<a href="20260511-AI日报.html" class="nav-item" data-file="20260511-AI日报.html" data-title="2026-05-11 AI日报" onclick='loadDoc("20260511-AI日报.html",this);return false;'><span class="item-title">05-11 周一</span><span class="item-count">11</span></a>
+          </div>
+        </div>
+
+        <div class="nav-sub-section collapsed">
+          <div class="nav-sub-header" onclick="toggleSubSection(this)">
+            <span class="nav-arrow">▶</span> <span class="sub-label">26W19 (5/4-5/10)</span> <span class="nav-sub-count">83</span>
+          </div>
+          <div class="nav-sub-items">
+            <a href="20260510-AI日报.html" class="nav-item" data-file="20260510-AI日报.html" data-title="2026-05-10 AI日报" onclick='loadDoc("20260510-AI日报.html",this);return false;'><span class="item-title">05-10 周日</span><span class="item-count">25</span></a>
+<a href="20260509-AI日报.html" class="nav-item" data-file="20260509-AI日报.html" data-title="2026-05-09 AI日报" onclick='loadDoc("20260509-AI日报.html",this);return false;'><span class="item-title">05-09 周六</span><span class="item-count">28</span></a>
+<a href="20260508-AI日报.html" class="nav-item" data-file="20260508-AI日报.html" data-title="2026-05-08 AI日报" onclick='loadDoc("20260508-AI日报.html",this);return false;'><span class="item-title">05-08 周五</span><span class="item-count">30</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-header" onclick="toggleSection(this)">
+        <span class="nav-arrow">▶</span> 📑 笔记 Slides <span class="nav-count">4</span>
+      </div>
+      <div class="nav-items">
+        <a href="20260605-Slides-AI幻觉识别与问题倒推法.html" class="nav-item" data-file="20260605-Slides-AI幻觉识别与问题倒推法.html" data-title="2026-06-05 Slides-AI幻觉识别与问题倒推法" onclick='window.open("20260605-Slides-AI幻觉识别与问题倒推法.html","_blank");return false;'><span class="item-date">2026-06-05</span><span class="item-title">Slides-AI幻觉识别与问题倒推法</span> <span class="ext-icon" title="全屏打开">↗</span></a>
+<a href="20260528-Slides-Meta-Reels-Creative-Playbook-精华总结.html" class="nav-item" data-file="20260528-Slides-Meta-Reels-Creative-Playbook-精华总结.html" data-title="2026-05-28 Slides-Meta-Reels-Creative-Playbook-精华总结" onclick='window.open("20260528-Slides-Meta-Reels-Creative-Playbook-精华总结.html","_blank");return false;'><span class="item-date">2026-05-28</span><span class="item-title">Slides-Meta-Reels-Creative-Playbook-精华总结</span> <span class="ext-icon" title="全屏打开">↗</span></a>
+<a href="20260513-Slides-欧洲流量劫持法规调研.html" class="nav-item" data-file="20260513-Slides-欧洲流量劫持法规调研.html" data-title="2026-05-13 Slides-欧洲流量劫持法规调研" onclick='window.open("20260513-Slides-欧洲流量劫持法规调研.html","_blank");return false;'><span class="item-date">2026-05-13</span><span class="item-title">Slides-欧洲流量劫持法规调研</span> <span class="ext-icon" title="全屏打开">↗</span></a>
+<a href="20260512-Slides-夙愿学长：半个月，烧了500美金，我终于把OpenClaw折腾成了真干活的AI员工.html" class="nav-item" data-file="20260512-Slides-夙愿学长：半个月，烧了500美金，我终于把OpenClaw折腾成了真干活的AI员工.html" data-title="2026-05-12 Slides-夙愿学长：半个月，烧了500美金，我终于把OpenClaw折腾成了真干活的AI员工" onclick='window.open("20260512-Slides-夙愿学长：半个月，烧了500美金，我终于把OpenClaw折腾成了真干活的AI员工.html","_blank");return false;'><span class="item-date">2026-05-12</span><span class="item-title">Slides-夙愿学长：半个月，烧了500美金，我终于把OpenClaw折腾成了真干活的AI员工</span> <span class="ext-icon" title="全屏打开">↗</span></a>
+      </div>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-header" onclick="toggleSection(this)">
+        <span class="nav-arrow">▶</span> 📄 其他文档 <span class="nav-count">9</span>
+      </div>
+      <div class="nav-items">
+        <a href="20260622-graphify-dark-xiaoba-capability.html" class="nav-item" data-file="20260622-graphify-dark-xiaoba-capability.html" data-title="2026-06-22 graphify-dark-xiaoba-capability" onclick='loadDoc("20260622-graphify-dark-xiaoba-capability.html",this);return false;'><span class="item-date">2026-06-22</span><span class="item-title">graphify-dark-xiaoba-capability</span></a>
+<a href="20260603-小八能力矩阵架构图.html" class="nav-item" data-file="20260603-小八能力矩阵架构图.html" data-title="2026-06-03 小八能力矩阵架构图" onclick='loadDoc("20260603-小八能力矩阵架构图.html",this);return false;'><span class="item-date">2026-06-03</span><span class="item-title">小八能力矩阵架构图</span></a>
+<a href="20260603-裸眼3D营销视频-AI生成方案调研.html" class="nav-item" data-file="20260603-裸眼3D营销视频-AI生成方案调研.html" data-title="2026-06-03 裸眼3D营销视频-AI生成方案调研" onclick='loadDoc("20260603-裸眼3D营销视频-AI生成方案调研.html",this);return false;'><span class="item-date">2026-06-03</span><span class="item-title">裸眼3D营销视频-AI生成方案调研</span></a>
+<a href="20260526-card-xiaohongshu-nexus-reading-notes.html" class="nav-item" data-file="20260526-card-xiaohongshu-nexus-reading-notes.html" data-title="2026-05-26 card-xiaohongshu-nexus-reading-notes" onclick='loadDoc("20260526-card-xiaohongshu-nexus-reading-notes.html",this);return false;'><span class="item-date">2026-05-26</span><span class="item-title">card-xiaohongshu-nexus-reading-notes</span></a>
+<a href="20260518-docs-page-html-anything安装方案.html" class="nav-item" data-file="20260518-docs-page-html-anything安装方案.html" data-title="2026-05-18 docs-page-html-anything安装方案" onclick='loadDoc("20260518-docs-page-html-anything安装方案.html",this);return false;'><span class="item-date">2026-05-18</span><span class="item-title">docs-page-html-anything安装方案</span></a>
+<a href="20260515-html-anything安装方案.html" class="nav-item" data-file="20260515-html-anything安装方案.html" data-title="2026-05-15 html-anything安装方案" onclick='loadDoc("20260515-html-anything安装方案.html",this);return false;'><span class="item-date">2026-05-15</span><span class="item-title">html-anything安装方案</span></a>
+<a href="小红书专区商品总表.html" class="nav-item" data-file="小红书专区商品总表.html" data-title="小红书专区商品总表" onclick='loadDoc("小红书专区商品总表.html",this);return false;'><span class="item-title">小红书专区商品总表</span></a>
+<a href="新浪微博商品总表.html" class="nav-item" data-file="新浪微博商品总表.html" data-title="新浪微博商品总表" onclick='loadDoc("新浪微博商品总表.html",this);return false;'><span class="item-title">新浪微博商品总表</span></a>
+<a href="海外自媒体FB_Ins商品总表.html" class="nav-item" data-file="海外自媒体FB_Ins商品总表.html" data-title="海外自媒体FB_Ins商品总表" onclick='loadDoc("海外自媒体FB_Ins商品总表.html",this);return false;'><span class="item-title">海外自媒体FB_Ins商品总表</span></a>
+      </div>
+    </div>
+  </div>
+  <div class="resize-handle" id="resizeHandle"></div>
+  <div class="content" id="content">
+    <div class="welcome" id="welcome">
+      <div class="icon">📂</div>
+      <div class="text">从左侧选择一篇文档开始阅读</div>
+    </div>
+  </div>
+</div>
+<div class="resize-overlay" id="resizeOverlay"></div>
+<script>
+function toggleSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  const handle = document.getElementById('resizeHandle');
+  sidebar.classList.toggle('hidden');
+  if (sidebar.classList.contains('hidden')) {
+    sidebar.style.width = '';
+    sidebar.style.minWidth = '';
+    handle.style.display = 'none';
+  } else {
+    handle.style.display = '';
+  }
+  const btn = document.getElementById('sidebarToggle');
+  btn.title = sidebar.classList.contains('hidden') ? '展开侧边栏' : '收起侧边栏';
+}
+
+function loadDoc(url, el, keyword, hitIndex) {
+  hitIndex = hitIndex || 0;
+  // Remove old active
+  document.querySelectorAll('.nav-item.active').forEach(e => e.classList.remove('active'));
+  if (el) el.classList.add('active');
+  const content = document.getElementById('content');
+  // Remove welcome
+  const w = document.getElementById('welcome');
+  if (w) w.remove();
+  // 问题2：目标页面已在 iframe 中，直接定位不重新加载
+  const old = content.querySelector('iframe');
+  if (keyword && old) {
+    const currentSrc = (old.getAttribute('src') || '').split('#')[0];
+    if (currentSrc === url) {
+      if (window.highlightInCurrentIframe) {
+        highlightInCurrentIframe(keyword, hitIndex);
+      }
+      return;
+    }
+  }
+  // Remove old iframe
+  if (old) old.remove();
+  // Create iframe
+  const iframe = document.createElement('iframe');
+  iframe.src = url;
+  iframe.setAttribute('sandbox', 'allow-same-origin allow-scripts allow-popups');
+  // 搜索定位：onload 后注入高亮滚动脚本
+  if (keyword) {
+    iframe.addEventListener('load', function() {
+      try {
+        const doc = iframe.contentDocument || iframe.contentWindow.document;
+        if (!doc || !doc.body) return;
+        const kw = keyword.toLowerCase();
+        // 找第一个包含关键词的文本节点
+        const walker = doc.createTreeWalker(doc.body, NodeFilter.SHOW_TEXT, null, false);
+        let targetNode = null;
+        let hitCount = 0;
+        while (walker.nextNode()) {
+          if (walker.currentNode.nodeValue.toLowerCase().includes(kw)) {
+            if (hitCount === hitIndex) { targetNode = walker.currentNode; break; }
+            hitCount++;
+          }
+        }
+        if (!targetNode) return;
+        // 用 <mark> 包裹高亮
+        const parent = targetNode.parentNode;
+        if (!parent || parent.nodeName === 'SCRIPT' || parent.nodeName === 'STYLE') return;
+        const text = targetNode.nodeValue;
+        const idx = text.toLowerCase().indexOf(kw);
+        const before = doc.createTextNode(text.slice(0, idx));
+        const mark = doc.createElement('mark');
+        mark.setAttribute('data-search-mark','1');
+        mark.style.cssText = 'background:transparent;color:inherit;outline:2px solid #ff6b35;outline-offset:1px;border-radius:2px;';
+        mark.textContent = text.slice(idx, idx + kw.length);
+        const after = doc.createTextNode(text.slice(idx + kw.length));
+        parent.replaceChild(after, targetNode);
+        parent.insertBefore(mark, after);
+        parent.insertBefore(before, mark);
+        // 滚动到高亮位置
+        mark.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } catch(e) {
+        console.warn('搜索定位失败:', e);
+      }
+    });
+  }
+  content.appendChild(iframe);
+}
+
+function toggleSection(header) {
+  const section = header.parentElement;
+  section.classList.toggle('collapsed');
+}
+
+function toggleSubSection(header) {
+  const section = header.parentElement;
+  section.classList.toggle('collapsed');
+}
+
+// ── Full-text search ──
+(function() {
+  let searchIndex = null;
+  let indexLoading = false;
+  const searchInput = document.getElementById('search');
+  const resultsBox = document.getElementById('searchResults');
+  let debounceTimer = null;
+
+  function ensureIndex(cb) {
+    if (searchIndex) return cb();
+    if (indexLoading) return;
+    indexLoading = true;
+    fetch('search-index.json').then(r => r.json()).then(data => {
+      searchIndex = data;
+      searchIndex.forEach(e => { e._bl = e.b.toLowerCase(); e._tl = e.t.toLowerCase(); });
+      indexLoading = false;
+      cb();
+    }).catch(err => {
+      console.warn('搜索索引加载失败:', err);
+      indexLoading = false;
+    });
+  }
+
+  function escapeHtml(s) {
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  // 返回所有命中位置的 snippet 列表，每条 {snippet, hitIndex}
+  function buildAllSnippets(text, query, contextLen) {
+    const lower = text.toLowerCase();
+    const results = [];
+    let searchFrom = 0;
+    let hitIndex = 0;
+    while (true) {
+      const idx = lower.indexOf(query, searchFrom);
+      if (idx === -1) break;
+      const start = Math.max(0, idx - contextLen);
+      const end = Math.min(text.length, idx + query.length + contextLen);
+      let snippet = '';
+      if (start > 0) snippet += '...';
+      const before = escapeHtml(text.slice(start, idx));
+      const match = escapeHtml(text.slice(idx, idx + query.length));
+      const after = escapeHtml(text.slice(idx + query.length, end));
+      snippet += before + '<mark>' + match + '</mark>' + after;
+      if (end < text.length) snippet += '...';
+      results.push({ snippet, hitIndex });
+      hitIndex++;
+      searchFrom = idx + query.length;
+    }
+    return results;
+  }
+
+  function doSearch(query) {
+    const q = query.toLowerCase().trim();
+    // 输入不足2字时只做侧边栏恢复
+    if (!q || q.length < 2) {
+      filterSidebar('', false);
+      resultsBox.classList.remove('open');
+      return;
+    }
+    ensureIndex(function() {
+      const results = [];
+      for (const entry of searchIndex) {
+        const titleMatch = entry._tl.includes(q);
+        const bodyMatch = entry._bl.includes(q);
+        if (!titleMatch && !bodyMatch) continue;
+
+        if (bodyMatch) {
+          // 每个命中位置作为独立条目
+          const hits = buildAllSnippets(entry.b, q, 50);
+          hits.forEach(({ snippet, hitIndex }) => {
+            results.push({
+              file: entry.f,
+              title: entry.t,
+              date: entry.d,
+              titleMatch: false,
+              bodyMatch: true,
+              snippet: snippet,
+              hitIndex: hitIndex
+            });
+          });
+        } else {
+          // 纯标题匹配，一篇一条
+          results.push({
+            file: entry.f,
+            title: entry.t,
+            date: entry.d,
+            titleMatch: true,
+            bodyMatch: false,
+            snippet: '',
+            hitIndex: 0
+          });
+        }
+        if (results.length >= 50) break;
+      }
+      // 标题匹配优先，同类按日期倒序
+      results.sort((a, b) => {
+        if (a.titleMatch !== b.titleMatch) return a.titleMatch ? -1 : 1;
+        if (a.file !== b.file) return b.date.localeCompare(a.date);
+        return a.hitIndex - b.hitIndex;
+      });
+      // 有正文结果 → 侧边栏不过滤
+      const hasBodyResults = results.some(r => r.bodyMatch && !r.titleMatch);
+      filterSidebar(q, hasBodyResults || results.length > 0);
+      renderResults(results, q);
+    });
+  }
+
+  function renderResults(results, query) {
+    if (results.length === 0) {
+      resultsBox.innerHTML = '<div class="sr-empty">未找到匹配内容</div>';
+      resultsBox.classList.add('open');
+      return;
+    }
+    const titleHits = results.filter(r => r.titleMatch).length;
+    const bodyHits = results.filter(r => r.bodyMatch && !r.titleMatch).length;
+    const fileSet = new Set(results.map(r => r.file));
+    let hint = '找到 ' + results.length + ' 处匹配（共 ' + fileSet.size + ' 篇）';
+    if (titleHits > 0 && bodyHits > 0) hint += '，其中 ' + titleHits + ' 处标题，' + bodyHits + ' 处正文';
+    let html = '<div class="sr-hint">' + escapeHtml(hint) + '</div>';
+    for (const r of results) {
+      const badge = r.titleMatch
+        ? '<span class="sr-badge">标题</span>'
+        : '<span class="sr-badge" style="background:#ff9500">正文</span>';
+      const dateStr = r.date ? '<span class="sr-date">' + escapeHtml(r.date) + '</span>' : '';
+      const snippet = r.snippet ? '<div class="sr-snippet">' + r.snippet + '</div>' : '';
+      html += '<div class="sr-item" data-file="' + escapeHtml(r.file) + '" data-hit="' + r.hitIndex + '">' +
+        '<div class="sr-title">' + badge + escapeHtml(r.title) + dateStr + '</div>' +
+        snippet + '</div>';
+    }
+    resultsBox.innerHTML = html;
+    resultsBox.scrollTop = 0;
+    resultsBox.classList.add('open');
+    resultsBox.querySelectorAll('.sr-item').forEach(el => {
+      el.addEventListener('click', function() {
+        const file = this.getAttribute('data-file');
+        const hitIndex = parseInt(this.getAttribute('data-hit') || '0', 10);
+        const navItem = document.querySelector('.nav-item[data-file="' + file + '"]');
+        if (navItem) {
+          let parent = navItem.closest('.nav-sub-section');
+          if (parent) parent.classList.remove('collapsed');
+          parent = navItem.closest('.nav-section');
+          if (parent) parent.classList.remove('collapsed');
+          if (navItem.querySelector('.ext-icon')) {
+            window.open(file, '_blank');
+          } else {
+            loadDoc(file, navItem, query, hitIndex);
+          }
+        } else {
+          loadDoc(file, null, query, hitIndex);
+        }
+        resultsBox.classList.remove('open');
+        searchInput.blur();
+      });
+    });
+  }
+
+  function filterSidebar(q, hasFulltextResults) {
+    // 有正文搜索结果时侧边栏不过滤，保留完整目录
+    if (hasFulltextResults) {
+      document.querySelectorAll('.nav-item').forEach(el => { el.style.display = ''; });
+      document.querySelectorAll('.nav-section, .nav-sub-section').forEach(el => { el.style.display = ''; });
+      return;
+    }
+    // 纯标题过滤
+    document.querySelectorAll('.nav-item').forEach(el => {
+      const text = el.getAttribute('data-title').toLowerCase();
+      el.style.display = text.includes(q) || !q ? '' : 'none';
+    });
+    document.querySelectorAll('.nav-section').forEach(sec => {
+      const hasVisible = Array.from(sec.querySelectorAll('.nav-item')).some(el => el.style.display !== 'none');
+      sec.style.display = hasVisible || !q ? '' : 'none';
+      if (q && hasVisible) sec.classList.remove('collapsed');
+    });
+    document.querySelectorAll('.nav-sub-section').forEach(sub => {
+      const hasVisible = Array.from(sub.querySelectorAll('.nav-item')).some(el => el.style.display !== 'none');
+      sub.style.display = hasVisible || !q ? '' : 'none';
+      if (q && hasVisible) sub.classList.remove('collapsed');
+    });
+  }
+
+  const clearBtn = document.getElementById('searchClear');
+
+  // 清除 iframe 内所有 mark 高亮
+  function clearIframeHighlights() {
+    const iframe = document.querySelector('#content iframe');
+    if (!iframe) return;
+    try {
+      const doc = iframe.contentDocument || iframe.contentWindow.document;
+      if (!doc) return;
+      doc.querySelectorAll('mark[data-search-mark]').forEach(mark => {
+        const parent = mark.parentNode;
+        parent.replaceChild(doc.createTextNode(mark.textContent), mark);
+        parent.normalize();
+      });
+    } catch(e) {}
+  }
+
+  // 在已加载的 iframe 内直接定位高亮，不重新加载
+  window.highlightInCurrentIframe = function(keyword, hitIndex) {
+    hitIndex = hitIndex || 0;
+    const iframe = document.querySelector('#content iframe');
+    if (!iframe) return false;
+    try {
+      const doc = iframe.contentDocument || iframe.contentWindow.document;
+      if (!doc || !doc.body) return false;
+      // 先清掉旧的高亮
+      doc.querySelectorAll('mark[data-search-mark]').forEach(mark => {
+        const parent = mark.parentNode;
+        parent.replaceChild(doc.createTextNode(mark.textContent), mark);
+        parent.normalize();
+      });
+      const kw = keyword.toLowerCase();
+      const walker = doc.createTreeWalker(doc.body, NodeFilter.SHOW_TEXT, null, false);
+      let targetNode = null;
+      let hitCount = 0;
+      while (walker.nextNode()) {
+        if (walker.currentNode.nodeValue.toLowerCase().includes(kw)) {
+          if (hitCount === hitIndex) { targetNode = walker.currentNode; break; }
+          hitCount++;
+        }
+      }
+      if (!targetNode) return false;
+      const parent = targetNode.parentNode;
+      if (!parent || parent.nodeName === 'SCRIPT' || parent.nodeName === 'STYLE') return false;
+      const text = targetNode.nodeValue;
+      const idx = text.toLowerCase().indexOf(kw);
+      const before = doc.createTextNode(text.slice(0, idx));
+      const mark = doc.createElement('mark');
+      mark.setAttribute('data-search-mark', '1');
+        mark.style.cssText = 'background:transparent;color:inherit;outline:2px solid #ff6b35;outline-offset:1px;border-radius:2px;';
+      mark.textContent = text.slice(idx, idx + kw.length);
+      const after = doc.createTextNode(text.slice(idx + kw.length));
+      parent.replaceChild(after, targetNode);
+      parent.insertBefore(mark, after);
+      parent.insertBefore(before, mark);
+      mark.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return true;
+    } catch(e) {
+      return false;
+    }
+  }
+
+  // 清空搜索
+  function clearSearch() {
+    searchInput.value = '';
+    resultsBox.classList.remove('open');
+    clearBtn.classList.remove('show');
+    filterSidebar('', false);
+    clearIframeHighlights();
+  }
+
+  clearBtn.addEventListener('click', clearSearch);
+
+  // 输入监听
+  searchInput.addEventListener('input', function() {
+    clearTimeout(debounceTimer);
+    clearBtn.classList.toggle('show', this.value.length > 0);
+    debounceTimer = setTimeout(() => doSearch(this.value), 300);
+  });
+
+  // 问题1：focus 时如果有值，重新触发下拉
+  searchInput.addEventListener('focus', function() {
+    if (this.value.trim().length >= 2) {
+      doSearch(this.value);
+    }
+  });
+
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.search-box')) {
+      resultsBox.classList.remove('open');
+    }
+  });
+
+  searchInput.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      resultsBox.classList.remove('open');
+      this.blur();
+    }
+  });
+})();
+
+// Sidebar resize
+(function() {
+  const sidebar = document.getElementById('sidebar');
+  const handle = document.getElementById('resizeHandle');
+  const overlay = document.getElementById('resizeOverlay');
+  let startX, startW;
+  handle.addEventListener('mousedown', function(e) {
+    e.preventDefault();
+    startX = e.clientX;
+    startW = sidebar.offsetWidth;
+    sidebar.classList.add('resizing');
+    handle.classList.add('active');
+    overlay.style.display = 'block';
+    document.addEventListener('mousemove', onMove);
+    document.addEventListener('mouseup', onUp);
+  });
+  function onMove(e) {
+    const diff = e.clientX - startX;
+    const newW = Math.max(260, Math.min(500, startW + diff));
+    sidebar.style.width = newW + 'px';
+    sidebar.style.minWidth = newW + 'px';
+  }
+  function onUp() {
+    sidebar.classList.remove('resizing');
+    handle.classList.remove('active');
+    overlay.style.display = 'none';
+    document.removeEventListener('mousemove', onMove);
+    document.removeEventListener('mouseup', onUp);
+  }
+})();
+
+// Tooltip: only show title when text is truncated
+(function() {
+  document.querySelectorAll('.nav-item').forEach(el => {
+    el.addEventListener('mouseenter', function() {
+      const titleSpan = this.querySelector('.item-title');
+      if (titleSpan && titleSpan.scrollWidth > titleSpan.clientWidth) {
+        this.setAttribute('title', this.getAttribute('data-title') || '');
+      } else {
+        this.removeAttribute('title');
+      }
+    });
+  });
+})();
+
+// Auto-load first non-slides item
+(function() {
+  const first = document.querySelector('.nav-section:not([data-cat="slides"]) .nav-item');
+  if (first) {
+    const url = first.getAttribute('data-file');
+    if (url) loadDoc(url, first);
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>🤖 AI 日报</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background: #060814;
+    color: #e8eaf0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    min-height: 100vh;
+    display: flex; justify-content: center;
+}
+
+a { color: #9ecca0; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.main-wrap {
+    width: 100%;
+    max-width: 860px;
+    padding: 48px 40px 80px;
+}
+
+.hero {
+    padding-bottom: 36px;
+    margin-bottom: 36px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.hero-vol { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; color: #30d498; margin-bottom: 10px; }
+.hero-title { font-size: 38px; font-weight: 800; line-height: 1.15; color: #fff; margin-bottom: 10px; }
+.hero-date { font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 16px; }
+.hero-stats { display: flex; gap: 28px; }
+.stat-item { display: flex; flex-direction: column; gap: 2px; }
+.stat-num { font-size: 22px; font-weight: 700; color: #fff; }
+.stat-label { font-size: 11px; color: rgba(255,255,255,0.35); letter-spacing: 0.08em; text-transform: uppercase; }
+
+.section { margin-bottom: 40px; }
+.section-head {
+    display: flex; align-items: baseline; gap: 12px;
+    margin-bottom: 16px; padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.section-num { font-size: 28px; font-weight: 800; color: #30d498; line-height: 1; }
+.section-title { font-size: 18px; font-weight: 700; color: #fff; }
+.section-count {
+    margin-left: auto; font-size: 12px; font-weight: 600; color: #6ea0ff;
+    background: rgba(110,160,255,0.12); padding: 2px 10px; border-radius: 20px;
+}
+
+.card {
+    background: rgba(255,255,255,0.025);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 10px; padding: 16px 20px; margin-bottom: 10px;
+    transition: border-color 0.2s, background 0.2s;
+}
+.card:hover { border-color: rgba(48,212,152,0.25); background: rgba(48,212,152,0.03); }
+
+.card-title {
+    font-size: 15px; font-weight: 700; color: #fff;
+    margin-bottom: 8px; line-height: 1.5;
+}
+.card-title a { color: inherit; }
+.card-title a:hover { color: #30d498; text-decoration: none; }
+
+.card-summary {
+    font-size: 14px; color: rgba(255,255,255,0.55);
+    line-height: 1.8;
+}
+.card-summary p { margin-bottom: 6px; }
+.card-summary p:last-child { margin-bottom: 0; }
+
+.card-meta { margin-top: 10px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.source-tag {
+    font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.45);
+    background: rgba(255,255,255,0.06); padding: 2px 8px; border-radius: 4px;
+    white-space: nowrap;
+}
+.source-text { font-size: 11px; color: rgba(255,255,255,0.3); }
+
+pre { background: rgba(0,0,0,0.4); border-radius: 8px; padding: 16px; overflow-x: auto; font-size: 13px; }
+code { font-family: "SF Mono", Consolas, monospace; font-size: 0.88em; }
+p code { background: rgba(48,212,152,0.1); color: #7ed8a6; padding: 1px 6px; border-radius: 4px; }
+
+.footer {
+    text-align: center; font-size: 12px; color: rgba(255,255,255,0.2);
+    padding: 30px 0 20px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .main-wrap { padding: 28px 20px 60px; }
+    .hero-title { font-size: 26px; }
+}
+</style>
+</head>
+<body>
+
+<div class="main-wrap">
+    <div class="hero">
+        <div class="hero-vol">VOL.20261015</div>
+        <h1 class="hero-title">🤖 AI 日报</h1>
+        <div class="hero-date">2026年10月15日 · 星期四 · 6 个板块 · 16 条内容</div>
+        <div class="hero-stats">
+            <div class="stat-item"><span class="stat-num">16</span><span class="stat-label">条内容</span></div>
+            <div class="stat-item"><span class="stat-num">6</span><span class="stat-label">个板块</span></div>
+        </div>
+    </div>
+
+    <div class="section"><div class="section-head"><span class="section-num">01</span><span class="section-title">⚡ 精选快讯</span><span class="section-count">4 条</span></div>
+<div class="card">
+  <div class="card-title"><a href="https://www.theverge.com/policy/1011417/new-york-ag-characterai-bankruptcy" target="_blank">40 位总检察长介入 Character.AI 破产案，要求保护用户对话数据</a></div>
+  <div class="card-summary"></div>
+  <div class="card-meta"><span class="source-tag">The Verge</span><span class="source-text">AI（RSS）</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://x.com/arena/status/2110465487914295770" target="_blank">Meta 的 Muse Wonder (Max) 以 +6.4% 净提升进入 Agent Arena 第12名</a></div>
+  <div class="card-summary"></div>
+  <div class="card-meta"><span class="source-tag">X</span><span class="source-text">Arena (@arena)</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://www.anthropic.com/news/singapore-office-opening" target="_blank">Anthropic 开设新加坡办公室并与新加坡政府签署 MOU</a></div>
+  <div class="card-summary"></div>
+  <div class="card-meta"><span class="source-tag">Anthropic</span><span class="source-text">Newsroom（网页）</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://vllm.ai/blog/2026-10-14-adaptive-verification-online-estimator" target="_blank">vLLM 推出无需置信头的在线拟合接受估计器，让 EAGLE、MTP 等草稿模型可用 Adaptive Verification</a></div>
+  <div class="card-summary"></div>
+  <div class="card-meta"><span class="source-tag">vLLM 官方博客（RSS）</span></div>
+</div></div><div class="section"><div class="section-head"><span class="section-num">02</span><span class="section-title">模型发布/更新</span><span class="section-count">1 条</span></div>
+<div class="card">
+  <div class="card-title"><a href="https://x.com/GeminiApp/status/2110491358498865638" target="_blank">Gemini 4 Argon 向全球 Google AI Pro 和 Ultra 订阅者开放</a></div>
+  <div class="card-summary"><p>Gemini 官方宣布 Gemini 4 Argon 已向全球 Google AI Pro 和 Ultra 订阅者开放。该模型此前已在 Gemini 应用中逐步推出，定位为处理复杂任务的前沿模型，更多详情见官方推文线程 https://x.com/GeminiApp/status/2110039322229649783。</p></div>
+  <div class="card-meta"><span class="source-tag">X</span><span class="source-text">Gemini (@GeminiApp)</span></div>
+</div></div><div class="section"><div class="section-head"><span class="section-num">03</span><span class="section-title">产品发布/更新</span><span class="section-count">3 条</span></div>
+<div class="card">
+  <div class="card-title"><a href="https://x.ai/news/grok-voice-3" target="_blank">xAI 发布 Grok Voice 3.0 语音模型</a></div>
+  <div class="card-summary"><p>xAI 发布 speech-to-speech 模型 Grok Voice 3.0，在 Artificial Analysis 的 Speech-to-Speech Index 以 86.9 分排名第一，时延低于一秒。</p></div>
+  <div class="card-meta"><span class="source-tag">xAI</span><span class="source-text">News（网页）</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://research.google/blog/analyzing-technical-documents-with-deep-review/" target="_blank">Google 发布智能体审稿系统 Deep Review，支持多领域技术文档审查</a></div>
+  <div class="card-summary"><p>Google 公开发布智能体审阅系统 Deep Review，可对复杂技术文档提供反馈与验证，最初面向计算机科学论文，现已扩展到法律、金融等领域。</p></div>
+  <div class="card-meta"><span class="source-tag">Google Research</span><span class="source-text">Blog（网页）</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://lovable.dev/blog/introducing-growth-tools" target="_blank">Lovable 推出增长工具，从同一聊天窗口帮你获客投广告和做 SEO</a></div>
+  <div class="card-summary"><p>Lovable 推出增长工具，在原有建应用聊天窗口中提供增长计划、广告投放和 SEO 能力。用户设定目标后，Lovable 依据应用上下文生成可执行计划；可连接 Google Ads 和 Meta 账号在 Google。</p></div>
+  <div class="card-meta"><span class="source-tag">Lovable Blog</span></div>
+</div></div><div class="section"><div class="section-head"><span class="section-num">04</span><span class="section-title">行业动态</span><span class="section-count">2 条</span></div>
+<div class="card">
+  <div class="card-title"><a href="https://modal.com/blog/1-billion-annualized-run-rate-series-d" target="_blank">Modal 年化收入突破 10 亿美元并完成 7.5 亿美元 D 轮融资</a></div>
+  <div class="card-summary"><p>Modal 宣布年化收入突破 10 亿美元，并完成 7.5 亿美元 D 轮融资，投后估值 157.5 亿美元，由 Accel 领投，Kleiner Perkins 及现有投资方跟投。</p></div>
+  <div class="card-meta"><span class="source-tag">Modal 官方工程博客（RSS）</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://www.ithome.com/1/013/154.htm" target="_blank">欧盟就模型越狱事件调查 OpenAI 和 Anthropic，最高可罚全球营业额 3%</a></div>
+  <div class="card-summary"><p>欧盟委员会人工智能办公室正式向 OpenAI 和 Anthropic 发出信息调取请求，调查两家公司前沿模型测试期间的模型越狱及入侵外部真实系统事件，这是《人工智能法案》实施以来对前沿实验室安全事故的首次重要执法考验。</p></div>
+  <div class="card-meta"><span class="source-tag">IT之家·人工智能</span></div>
+</div></div><div class="section"><div class="section-head"><span class="section-num">05</span><span class="section-title">论文研究</span><span class="section-count">2 条</span></div>
+<div class="card">
+  <div class="card-title"><a href="https://embracethered.com/blog/posts/2026/visual-studio-copilot-remote-code-execution/" target="_blank">Visual Studio Copilot 与 SSMS 远程代码执行漏洞（CVE-2026-103572）技术分析</a></div>
+  <div class="card-summary"><p>Johann Rehberger 披露 Visual Studio Copilot 与 SQL Server Management Studio 中的远程代码执行漏洞 CVE-2026-103572，根因是利用文件名末尾多加一个点绕过路径校验，写入 .mcp. 或 settings.VisualStudio. 等受保护配置文件，实现任意命令执行。</p></div>
+  <div class="card-meta"><span class="source-tag">Johann Rehberger / Embrace The Red（RSS）</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://news.mit.edu/2026/researchers-improve-weather-forecasts-looking-two-six-weeks-out-1014" target="_blank">MIT团队用机器学习修正误差，将两到六周天气预报准确率翻倍</a></div>
+  <div class="card-summary"><p>MIT研究人员团队在Nature发表论文，提出一个机器学习后处理层，通过从历史数据中学习现有预报模型的错误并修正其输出，将两周到六周范围的预报准确率翻倍。该模型在ECMWF的季节间预报竞赛中获第一名，首次在该时间范围内稳定超过气候学平均值，并显著改善洪水、寒潮等极端天气事件的预测；模型开源、低成本、可附加于任意预报模型，肯尼亚气象部门已接洽用于改进季风季预报。</p></div>
+  <div class="card-meta"><span class="source-tag">MIT News（RSS）</span></div>
+</div></div><div class="section"><div class="section-head"><span class="section-num">06</span><span class="section-title">技巧与观点</span><span class="section-count">4 条</span></div>
+<div class="card">
+  <div class="card-title"><a href="https://x.com/lydiahallie/status/2110484841926152622" target="_blank">Claude Code 空闲压缩从摘要继续，可用 idleCompaction 关闭并自定义阈值</a></div>
+  <div class="card-summary"><p>Claude Code 的空闲压缩会让 Claude 从摘要而非完整上下文继续。作者说明可在 settings. 中设置 "idleCompaction": false 关闭，并通过 CLAUDE_CODE_IDLE_COMPACT_MIN_TOKENS 自定义阈值，默认为 200k。</p></div>
+  <div class="card-meta"><span class="source-tag">X</span><span class="source-text">Lydia Hallie（Anthropic，Claude Code） (@lydiahallie)</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://www.youtube.com/shorts/nJMwXtD56mA" target="_blank">Claude Code 云端会话介绍，支持手机发起和并行运行</a></div>
+  <div class="card-summary"><p>Claude 介绍 Claude Code 的云端会话功能，会话在云上独立虚拟机中运行，不在本地电脑上，可离开后继续、用手机发起并多个并行。文中说明如何连接 GitHub、配置环境、启动会话和查看结果，功能面向 Pro、Max、Team 套餐及带高级席位的 Enterprise 用户，与本地会话共同计入套餐限额，无单独计算费用。</p></div>
+  <div class="card-meta"><span class="source-tag">Claude</span><span class="source-text">YouTube（RSS）</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://developers.openai.com/blog/maintaining-software-with-the-gpt-6-family" target="_blank">OpenAI 团队分享如何用 GPT-6 系列模型维护大型代码库</a></div>
+  <div class="card-summary"><p>OpenAI Core Experimentation 团队发文介绍用 GPT-6 Astra 和 GPT-6.1 Sol 配合 Codex 做代码维护，包括清理无用代码和陈旧实验、修复 flaky 测试等。</p></div>
+  <div class="card-meta"><span class="source-tag">OpenAI Developers</span><span class="source-text">Blog（网页）</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://www.langchain.com/blog/context-engineering-deep-agents-remember" target="_blank">LangChain 详解 Deep Agents 的上下文工程：如何记住信息而不塞满上下文窗口</a></div>
+  <div class="card-summary"><p>LangChain 发布博客，介绍其开源 Agent 框架 Deep Agents 如何用 middleware 做上下文工程，应对长任务中的 context rot。</p></div>
+  <div class="card-meta"><span class="source-tag">LangChain</span><span class="source-text">Blog（RSS）</span></div>
+</div></div>
+
+    <div class="footer">AI 日报 · 自动生成</div>
+</div>
+
+</body>
+</html>

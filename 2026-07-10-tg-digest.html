@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>TG 频道日报</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background: #060814;
+    color: #e8eaf0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    min-height: 100vh;
+    display: flex; justify-content: center;
+}
+
+a { color: #6ea0ff; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.main-wrap {
+    width: 100%;
+    max-width: 860px;
+    padding: 48px 40px 80px;
+}
+
+.hero {
+    padding-bottom: 36px;
+    margin-bottom: 36px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.hero-vol { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; color: #6ea0ff; margin-bottom: 10px; }
+.hero-title { font-size: 38px; font-weight: 800; line-height: 1.15; color: #fff; margin-bottom: 10px; }
+.hero-date { font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 16px; }
+.hero-stats { display: flex; gap: 28px; }
+.stat-item { display: flex; flex-direction: column; gap: 2px; }
+.stat-num { font-size: 22px; font-weight: 700; color: #fff; }
+.stat-label { font-size: 11px; color: rgba(255,255,255,0.35); letter-spacing: 0.08em; text-transform: uppercase; }
+
+.section { margin-bottom: 40px; }
+.section-head {
+    display: flex; align-items: baseline; gap: 16px;
+    margin-bottom: 20px; padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.section-num { font-size: 28px; font-weight: 800; color: rgba(255,255,255,0.25); line-height: 1; }
+.section-title { font-size: 17px; font-weight: 700; color: #fff; }
+.section-count {
+    margin-left: auto; font-size: 11px; font-weight: 600; color: #6ea0ff;
+    background: rgba(110,160,255,0.12); padding: 2px 8px; border-radius: 20px;
+}
+
+.card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 12px; padding: 18px 22px; margin-bottom: 12px;
+    transition: border-color 0.2s, background 0.2s;
+}
+.card:hover { border-color: rgba(110,160,255,0.3); background: rgba(110,160,255,0.04); }
+
+.card-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.channel-tag {
+    font-size: 12px; font-weight: 600; color: #fff;
+    background: rgba(110,160,255,0.25); padding: 2px 8px; border-radius: 20px; white-space: nowrap;
+}
+.time-tag { font-size: 12px; color: rgba(255,255,255,0.35); }
+
+.card-title {
+    font-size: 15px; font-weight: 700; color: #fff;
+    margin-bottom: 8px; line-height: 1.5;
+}
+.card-title a { color: inherit; }
+.card-title a:hover { color: #6ea0ff; text-decoration: none; }
+
+.card-summary {
+    font-size: 14px; color: rgba(255,255,255,0.6);
+    line-height: 1.8;
+}
+.card-summary p { margin-bottom: 6px; }
+.card-summary p:last-child { margin-bottom: 0; }
+
+.card-footer {
+    margin-top: 10px; display: flex; align-items: center;
+    gap: 12px; flex-wrap: wrap;
+}
+.source-link { font-size: 12px; color: rgba(255,255,255,0.35); }
+.source-link::before { content: "🔗 "; }
+.channel-links { margin-left: auto; font-size: 11px; color: rgba(255,255,255,0.25); }
+.channel-links a { color: rgba(255,255,255,0.3); margin-right: 6px; }
+.channel-links a:hover { color: #6ea0ff; }
+
+.brief-text { font-size: 15px; color: rgba(255,255,255,0.75); line-height: 1.7; }
+
+pre { background: rgba(0,0,0,0.4); border-radius: 8px; padding: 16px; overflow-x: auto; font-size: 13px; }
+code { font-family: "SF Mono", Consolas, monospace; font-size: 0.88em; }
+p code { background: rgba(110,160,255,0.1); color: #9ec5ff; padding: 1px 6px; border-radius: 4px; }
+
+.footer {
+    text-align: center; font-size: 12px; color: rgba(255,255,255,0.2);
+    padding: 30px 0 20px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .main-wrap { padding: 28px 20px 60px; }
+    .hero-title { font-size: 26px; }
+}
+</style>
+</head>
+<body>
+
+<div class="main-wrap">
+    <div class="hero">
+        <div class="hero-vol">VOL.20260710</div>
+        <h1 class="hero-title">TG 频道日报</h1>
+        <div class="hero-date">2026年07月10日 · 星期五 · 4 个频道 · 18 条内容</div>
+        <div class="hero-stats">
+            <div class="stat-item"><span class="stat-num">18</span><span class="stat-label">条内容</span></div>
+            <div class="stat-item"><span class="stat-num">4</span><span class="stat-label">个频道</span></div>
+        </div>
+    </div>
+
+    <div class="section"><div class="section-head"><span class="section-num">01</span><span class="section-title">TG 频道精选</span><span class="section-count">18 条</span></div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@text1024</span>
+    <span class="time-tag">00:03</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/text1024/24110)" target="_blank">这一波ai 创业 应用层 国内团队目前好像只有 liblib manus genspark 跑的还不错，目前团队在国内的只有liblib 这么难吗</a></div>
+  <div class="card-summary"><hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/text1024/24110)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/text1024/24110">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">01:15</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/42440)" target="_blank">🤖 **OpenAI 发布 GPT-Live 语音模型，支持全双工实时对话**</a></div>
+  <div class="card-summary"><p>OpenAI 发布新一代语音模型 GPT-Live，采用全双工架构实现边说边听的实时对话，即日起向全球 ChatGPT 用户推出。该模型可同步处理输入与输出，能在对话中自然回应、允许用户随时打断或停顿，并会在后台调用 GPT-5.5 完成搜索与深度推理等复杂任务。</p>
+<p>GPT-Live 分为 GPT-Live-1 与 GPT-Live-1 mini 两个版本，将分别成为付费与免费用户的 ChatGPT Voice 默认模型。新版本还增加了天气、股票等视觉卡片展示，并针对背景噪音与倾听体验做了优化，但目前不支持视频或屏幕共享语音。</p>
+<p><a href="https://openai.com/index/introducing-gpt-live/">OpenAI</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/42440)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihuachat">茶馆水群</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/42440">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">02:05</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/42441)" target="_blank">🤖 **SpaceXAI 与 Cursor 联合发布 Grok 4.5，专注编码、法律和金融服务等任务**</a></div>
+  <div class="card-summary"><p>SpaceXAI 与 Cursor 联合发布新一代 AI 模型 Grok 4.5，这是 SpaceX 以 600 亿美元收购 Cursor 后双方推出的首个联合模型。Grok 4.5 在 Harvey 法律代理基准测试中排名第一，专注编码、法律和金融服务等高难度专业任务，同时强化了网络安全能力。</p>
+<p>模型以 80 TPS 速度运行，token 效率达到同类领先模型的两倍，价格定为每百万输入 tokens 2 美元、输出 6 美元。现已上线 Grok Build、Cursor 各付费计划及 API，并集成 Word、PowerPoint、Excel 插件。EU 地区预计 7 月中旬可用。</p>
+<p><a href="https://x.ai/news/grok-4-5">Xai</a> | <a href="https://www.bloomberg.com/news/articles/2026-07-08/spacexai-cursor-unveil-grok-ai-model-for-legal-finance-tasks">Bloomberg</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/42441)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihuachat">茶馆水群</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/42441">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">11:16</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/42445)" target="_blank">🍏 **三星显示停止屏幕研发，苹果 Vision Air 头显项目宣告烂尾**</a></div>
+  <div class="card-summary"><p>三星显示已取消为苹果 Vision Air 头显供应显示面板的开发项目，标志着该产品正式烂尾。这款被称为 G-VR 的面板基于 OLEDoS 技术改进，PPI 约 1600 至 1700，仅为 Vision Pro 3386 PPI 的一半，原本旨在大幅降低成本，计划 2028 年后量产。</p>
+<p>苹果首款头显 Vision Pro 上市后销量持续遇冷。国行定价近 3 万元，机身笨重，应用生态匮乏，续航仅约 2 小时，难以支撑生产力工具的实际价值。最终苹果削减产量、撤下广告，并解散研发团队，将战略重心全面转向 AI 智能眼镜领域。</p>
+<p><a href="https://finance.sina.com.cn/stock/t/2026-07-09/doc-inihczpn4610103.shtml">新浪财经</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/42445)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihuachat">茶馆水群</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/42445">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">12:30</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/42447)" target="_blank">**蚂蚁灵波开源 LingBot-Video，全球首个 MoE 具身视频基模**</a></div>
+  <div class="card-summary"><p>蚂蚁灵波开源了全球首个基于 MoE 架构的具身智能视频生成基础模型 LingBot-Video。该模型总参数 30B，生成时仅激活约 3B，推理效率约为同等规模 Dense 架构的 3 倍。在面向机器人操作视频的评测基准 RBench 上，LingBot-Video 总分 0.620，超越 Wan2.6、Seedance1.5 Pro 和 Cosmos3 Super 等模型。</p>
+<p>LingBot-Video 从架构、数据和训练三方面进行了创新：采用 DiT+MoE 设计平衡容量与成本；构建包含 7 万小时具身数据的画像引擎，覆盖灵巧操作、机器人移动和第一视角交互等场景；引入多维强化学习奖励系统，除美学和运动一致性外，重点关注物理合理性和任务完成度。模型可用于机器人动作预测、仿真数据生成和世界模型研究等方向，目前已以 Apache 2.0 许可证在 GitHub 开源。</p>
+<p><a href="https://www.qbitai.com/2026/07/446458.html">量子位</a> | <a href="https://technology.robbyant.com/lingbot-video">蚂蚁灵波官网</a> | <a href="https://github.com/robbyant/lingbot-video">GitHub</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/42447)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihuachat">茶馆水群</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/42447">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">14:30</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/42452)" target="_blank">🍏 **iPhone 18 Pro Max 成本大涨近 300 美元，2nm 芯片与内存成主因**</a></div>
+  <div class="card-summary"><p>预计 9 月发布的 iPhone 18 Pro Max（12 GB+1 TB 版本）硬件成本较上一代大涨近 300 美元（约 2043 元人民币）。即使苹果将零售价平均上调约 200 美元（约 1362 元人民币），其毛利率预计仍将略低于 iPhone 17 Pro Max。</p>
+<p>成本上涨主要由内存和处理器推动。受 AI 服务器需求挤压产能影响，256 GB NAND 闪存成本涨幅达 80% 至 90%，存储在整机成本中占比已升至 20% 以上；同时，台积电 2nm 工艺的 A20 Pro 芯片单颗成本高达约 280 美元（约 1907 元人民币），较上一代近乎翻倍。苹果预计采取分容量差异化定价，基础款起售价可能维持 9999 元，但大容量版本售价面临上调。</p>
+<p><a href="https://finance.eastmoney.com/a/202607093799830752.html">东方财富网</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/42452)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihuachat">茶馆水群</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/42452">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">15:00</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/42453)" target="_blank">**国家超算互联网核心节点郑州上线，提供超 10 万卡国产算力**</a></div>
+  <div class="card-summary"><p>7 月 9 日，2026 河南省人工智能大会在郑州举行，国家超算互联网核心节点于当日正式上线运行。该节点可对外提供超过 10 万卡的国产人工智能算力，是国家超算互联网平台上线以来接入的最大规模单体国产 AI 算力资源池。</p>
+<p>该项目以构建覆盖全国的计算资源统筹调度体系为目标，承担运营管理、资源调度等核心功能，同时整合供需对接、产业孵化等综合服务。</p>
+<p><a href="https://36kr.com/newsflashes/3887797387344387">36氪</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/42453)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihuachat">茶馆水群</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/42453">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">20:37</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/42458)" target="_blank">📱 **Meta 自研 AI 芯片 9 月投产，明年算力翻倍**</a></div>
+  <div class="card-summary"><p>Meta 计划从今年 9 月开始量产自研 AI 芯片"Iris"。该芯片属于 Meta 训练与推理加速器（MTIA）四代项目，由博通协助设计、台积电制造，旨在降低对英伟达和 AMD 等外部供应商的依赖。测试仅用了六周，未发现重大问题。</p>
+<p>内部备忘录还显示，Meta 今年计划部署 7 吉瓦计算基础设施，2027 年将翻倍至 14 吉瓦。公司预计今年在 AI 基础设施上投入高达 1450 亿美元，并已与三星、闪迪和住友电工等签订长期供应协议，以保障内存、闪存和光纤设备供应。</p>
+<p><a href="https://www.reuters.com/world/asia-pacific/meta-put-ai-chip-into-production-september-it-looks-double-computing-capacity-2026-07-09/">Reuters</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/42458)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihuachat">茶馆水群</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/42458">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">21:22</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/42459)" target="_blank">🤖 **OpenAI 发布国家安全原则，禁止用于自主武器和大规模监控**，**加强美国盟友合作**</a></div>
+  <div class="card-summary"><p>OpenAI 公布了其国家安全原则，对外说明公司在政府合作与国家安全领域的技术使用立场。原则明确列出了几项硬性限制：不得将 OpenAI 技术用于大规模国内监控、不得用于指挥自主武器系统、不得用于高风险自动化决策。</p>
+<p>OpenAI 同时披露，近期已在网络安全和生物安全等防御领域扩大与美国及盟友的合作，包括通过 Daybreak 网络防御计划与澳大利亚、加拿大、日本、韩国、法国、德国、波兰、荷兰及欧盟机构建立合作。OpenAI 表示，支持通过立法为军事领域的高风险 AI 应用设立保障措施。</p>
+<p><a href="https://openai.com/index/government-national-security-partnerships/">OpenAI</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/42459)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihuachat">茶馆水群</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/42459">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">22:17</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/42460)" target="_blank">**星巴克用 AI 自研替代微软 IBM**</a></div>
+  <div class="card-summary"><p>星巴克正加速推进内部软件自研，计划借助 AI 提升开发效率，并逐步替代部分长期采购的软件，包括微软库存追踪系统、IBM 设备维护工具和甲骨文 Simphony POS 系统。部分替代软件最快明年底完成测试并投入使用。</p>
+<p>降本是主要原因。星巴克每年软件支出约 4 亿美元，正推进总额 20 亿美元成本削减计划；截至今年 9 月底的财年，企业技术部门预计节省约 3000 万美元，其中约 1000 万美元来自软件采购。</p>
+<p><a href="https://wallstreetcn.com/articles/3776584">华尔街见闻</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/42460)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihuachat">茶馆水群</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/42460">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">23:13</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/21950)" target="_blank">我靠这个虽然是传闻但信息量有点大，看着玩吧</a></div>
+  <div class="card-summary"><ul>
+<li>
+<p>GPT5.6 是 5 系最后一代，再见了，海外已经进入下一个超越 4T 的阶段</p>
+</li>
+<li>
+<p>GPT6 马上就来了，规模更大，对标 Fable 5.1</p>
+</li>
+<li>
+<p>GPT6 和 Fable 5.1 未来几周就回来，下半年是全新一代预训练模型的大战了</p>
+</li>
+<li>
+<p>DeepSeek 即将发布 V4 GA，对标 GLM 5.2</p>
+</li>
+<li>
+<p>DeepSeek 正在开发下一代更大的模型，估计也是 2T+</p>
+</li>
+<li>
+<p>MiniMax 正在开发下一代 2.7T 的 MiniMax Pro 模型</p>
+</li>
+</ul>
+<p>国产模型也都要进入 2T+新架构时代了</p>
+<p>原文</p>
+<p>🚨 SCOOP(s):</p>
+<ul>
+<li>
+<p>GPT-5.6 will be the final model in the 5.x series. GPT-6 is slated to launch in about a month, earlier than expected, and possibly even later this month</p>
+</li>
+<li>
+<p>GPT-6 will be based on a new, significantly larger pretrain (versus the ~4T 5.5/5.6 'Spud' base)</p>
+</li>
+<li>
+<p>There is lots of excitement at OpenAI over this new base, which they believe will be much better able to compete with both Fable 5 and upcoming 5.1, targeting a similar release window. OpenAI initially intended to continue with Spud through GPT-6, but decided against it</p>
+</li>
+<li>
+<p>On the topic of Fable 5.1, it is in the late stages of the pipeline at Anthropic and a release is expected "in the coming weeks"</p>
+</li>
+<li>
+<p>On the other side of the globe, DeepSeek are preparing for an imminent launch of V4 GA, which seems likely to be on par with or better than GLM-5.2, and have begun work on a new, larger model that will compete with the upcoming 2.7T MiniMax Pro</p>
+</li>
+</ul>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/21950)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/21950">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">23:13</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/21951)" target="_blank">马斯克的 Grok 发了新模型</a></div>
+  <div class="card-summary"><p>刚刚Meta 也发了新模型</p>
+<p>马上，OpenAI 也要发新模型</p>
+<p>都说自己比肩Claude Opus 4.8</p>
+<p>还说在部分能力上超过，且便宜</p>
+<p>我靠，你们国外大厂也太卷了吧</p>
+<p>可以理解，毕竟可以随意蒸馏 Claude</p>
+<p>另外，谷歌大哥，谷歌你到底在干什么🤔</p>
+<p>说真的，我感觉，不需要更多平庸的模型了</p>
+<p>我需要 1000 token/s 速度，且输出只要 1 美元/百万 token 的模型，智力达到 Opus 4.6 就可以了</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/21951)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/21951">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">23:14</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/21952)" target="_blank">GPT 5.6 明天要来了</a></div>
+  <div class="card-summary"><p>从海外内测的风评来看，GPT5.6 是 GPT 5.5 的全面升级版本，价格也一样，预计会是个很成功的模型</p>
+<p>但是，大多数内测者都说 GPT5.6和 Fable 这种质变的感觉不太一样，在各方面都会差一点点</p>
+<p>2倍高价的 Fable 依然是智能的巅峰</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/21952)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/21952">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">23:24</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/81528)" target="_blank">小红书对待员工（任人唯亲）真的那么差吗？</a></div>
+  <div class="card-summary"><p>看这里说，像陈浩一样被恶意辞退的人不少</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/81528)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/81528">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">23:27</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/42462)" target="_blank">🤖 **Claude 推出 Reflect 功能，可回顾过去一年的使用情况**</a></div>
+  <div class="card-summary"><p>Anthropic 推出 Reflect 测试版，可在 Claude 网页版和桌面端的设置中生成使用报告，回顾过去 1、3、6 或 12 个月的聊天活动。报告会总结常用主题、使用时段和任务类型，并提供暂停提醒、免打扰时段等设置。该功能目前面向已开启 Memory 的 Free、Pro 和 Max 用户，隐身聊天、连接工具中的原始文件及健康工具相关对话不会纳入分析。</p>
+<p><a href="https://www.anthropic.com/news/reflect-with-claude">Anthropic</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/42462)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihuachat">茶馆水群</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/42462">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">23:38</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/81530)" target="_blank">2000块，可以做一个自己的服装品牌。</a></div>
+  <div class="card-summary"><p>但是得剑走偏锋了</p>
+<p>第一步。</p>
+<p>先注册公司。</p>
+<p>实际上现在大部分城市注册个体户接近不要钱。</p>
+<p>嫌麻烦可以找代办，基本三五百就能搞定。</p>
+<p>甚至很多园区免费送。</p>
+<p>所以这一步。</p>
+<p>预算：500元。</p>
+<p>第二步。</p>
+<p>注册商标。</p>
+<p>自己申请商标。</p>
+<p>第25类服装类目。</p>
+<p>网上申请官方收费270元。</p>
+<p>找代理机构。</p>
+<p>通常800到1500元。</p>
+<p>取中间值。</p>
+<p>算1000元。</p>
+<p>然后来到最关键的问。</p>
+<p>做什么产品。</p>
+<p>2000块预算。</p>
+<p>请忘掉工厂、打版、定制、开发这些词。</p>
+<p>实际上穷鬼品牌应该从销售开始。</p>
+<p>先卖出去。</p>
+<p>再设计。</p>
+<p>所以先买净版T恤。</p>
+<p>1688随便找</p>
+<p>220克重,纯棉,宽松版。</p>
+<p>二三十块一件。</p>
+<p>先买20件。</p>
+<p>按30块算。</p>
+<p>600元。</p>
+<p>然后开始搞图案。</p>
+<p>这一步如果放在五年前。</p>
+<p>可能最贵。</p>
+<p>现在反而最便宜。</p>
+<p>AI一天能给你画八百张。</p>
+<p>你会用提示词。</p>
+<p>成本接近零。</p>
+<p>就算不会用。</p>
+<p>花个50块找人生成。</p>
+<p>也够了。</p>
+<p>接下来是丝网印花。</p>
+<p>这是真正的穷鬼神器。</p>
+<p>最低几十块就能开一个版，贵一点的两三百也绰绰有余了。</p>
+<p>颜色越少越便宜。</p>
+<p>图案越简单越便宜。</p>
+<p>算300元。</p>
+<p>卖一件印一件。</p>
+<p>卖十件印十件。</p>
+<p>卖不出去。</p>
+<p>连油墨都不用浪费。</p>
+<p>然后是吊牌。</p>
+<p>现在淘宝一搜。</p>
+<p>500张吊牌。</p>
+<p>100块左右。</p>
+<p>绳子都给你穿好。</p>
+<p>水洗唛。</p>
+<p>500张。</p>
+<p>几十块到一百多块。</p>
+<p>算100元。</p>
+<p>包装袋。</p>
+<p>印Logo确实贵。</p>
+<p>但你第一批货可能都卖不到100件。</p>
+<p>没必要装大企业。</p>
+<p>直接买牛皮纸袋。</p>
+<p>或者磨砂袋。</p>
+<p>100个。</p>
+<p>100元左右。</p>
+<p>此时再算一次账。</p>
+<p>公司：500元。</p>
+<p>商标：1000元。</p>
+<p>净版T：600元。</p>
+<p>丝网印花开版：300元。</p>
+<p>吊牌：100元。</p>
+<p>水洗唛：100元。</p>
+<p>包装：100元。</p>
+<p>合计：2700元。</p>
+<p>你已经拥有：</p>
+<p>品牌名、商标、吊牌、包装、水洗唛。</p>
+<p>甚至还能一本正经告诉别人：</p>
+<p>“这是我们第一季产品。”</p>
+<p>是不是听起来有点魔幻？</p>
+<p>但现实就是这样。</p>
+<p>我见过富二代留学生，花二十万开发产品，最后一件卖不掉。</p>
+<p>也见过有人拿一件白T，印一句破文案，能卖出几万件。</p>
+<p>衣服本身没有那么重要。</p>
+<p>为什么别人非买你的不可。</p>
+<p>服装行业的魅力就在这里。</p>
+<p>它可能是中国门槛最低的行业之一。</p>
+<p>也是中国死亡率最高的行业之一。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/81530)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/81530">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">23:38</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/81531)" target="_blank">这几天短视频和红书集中爆发一个流行词「散帅」，对应「集美」，许多网友批量晒“新时期独立男性语录”，基本都是性转的那套，再搭配勇敢小羊BGM，看的十分欢乐，且流量非常大，</a></div>
+  <div class="card-summary"><p>这里多是支持点赞，说着肉麻的鼓励留言，连“我们男孩子就是棒”都来了[允悲]</p>
+<p>要知道，过去的男性网友连这类自我鼓励的朋友圈都不敢乱发的，因为稍表露真情实感，肯定引来一堆损友嘲讽。你在社媒感叹人生如履薄冰，第二天就喜获“薄冰哥”外号，</p>
+<p>但现在气氛完全不一样了，经过一系列事件洗礼，居然哥们之间也开始互相鼓励打气，</p>
+<p>甚至出现了“83散帅节”，和共享荣誉的所谓鸭汤，这在以前是无法想象的。</p>
+<p>这种场面非常诡异和有趣，我不认为是魔法对轰，因为多数女性网友看了同样觉得搞笑和可爱，并不觉得被冒犯。</p>
+<p>这有趣的互联网啊，总是如此回合制循环往复。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/81531)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/81531">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">23:39</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/81537)" target="_blank">小红书🏆世界杯期间我们小店的投诉、仅退款（拆了）、恶意占库存单量翻了十倍都不止。¯\\_(ツ)_/¯</a></div>
+  <div class="card-summary"><hr />
+<!-- 已过滤 2 条重复内容（@inside1024: 2） --></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/81537)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/81537">查看原文</a></div></div>
+</div></div>
+
+    <div class="footer">TG 频道日报 · 自动生成</div>
+</div>
+
+</body>
+</html>

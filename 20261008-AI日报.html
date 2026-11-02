@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>🤖 AI 日报</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background: #060814;
+    color: #e8eaf0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    min-height: 100vh;
+    display: flex; justify-content: center;
+}
+
+a { color: #9ecca0; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.main-wrap {
+    width: 100%;
+    max-width: 860px;
+    padding: 48px 40px 80px;
+}
+
+.hero {
+    padding-bottom: 36px;
+    margin-bottom: 36px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.hero-vol { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; color: #30d498; margin-bottom: 10px; }
+.hero-title { font-size: 38px; font-weight: 800; line-height: 1.15; color: #fff; margin-bottom: 10px; }
+.hero-date { font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 16px; }
+.hero-stats { display: flex; gap: 28px; }
+.stat-item { display: flex; flex-direction: column; gap: 2px; }
+.stat-num { font-size: 22px; font-weight: 700; color: #fff; }
+.stat-label { font-size: 11px; color: rgba(255,255,255,0.35); letter-spacing: 0.08em; text-transform: uppercase; }
+
+.section { margin-bottom: 40px; }
+.section-head {
+    display: flex; align-items: baseline; gap: 12px;
+    margin-bottom: 16px; padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.section-num { font-size: 28px; font-weight: 800; color: #30d498; line-height: 1; }
+.section-title { font-size: 18px; font-weight: 700; color: #fff; }
+.section-count {
+    margin-left: auto; font-size: 12px; font-weight: 600; color: #6ea0ff;
+    background: rgba(110,160,255,0.12); padding: 2px 10px; border-radius: 20px;
+}
+
+.card {
+    background: rgba(255,255,255,0.025);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 10px; padding: 16px 20px; margin-bottom: 10px;
+    transition: border-color 0.2s, background 0.2s;
+}
+.card:hover { border-color: rgba(48,212,152,0.25); background: rgba(48,212,152,0.03); }
+
+.card-title {
+    font-size: 15px; font-weight: 700; color: #fff;
+    margin-bottom: 8px; line-height: 1.5;
+}
+.card-title a { color: inherit; }
+.card-title a:hover { color: #30d498; text-decoration: none; }
+
+.card-summary {
+    font-size: 14px; color: rgba(255,255,255,0.55);
+    line-height: 1.8;
+}
+.card-summary p { margin-bottom: 6px; }
+.card-summary p:last-child { margin-bottom: 0; }
+
+.card-meta { margin-top: 10px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.source-tag {
+    font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.45);
+    background: rgba(255,255,255,0.06); padding: 2px 8px; border-radius: 4px;
+    white-space: nowrap;
+}
+.source-text { font-size: 11px; color: rgba(255,255,255,0.3); }
+
+pre { background: rgba(0,0,0,0.4); border-radius: 8px; padding: 16px; overflow-x: auto; font-size: 13px; }
+code { font-family: "SF Mono", Consolas, monospace; font-size: 0.88em; }
+p code { background: rgba(48,212,152,0.1); color: #7ed8a6; padding: 1px 6px; border-radius: 4px; }
+
+.footer {
+    text-align: center; font-size: 12px; color: rgba(255,255,255,0.2);
+    padding: 30px 0 20px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .main-wrap { padding: 28px 20px 60px; }
+    .hero-title { font-size: 26px; }
+}
+</style>
+</head>
+<body>
+
+<div class="main-wrap">
+    <div class="hero">
+        <div class="hero-vol">VOL.20261008</div>
+        <h1 class="hero-title">🤖 AI 日报</h1>
+        <div class="hero-date">2026年10月08日 · 星期四 · 6 个板块 · 22 条内容</div>
+        <div class="hero-stats">
+            <div class="stat-item"><span class="stat-num">22</span><span class="stat-label">条内容</span></div>
+            <div class="stat-item"><span class="stat-num">6</span><span class="stat-label">个板块</span></div>
+        </div>
+    </div>
+
+    <div class="section"><div class="section-head"><span class="section-num">01</span><span class="section-title">⚡ 精选快讯</span><span class="section-count">10 条</span></div>
+<div class="card">
+  <div class="card-title"><a href="https://huggingface.co/blog/nvidia/nemotron-ioi-and-imo-2026" target="_blank">Nemotron 系列微调后达到 IOI 2026 与 IMO 2026 金牌水平</a></div>
+  <div class="card-summary"></div>
+  <div class="card-meta"><span class="source-tag">Hugging Face 社区博客（混合发现）</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://www.llamaindex.ai/blog/introducing-opendocrouter" target="_blank">LlamaIndex 发布 OpenDocRouter：一个 API 统一调用多种文档解析模型</a></div>
+  <div class="card-summary"></div>
+  <div class="card-meta"><span class="source-tag">LlamaIndex</span><span class="source-text">产品、工程与评测</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://x.com/AravSrinivas/status/2107871834205196784" target="_blank">Perplexity 开源 pplx-embed-v2-late 多模态 late-interaction 嵌入模型（9B 与 0.6B）</a></div>
+  <div class="card-summary"></div>
+  <div class="card-meta"><span class="source-tag">X</span><span class="source-text">Aravind Srinivas（Perplexity CEO） (@AravSrinivas)</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://x.com/UnslothAI/status/2107868866361930236" target="_blank">Unsloth 开源教程：本地训练 Qwen3.5 0.8B 决策模型，准确率从 20.7% 提升至 74.3%</a></div>
+  <div class="card-summary"></div>
+  <div class="card-meta"><span class="source-tag">X</span><span class="source-text">Unsloth (@UnslothAI)</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://vllm.ai/blog/2026-10-07-deepseek-v41-flash" target="_blank">vLLM 详解 DeepSeek-V4.1-Flash 优化：Agent 场景吞吐提升 5 倍</a></div>
+  <div class="card-summary"></div>
+  <div class="card-meta"><span class="source-tag">vLLM 官方博客（RSS）</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://www.langchain.com/blog/revamping-skills-in-deep-agents" target="_blank">LangChain 重构 Deep Agents 的 Skills 支持，新增工具绑定、固定技能与线程内重载</a></div>
+  <div class="card-summary"></div>
+  <div class="card-meta"><span class="source-tag">LangChain</span><span class="source-text">Blog（RSS）</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://www.liquid.ai/blog/d1-open" target="_blank">Liquid AI 发布开源决策模型 d1-3B 和 d1-omni-600M</a></div>
+  <div class="card-summary"></div>
+  <div class="card-meta"><span class="source-tag">Liquid AI 模型与工程博客（网页）</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://hai.stanford.edu/news/want-employees-to-embrace-ai-stop-selling-it-as-a-productivity-tool" target="_blank">Stanford HAI 研究：想让员工拥抱 AI，别把它包装成效率工具</a></div>
+  <div class="card-summary"></div>
+  <div class="card-meta"><span class="source-tag">Stanford HAI News（网页）</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://developers.googleblog.com/supercharge-your-development-with-the-google-developer-knowledge-api-ecosystem/" target="_blank">Google 发布 Developer Knowledge API 生态，为 AI 智能体提供官方文档检索</a></div>
+  <div class="card-summary"></div>
+  <div class="card-meta"><span class="source-tag">Google Developers Blog（RSS）</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://www.promptarmor.com/resources/what-is-webmcp" target="_blank">PromptArmor 解析 WebMCP 的机制与主要安全风险</a></div>
+  <div class="card-summary"></div>
+  <div class="card-meta"><span class="source-tag">PromptArmor</span><span class="source-text">Threat Intelligence</span></div>
+</div></div><div class="section"><div class="section-head"><span class="section-num">02</span><span class="section-title">模型发布/更新</span><span class="section-count">1 条</span></div>
+<div class="card">
+  <div class="card-title"><a href="https://www.anthropic.com/claude-haiku-5-5" target="_blank">Anthropic 发布 Claude Haiku 5.5，运行成本平均降低约 75%</a></div>
+  <div class="card-summary"><p>Anthropic 发布 Claude Haiku 5.5，定位为迄今最便宜、最快的小模型，适合摘要、压缩、数据库查询、分类等高吞吐任务，并可搭配 Opus 5.5 和 Sonnet 5.5 担任编码子智能体。</p></div>
+  <div class="card-meta"><span class="source-tag">Anthropic</span><span class="source-text">Newsroom（网页）</span></div>
+</div></div><div class="section"><div class="section-head"><span class="section-num">03</span><span class="section-title">产品发布/更新</span><span class="section-count">6 条</span></div>
+<div class="card">
+  <div class="card-title"><a href="https://openai.com/index/gpt-6-for-everyone/" target="_blank">OpenAI 向全部 ChatGPT 用户推出 GPT-6 与 Intelligent UI</a></div>
+  <div class="card-summary"><p>OpenAI 发布面向更广泛用户的 GPT-6，并随 GPT-6 在 ChatGPT 中引入 Intelligent UI，可生成图形、按钮、表单、图表和可交互组件来回答问题。</p></div>
+  <div class="card-meta"><span class="source-tag">OpenAI</span><span class="source-text">官网动态（RSS · 排除企业/客户案例）</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://x.com/ClaudeDevs/status/2107895957933408429" target="_blank">Anthropic 为 Claude Max 和 Team 套餐推出月度 Platform API 额度</a></div>
+  <div class="card-summary"><p>Anthropic 正在为 Claude Max 和 Team 套餐推出月度 Claude Platform API 额度：Max 5x 为 $100，Max 20x 为 $200，Team 最多 $500 且可共享。额度适用于任何模型，包括 Haiku 5.5，可在自己的代码或第三方 harness 中使用。</p></div>
+  <div class="card-meta"><span class="source-tag">X</span><span class="source-text">Claude Devs (@ClaudeDevs)</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://x.com/thsottiaux/status/2107574912349303197" target="_blank">OpenAI Decisions API 公测上线</a></div>
+  <div class="card-summary"><p>OpenAI 推出 Decisions API 公开测试版，向所有开发者开放，可让应用在接近实时的速度下选择合适的模型、工具或动作。官方称其决策速度最高比通过 Responses API 的 GPT-6 Luna 快 10 倍，作者表示团队将自用该 API 以多种方式改进体验。</p></div>
+  <div class="card-meta"><span class="source-tag">X</span><span class="source-text">Tibo (@thsottiaux)</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.293" target="_blank">Claude Code v2.1.293 发布：新增 Claude Haiku 5.5 并修复大量问题</a></div>
+  <div class="card-summary"><p>Claude Code 发布 v2.1.293，新增 Claude Haiku 5.5（claude-haiku-5-5）作为 Anthropic API 默认 Haiku 模型，支持 1M 上下文，价格为 $0.10/$0.50 每百万 token（超 100K 提示为 $0.50/$2.50）。</p></div>
+  <div class="card-meta"><span class="source-tag">Claude Code</span><span class="source-text">GitHub Releases（RSS）</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://blogs.nvidia.com/blog/local-ai-rtx-spark-microsoft-windows-event/" target="_blank">NVIDIA 与 Microsoft 发布 RTX Spark 及 DGX Station for Windows，推动 AI Agent 落地 Windows PC</a></div>
+  <div class="card-summary"><p>NVIDIA 与 Microsoft 在旧金山 Windows AI 和 Surface 活动上宣布为 Windows PC 引入 AI Agent 硬件与软件。</p></div>
+  <div class="card-meta"><span class="source-tag">NVIDIA Blog（RSS）</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://blog.google/innovation-and-ai/technology/ai/playground-experimental-gaming-platform/" target="_blank">Google 推出实验性游戏平台 Playground，用提示词即可创建游戏</a></div>
+  <div class="card-summary"><p>Google 推出实验性游戏平台 Playground，用户通过文本提示词即可创建、游玩和分享自定义游戏，无需编程经验。</p></div>
+  <div class="card-meta"><span class="source-tag">Google Blog</span><span class="source-text">AI（RSS）</span></div>
+</div></div><div class="section"><div class="section-head"><span class="section-num">04</span><span class="section-title">行业动态</span><span class="section-count">1 条</span></div>
+<div class="card">
+  <div class="card-title"><a href="https://www.404media.co/undue-emotional-weight/" target="_blank">亚利桑那州法院裁定 AI 生成受害者视频带有不当情感分量 将重新量刑</a></div>
+  <div class="card-summary"><p>亚利桑那州上诉法院裁定，Gabriel Horcasitas 2021 年路怒枪杀 Christopher Pelkey 一案维持过失杀人定罪，但因量刑听证中播放的 AI 生成受害者视频带有不当情感分量，法官须重新考虑刑期。</p></div>
+  <div class="card-meta"><span class="source-tag">404 Media（RSS）</span></div>
+</div></div><div class="section"><div class="section-head"><span class="section-num">05</span><span class="section-title">论文研究</span><span class="section-count">2 条</span></div>
+<div class="card">
+  <div class="card-title"><a href="https://research.google/blog/does-better-work-always-mean-better-workers/" target="_blank">Google Research 三个月专利起草实验发现AI辅助未必能培养初级律师的专业判断</a></div>
+  <div class="card-summary"><p>Google Research 在 NBER 发表的论文报告了一项三个月随机田野实验，向11家知识产权律所的133名律师随机开放当时未发布的 AI 专利写作助手（现属 Gemini Notebook）。</p></div>
+  <div class="card-meta"><span class="source-tag">Google Research</span><span class="source-text">Blog（网页）</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://www.microsoft.com/en-us/research/blog/agent-lightning-v1-0-a-3500-line-lightweight-agentic-rl-framework-for-training-agents-with-real-harnesses/" target="_blank">Microsoft Research Asia 开源 Agent Lightning v1.0：3,500 行代码的真实 harness 智能体 RL 训练框架</a></div>
+  <div class="card-summary"><p>Microsoft Research Asia 提出 Harnessed Agentic RL 训练范式并开源重建的 Agent Lightning v1.0，让部署时使用的同一 agent harness 直接参与强化学习，无需在训练框架内重写 agent。</p></div>
+  <div class="card-meta"><span class="source-tag">Microsoft Research 博客（RSS）</span></div>
+</div></div><div class="section"><div class="section-head"><span class="section-num">06</span><span class="section-title">技巧与观点</span><span class="section-count">2 条</span></div>
+<div class="card">
+  <div class="card-title"><a href="https://x.com/Google/status/2107836410254291345" target="_blank">Google 开放 SynthID Detector 门户，可检测图片、视频和音频是否由 AI 生成</a></div>
+  <div class="card-summary"><p>Google 介绍检测媒体是否由 AI 生成的方法：访问 https://synthid.com 上传图片、视频或音频文件，门户会扫描文件是否包含来自 Google 或其合作伙伴的 SynthID 水印。</p></div>
+  <div class="card-meta"><span class="source-tag">X</span><span class="source-text">Google (@Google)</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://www.a16z.news/p/why-texas-is-making-data-centers" target="_blank">a16z 解析德州为何让数据中心排队等电</a></div>
+  <div class="card-summary"><p>a16z 的 Ryan McEntush 分析德州电网暂停审批数据中心的原因：并网队列从 2024 年底的 63 GW 激增到今年 6 月的 474 GW，约 90% 是数据中心，开发商大量投机性申请且社区沟通不足。</p></div>
+  <div class="card-meta"><span class="source-tag">a16z</span><span class="source-text">News（RSS）</span></div>
+</div></div>
+
+    <div class="footer">AI 日报 · 自动生成</div>
+</div>
+
+</body>
+</html>

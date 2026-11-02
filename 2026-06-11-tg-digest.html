@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>TG 频道日报</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background: #060814;
+    color: #e8eaf0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    min-height: 100vh;
+    display: flex; justify-content: center;
+}
+
+a { color: #6ea0ff; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.main-wrap {
+    width: 100%;
+    max-width: 860px;
+    padding: 48px 40px 80px;
+}
+
+.hero {
+    padding-bottom: 36px;
+    margin-bottom: 36px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.hero-vol { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; color: #6ea0ff; margin-bottom: 10px; }
+.hero-title { font-size: 38px; font-weight: 800; line-height: 1.15; color: #fff; margin-bottom: 10px; }
+.hero-date { font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 16px; }
+.hero-stats { display: flex; gap: 28px; }
+.stat-item { display: flex; flex-direction: column; gap: 2px; }
+.stat-num { font-size: 22px; font-weight: 700; color: #fff; }
+.stat-label { font-size: 11px; color: rgba(255,255,255,0.35); letter-spacing: 0.08em; text-transform: uppercase; }
+
+.section { margin-bottom: 40px; }
+.section-head {
+    display: flex; align-items: baseline; gap: 16px;
+    margin-bottom: 20px; padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.section-num { font-size: 28px; font-weight: 800; color: rgba(255,255,255,0.25); line-height: 1; }
+.section-title { font-size: 17px; font-weight: 700; color: #fff; }
+.section-count {
+    margin-left: auto; font-size: 11px; font-weight: 600; color: #6ea0ff;
+    background: rgba(110,160,255,0.12); padding: 2px 8px; border-radius: 20px;
+}
+
+.card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 12px; padding: 18px 22px; margin-bottom: 12px;
+    transition: border-color 0.2s, background 0.2s;
+}
+.card:hover { border-color: rgba(110,160,255,0.3); background: rgba(110,160,255,0.04); }
+
+.card-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.channel-tag {
+    font-size: 12px; font-weight: 600; color: #fff;
+    background: rgba(110,160,255,0.25); padding: 2px 8px; border-radius: 20px; white-space: nowrap;
+}
+.time-tag { font-size: 12px; color: rgba(255,255,255,0.35); }
+
+.card-title {
+    font-size: 15px; font-weight: 700; color: #fff;
+    margin-bottom: 8px; line-height: 1.5;
+}
+.card-title a { color: inherit; }
+.card-title a:hover { color: #6ea0ff; text-decoration: none; }
+
+.card-summary {
+    font-size: 14px; color: rgba(255,255,255,0.6);
+    line-height: 1.8;
+}
+.card-summary p { margin-bottom: 6px; }
+.card-summary p:last-child { margin-bottom: 0; }
+
+.card-footer {
+    margin-top: 10px; display: flex; align-items: center;
+    gap: 12px; flex-wrap: wrap;
+}
+.source-link { font-size: 12px; color: rgba(255,255,255,0.35); }
+.source-link::before { content: "🔗 "; }
+.channel-links { margin-left: auto; font-size: 11px; color: rgba(255,255,255,0.25); }
+.channel-links a { color: rgba(255,255,255,0.3); margin-right: 6px; }
+.channel-links a:hover { color: #6ea0ff; }
+
+.brief-text { font-size: 15px; color: rgba(255,255,255,0.75); line-height: 1.7; }
+
+pre { background: rgba(0,0,0,0.4); border-radius: 8px; padding: 16px; overflow-x: auto; font-size: 13px; }
+code { font-family: "SF Mono", Consolas, monospace; font-size: 0.88em; }
+p code { background: rgba(110,160,255,0.1); color: #9ec5ff; padding: 1px 6px; border-radius: 4px; }
+
+.footer {
+    text-align: center; font-size: 12px; color: rgba(255,255,255,0.2);
+    padding: 30px 0 20px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .main-wrap { padding: 28px 20px 60px; }
+    .hero-title { font-size: 26px; }
+}
+</style>
+</head>
+<body>
+
+<div class="main-wrap">
+    <div class="hero">
+        <div class="hero-vol">VOL.20260611</div>
+        <h1 class="hero-title">TG 频道日报</h1>
+        <div class="hero-date">2026年06月11日 · 星期四 · 5 个频道 · 27 条内容</div>
+        <div class="hero-stats">
+            <div class="stat-item"><span class="stat-num">27</span><span class="stat-label">条内容</span></div>
+            <div class="stat-item"><span class="stat-num">5</span><span class="stat-label">个频道</span></div>
+        </div>
+    </div>
+
+    <div class="section"><div class="section-head"><span class="section-num">01</span><span class="section-title">TG 频道精选</span><span class="section-count">27 条</span></div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">01:36</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/21091)" target="_blank">这就是目前业内批量制作视频的工作流： 1. ​提取同行文案，或者让ai写文案，一键改写文案过滤违规词 2.克隆自己的声音和形象，根据文案对口型 3.自动剪辑视频，配音配乐，封面功能 4.四大平台一键自动发布</a></div>
+  <div class="card-summary"><hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/21091)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024">AI探索</a><a href="https://t.me/openclaw1024">Hermes/OpenClaw</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/aigc1024/21091">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">05:59</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/21092)" target="_blank">今天 Claude Fable 5 正式上线，基于 Mythos 的底座，但增加了安全护栏。</a></div>
+  <div class="card-summary"><p>Falbe 5 是 Claude 4.5 以来最重大的模型进步。</p>
+<p>也是当下人类能广泛使用的最好的模型。</p>
+<p>你可以给这个模型更具雄心的大任务，模型会理解并完美地执行，你完全不需要去查看代码。</p>
+<p>刚刚加入 A 社的 Andrej Kapathy 如此评价：</p>
+<p>Free you mind，解放你的思想！</p>
+<p>Fable 5 的模型指标毫无意外的强。</p>
+<p>在几乎所有已测试的AI能力基准中，它均处于顶尖水平，在软件工程、知识工作、视觉识别、科学研究等诸多领域展现出卓越性能。</p>
+<p>任务越复杂、耗时越长，Fable 5相较于其他模型的领先优势就越显著。</p>
+<p>价格方面，Fable 5 自然也是最贵。输入价格 10美金，输出价格 50 美金，缓存输入 1 美金。</p>
+<p>在长文本的情况下，一句就可以花费10美金，大家设置好配额，省着点用。</p>
+<p>Claude Fable 5 将以原价上线到 Cola，供大家体验。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/21092)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/21092">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">07:44</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/21096)" target="_blank">自此，Claude 的产品线完整，整条线都是用艺术作品在命名：</a></div>
+  <div class="card-summary"><p>Haiku — 俳句，极简短小，一瞬即永恒</p>
+<p>Sonnet — 十四行诗，结构严谨，意境深远</p>
+<p>Opus — 拉丁语的作品，特指分量最重的那一部</p>
+<p>Fable — 寓言，故事包裹深意，人人读得懂</p>
+<p>Mythos — 神，宏大叙事，世界观的底座</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/21096)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/21096">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">08:05</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/21099)" target="_blank">Claude Fable 5 的三个很奇葩的地方</a></div>
+  <div class="card-summary"><ol>
+<li>
+<p>虽然目前在 Token Plan 里，但在6月22日之后，Token Plan 就不能用 Fable 了，只能通过 API 调用</p>
+</li>
+<li>
+<p>Fable 的安全护栏有点离谱，任何生物学的基础知识都无法询问，比如「线粒体是什么」这种初中生物的问，想研究生物医药？只能申请 Mythos</p>
+</li>
+<li>
+<p>Fable 禁止被用来做模型相关的研发，官方的理由是模型已经能够加速自身发展，所以竞争对手用 Fable 改进自家模型违反了服务条款。WTF？</p>
+</li>
+</ol>
+<p>这两天美国那边还在吹 Loop，自己打通了 Loop，然后不让其他家进入 Loop，这不是很闭环呐...</p>
+<p>国产开源模型多加油，拯救世界靠你们了。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/21099)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/21099">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@text1024</span>
+    <span class="time-tag">08:44</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/text1024/23512)" target="_blank">[创业手记｜首次公开收入！从开始到加速，已经赚回上月参加AI培训的费用](https://mp.weixin.qq.com/s/RIi2-bWcZimoGkXE-Gx_vg)</a></div>
+  <div class="card-summary"><p>分享普通人是怎么靠自己赚到1000块的。</p>
+<p>最近已经有好几个人跟我说每日必读我的公众号了，真的很开心！</p>
+<p>继去年探索了一段时间个人事业之后，今年又重新二度出发，目前已经看到一些些的机会在萌芽，所以也想把我的经验分享出来，有想自己搞个小事业的朋友可以来交流交流～</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/text1024/23512)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/text1024/23512">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@text1024</span>
+    <span class="time-tag">08:51</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/text1024/23513)" target="_blank">AI对于普通人来说除了娱乐，只有苦逼。</a></div>
+  <div class="card-summary"><p>突然想想时代变化的好夸张啊。</p>
+<p>08年的时候。我的英语老师拿出了他托人在美国买的iPhone，只是觉得很有意思。</p>
+<p>10年iPhone4 发布后，智能手机突然爆发了。12年后诺基亚退出了时代。</p>
+<p>16年支付宝微信收款开始推广，18年纸币基本没了，小偷也没了。</p>
+<p>23年AI出现，到现在似乎只是08年的iPhone手机，大多数只是觉得很好玩。</p>
+<p>不知道AI浪潮到底有多大？？</p>
+<p>看似很美好的时代再进步。</p>
+<p>但我是悲观的。对普通人来说近几年是个苦逼的浪潮。</p>
+<p>智能手机没让我多赚到一分钱，除了娱乐，只有让我下班后依然能当牛马，没了电脑也能办公和开会。加班变得更加方便了。</p>
+<p>AI也是目前来看基本不会让我多赚到什么钱，反而让大部分人短期内没了工作，让一个人工作量变的更大。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/text1024/23513)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/text1024/23513">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">09:17</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/10218)" target="_blank">程序员出海最靠谱的是找个美国的 remote</a></div>
+  <div class="card-summary"><p>工作</p>
+<p>先尝到汇率的甜头</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/10218)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23/10218">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">09:29</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/21102)" target="_blank">自此，Claude 的产品线完整，整条线都是用艺术作品在命名：</a></div>
+  <div class="card-summary"><p>Haiku — 俳句，极简短小，一瞬即永恒</p>
+<p>Sonnet — 十四行诗，结构严谨，意境深远</p>
+<p>Opus — 拉丁语的作品，特指分量最重的那一部</p>
+<p>Fable — 寓言，故事包裹深意，人人读得懂</p>
+<p>Mythos — 神，宏大叙事，世界观的底座</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/21102)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/21102">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@chunse1024</span>
+    <span class="time-tag">09:52</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/chunse1024/10710)" target="_blank">两个小时前，我们Lobehub上线了Claude Fable 5。</a></div>
+  <div class="card-summary"><p>在经过我们初步的测试之后，我们发现这个模型太惊人了。</p>
+<p>Fable 5展示出来的智商有非常大的进步，有着质的变化。</p>
+<p>所以我们觉得这样的模型应该让大家都用到，于是我们决定对前2000名新注册用户提供额外免费的Fable 5使用额度。</p>
+<p>并且针对年费订阅用户，提供最高75折的模型使用优惠。</p>
+<p>如果你想尝试Mythos 5/Fable 5，请来⬇️</p>
+<p>http://lobehub.com</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/chunse1024/10710)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/chunse1024/10710">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">10:12</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/80073)" target="_blank">只讲长期主义，人生最大骗局。</a></div>
+  <div class="card-summary"><p>普通人啊，千万别被精英们忽悠瘸了。</p>
+<p>不管是长期主义，还是无限游戏，更多的是一种心态和处事哲学。</p>
+<p>你要是在现实生活中真这么干就掉沟里了。</p>
+<p>普通人之所以是普通人，就是因为筹码太少。玩不起也输不起。</p>
+<p>开场就拿了一对王的人跟你说要”长期主义”，不是坏就是坏。</p>
+<p>抖音的创始人跟你讲延迟满足。</p>
+<p>你再想想无限游戏最早是哪个互联网大佬说的，你细品。</p>
+<p>所有跟你讲旷野的人，家里可能都有矿。</p>
+<p>自媒体/出海经验/赚美金/运营技巧</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/80073)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/80073">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">10:24</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/80074)" target="_blank">“出片”文化正在蚕食女生的精神世界</a></div>
+  <div class="card-summary"><p>这篇文章我犹豫过一段时间要不要写，毕竟在现在的舆论氛围下很多大V都不写这方面的了，相比指出一些可能会被围攻的问，鸡贼地100%提到女生就是夸夸，当然会收获很多相对安全的流量和粉丝</p>
+<p>但一些念头一直萦绕在我脑子里真的挥之不去不写不快。“出片”真的太费时间精力了，我觉得女生的生活中，在这上面真的花费了太多时间和精力。同时我还看过一个研究，就是女生颜值溢价30岁后才是最高的…</p>
+<p>之前我看过一个情侣拍的旅游视频，镜头里女生画着精致的妆，穿的非常时尚，女生经常会把镜头怼着自己的脸拍，可以说是非常自信，仿佛走在街头的女王…</p>
+<p>但下一个视频就是这对情侣去另一个地方旅游，可能因为起的早，女生没有化妆，整个人跟上一个视频判若两人，我指的是精神气质。她其实五官也没有比化妆后差别太多，但整个人就是戴着帽子低着头，全程都离镜头远远地，不仅不敢像上一个视频那样大方地直视镜头，甚至都不敢看镜头一眼</p>
+<p>我当时就在想，到底这些东西带给女生的，是获得的更多还是失去的更多呢？那个自信爆棚的女王是她自己，还是素颜怯懦的她才是自己？</p>
+<p>还有“一生都要出片的中国女人”这个标签，甚至都火到全世界了。至于为什么我们这么爱出片，我有些原因的总结，但不适合在这里写出来</p>
+<p>我更想说的是后果，是的，我认为一些女生在这方面花了太多太多的时间和精力，要知道，一个人一天的时间只有24小时，如果你一天休息的时间、和朋友聚会的时间、出门旅游的时间，都是为了出片，在出片和修图上花费了太多时间和精力</p>
+<p>那么，你还有多少时间花在其他地方呢？</p>
+<p>我之前经常会在网站上看到一些推送的娱乐明星新闻，其中最让我感到迷惑的一类是某些中年甚至老年明星，发软文的标依然喜欢用“被路人拍到状态如少女一般”、“XXX不老女神”、“XXX70岁高龄饰演少女”…</p>
+<p>我看完就在想，一个人活到了这个年纪，就没有其他人生经历或作品可夸吗？非要用自己的“短板”去硬蹭年轻人的“长板”，是否明智？你让观众选一个真20岁和一个保养的像20岁的，即便再像，观众也肯定选真20岁啊</p>
+<p>而很多普通人和这些明星其实没有区别。上班了在加班上低效内卷，下班了在“展示美貌和年龄”这个赛道上单调内卷</p>
+<p>然后呢？大家一起年龄焦虑，都害怕35岁淘汰，因为总有比你更年轻的年轻人，因为你一直没有把时间放在培养自己的差异化技能</p>
+<p>用什么东西去吸引别人，就会变得无法摆脱它。就像老祖宗说过的，“以色事人者，色衰而爱弛” ，凭借姿色侍奉他人的</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/80074)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/80074">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">11:16</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/21103)" target="_blank">Gen Z 的人生正在被 AI 割裂成四段，每一段都比前一段更残酷。他们从疫情中学会生存，却在现实中被算法碾压。你还在等什么？</a></div>
+  <div class="card-summary"><p>AI 时代的第一波收割，已经开始。</p>
+<p>全球 AI 投资规模在 2023 年突破 1000 亿美元，增速超 40%。但真正能吃上 AI 肉的，只有头部 1% 的企业和 0.1% 的个人。这 0.1% 的人，不是在搞 AI，而是在用 AI 重构整个经济底层逻辑。</p>
+<p>一个 25 岁的算法工程师，用开源模型做了个金融预测工具，月入 5 万。他不是在做 AI，而是在用 AI 重构传统金融的定价体系。而那些还在用 Excel 做风控的银行，已经开始被边缘化。</p>
+<p>AI 不是工具，是新物种。它不按人类逻辑成长，而是指数级迭代，最终会吞噬所有传统行业。你不是在学习 AI，你是在被 AI 重新定义。</p>
+<p>全球套利逻辑正在被 AI 重新洗牌，所有传统赛道都在被重新定价。那些还在用“长期主义”安慰自己的人，已经被 AI 赶出赛道。真正的赢家，是那些能用 AI 看透市场本质的人。</p>
+<p>你还在用“学习 AI”安慰自己？AI 不是学习对象，是生存法则。</p>
+<p>你准备好被 AI 重新定义了吗？（这里告诉我们：你正在被 AI 割裂的哪一段？</p>
+<p>）</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/21103)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024">AI探索</a><a href="https://t.me/openclaw1024">Hermes/OpenClaw</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/aigc1024/21103">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">11:49</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/21104)" target="_blank">再推荐一遍 Dayflow：</a></div>
+  <div class="card-summary"><p>这是一个分钟级的 Mac 设备行为记录方案，能为你的任意 AI 提供你完整的赛博世界上下文。</p>
+<p>简单来说，它就是个不带 Rewind 功能的 Rewind，其他的原理是一样的——低功耗的截图你全天候的 Mac 行为，压缩成小视频发送给一个 AI 做解析，然后返回成文字整理。</p>
+<p>一方面，你可以在 Dayflow 里回顾（包括问答）自己一天都做了什么。</p>
+<p>另一方面，你可以通过 Dayflow 的本地 CLI 导出每日的行为文档喂给你惯用的任何 AI 去做自我蒸馏或作为记忆上下文。</p>
+<p>Dayflow 是开源的，可以付费用它官方的 AI（有点不值），也可以用 Google AI Studio 的免费 API Key，实测 Gemini 3.5 Flash Lite 的记录效果就已经满足精度需求了，而且免费配额足够分析你一天至少 16 个小时的 Mac 行为。</p>
+<p>就最近半年其实有很多硬件去做记录生活给 AI 增加上下文的需求（包括我一直在用的 Looki），但对于大部分社畜来说，我们的大多数日常行为都是在电脑上，因此我觉得 Dayflow 是更好用的工具，但不知道为什么不火。</p>
+<p>项目地址：https://dayflow.so/r/6T3BBL</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/21104)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/21104">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">11:49</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/80078)" target="_blank">用平替词和黑代替审核词，防止平台限流、屏蔽，已经是深入骨髓了。你像快手在小红书花钱投了广告，它还是把自己的名字快手，换成了筷子的筷。 😮‍💨</a></div>
+  <div class="card-summary"><hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/80078)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/80078">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">13:49</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/21106)" target="_blank">期待了几个月的 Mythos5 终于发布了，用起来再配合上 UltraCode 的 Dynamic Workflow Swarm Subagents，简直就跟直接烧钱没什么区别，还好现在不能开 Fast 模式[doge]</a></div>
+  <div class="card-summary"><hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/21106)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/21106">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">15:18</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/21107)" target="_blank">DJI 这个麦克风是真牛逼，从几千万的博主到刚录视频的小白都在用。不到</a></div>
+  <div class="card-summary"><p>200 块就能买一套，还能给 Mac mini 当麦克风给 Typeless 闪电说 AI 语音输入用。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/21107)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024">AI探索</a><a href="https://t.me/openclaw1024">Hermes/OpenClaw</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/aigc1024/21107">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">15:33</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/10223)" target="_blank">一行代码没写，纯 Vibe Coding 重构 AITDK 官网，体感还不错</a></div>
+  <div class="card-summary"><p>过去我比较抗拒 Vibe Coding，总觉得完全交给 AI 会脱离掌控，会变成一堆屎山，风险比较大。所以我一直更倾向于人机协作：Claude Code 主写，我和 Codex 负责 review 和辅助修改。</p>
+<p>最近重构 https://aitdk.com/ 官网，想换一种方式，体验下纯 Vibe Coding，也简单记录下重构过程。</p>
+<p>旧版 AITDK 官网使用 SaaSBold 搭建，网站功能和 UI 基本都是手搓，加载速度和体验不太理想，部署也绑定在 Vercel 上，重构也是希望解决这些痛点。</p>
+<p>一、选型过程</p>
+<p>我不想被平台绑定，核心诉求是一套代码能顺滑部署到 Cloudflare Workers / Vercel / Railway / Dokploy 等平台。</p>
+<ol>
+<li>
+<p>Next.js：过去一直在用，就算搭配 OpenNext 部署到 Cloudflare Workers 效果也不是特别好。</p>
+</li>
+<li>
+<p>Vinext：Cloudflare 基于 Vite 重新实现 Next.js API 的兼容方案，试了一把速度很快，版本一直是 v0.0.x（前两天发布了 v0.1.x 版本），公开可参考的生产案例还不多，稍微有点慌。</p>
+</li>
+<li>
+<p>TanStack：最近很火，全平台部署，很轻量，速度也很快，前几天看到 Lovable 也切到了 TanStack，看着很不错。</p>
+</li>
+</ol>
+<p>整体对比下来 TanStack 最符合，于是开搞，模板选的是 @艾逗笔 新上线的 shipany-tanstack。功能很多，我最钟意的是下面两点：</p>
+<ol>
+<li>
+<p>多平台部署：Cloudflare Workers / Vercel / Railway / Dokploy 等。</p>
+</li>
+<li>
+<p>多数据库支持：PostgreSQL / MySQL / SQLite / D1 / Turso 等。</p>
+</li>
+</ol>
+<p>二、重构过程</p>
+<ol>
+<li>
+<p>使用 /clone-website skill 逐一复刻 aitdk.com 生产环境的各个页面。</p>
+</li>
+<li>
+<p>让 Claude Code 对照源码检查是否有遗漏并进行补齐。这里没有跳过第 1 步直接对照源码重构，主要是因为我担心 AI 偷懒，会沿用旧的代码和结构。</p>
+</li>
+</ol>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/10223)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23/10223">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">15:33</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/10224)" target="_blank">3. 让 Claude Code 重新设计各个页面。先首页，效果满意后再内页，可以给一些案例网站供 AI 参考，自由发挥也可以，有时也会有惊喜。</a></div>
+  <div class="card-summary"><p>整个重构耗时大约一天，主要是第 3 步占用时间比较多，让 Claude Code 设计了很多个版本，从里面选了一个看着最顺眼的。</p>
+<p>新版官网周一就上线了，观察了两天，整体体验和速度还是比较满意的，后面打算把长期维护的项目都用 TanStack 重构了。</p>
+<p>另外如果有需要 shipany-tanstack 的，可以使用优惠码 BLANK 减 $80，相当于 $169 到手 shipany-next/vinext/tanstack 多套模板。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/10224)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23/10224">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">16:29</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/10225)" target="_blank">电商创业的最大机会藏在线下渠道。</a></div>
+  <div class="card-summary"><p>不是因为线下流量更便宜，而是全是免费的曝光。</p>
+<p>如果你没有钱去开店，通过以下这些方式去做资源置换，做电商其实还真花不了几个钱：</p>
+<ol>
+<li>
+<p>服装：摄影工作室，艺术时尚学院，模特经纪MCN。</p>
+</li>
+<li>
+<p>玄学水晶：塔罗师，SPA店，瑜伽馆。</p>
+</li>
+<li>
+<p>宠物用品：猫咖，遛狗线下社群，宠物美容店。</p>
+</li>
+<li>
+<p>美妆：美甲师，婚介所，情感博主。</p>
+</li>
+<li>
+<p>家居：房产经纪，民宿Airbnb，装修设计公司。</p>
+</li>
+</ol>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/10225)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/yunying23/10225">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">16:44</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/21108)" target="_blank">不会向AI提问？看下苏格拉底是怎么提问的</a></div>
+  <div class="card-summary"><p>https://mp.weixin.qq.com/s/RXvhAUjKH_2Wj249OnaPgA</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/21108)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/21108">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">17:34</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/21109)" target="_blank">Fable 5 这个模型的 API 价格是真的不低</a></div>
+  <div class="card-summary"><p>在 Agent 里问一个最简单的 Query</p>
+<p>0.5 美金，一瓶可乐，就瞬间蒸发了...</p>
+<p>反正省着用吧</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/21109)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/21109">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">17:39</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/21111)" target="_blank">顶级任务安排skill，来了。</a></div>
+  <div class="card-summary"><p><strong>Skill名称</strong>：<strong>毛教员任务拆解大师</strong>（Mao-Style Task Breakdown Master）</p>
+<p><strong>适用模型</strong>：Claude（全系列）、o1（opencode）、OpenAI全家桶、任何支持系统提示的模型（openclaw同理）</p>
+<p><strong>使用方法</strong>（超简单）：</p>
+<ol>
+<li>
+<p>把下面整个<strong>系统提示词</strong>复制粘贴到新对的<strong>系统指令/自定义指令</strong>里（Claude用Projects或Custom Instructions，o1用system prompt，OpenAI用Custom GPT）。</p>
+</li>
+<li>
+<p>然后直接对模型说：</p>
+</li>
+</ol>
+<p><strong>“用毛式Skill处理这个任务：【你的简单任务】”</strong></p>
+<p>模型就会自动输出<strong>完整可执行的任务布置提示词</strong>（像毛教员写给胡乔木的那封信一样）。</p>
+<hr />
+<p><strong>你必须死守以下5条铁律（绝对不允许跑偏）：</strong></p>
+<ol>
+<li><strong>任务讲得明明白白</strong></li>
+</ol>
+<p>把原任务拆成最多4件具体事项，每件事都要写清楚：</p>
+<ul>
+<li>
+<p>体裁/格式要求</p>
+</li>
+<li>
+<p>要突出哪些核心要点</p>
+</li>
+<li>
+<p>要达到什么效果</p>
+</li>
+<li>
+<p>避免什么偏差</p>
+</li>
+</ul>
+<p>让拿到的人一看就知道怎么干（OKR式拆解）。</p>
+<ol start="2">
+<li><strong>时间卡得死死的</strong></li>
+</ol>
+<p>给每件事设置：</p>
+<ul>
+<li>
+<p>拟稿截止日期（最近2-3天内）</p>
+</li>
+<li>
+<p>修改/审核节点</p>
+</li>
+<li>
+<p>最终交付/见报/广播/发布节点</p>
+</li>
+</ul>
+<p>像项目里程碑一样排好节奏，杜绝拖延。</p>
+<ol start="3">
+<li><strong>既压活又懂心疼人</strong></li>
+</ol>
+<p>明确认可工作量重，同时说“我来帮你修改最终稿”“记得偷空睡足觉”“别熬夜伤身”，既给压力又给温度。</p>
+<ol start="4">
+<li><strong>主动给资源托底</strong></li>
+</ol>
+<p>主动指出1-3个最有用的参考资料、文章、数据、模板或抓手（如果没有就说“可参考XX公开资料”），让执行者少走弯路。</p>
+<ol start="5">
+<li><strong>放权又兜底</strong></li>
+</ol>
+<p>把核心工作全部交给执行者（充分信任），同时明确“我会给你把关修改最终稿”，既激发主动性，又确保不出方向性错误。</p>
+<p><strong>输出必须严格使用以下固定格式（不允许改动结构，一字不差）</strong>：</p>
+<p><strong>毛教员碎念｜顶级任务布置范本</strong></p>
+<p>▶【任务名称/背景一句】</p>
+<p>▶从现代职场视角，为什么说这封布置是顶级范本：</p>
+<p>1.任务讲得明明白白</p>
+<p>①【事项1】（体裁+要点+效果）</p>
+<p>②【事项2】……</p>
+<p>③【事项3】……</p>
+<p>④【事项4】……</p>
+<ol start="2">
+<li>时间卡得死死的</li>
+</ol>
+<p>①……：【日期】拟好 → 【日期】发出 → 【日期】见报/交付</p>
+<p>②……</p>
+<p>③……</p>
+<ol start="3">
+<li>
+<p>既压活又懂心疼人</p>
+</li>
+<li>
+<p>主动给资源托底</p>
+</li>
+<li>
+<p>放权又兜底</p>
+</li>
+</ol>
+<p><strong>额外赠送：可直接复制给Claude/o1执行的Chain Prompt版</strong></p>
+<p>（把上面拆解内容浓缩成一个给其他AI用的超级详细提示词，带分步执行指令、输出格式要求、检查清单）</p>
+<p><strong>语言风格要求</strong>：</p>
+<ul>
+<li>
+<p>正式、权威、带点革命浪漫主义温度（像领导给亲信写信）</p>
+</li>
+<li>
+<p>全部用中文</p>
+</li>
+<li>
+<p>每条都简洁有力、落地可执行</p>
+</li>
+<li>
+<p>绝不说空、绝不加多余解释</p>
+</li>
+</ul>
+<p>现在开始，只等用户说“用毛式Skill处理这个任务：XXXX”你就立刻输出完整格式。绝不废，直接上范本。</p>
+<hr />
+<p><strong>示范（你可以直接复制测试）</strong>：</p>
+<p>用户输入：用毛式Skill处理这个任务：帮我写一篇LinkedIn帖子推广我的新AI工具</p>
+<p>模型就会立刻吐出像毛教员写给胡乔木那样的一整套<strong>可执行提示词</strong>，你可以直接把“可直接复制给Claude/o1执行的Chain Prompt版”拿去让另一个AI干活，效率拉满。</p>
+<p>这个Skill已按你的要求做成<strong>标准、可复用、跨模型</strong>版本。</p>
+<p>直接复制系统提示词就行，拿去Claude、o1、GPT随便用，绝不会跑偏。</p>
+<p>需要我现在就拿一个简单任务给你现场演示完整输出吗？随时说任务，我立刻按Skill走一遍。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/21111)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024">AI探索</a><a href="https://t.me/openclaw1024">Hermes/OpenClaw</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/aigc1024/21111">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">18:19</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/10226)" target="_blank">🔥《零基础让Claude学会抓取任何网站实时数据从此告别幻觉数据》</a></div>
+  <div class="card-summary"><p>（5分钟设置，10倍提升你的AI能力）</p>
+<p>如果你是AI完全新手，从来没写过程序，却想让AI帮你抓取真实网站数据（找客户、查竞品、看趋势），这篇教程就是为你量身打造的。</p>
+<p>第一部分：准备工作（10分钟，缺一不可）</p>
+<p>工具要求（超简单）：</p>
+<ul>
+<li>
+<p>电脑（Windows/Mac都行）</p>
+</li>
+<li>
+<p>Node.js 20.6 或更高版本（去 http://nodejs.org 下载安装，装完终端输入 <code>node -v</code> 检查）</p>
+</li>
+<li>
+<p>一个免费Apify账号</p>
+</li>
+</ul>
+<p>步骤1：注册Apify并拿密钥</p>
+<ol>
+<li>
+<p>打开浏览器，访问 https://apify.com</p>
+</li>
+<li>
+<p>点击“Sign up”，用邮箱或Google注册（完全免费）</p>
+</li>
+<li>
+<p>登录后，直接点这个链接：https://console.apify.com/account/integrations</p>
+</li>
+<li>
+<p>点击“Create new token” → 随便起名 → 复制那串长长的密钥</p>
+</li>
+</ol>
+<p>步骤2：保存密钥（安全第一）</p>
+<ol>
+<li>
+<p>在电脑新建文件夹，叫“my-ai-project”</p>
+</li>
+<li>
+<p>里面新建文本文件，改名为 <code>.env</code>（前面必须有个点）</p>
+</li>
+<li>
+<p>打开文件，粘贴下面内容（把your_token_here换成你的密钥）：</p>
+</li>
+</ol>
+<pre><code>
+APIFY_TOKEN=your_token_here
+
+</code></pre>
+<ol start="4">
+<li>保存。以后所有项目自动读取这个密钥，千万别把密钥发给别人或写进代码。</li>
+</ol>
+<p>步骤3：全局安装辅助工具</p>
+<p>打开终端（Windows搜cmd，Mac搜Terminal），复制粘贴运行：</p>
+<pre><code>
+npx skills add apify/agent-skills
+
+</code></pre>
+<p>跟着提示安装mcpc CLI（点Yes即可）。这步只做一次。</p>
+<p>第二部分：激活技能（Claude Code专用，2分钟）</p>
+<ol>
+<li>
+<p>打开Claude Code（Anthropic官方终端AI编程助手），进入你的项目聊天窗口</p>
+</li>
+<li>
+<p>输入命令并回车：</p>
+</li>
+</ol>
+<pre><code>
+/plugin marketplace add https://github.com/apify/agent-skills
+
+</code></pre>
+<ol start="3">
+<li>再输入：</li>
+</ol>
+<pre><code>
+/plugin install apify-ultimate-scraper
+
+</code></pre>
+<p>安装成功后，Claude会回复“技能已激活”。</p>
+<p>（如</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/10226)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23/10226">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">18:19</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/10227)" target="_blank">果你用Cursor：在项目根目录新建 `.cursor/settings.json` 文件，按GitHub说明添加相同市场链接即可。其他工具如Gemini CLI自动识别。）</a></div>
+  <div class="card-summary"><p>恭喜！你已经给AI装好了“眼睛”。</p>
+<p>第三部分：实战演练（直接抄命令试试）</p>
+<p>现在直接和Claude聊天，用中文下指令。核心技能叫 apify-ultimate-scraper。</p>
+<p>实战1：找本地商家（销售线索生成）</p>
+<p>输入：</p>
+<p>“用 apify-ultimate-scraper 帮我找北京朝阳区前10个咖啡店，提取店名、地址、电、评分和评论数，保存成CSV文件。”</p>
+<p>Claude会在云端运行爬虫，几秒后给你完整表格。你再让它“帮我分析哪家评分最高”即可。</p>
+<p>实战2：抓YouTube热门视频</p>
+<p>输入：</p>
+<p>“抓取2026年关于AI入门的最热门5个YouTube视频，提取标、频道、观看数、上传日期，用JSON返回。”</p>
+<p>实战3：竞品价格监控</p>
+<p>输入：</p>
+<p>“从亚马逊搜索‘无线耳机’，提取前15个产品的名称、当前价格、评分，输出CSV。”</p>
+<p>实战4：快速预览模式</p>
+<p>想先看结果再决定存文件，就说“快速回答前5条”——节省额度。</p>
+<p>每次Claude都会自动选对技能、运行Actor、返回干净数据。你只需要看结果。</p>
+<p>第四部分：费用、注意事项与安全（新手必知）</p>
+<ul>
+<li>
+<p>费用：Apify免费计划每月$5信用额度（够抓几百条数据）。超出后按结果付费，几毛钱一条。完全够小白练手。</p>
+</li>
+<li>
+<p>安全：密钥只放.env文件，绝不上传GitHub。Apify所有爬虫都在云端跑，不会占用你电脑。</p>
+</li>
+<li>
+<p>法律提醒：只抓公开数据，用于学习或个人分析。不要抓需要登录的私密信息，也不要用于商业骚扰。遵守网站robots.txt规则。</p>
+</li>
+<li>
+<p>Node版本低？升级Node.js即可。</p>
+</li>
+<li>
+<p>报错“token not found”？检查.env文件是否在项目根目录，且名字完全正确。</p>
+</li>
+</ul>
+<p>第五部分：常见问FAQ（直接对照解决）</p>
+<p>Q：Claude说技能没找到？</p>
+<p>A：重新运行一次 /plugin marketplace add 命令。</p>
+<p>Q：数据不全？</p>
+<p>A：把提示写得更具体，比如“只抓公开可见的字段”。</p>
+<p>Q：可以用在其他AI工具吗？</p>
+<p>A：Cursor、Gemini CLI、Codex全支持，方法类似。</p>
+<p>Q：免费额度用完怎么办？</p>
+<p>A：去Apify控制台充值，很便宜。</p>
+<p>第六部分：进阶路径</p>
+<ol>
+<li>
+<p>试试其他技能：apify-lead-generation（专业找客户）、apify-ecommerce（电商价格）。</p>
+</li>
+<li>
+<p>学MCP（Model Context Protocol）：更高级的工具调用方式，让AI直接控制浏览器。</p>
+</li>
+<li>
+<p>结合Claude分析：抓完数据后让它“帮我写一份竞品分析报告”。</p>
+</li>
+<li>
+<p>仓库地址：https://github.com/apify/agent-skills （随时看最新技能）</p>
+</li>
+<li>
+<p>加入Apify Discord社区问问。</p>
+</li>
+</ol>
+<p>恭喜！你刚刚完成了一次真正的AI升级。</p>
+<p>从今天起，Claude不再是只会聊天的朋友，而是能帮你做市场调研、找客户、监控趋势的得力助手。</p>
+<p>这套技能装一次，全局永久可用。每天花5分钟练习，你会发现AI真正改变了你的工作和学习方式。</p>
+<p>快去试第一个实战例子吧！做完把结果截图告诉我，我可以继续教你更酷的玩法（比如自动生成Excel报告）。</p>
+<p>记住：AI的未来属于会给它“眼睛”的人。</p>
+<p>现在，你就是其中之一。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/10227)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/yunying23/10227">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@chunse1024</span>
+    <span class="time-tag">19:58</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/chunse1024/10715)" target="_blank">open design +claude 真的强！</a></div>
+  <div class="card-summary"><p>感谢@-mingyan- 推荐！</p>
+<p>尤其是今天配上新的模型，乱杀！</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/chunse1024/10715)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/chunse1024/10715">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">20:24</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/21113)" target="_blank">和 Claude Fable 5 对，确实有一种对方智商很高的感觉</a></div>
+  <div class="card-summary"><p>思维很全面，甚至有点过于全面</p>
+<p>缓存命中之后，一轮10美分，好像也值这个价</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/21113)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/21113">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">21:24</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/21117)" target="_blank">富途都支持 Skill 了，可以让 AI 分析你的持仓，甚至帮你交易。相比之下，国内那些券商 App 还像上个世纪的产品！</a></div>
+  <div class="card-summary"><hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/21117)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/21117">查看原文</a></div></div>
+</div></div>
+
+    <div class="footer">TG 频道日报 · 自动生成</div>
+</div>
+
+</body>
+</html>

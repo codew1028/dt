@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>TG 频道日报</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background: #060814;
+    color: #e8eaf0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    min-height: 100vh;
+    display: flex; justify-content: center;
+}
+
+a { color: #6ea0ff; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.main-wrap {
+    width: 100%;
+    max-width: 860px;
+    padding: 48px 40px 80px;
+}
+
+.hero {
+    padding-bottom: 36px;
+    margin-bottom: 36px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.hero-vol { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; color: #6ea0ff; margin-bottom: 10px; }
+.hero-title { font-size: 38px; font-weight: 800; line-height: 1.15; color: #fff; margin-bottom: 10px; }
+.hero-date { font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 16px; }
+.hero-stats { display: flex; gap: 28px; }
+.stat-item { display: flex; flex-direction: column; gap: 2px; }
+.stat-num { font-size: 22px; font-weight: 700; color: #fff; }
+.stat-label { font-size: 11px; color: rgba(255,255,255,0.35); letter-spacing: 0.08em; text-transform: uppercase; }
+
+.section { margin-bottom: 40px; }
+.section-head {
+    display: flex; align-items: baseline; gap: 16px;
+    margin-bottom: 20px; padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.section-num { font-size: 28px; font-weight: 800; color: rgba(255,255,255,0.25); line-height: 1; }
+.section-title { font-size: 17px; font-weight: 700; color: #fff; }
+.section-count {
+    margin-left: auto; font-size: 11px; font-weight: 600; color: #6ea0ff;
+    background: rgba(110,160,255,0.12); padding: 2px 8px; border-radius: 20px;
+}
+
+.card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 12px; padding: 18px 22px; margin-bottom: 12px;
+    transition: border-color 0.2s, background 0.2s;
+}
+.card:hover { border-color: rgba(110,160,255,0.3); background: rgba(110,160,255,0.04); }
+
+.card-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.channel-tag {
+    font-size: 12px; font-weight: 600; color: #fff;
+    background: rgba(110,160,255,0.25); padding: 2px 8px; border-radius: 20px; white-space: nowrap;
+}
+.time-tag { font-size: 12px; color: rgba(255,255,255,0.35); }
+
+.card-title {
+    font-size: 15px; font-weight: 700; color: #fff;
+    margin-bottom: 8px; line-height: 1.5;
+}
+.card-title a { color: inherit; }
+.card-title a:hover { color: #6ea0ff; text-decoration: none; }
+
+.card-summary {
+    font-size: 14px; color: rgba(255,255,255,0.6);
+    line-height: 1.8;
+}
+.card-summary p { margin-bottom: 6px; }
+.card-summary p:last-child { margin-bottom: 0; }
+
+.card-footer {
+    margin-top: 10px; display: flex; align-items: center;
+    gap: 12px; flex-wrap: wrap;
+}
+.source-link { font-size: 12px; color: rgba(255,255,255,0.35); }
+.source-link::before { content: "🔗 "; }
+.channel-links { margin-left: auto; font-size: 11px; color: rgba(255,255,255,0.25); }
+.channel-links a { color: rgba(255,255,255,0.3); margin-right: 6px; }
+.channel-links a:hover { color: #6ea0ff; }
+
+.brief-text { font-size: 15px; color: rgba(255,255,255,0.75); line-height: 1.7; }
+
+pre { background: rgba(0,0,0,0.4); border-radius: 8px; padding: 16px; overflow-x: auto; font-size: 13px; }
+code { font-family: "SF Mono", Consolas, monospace; font-size: 0.88em; }
+p code { background: rgba(110,160,255,0.1); color: #9ec5ff; padding: 1px 6px; border-radius: 4px; }
+
+.footer {
+    text-align: center; font-size: 12px; color: rgba(255,255,255,0.2);
+    padding: 30px 0 20px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .main-wrap { padding: 28px 20px 60px; }
+    .hero-title { font-size: 26px; }
+}
+</style>
+</head>
+<body>
+
+<div class="main-wrap">
+    <div class="hero">
+        <div class="hero-vol">VOL.20260619</div>
+        <h1 class="hero-title">TG 频道日报</h1>
+        <div class="hero-date">2026年06月19日 · 星期五 · 6 个频道 · 30 条内容</div>
+        <div class="hero-stats">
+            <div class="stat-item"><span class="stat-num">30</span><span class="stat-label">条内容</span></div>
+            <div class="stat-item"><span class="stat-num">6</span><span class="stat-label">个频道</span></div>
+        </div>
+    </div>
+
+    <div class="section"><div class="section-head"><span class="section-num">01</span><span class="section-title">TG 频道精选</span><span class="section-count">30 条</span></div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">00:16</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/80465)" target="_blank">方法很恶心，却能局入过万的5个途径</a></div>
+  <div class="card-summary"><p>1.用GPT生成睡前故事,可用千日婴赛道涨松，也可以按播放量变现。</p>
+<p>句以带货变现，</p>
+<p>2.刷到一些职场类公众号爆款模板“文公司员工工资被泄露几乎篇篇十万+新号，10篇文章，4个10万+</p>
+<p>3.小红书看到的一种补实无华的笔记标题就写不起眼的小生意不暴利，比打工好，畑嫌生意小等等。配上一个小合库的图片。引面私域效果贼好。</p>
+<p>4.有一位宝妈，在PXX上花199买了1万多部电子书。每天把电子书里边的内容成小视频发到自媒体平谷N引流卖电子书。少单部99，打包99，月入8000多</p>
+<p>5.一个同学的妹妹每天从全网搜集各种书籍的观后感把这些搜集来的观后感转换成视频发，然后挂上小黄车卖书，每个月能挥3W多</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/80465)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/80465">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">01:16</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/80466)" target="_blank">在4s店做了10多年修理工，告诉大家几个秘密，车开到报废，这几种东西不必换：</a></div>
+  <div class="card-summary"><p>1、第一个秘密：刹车片：磨到极限再换，别过早更换。</p>
+<p>2、第二个秘密：发动机油。只要使用了高品质的全合成机油，按要求保养，通常可以达到一万五千公里到两万公里更换。</p>
+<p>3、第三个秘密：火花塞：普通镍合金火花塞大概3万公里换，要是铱金、铂金火花塞，用到6万公里甚至更久都没问题，只要车没出现点火困难、抖动厉害这些情况，就先别着急换。</p>
+<p>4、第四个秘密：变速箱油：现在很多车都是免维护变速箱，正常开十几年都不用换。要是需要换，也别听4S店说的两三万公里就换，一般6万到8万公里换一次就行，换早了白花钱。</p>
+<p>5、第五个秘密：刹车油：测一下含水量，不超过3%就不用换。一般车开个四五年，含水量才可能超标，要是没到这个数，刹车也正常，那就不用管它。</p>
+<p>6、第六个秘密：汽油滤清器：如果一直加正规加油站的油，内置的汽油滤清器可以8万到10万公里换，外置的2万到3万公里换就行，没必要频繁更换，它没那么容易脏。</p>
+<p>7、第七个秘密：冷却液：长效冷却液可以用5年或者10万公里，少了就加点，只要没变质、冰点还够，就不用整套换掉，这都是4S店想多赚钱的套路。</p>
+<p>8、第八个秘密：汽车轮胎：正常使用的轮胎，花纹磨损到1.6毫米再换，或者看轮胎上的磨损标记，没到标记就不用换，也别听别人说用了几年就必须换，得看实际磨损情况。</p>
+<p>9、第九个秘密：正时皮带：不是链条的车才有正时皮带，一般8万到10万公里换，但如果是经常跑高速、路况好，也可以适当延长，不过要定期检查有没有裂纹、老化这些情况。</p>
+<p>10、第十个秘密：空气滤清器：如果开车的环境不太差，每次保养拿出来吹吹，用到2万公里甚至更久都可以，不用每次保养都换新的，这东西没那么容易坏。</p>
+<p>11、第十一秘密：空调滤清器：根据使用情况，要是感觉空调出风有异味或者风量变小了，再换就行，大概1万到2万公里换一次，没必要听4S店的固定里程就换。</p>
+<p>12、第十二秘密：汽车电瓶：正常使用的话，3到5年才需要考虑更换。如果车启动正常，大灯也亮，就说明电瓶还能用，别被4S店忽悠着提前换了。</p>
+<p>13、第十三个秘密：减震器：只要车开起来没有异常的颠簸、晃动，减震器就不用换。一般减震器能用很长时间，除非是经常走烂路，把减震器弄坏了。</p>
+<p>14、第十四个秘密：排气管：没生锈烂穿，也没有堵塞，就不用换。很多时候排气管只是表面有点锈迹，不影响使用，4S店就会让你换，其实没必要。</p>
+<p>15、第十五个秘密：氧传感器：只要发动机没有故障灯亮，油耗也正常，就不必要换，挺贵的[嘻嘻]</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/80466)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/80466">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">04:56</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/80469)" target="_blank">你想象中的“未来设计师”会是什么样？AI 会怎样改变创作和协作？我刚看了 Dive Club 对 Cursor 设计主管 Ryo Lu 的专访，他从底层原理到人机界面的未来，分享了许多让我深受启发的思考。这些观点对今天做产品、做设计的人都非常有参考意义：</a></div>
+  <div class="card-summary"><p>1/ Cursor 将一切功能统一抽象为“Agent”原型，实现极简结构和高度可扩展性。产品逻辑更清晰，用户的工作流也更容易个性化定义。</p>
+<p>2/ AI 支持的界面高度个性化，用户体验由底层 Block 动态组合 —— 每个人都能拥有定制化的工作空间。界面成为人类思维的延伸，不再局限于传统 UI。</p>
+<p>3/ 设计师与工程师的角色边界被打破，协作过程愈发高效。人人都能通过 AI 直接产出高质量代码，实现“用 Cursor 造 Cursor”，单兵生产力数倍提升。</p>
+<p>4/ 产品迭代优先级由深层需求和长期价值驱动，用户反馈如训练模型一般被高效筛选和吸收，避免无效的碎片化建议。</p>
+<p>5/ 未来设计师的核心能力在于系统抽象和概念架构，而非细节像素或界面样式。优秀设计师能重新解释世界、串联复杂系统，推动人机交互的持续进化。</p>
+<p>6/ HCI 的未来是界面与用户思维的无缝融合。人机界面或将实现脑机直连，交互体验无限接近人的本能与自由。</p>
+<p>AI 正在重塑产品设计的底层逻辑，也让设计师在系统抽象与跨界协作中发挥出更大的价值。未来，产品将更开放、更个性化，团队协作更高效有机，而设计的核心，将是用系统性思维驱动创新，与技术深度融合，共同塑造人与工具的全新关系。这些趋势，正悄然改变着我们对“设计”和“创造力”的全部想象。</p>
+<p>AIGC的一切</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/80469)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/80469">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">06:41</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/80470)" target="_blank">折腾了一个AI情感语音Web首页，跟大家分享下设计思路，希望能给你带来一些启发</a></div>
+  <div class="card-summary"><p>一、需求阶段</p>
+<ol>
+<li>
+<p>确定输出产品是Web首页，明确核心问：</p>
+</li>
+<li>
+<p>场景： 用户为何访问？（了解Heartbeat AI的情感理解能力、寻求情感陪伴）</p>
+</li>
+<li>
+<p>流程： 用户如何浏览？（Banner -&gt; 核心功能 -&gt; "Start Dialogue" 尝试 -&gt; 了解更多）</p>
+</li>
+<li>
+<p>关键内容： 首页有哪些核心模块？（"Emotion Decoding Engine"、"Empathetic Response"、"Personalized Emotion Model"、"Emotional Versatility"）每个模块展示什么？（技术原理、共情能力、个性化服务、应用场景等）</p>
+</li>
+</ol>
+<p>二、调研阶段</p>
+<ol>
+<li>
+<p>竞品调研： 分析同类AI语音产品，学习优点，规避不足。</p>
+</li>
+<li>
+<p>设计风格调研： 寻找适合的设计风格，比如科技感、信任感、未来感。</p>
+</li>
+<li>
+<p>关键流程调研： 研究用户在首页上的操作流程，确保引导用户快速体验"Start Dialogue"。</p>
+</li>
+<li>
+<p>交互样式调研： 收集动效案例，增加AI科技的互动感。</p>
+</li>
+</ol>
+<p>UI模块调研： 整理常用UI模块，例如卡片式功能介绍、导航栏等。</p>
+<ol start="5">
+<li>文案细节调研： 研究优秀AI产品文案，学习如何用简洁的语言传递Heartbeat AI的核心价值："Deep Understanding, Universal Empathy"。</li>
+</ol>
+<p>三、概念阶段</p>
+<p>结合调研分析结果：</p>
+<ol>
+<li>
+<p>情绪板： 收集深蓝色、紫色等视觉元素，营造科技感和未来感。</p>
+</li>
+<li>
+<p>初步草图： 围绕核心功能、"Start Dialogue"入口、"Deep Understanding, Universal Empathy"标语等绘制草图，快速原型设计。</p>
+</li>
+</ol>
+<p>四、设计阶段</p>
+<p>在设计阶段，输出最终方案：</p>
+<ol>
+<li>
+<p>交互设计： 突出"Start Dialogue"按钮，设计引导用户体验的交互流程，用动效展示AI情感理解。</p>
+</li>
+<li>
+<p>UI设计： 采用深色背景，突出科技感，信息分层展示"Emotion Decoding Engine"等核心功能，使用户一目了然，最终呈现美观、易用且充满科技感的Web首页。</p>
+</li>
+</ol>
+<p>希望这个精简版的设计思路对你有所帮助！设计没有绝对的标准，最重要的是不断尝试、不断学习，找到适合自己的方法。</p>
+<p>副业赚钱探索</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/80470)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/80470">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">09:06</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/42020)" target="_blank">📱 **微软借** 🤖** OpenAI 模型在中国做大 AI 生意**</a></div>
+  <div class="card-summary"><p>微软通过 Azure 向中国科技公司销售 OpenAI 的 AI 模型，在华业务快速扩张。知情人士称，字节跳动是其最大客户，每年在微软 AI 和云服务上的投入预计超 10 亿美元；蚂蚁集团、美团、腾讯也是重要买主。Azure 在中国的 AI 收入增速一度全球最快，连续两年实现约四倍和三倍增长。</p>
+<p>该业务在美国引发争议。部分企业高管和立法者担忧中国 AI 威胁美国产业，OpenAI 曾私下抱怨微软未充分阻止中国公司“蒸馏”其模型。微软则称在华存在有助于跟踪创新并服务跨国客户，同时强调只向成熟企业而非个人开发者销售模型，且模型托管在境外数据中心，客户需经互联网访问。</p>
+<p><a href="https://www.bloomberg.com/news/articles/2026-06-17/microsoft-s-china-ai-business-grows-on-openai-model-sales">Bloomberg</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/42020)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihuatg">备用频道</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/42020">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">09:17</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/10388)" target="_blank">上次我说：AI、自媒体、英语，是普通人能撬动的最大杠杆。</a></div>
+  <div class="card-summary"><p>今天这篇，我请教了一些大佬，谈一谈有效的实操路径。</p>
+<p>一、AI：前期搞懂这几个👇</p>
+<p>ChatGPT = 速查 + 答疑解惑</p>
+<p>做产品原型前，先和它确定demo思路。</p>
+<p>遇到问/报错丢进去，它能直接给出方案。</p>
+<p>NotebookLM = 资料整理 + 深度理解</p>
+<p>把PDF、报告、代码文档往里一丢，它自动提炼重点、生成导图，还能把报告转成AI对播客。</p>
+<p>通勤的时间就能从“看懂”到“掌握重点”，时间直接砍半。</p>
+<p>Claude Code = 写代码 + 自动化任务</p>
+<p>Claude Code 的能力非常强，搭配Claude Sonnet 4.5帮助你所想即所得。</p>
+<p>我用它写脚本、跑流程、重构项目、自动化处理任务，大幅提高了效率。</p>
+<p>Figma AI = 设计 + 可视化</p>
+<p>提Prompt生成草图、流程图、UI稿，从构想到原型只要几分钟。</p>
+<p>核心是“串起来”：</p>
+<p>ChatGPT定思路 → Claude写代码（自动化） → NotebookLM整合资料 → Figma出原型 → AI复盘总结。</p>
+<p>一个人就能跑完整个项目闭环。</p>
+<p>现在一个人能顶三个人的活，就是这么干的。</p>
+<p>二、自媒体：先找对标，再靠频率磨出来</p>
+<p>别想着“一夜爆火”。</p>
+<p>第一步：找对标，抄结构，不抄内容。</p>
+<p>找3个你想成为的人，看他们发什么、怎么写标、怎么切主。</p>
+<p>你会发现，风格和节奏都能模仿出来。然后分析他们如何引流、如何转化...</p>
+<p>第二步：一定要先多发，找到感觉。</p>
+<p>每天起码发2~3条，哪怕只是分享AI实操、学习心得。</p>
+<p>然后分析数据，数据会告诉你什么内容有人看、什么没人看。</p>
+<p>连续30天输出，摸清了自己的爆款感。</p>
+<p>第三步：找到并固定节奏。</p>
+<p>当你发现有几条内容开始爆了，就别变了。</p>
+<p>定一个时间、一个主方向，日更或周更，节奏稳过爆点。</p>
+<p>这里的问真诚回复、长期在场，就是信任的起点。</p>
+<p>三、英语：别只是背单词，要用</p>
+<p>（以下是请教一些大佬的方法，我的英语一般，也还在探索，等之后会进行学习分享）</p>
+<p>每天刷Twitter（YouTube）英文区30分钟</p>
+<p>关注你行业的大佬，看不懂的用ChatGPT解释。</p>
+<p>这样既学英文，又学最新趋势。</p>
+<p>和 ChatGPT 进行对，让它辅导你练口语，还能让他根据你的想法进行一些适配，非常有效果。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/10388)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/yunying23/10388">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">09:50</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/42021)" target="_blank">**黄仁勋：没有 AMD 就没英伟达今天**</a></div>
+  <div class="card-summary"><p>黄仁勋近日在访谈中回忆，大学毕业后根本付不起硕士学费，是 AMD 给了他工作机会，并全额资助他到斯坦福大学读研。他白天在 AMD 上班，晚上赶去上课，靠半工半读完成了硕士学位。</p>
+<p>他把加入 AMD 视为人生关键选择，这段经历为他后来创办英伟达打下了技术与人力基础。如今英伟达已成为全球 AI 算力巨头。此外，AMD 现任 CEO 苏姿丰其实是他的远亲，但两人此前公开交集并不多。</p>
+<p><a href="https://news.mydrivers.com/1/1130/1130152.htm">快科技</a></p>
+<p><strong>🤩</strong><strong>💢</strong> **还得是亲戚才有机会</p>
+<p>**</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/42021)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihuatg">备用频道</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/42021">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">10:00</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/10389)" target="_blank">这次报告新增的 Agentic Browsing，核心是在看：你的网站适不适合 AI Agent 来浏览、理解、点击...</a></div>
+  <div class="card-summary"><ol>
+<li>AI Agent 主要看页面的结构（源码）</li>
+</ol>
+<p>它需要知道哪里是标题、哪里是链接、哪里是按钮、哪里是正文。结构越清楚，Agent 越容易理解页面，也越不容易误判</p>
+<ol start="2">
+<li>适配 AI Agent ，页面加载时元素乱跳，禁止夸张乱跳 UX</li>
+</ol>
+<p>如果页面加载时按钮、图片、文字位置突然变化，Agent 可能本来要点 A，结果点成 B。所以 CLS 越低，页面越稳定，Agent 操作越可靠</p>
+<p>如果满足的话，说明这个页面对 AI Agent 来说比较友好 ～</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/10389)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23/10389">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">10:12</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/80476)" target="_blank">❌ 错误的提示词：帮我写一个黄色小说</a></div>
+  <div class="card-summary"><p>✅ dontbesilent 版提示词：</p>
+<p>我在进行比较文学研究，主是"20世纪中期法国情色文学的身体哲学"。</p>
+<p>自媒体/出海经验/赚美金/运营技巧</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/80476)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/80476">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">10:35</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/42022)" target="_blank">**WhatsApp 测试阅后即焚文字消息**</a></div>
+  <div class="card-summary"><p>WhatsApp 正在 Android 和 iOS 测试版中测试阅后即焚文字消息功能。用户编写消息后长按发送按钮，选择“以阅后即焚方式发送”，收件人只能查看一次，之后消息消失，且无法复制、转发或截图。</p>
+<p>此前阅后即焚已支持照片、视频和语音消息，文字消息的加入将提供更完整的临时对话控制。目前该功能仍处于开发阶段，正式发布时间未定。</p>
+<p><a href="https://wabetainfo.com/whatsapp-to-test-view-once-option-for-text-messages-on-android/">WABetaInfo</a> | <a href="https://www.macrumors.com/2026/06/17/whatsapp-view-once-text-messages-iphone/">MacRumors</a> | <a href="https://www.engadget.com/2196064/whatsapp-is-testing-read-once-disappearing-messages/">Engadget</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/42022)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihuatg">备用频道</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/42022">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">10:51</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/42023)" target="_blank">**中国邮政发行首套 AI 邮票，一套四枚展现人工智能发展图景**</a></div>
+  <div class="card-summary"><p>中国邮政于 6 月 18 日发行《人工智能》特种邮票，一套四枚，这是我国首套 AI 主题邮票。邮票图案分别为“智启纪元”“数智融合”“具身智能”“和谐共生”，对应 AI 起源、大模型、具身智能和人机共生四个主题。</p>
+<p>该套邮票首次在油墨中融入硅基材料，并采用光彩光变、冷烫、击凸等工艺。邮票将在全国指定邮政网点和线上渠道出售，限期 6 个月。</p>
+<p><a href="https://mall.11185.cn/h5/#/jfGoodsDetails?spuId=69628542&amp;businessId=JY&amp;udcSrc=JY_jyIndex_window_weChat&amp;udcSrcId=1&amp;udcSrcPos=1">中国邮政</a></p>
+<p>🤩💢 <strong>AI 赋能</strong></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/42023)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihuatg">备用频道</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/42023">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">11:23</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/10390)" target="_blank">别再问“这东西我用ChatGPT也能做”这种傻问了。星巴克的咖啡豆，在超市也能买到，为什么还要去星巴克？</a></div>
+  <div class="card-summary"><p>AI套壳产品也一样。它的价值，就是成为用户和AI之间，那个最高效、贴心的“中间商”。</p>
+<p>“用户的懒惰”，就是最大的市场。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/10390)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/yunying23/10390">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">11:35</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/42024)" target="_blank">**Meta 员工士气跌至近 20 年最低，公司对策是增加“零食预算”**</a></div>
+  <div class="card-summary"><p>Meta 首席技术官 Andrew Bosworth 在内部会议上承认，公司员工士气“可能接近 20 年来最差水平”。近期的大规模裁员和强制向 AI 岗位调岗，令许多老员工感到不安。今年 5 月，Meta 裁掉了 10% 的员工，同时将另外约 10% 的员工强制调岗，参与 AI 模型的训练工作。</p>
+<p>为改善现状，管理层开始允许被调岗的员工重新申请其他职位。并重点强调增加了差旅、活动和零食方面的预算。Bosworth 还承诺公司将支持员工的个人成长与职业发展。不过这些举措遭到大量批评，认为其并未真正解决裁员带来的根本问题。同时，与公司在人工智能和裁员方面的投入相比，这些预算和举措显得微不足道。</p>
+<p><a href="https://www.businessinsider.com/meta-cto-andrew-bosworth-addresses-morale-after-layoffs-ai-shift-2026-6">Business Insider</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/42024)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihuatg">备用频道</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/42024">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@chunse1024</span>
+    <span class="time-tag">11:43</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/chunse1024/10805)" target="_blank">总结了几个好用的目前靠谱的梯子</a></div>
+  <div class="card-summary"><p>根据实际情况按需选择</p>
+<p>1.Veee</p>
+<p>支持 2 台手机+两台电脑，相对便宜，一年不到300rmb</p>
+<p>2.Shadowrocket（小火箭）</p>
+<p>比较适合苹果设备，用苹果账户或者淘宝礼品卡付款</p>
+<p>3.QuickQ</p>
+<p>支持3台设备，一年大概800rmb</p>
+<p>4.Clash（小猫）</p>
+<p>支持多设备多平台，性价比高</p>
+<p>5.奶昔</p>
+<p>好用但贵，一年1000+，套餐不一样价格不同</p>
+<p>6.自由猫</p>
+<p>可多设备按流量收费，88rmb 1000GB</p>
+<p>有能力的自己搭建，更稳更安全更省钱</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/chunse1024/10805)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/chunse1024">优质「内容」</a><a href="https://t.me/meiriyishu">优质「资源」</a><a href="https://t.me/inside1024">你不知道的内幕消息🌳</a><a href="https://t.me/chunse1024/10805">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">12:04</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/21358)" target="_blank">靖元说AI——机器人挤爆赛道：下一个血海来了</a></div>
+  <div class="card-summary"><p>2025年中国人形机器人企业超140家、产品330款，占全球出货85%（Barclays）；价格两年暴跌72%（Unitree招股书），租金从2.5万元/天砸到2199元（北京新闻）——泡沫味已经出来了。</p>
+<p>基于2026年Q2行业数据，但要认清一个边界：如果工业、物业等B端场景先跑通，这轮“价格先崩”的节奏，可能被短期托住。</p>
+<p>这事说白了就一句人：货比需求跑得快，价格一定先跪。</p>
+<p>先总结3点，</p>
+<p>好事（表面）：成本从2.8万美元打到1.4万美元（GigaAI目标），看着像“iPhone时刻”。</p>
+<p>坏事（真相）：应用场景还在幼儿园。说个不太好听的细节，很多“会做饭”的Demo，换个厨房就卡壳，这事没人敢拍长镜头。</p>
+<p>矛盾：规模没起来，价格先卷死，现金流比技术先断。</p>
+<p>再给你一个结论——</p>
+<p>现在的人形机器人≈2018年的新能源车：不是拼谁最牛，是拼谁先熬死。</p>
+<p>但也别一棍子打死，EV当年死了一批，也跑出了特斯拉和比亚迪，问不是赛道行不行，是你能不能活到最后。</p>
+<p>那么，怎么判断？</p>
+<p>别看技术，看现金流：谁能拿下工厂、物业订单，谁更可能活。</p>
+<p>别看发布会，看降价速度：降得越狠，库存越急。</p>
+<p>别迷信龙头，看退出率：玩家越多，淘汰越快。</p>
+<p>本质就一句：</p>
+<p>任何“未来感爆棚”的行业，只要供给爆炸+需求没跟上，本质都是资本绞肉机。</p>
+<p>这条规律只在早期和资本过热阶段成立，一旦进入寡头期，玩法会切到效率和利润。</p>
+<p>如果你真想下场，盯三个硬指标：</p>
+<p>1，单机毛利能否转正</p>
+<p>2，B端复购率是否超过30%</p>
+<p>3，非结构化环境成功率能不能稳定</p>
+<p>最后我还得替你问一句：这波机器人热，你是想抄底未来，还是被未来抄家？</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/21358)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/21358">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">12:49</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/10391)" target="_blank">我的短视频，大部分拍的很随意。公司拍一条，回家路上拍一条。每天两条，就这么随随便便搞定了。</a></div>
+  <div class="card-summary"><p>直播的时候就有人问，好像我不咋重视这个事，没什么特别的爆款设计。</p>
+<p>其实啊，这个背后是有逻辑的。</p>
+<p>这是我不断优化工作流、不断调整达成目标的最优路径，得出的结果。</p>
+<p>我的决策逻辑，来自于短视频创作的不可能三角，分别是成本、频率、质量。</p>
+<p>三者不可兼得，所以我们要找的不是最理想解决方案，而是最优解。</p>
+<p>01 成本就是资源配置，这是战略</p>
+<p>这里的成本，不只是钱，也包括时间、精力、脑力、心力、拍摄条件、剪辑流程，以及为了完成一条内容所投入的一整套资源。</p>
+<p>很多人一谈短视频，就只看内容本身好不好，却很少看背后的成本。</p>
+<p>但对个体来说，成本意识其实是一个战略问题。</p>
+<p>因为我们虽然是一人公司，是个体创业，是一个人单干，但麻雀虽小，五脏俱全。企业要讲战略，个人也要讲战略。</p>
+<p>个人战略至少包括两件事：</p>
+<p>第一，你选择什么方向。</p>
+<p>你是做商业咨询、职场咨询、心理咨询，还是做别的知识服务。</p>
+<p>第二，你在这个方向上如何分配成本。</p>
+<p>尤其是如何分配时间成本。</p>
+<p>对个体来说，最稀缺的资源不是钱，而是时间。</p>
+<p>很多人会觉得自己缺钱，但如果你真是做知识服务、咨询、课程、陪跑这类业务，你会发现钱并不是最稀缺的东西。</p>
+<p>因为就算给你更多钱，你也未必知道怎么花，真正稀缺的是你的时间。</p>
+<p>你要做内容，要直播，要咨询客户，要交付，要打磨产品，要回答问题，要成交，还要处理各种日常事务。</p>
+<p>一天里面真正能高质量工作的时间，其实就那么几个小时。</p>
+<p>而内容创作不仅消耗脑力，还消耗心力。</p>
+<p>尤其是直播，它不是单纯输出信息，你还要输出情绪、状态和能量。一场直播下来，人会非常疲惫，甚至身体都是紧绷的。</p>
+<p>所以你必须问自己：</p>
+<p>我到底要在短视频这件事上，投入多少时间？</p>
+<p>这个问题很关键。</p>
+<p>因为一旦你把大量时间投入到短视频的精细制作里，你就一定会挤压产品、交付、成交和客户服务的时间。</p>
+<p>这就是成本。</p>
+<p>02 短视频不是万能的，只能有一种使命</p>
+<p>我做短视频的时候，目的非常明确。</p>
+<p>我不是为了出圈，也不是为了每一条都爆，也不是为了每条视频底下都有几十个客户来问“怎么跟你学习”。</p>
+<p>我的核心目的很简单：</p>
+<p>通过短视频，在泛受众面前重复出现，刷存在感。也就是让别人不断看到我，知道我是做这件事的人。</p>
+<p>这里有一个很重要的判断：</p>
+<p>短视频做认知，直播做转化，私域做成交。</p>
+<p>短视频在我的业务里，核心功能不是直接成交，而是做认知。</p>
+<p>就是你不断出现在目标用户面前，让他反复刷到你。</p>
+<p>也许他没有完整看完你的视频，也许他没有看超过三分钟，也许他只是记住了这张脸、这个名字、这个方向。</p>
+<p>但当他的需求窗口出现时，当他真的想找一个老师学习，想解决个人商业、知识服务、IP、产品、成交这些问题时，他会想到你。</p>
+<p>这就够了。</p>
+<p>如果短视频对我来说，只是承担“认知”和“存在感”的任务，那我就不应该在这件事上投入过高成本。</p>
+<p>这就是为什么我会选择固定场景、低成本拍摄、随手就能完成的工作流。</p>
+<p>我不会为了拍一条视频，专门开车去某个场景，架设备，找角度，调灯光，折腾半天。</p>
+<p>因为对新手来说，这种仪式感很容易把事情做崩。</p>
+<p>你越复杂，越难坚持。</p>
+<p>真正能长期做下去的内容工作流，一定要足够轻。最好是你顺手就能拍，顺手就能发，顺手就能完成。</p>
+<p>03 你的商业模式决定你要不要日更</p>
+<p>频率指的是你更新内容的频次。</p>
+<p>不同商业模式，对频率的要求完全不同。</p>
+<p>如果你是一个狭义的自媒体人，也就是靠内容本身变现，比如接广告、做商单、靠平台流量赚钱，那你的核心资产就是内容。</p>
+<p>这种模式下，你当然要把内容做精良，要追求一条内容爆一条内容。</p>
+<p>你要花大量时间在选题、脚本、剪辑、包装、数据复盘上。你的商业模式要求你这么做。</p>
+<p>所以很多头部内容账号，可能一周更新一条，甚至一个月更新一条。他们牺牲频率，换取质量。</p>
+<p>但我们不是这种模式，我们不是靠内容本身变现。</p>
+<p>我们的商业模式，是把专业、经验和判断打磨成产品。可能是课程、咨询、会员、陪跑、线下课。我们靠这些产品变现，不是靠一条视频接广告变现。</p>
+<p>所以对我们来说，短视频更重要的是重复出现，是持续刷脸，是让目标用户不断感知到你。</p>
+<p>这时候，频率就非常重要。</p>
+<p>如果你现在还做不到日更，可以先做到一周三更，或者工作日更新两三条。关键不是一上来追求完美，而是先让自己进入稳定更新的节奏。</p>
+<p>这里还有一个具体的工作流建议：</p>
+<p>不要每天只拍一条。</p>
+<p>因为每次拍摄都是一个完整流程。你要架手机、检查麦克风、找状态、换衣服、调整场景。如果你折腾完这一整套流程，只拍了一条，其实很浪费。</p>
+<p>更好的方式是，一次拍三条，甚至五条。</p>
+<p>人的表达状态也是会被带起来的。通常第一条不一定最好，讲着讲着，后面状态反而会越来越顺。</p>
+<p>拍完以后，可以定时发布，也可以穿插不同日期发布。这样既能保证频率，也不会让每天的拍摄都变成很重的负担。</p>
+<p>当然，有人可能会问：</p>
+<p>能不能既高频，又高质量，还低成本？</p>
+<p>少数人可以。</p>
+<p>比如有些头部账号，本身非常有天赋，表达能力强，表演能力强，内容感极好。天生就是吃这碗饭的。</p>
+<p>但绝大多数人不是这样。</p>
+<p>如果你没有这种天赋，就只能靠后期训练、流程、团队来补。可一旦你开始加团队、找编导、找剪辑、找脚本，你的成本就会大幅上升。</p>
+<p>而且，找一个真正懂你、懂你的专业、懂你的价值观、懂你的表达品味，还能帮你做个人IP内容的人，非常难。</p>
+<p>因为如果一个人真的能写出你想讲的东西，理解你的专业，符合你的判断和审美，他大概率不比你差。</p>
+<p>那他为什么一定要给你打工？他完全可以自己创业，或者服务更多老板。</p>
+<p>所以，很多人一旦找人做内容，最后会发现大量选题、脚本、剪辑都是报废的。钱花了，时间也浪费了。</p>
+<p>04 什么是质量高的好内容</p>
+<p>质量最难讲。</p>
+<p>很多人对“内容质量”的理解是错的。他们会觉得拍摄精良、画面高级、剪辑流畅、表达有格调，就叫质量高。</p>
+<p>但真正的内容质量，不是一个抽象审美问题。</p>
+<p>质量一定是有目标的，有屁股的。</p>
+<p>对平台来说，什么是好内容？</p>
+<p>能提升用户时长，能提升消费数量，能提升互动，能提升转化，这就是好内容。</p>
+<p>对一人公司、知识服务从业者、个体创业者来说，什么是好内容？</p>
+<p>能帮你达成目标的内容，才是好内容。</p>
+<p>比如你做内容，千万别听朋友反馈。</p>
+<p>你的朋友可能会说：“你应该拍这种内容，这才像你。”但问题是，他不是你的客户，他不会给你付钱，他也未必懂内容。</p>
+<p>熟人的视角，很多时候代替不了陌生用户的视角。</p>
+<p>所以不要让七大姑八大姨、高中同学、前同事的审美，决定你的内容方向。</p>
+<p>你要看的是，这条内容到底服务什么目标。</p>
+<p>我通常会把内容分成几类：</p>
+<p>流量型、转化型、人设型。</p>
+<p>不同内容承担的任务不一样，判断质量的标准也不一样。</p>
+<p>比如一个新账号，刚开始没人认识你。你上来就讲个人故事，说“大家好，我叫韩叙，我是一个什么样的人”，其实没人关心。</p>
+<p>因为用户不认识你。</p>
+<p>这时候你应该先做更利他的内容。比如how to类内容，具体解决一个问题的内容，让陌生人哪怕不认识你，也愿意停下来听。</p>
+<p>这类内容的目标是起号，是获得初始流量。那它的质量，就可以用播放量、完播、停留这些指标来判断。</p>
+<p>但如果你发的是转化型内容，情况就不一样。</p>
+<p>转化型内容播放量可能不高。以前你一条视频一万播放，这条可能只有三千播放。但如果它带来了私信、客资、咨询、成交，那它就是高质量内容。</p>
+<p>所以不要拿同一个标准评价所有内容。</p>
+<p>很多时候，我们发那么多一万播放的内容，本来就是为了在中间穿插几条三千播放但能带来转化的内容。</p>
+<p>05 真实感也是一种质量</p>
+<p>再说回我的视频。</p>
+<p>我的视频看着不精致，算质量好吗？我认为算。</p>
+<p>因为它符合我的业务模式，也符合我的目标，而且很真实。</p>
+<p>如果一条内容做不到极致精良，那就要追求真实。你要么精良，要么真实，不要两边不靠。</p>
+<p>我为什么喜欢在回家路上拍？</p>
+<p>因为那个场景非常自然：一个创业者下班以后，在路上跟你分享一些真实感受，给你一点真诚建议，这种状态多舒服啊。</p>
+<p>这绝不是演出来的，也不是摆拍出来的。</p>
+<p>很多时候，真实感本身就能带来信任。</p>
+<p>你现在也能看到很多账号，可能出镜人没有那么精致，甚至就是素颜怼脸拍，但数据很好。</p>
+<p>因为表达真实，选题成立，状态自然。虽然成本很低，但能达成目标。</p>
+<p>对一个素人来说，先起号，先让内容被看见，先建立一点信任，这本身就是质量。</p>
+<p>06 追求最优解，长期持续做下去最重要</p>
+<p>回到这个不可能三角。</p>
+<p>质量、成本、频率，三者互相制约。你想提高质量，成本就会上升。成本上升以后，你就会花更多时间在短视频上。</p>
+<p>那产品谁来规划？交付谁来做？客户谁来成交？钱谁来收？</p>
+<p>所以我们做的每一个选择，其实都是在现有条件下，为了达成目标而做出的最优解。</p>
+<p>注意，是最优解，不是理想解。</p>
+<p>理想解当然是每条都爆，每条都精良，每天都能更新，还不花什么成本。</p>
+<p>但现实不是这样。</p>
+<p>现实里，你必须根据自己的商业模式做取舍。</p>
+<p>如果你是靠内容变现的自媒体，那你就应该把内容质量做到极致。</p>
+<p>如果你是靠专业服务、咨询、课程、会员、陪跑变现的一人公司，那短视频更重要的可能是认知、信任和持续出现。</p>
+<p>这时候，你就不应该被流量焦虑带跑。</p>
+<p>很多人看到账号没流量，就开始焦虑。焦虑以后，就想研究怎么把视频做好，怎么涨粉，怎么做爆款。</p>
+<p>结果研究半天，钱没变多，产品没打磨，客户没成交。</p>
+<p>对一人公司来说，短视频不是全部。它只是你商业系统里的一个环节。要做，但不能把你拖死。</p>
+<p>做个人IP也好，做一人公司也好，创业也好，最重要的是不下牌桌。</p>
+<p>短期没有流量，没那么可怕；短期没有赚钱，也没那么可怕。</p>
+<p>最可怕的是你把自己搞得太重，太累，太焦虑，最后心死了，不做了。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/10391)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23/10391">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">13:49</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/21359)" target="_blank">我和女朋友异地，每天晚上用飞书会议聊天。飞书有文字纪要，所以我攒下了五六百篇我们的聊天。</a></div>
+  <div class="card-summary"><p>我让 Claude Code 基于这些纪要去理解女朋友的偏好，帮我推荐礼物，推荐得特别好。大节日礼物、每次从北京出差带回去的几十块小礼物，它推荐的都特别准。比如女朋友喜欢甜酷风的东西，我自己都不知道——但她说过，她说过但是我没记下来，AI 能抽出来。她说过她的 AppleWatch 表带发黄了，她真的说过这句，我也记得，但我想不到要再买个新表带，AI 就知道。</p>
+<p>她觉得脸上有些痘印，皮肤变得暗沉发黄，很苦恼，Claude Code 推荐了美容仪。我同时用了 ChatGPT、Claude、Gemini的 deep research，也用了 Claude Code去调研具体买哪款美容仪。Claude Code 效果比其他的都好——要知道，Claude Code 是没有专门为 Deep Research 适配过的（至少我当时还没有体验到），它只是简单地做一轮又一轮的搜索，但它只要有了上下文，哪怕只是做简单的的搜索，都比专门做深度搜索的工具更好，因为上下文能带来更精准的判断。它知道我女朋友脸部的各种细节描述，知道我女朋友的各种购物偏好。所以能推出更精准的美容仪。那些专门做深度搜索的工具就很差，因为它只有我说的那几百字。</p>
+<p>大模型是预测。当你的上下文不充分，它的预测就是给你一个最平均的回答，也许这个平均的回答已经很好了。但当你给它的上下文足够充分，你会对它施加一个强大的引力和扭转，它会给你一个更好的回答——也许这个回答在大众的意义上并不是最好的，但它对你就是最好的。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/21359)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/21359">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">14:14</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/42027)" target="_blank">**传谷歌考虑采购中国长鑫存储内存芯片，应对短缺与价格压力**</a></div>
+  <div class="card-summary"><p>有传闻称谷歌正在评估从中国存储器厂商长鑫存储采购 DRAM 芯片。消息源自社交媒体爆料，声称源头是谷歌母公司 Alphabet CEO Sundar Pichai，但尚未证实。</p>
+<p>当前内存芯片紧缺，此举若落地，可能打破三星、SK 海力士、美光三家长期主导的市场格局。目前尚不明确这些芯片将用于 Pixel 手机、谷歌 TPU 还是云服务，外界猜测更可能用于新一代 Humufish TPU，因谷歌计划到 2028 年底将这类定制 AI 芯片的产量推至 350 万片。</p>
+<p><a href="https://wccftech.com/a-wild-rumor-linked-to-sundar-pichai-suggests-google-is-evaluating-the-procurement-of-memory-chips-from-chinas-cxmt/">Wccftech</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/42027)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihua_news">英文频道</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/42027">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">14:25</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/10393)" target="_blank">跨境电商独立站的起盘成本是多少？</a></div>
+  <div class="card-summary"><p>从测品的角度来说，几千美金足矣。</p>
+<p>我们搭建了一个非常适合新手试水的5步选品模型。</p>
+<p>有兴趣的朋友可以去我置顶的知识库里看看。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/10393)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/yunying23/10393">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">15:18</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/80485)" target="_blank">一图看懂大陆玩家如何快速拥有一个美国的电号码（建议收藏）</a></div>
+  <div class="card-summary"><p>美国卡不仅可绕过交易所对+86号码的封禁，</p>
+<p>还能操作包括KYC、新项目撸毛账号必备等，</p>
+<p>还能解锁OpenAI/Claude/X等地域限制服务</p>
+<p>先说测评结论：</p>
+<p>✍️长期保号/跨国使用：</p>
+<p>首选Tello（搭配9eSIM或5ber解决国行手机限制）。</p>
+<p>✍️短期/临时需求：</p>
+<p>预算有限 → Talkatone（免费）。</p>
+<p>注重隐私 → Hushed（付费更稳定）。</p>
+<p>✍️国行手机 eSIM 支持：</p>
+<p>长期使用 → 9eSIM（管理多号码更优）。</p>
+<p>便携需求 → 5ber（硬件更轻便）。</p>
+<p>✍️VOIP 敏感场景（如银行验证）：</p>
+<p>仅推荐 Tello（实体运营商号码，非 VOIP）。</p>
+<p>为了兄弟们方便操作，我用Tello举例，大陆用户注册Tello美国手机卡的详细操作步骤：</p>
+<p>🟨前期准备</p>
+<p>设备支持：确保你的手机支持 eSIM 卡功能，如 iPhone SE 第二代、iPhone 8 及以上型号等。</p>
+<p>邮箱：准备一个常用的邮箱（最高是谷哥），用于注册 Tello账号。</p>
+<p>IMEI号码：提前查询并准备好手机的 IMEI 号码，可通过拨打 *</p>
+<p>🟨注册账号</p>
+<p>打开 Tello 官网http://tello.com，点击 “JOIN TELLO” 按钮，进入注册页面。</p>
+<p>填写注册信息，包括 First Name（名字）、Last Name（姓氏）、Email（邮箱）和 Password（密码）。姓名可以随意填写，但邮箱一定要填写正确，以便接收激活邮件和重要通知。</p>
+<p>🟨选择套餐</p>
+<p>注册成功后，进入 Tello 的主页，点击菜单栏的 “Plan” 选项，开始选择套餐。</p>
+<p>Tello 提供多种套餐选择，最低 5 美元一个月的套餐，包含无限短信和 100 分钟的通时间，通包括全球 60 多个国家。</p>
+<p>你可以根据自己的需求选择合适的套餐，如果只是用于接收验证码等基本功能，选择 0 流量 + 100 分钟 + 无限短信套餐即可。</p>
+<p>🟨填写地址和账单信息</p>
+<p>选择好套餐后，进入下一步填写账单地址。建议填写转运公司的地址，如转运中国的地址，或者在谷歌地图上搜索一个真实的美国地址填写（不需要验证）。</p>
+<p>填写支持 eSIM 卡的手机的 IMEI 号，如果你的手机不支持 eSIM，可购买 eSTK 来加装 eSIM，或者在网上随机生成一个 Google Pixel 手机的 IMEI 号。</p>
+<p>🟨支付费用</p>
+<p>填写完地址和账单信息后，进入支付页面，</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/80485)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/80485">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">15:18</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/80486)" target="_blank">Tello 支持多种支付方式，如信用卡、PayPal 等。</a></div>
+  <div class="card-summary"><p>支付成功后，Tello 会发送激活邮件到你的注册邮箱，按照邮件中的提示完成激活操作即可。</p>
+<p>🟨激活 eSIM 卡</p>
+<p>支付完成后，可以在 Tello 账户中的 “My SIM” 部分查看 eSIM 的相关信息。</p>
+<p>点击 “My SIM Section” 或者直接访问官网http://tello.com ，找到eSIM的二维码，使用支持 eSIM 的手机扫描二维码，按照手机的提示完成 eSIM 的安装和激活。</p>
+<p>🟨设置 Wi-Fi Calling</p>
+<p>激活 eSIM 卡后，为了在国内使用 Tello 进行通和短信，需要设置 Wi-Fi Calling。</p>
+<p>在 Tello 账户的 “My Settings” 中填写 E911 地址，即可开通 Wi-Fi Calling 功能。需要注意的是，E911 地址必须是美国的真实地址，可以在谷歌地图上查找。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/80486)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/80486">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">16:34</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/80490)" target="_blank">创业公司不断融资</a></div>
+  <div class="card-summary"><p>大部分情况下只有一个原因</p>
+<p>不赚钱</p>
+<p>所以看见谁谁谁又融资了</p>
+<p>更值得思考的是</p>
+<p>为啥这家公司都还不赚钱</p>
+<p>然后你就会看见</p>
+<p>一个全新的世界</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/80490)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024/80490">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@text1024</span>
+    <span class="time-tag">18:26</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/text1024/23686)" target="_blank">韭菜都有一个特点，就是他们特别喜欢问一个这样的问，就是今年啊有哪些机会啊，今年做什么好啊？今年干点什么能挣钱呢？各位有没有发现，他们说的这个时间单位永远都是年，有这种提问习惯的人十有八九都是韭菜。就好像有个人问你，有没有啥事是做起来不辛苦，投入少，还能赚钱多一样的。镰刀听着他做梦都会笑出声来啊。但凡你有独立思考能力，你就会明白这种问压根儿就不用问。因为什么？因为真正的机会，从来都不是按年出现的，真正的机会是趋势，是方向。它的出现可能是以三年、五年，甚至十年、20年作为一个单位的。它没有一个最优解，也没有一个最差解，任何时候都可以进去，任何时候都有不同的解法。但是很多人他们就是喜欢啊，他们觉得自己离成功就差一个消息，最好还能完美卡点。之前从来没有，今年突然来的啊，就等我去呢，去了我就会做，做了我就能赚钱，就像赶火车一样，前脚刚收后脚关门，多一秒我都不能等。那不好意思，年月日其实根本不重要，理解吧。大家可能都学过历史，那为什么这么多人读了这么多历史？为什么在实际生活中这些历史知识，没有什么使用价值呢？就是因为他们往往只记住了类似年月日这些表面的细节。比如说啊这个美国独立战争，它是哪一年爆发的？他们不假思索的回答说1861年4月12日。但你要说成4月11日，他们可能就会得意洋洋的说啊，你错了，还拿本书指给你看。可是我们仔细想一想，早一天晚一天这个东西它是最关键的部分吗？历史它是结果，不是原因。历史是无数必然中的偶然，你记住了偶然的时间点，却忽略了必然的规律，你记住了具体的时间，却忽略了是什么推动了这个时间的到来。所以我们学习历史，不应只看日历上的数字，而应该深入探究其中的规律与逻辑。你要真正关心的是来龙去脉，是力量的博弈，是趋势和方向。只有抓住这些，你才抓住了关键点。至于它会在哪一天发生，这个根本不重要，我们根本不需要关心。我们只需要知道，它一定会发生，它在未来一定会发生，这就够了。所以，我们一定要记住，年月日根本就不重要。机会不看日历，韭菜在看。</a></div>
+  <div class="card-summary"><hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/text1024/23686)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/text1024">副业搞钱</a><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/chunse1024">优质内容</a><a href="https://t.me/text1024/23686">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">19:34</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/42034)" target="_blank">**Microsoft Edge 将支持 Google 账户登录并同步数据**</a></div>
+  <div class="card-summary"><p>微软计划在 2026 年 7 月允许用户用 Google 账户登录 Edge 浏览器，同步书签、设置等数据。该功能会在 Edge 个人资料菜单和登录界面提供，IT 管理员可通过策略控制其可用性。</p>
+<p>此前 Edge 仅支持微软账户登录，用户需要通过间接方式使用 Google 账户。微软曾在 2020 年表示没有将 Google 服务默认集成到 Edge 的计划。此外，Edge 团队也在今年 4 月开始跟踪为 Google 搜索添加工作搜索横幅的开发计划。</p>
+<p><a href="https://www.neowin.net/news/microsoft-will-finally-let-you-sign-in-to-edge-with-a-google-account/">Neowin</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/42034)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihua_news">英文频道</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/42034">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">19:59</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/21363)" target="_blank">今年 618 有点冷清</a></div>
+  <div class="card-summary"><p>好像没什么电商广告，也没什么购物短信...</p>
+<p>只有 AI 软件在促销</p>
+<p>我们也凑个热闹吧</p>
+<p>ListenHub 现已全面升级为 AI 创作者平台，接入了 Seedance 2.0、HappyHorse、GPT Image 2、Nano Banana Pro 等顶级的视频和图像模型，价格也很优惠。</p>
+<p>今天开始为期一周的 618 + 端午节限时福利 🥳</p>
+<ol>
+<li>
+<p>ListenHub 订阅月费/年费会员，额外加赠送 50% 积分</p>
+</li>
+<li>
+<p>新用户注册立即赠送100积分</p>
+</li>
+<li>
+<p>老用户每日签到可免费获得 2 张生图额度</p>
+</li>
+</ol>
+<p>以上活动，限时7天，不要错过。</p>
+<p>如果错过的，就是黑五见了哈...</p>
+<p>在这里参与活动： http://listenhub.ai</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/21363)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/21363">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">20:16</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/80498)" target="_blank">#内幕消息</a></div>
+  <div class="card-summary"><h1>素人做IP每个月要花多少钱？</h1>
+<p>说句行业内都不会透露的实话：无论是知识付费还是短视频赛道，素人想要做的稍微有点起色，一个月支出少说10w块，60w起能看到一点点小成绩。</p>
+<p>1、亏月收入：自由职业或者全职做的，一个月不赚钱就是在亏工资。（1-2w）</p>
+<p>2、个人开销：五险一金＋饮食＋住房＋交通＋生活用品等（1w-2w）</p>
+<p>3、器材场地：相机、支架、各种灯、手机电脑、场地背景布置等（3-5w）</p>
+<p>4、个人装扮：衣服（女比男更多）、配饰、化妆等（5k）</p>
+<p>5、助理成本：个人做不了全流程会招运营、拍摄、剪辑、文案等（1w-2w）</p>
+<p>6、物料成本：海报设计费、课件费用、物料制作费、快递费等（5k-2w）</p>
+<p>7、学习请教：知识付费课、请顾问、和老师学习（5k-5w）</p>
+<p>8、社交链接：请客吃饭、送礼、聚会、参加活动、人情往来等（3k-1w）</p>
+<p>9、平台费用：各平台会员费、投流费用、商城入驻/开通费用等（5k-1w）</p>
+<p>互联网风口赛道没那么好进入，看起来那么赚钱。成本费和倒闭率不亚于一家实体店。</p>
+<p>知道为什么那么多人做不成吗？</p>
+<p>0-1阶段没有足够的时间，没有足够的能力，没有足够的钱，没有足够的执行力和稳定的心态。干不起来很正常。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/80498)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/80498">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">20:23</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/42035)" target="_blank">**小米开源智能家居方案 Miloco 2.0 发布**</a></div>
+  <div class="card-summary"><p>小米开源的智能家居方案 Miloco 2.0 正式发布。它以米家摄像头的音视频作为感知入口，内置 MiMo 大模型，作为 OpenClaw 插件运行，新增通用常识、身份识别、家庭记忆、家务任务、主动智能和家庭看板等功能，可主动观察、推理并控制全屋设备。</p>
+<p>用户需使用 macOS 或 Linux（Windows 通过 WSL 运行），建议 4 GB 内存和 256 GB 存储，并绑定小米账号与 MiMo API 密钥。感知和 Agent 主要依赖云端大模型，会产生持续 API 费用。该项目仅限非商业用途。</p>
+<p><a href="https://github.com/XiaoMi/xiaomi-miloco">Xiaomi</a> | <a href="https://mp.weixin.qq.com/s/d07dYCA_hJKzCNDo4J_9Bw">小米技术</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/42035)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihua_news">英文频道</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihua_news">英文频道</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/42035">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">21:09</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/42036)" target="_blank">**中央网信办启动为期 3 个月整治账号名称信息乱象专项行动**</a></div>
+  <div class="card-summary"><p>中央网信办自即日起开展“清朗·整治账号名称信息乱象”专项行动，为期 3 个月，集中整治账号名称信息突出问题，督促网站平台严格落实主体责任，完善账号名称信息全流程管理。</p>
+<p>行动重点打击四类乱象：一是假冒仿冒党政机关、媒体及名人账号；二是未经认证伪装专业人士或热点当事人；三是在头像、名称中夹带违规外链或暗含不良信息；四是伪造流量数据、虚假“大 V”及篡改“僵尸”账号等黑灰产。平台需健全资质认证与动态核验机制，对违规账号采取禁言、限流、关闭等措施。</p>
+<p><a href="https://www.cac.gov.cn/2026-06/18/c_1783524858389800.htm">中央网信办</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/42036)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihua_news">英文频道</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/42036">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@text1024</span>
+    <span class="time-tag">22:14</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/text1024/23690)" target="_blank">稻盛和夫：年轻人要赚钱谨记十句忠告。</a></div>
+  <div class="card-summary"><p>1.长期用的东西要买贵的</p>
+<p>2.不要和亲戚朋友共事</p>
+<p>3.每天培养看书习惯</p>
+<p>4.懂得“利他”思维</p>
+<p>5.尽可能去创业</p>
+<p>6.一定要锻炼身体</p>
+<p>7.要习惯孤独</p>
+<p>8.学会演讲</p>
+<p>9.热爱工作积极向上</p>
+<p>10.有生之年，一边拥有一边清理</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/text1024/23690)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/text1024">副业搞钱</a><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/chunse1024">优质内容</a><a href="https://t.me/text1024/23690">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">22:49</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/42038)" target="_blank">**追觅收缩业务至四大主线，裁员 12%**</a></div>
+  <div class="card-summary"><p>追觅正在将超过 200 个业务单元合并为四大主营业务：全屋智能清洁、智能家电、智慧出行和 AI 具身智能，未实际落地的 BU 直接取消。整体裁员 12%，略高于往年 10%的年中考核淘汰比例。</p>
+<p>智能清洁板块人员近 1.2 万人，占全公司半数以上，研发人员占七成。被裁员工根据不同情况获 0.5 至 N+1 不等的补偿，试用期新员工受影响最大；部分职能和研发、销售人员可通过活水转岗。手机、汽车、芯片等重资产长周期业务则划入新设立的产业研究院，专注技术研发。</p>
+<p><a href="https://news.qq.com/rain/a/20260618A08F3L00">腾讯新闻</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/42038)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/ZaiHuaPd">在花频道</a><a href="https://t.me/zaihua_news">英文频道</a><a href="http://t.me/ZaiHuabot">投稿通道</a><a href="https://t.me/zaihuapd/42038">查看原文</a></div></div>
+</div></div>
+
+    <div class="footer">TG 频道日报 · 自动生成</div>
+</div>
+
+</body>
+</html>

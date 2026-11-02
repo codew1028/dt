@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>TG 频道日报</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background: #060814;
+    color: #e8eaf0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    min-height: 100vh;
+    display: flex; justify-content: center;
+}
+
+a { color: #6ea0ff; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.main-wrap {
+    width: 100%;
+    max-width: 860px;
+    padding: 48px 40px 80px;
+}
+
+.hero {
+    padding-bottom: 36px;
+    margin-bottom: 36px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.hero-vol { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; color: #6ea0ff; margin-bottom: 10px; }
+.hero-title { font-size: 38px; font-weight: 800; line-height: 1.15; color: #fff; margin-bottom: 10px; }
+.hero-date { font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 16px; }
+.hero-stats { display: flex; gap: 28px; }
+.stat-item { display: flex; flex-direction: column; gap: 2px; }
+.stat-num { font-size: 22px; font-weight: 700; color: #fff; }
+.stat-label { font-size: 11px; color: rgba(255,255,255,0.35); letter-spacing: 0.08em; text-transform: uppercase; }
+
+.section { margin-bottom: 40px; }
+.section-head {
+    display: flex; align-items: baseline; gap: 16px;
+    margin-bottom: 20px; padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.section-num { font-size: 28px; font-weight: 800; color: rgba(255,255,255,0.25); line-height: 1; }
+.section-title { font-size: 17px; font-weight: 700; color: #fff; }
+.section-count {
+    margin-left: auto; font-size: 11px; font-weight: 600; color: #6ea0ff;
+    background: rgba(110,160,255,0.12); padding: 2px 8px; border-radius: 20px;
+}
+
+.card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 12px; padding: 18px 22px; margin-bottom: 12px;
+    transition: border-color 0.2s, background 0.2s;
+}
+.card:hover { border-color: rgba(110,160,255,0.3); background: rgba(110,160,255,0.04); }
+
+.card-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.channel-tag {
+    font-size: 12px; font-weight: 600; color: #fff;
+    background: rgba(110,160,255,0.25); padding: 2px 8px; border-radius: 20px; white-space: nowrap;
+}
+.time-tag { font-size: 12px; color: rgba(255,255,255,0.35); }
+
+.card-title {
+    font-size: 15px; font-weight: 700; color: #fff;
+    margin-bottom: 8px; line-height: 1.5;
+}
+.card-title a { color: inherit; }
+.card-title a:hover { color: #6ea0ff; text-decoration: none; }
+
+.card-summary {
+    font-size: 14px; color: rgba(255,255,255,0.6);
+    line-height: 1.8;
+}
+.card-summary p { margin-bottom: 6px; }
+.card-summary p:last-child { margin-bottom: 0; }
+
+.card-footer {
+    margin-top: 10px; display: flex; align-items: center;
+    gap: 12px; flex-wrap: wrap;
+}
+.source-link { font-size: 12px; color: rgba(255,255,255,0.35); }
+.source-link::before { content: "🔗 "; }
+.channel-links { margin-left: auto; font-size: 11px; color: rgba(255,255,255,0.25); }
+.channel-links a { color: rgba(255,255,255,0.3); margin-right: 6px; }
+.channel-links a:hover { color: #6ea0ff; }
+
+.brief-text { font-size: 15px; color: rgba(255,255,255,0.75); line-height: 1.7; }
+
+pre { background: rgba(0,0,0,0.4); border-radius: 8px; padding: 16px; overflow-x: auto; font-size: 13px; }
+code { font-family: "SF Mono", Consolas, monospace; font-size: 0.88em; }
+p code { background: rgba(110,160,255,0.1); color: #9ec5ff; padding: 1px 6px; border-radius: 4px; }
+
+.footer {
+    text-align: center; font-size: 12px; color: rgba(255,255,255,0.2);
+    padding: 30px 0 20px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .main-wrap { padding: 28px 20px 60px; }
+    .hero-title { font-size: 26px; }
+}
+</style>
+</head>
+<body>
+
+<div class="main-wrap">
+    <div class="hero">
+        <div class="hero-vol">VOL.20260613</div>
+        <h1 class="hero-title">TG 频道日报</h1>
+        <div class="hero-date">2026年06月13日 · 星期六 · 5 个频道 · 32 条内容</div>
+        <div class="hero-stats">
+            <div class="stat-item"><span class="stat-num">32</span><span class="stat-label">条内容</span></div>
+            <div class="stat-item"><span class="stat-num">5</span><span class="stat-label">个频道</span></div>
+        </div>
+    </div>
+
+    <div class="section"><div class="section-head"><span class="section-num">01</span><span class="section-title">TG 频道精选</span><span class="section-count">32 条</span></div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">00:59</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/21171)" target="_blank">钉钉ONE就是一个按照传统的互联网开发模式技术上实现不了的项目，LLM就不可能在传统公司的管理控制为基准的软件中，完成帮管理层拆解任务，帮执行层排列优先级。第一波能跑通的只能是管理和执行为一体的OPC，而且载体就是CC/Codex方向下的Harness，如果只是给每个人配一个AI助理实际上是无法真正降本提效的。如果组织不能更快地完成功能到商业价值的闭环，AI只会放大混乱，还不如原来的规则系统或者SOP甚至没有AI。</a></div>
+  <div class="card-summary"><hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/21171)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/21171">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">01:36</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/21172)" target="_blank">来预测一波，预计钉钉、飞书、企业微信，将很快上线的 AI 功能。</a></div>
+  <div class="card-summary"><p>因为这个还真的有老板愿意付费。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/21172)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024">AI探索</a><a href="https://t.me/openclaw1024">Hermes/OpenClaw</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/aigc1024/21172">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@text1024</span>
+    <span class="time-tag">04:13</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/text1024/23539)" target="_blank">[“公司由44人缩减到两人”：他们靠这条爆火创业赛道年省百万？](https://mp.weixin.qq.com/s/ESGBDloMRsuSY_DPeRtFdg?scene=334)</a></div>
+  <div class="card-summary"><p>郝景芳的分享，写的非常真实</p>
+<p>AI不仅是一种颠覆性的新技术，它是一个新世界如果连这道门都不愿迈入，很难同行下去</p>
+<p>从《北京折叠》到「碳基折叠」</p>
+<p>🧱</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/text1024/23539)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/text1024/23539">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">06:13</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/21173)" target="_blank">🔥答应 老师和李现同框，想把名人放进Seedance真不容易，AI还给霸气女主画了个全妆，虽然略凶悍，但好歹也算让李现拜倒在你的裙下。</a></div>
+  <div class="card-summary"><p>💰脚本只能先拿最近跑量的信息流广告凑个数，给自己的频道宣发一下。欢迎大家关注！</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/21173)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024">AI探索</a><a href="https://t.me/openclaw1024">Hermes/OpenClaw</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/aigc1024/21173">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@text1024</span>
+    <span class="time-tag">07:31</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/text1024/23540)" target="_blank">[https://mp.weixin.qq.com/s/oAqFvpVaxuxADd5_-jyxCg](https://mp.weixin.qq.com/s/oAqFvpVaxuxADd5_-jyxCg)</a></div>
+  <div class="card-summary"><p>你用原价claude api你还创啥业呢？ 干脆拿投资人钱做慈善得了</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/text1024/23540)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/text1024/23540">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@chunse1024</span>
+    <span class="time-tag">07:58</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/chunse1024/10734)" target="_blank">终于，我卸载了微信输入法。</a></div>
+  <div class="card-summary"><p>在一次忍无可忍之后，我终于卸载了微信输入法。当我改用开源的鼠须管输入法+雾凇拼音方案之后，我终于浑身舒畅了，连码字效率都提高了 50%。 😊</p>
+<p>说起来，微信输入法绝对不算 Mac 电脑上难用的输入法，甚至可以说是最好用的中文输入法之一。在微信输入法之前，我用的是搜狗拼音输入法。搜狗拼音输入法的好用程度甚至要超过微信拼音输入法。但是在一年前，一次再一次忍无可忍之后，我卸载了搜狗拼音输入法，改用了微信输入法。今天我要彻底抛弃这两个商业的输入法了。</p>
+<p>为什么我抛弃了微信拼音输入法：</p>
+<p>第一，微信输入法经常有 bug，尤其是我的 macOS 升级到了 Tahoe 26 以后，输入法经常无法呼出中文候选词条。导致我不得不临时切换到自带的拼音输入法。一个中文输入法，用你的时候，你不中用啊。</p>
+<p>第二，微信输入法集成了一堆 华而不实的 AI 功能，搞的功能极其臃肿，敲字的时候一堆一堆请求发到服务器，响应速度经常让我感觉十分缓慢。我打开软件安装目录一看，好家伙，超过了 500MB 的硬盘存储空间，您究竟在我的电脑上塞了些啥呀？</p>
+<p>而且说句心里，一个输入法动辄发送大量请求到服务器，用户隐私实在是堪忧。所以但凡觉得自己说有点不堪，赶紧切换系统自带输入法，真的累呀！</p>
+<p>当然，我还是得为微信输入法说两句公道的好，就是微信输入法比更垃圾的搜狗输入法还是要好很多，因为搜狗太烂了。</p>
+<p>搜狗能烂到什么程度呢？ 经常我打字打到一般，系统没有响应了，用活动监控器一看，好嘛，搜狗的应用进程的 CPU 都飙到 99%了，我得祭出手动杀进程的禁招，这还是一个输入法吗？是病毒还差不多吧？</p>
+<p>此外搜狗还有一个令人忍无可忍的毛病，就是喜欢弹窗，你 Window 版弹窗也就算了，Mac 版还给我来点消息提醒，你是输入法啊，别喧宾夺主了。</p>
+<p>说到底今天的商业软件，特别是免费的商业软件，都好像得了大病，就不能让你用户好好的用，非要和用户对着干才行，那我用不起躲得起总行吧？</p>
+<p>所以最近我不得不花了点时间，打开 AI，虚心请教了一番，在 AI 的英明指导下，换装了开源的鼠须管输入法，再下载了词库最齐全的、开源的雾凇拼音方案，加起来，确实用了我不少时间研究和安装。但是安装好使用的那一刻，无比的丝滑和跟手。</p>
+<p>就是你敲每个字母的那一刻，候选词条实时响应和变化，毫无延迟感。我才终于明白了，原来不是我的 M1 芯片的 Mac 电脑过时了，而是商业的输入法消耗了太多无用的资源。</p>
+<p>当然，我现在再也不用担心我敲下的每个字被不知道传送到哪个云端去了，真的，开源输入法，你值得拥有！</p>
+<p>https://dvel.me/posts/rime-ice/</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/chunse1024/10734)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/chunse1024">优质「内容」</a><a href="https://t.me/meiriyishu">优质「资源」</a><a href="https://t.me/inside1024">你不知道的内幕消息🌳</a><a href="https://t.me/chunse1024/10734">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">08:12</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/80168)" target="_blank">YouTube英语学习频道推荐：English At The Ready</a></div>
+  <div class="card-summary"><p>帅比Michael老师带你学习各种英语知识，小技巧，学习方法，发音清晰，语速适中，整体视频英语难度都是停留在A2-B1区间，对于初，中级别难度的学习者来说是非常好的听力材料。对姐妹们来说也是福利。</p>
+<p>互联网从业者专属</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/80168)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/80168">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">08:19</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/10253)" target="_blank">不是因为你是专家才有资格输出。</a></div>
+  <div class="card-summary"><p>而是先开始输出，你就慢慢成长为了专家。</p>
+<p>很多人问我是不是学心理学的。</p>
+<p>因为看我写很多mbti的内容。</p>
+<p>我就是纯兴趣开始输出呀！</p>
+<p>然后别人就觉得你好专业呀！</p>
+<p>（小红书下一个选题也找到了）</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/10253)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23/10253">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">09:12</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/21176)" target="_blank">以前我写过一些很好的技术文章，然后阿里云国际的同学就会来找我，让我授权他们翻译成英文发布到他们的国际站上</a></div>
+  <div class="card-summary"><p>他们会找供应商来翻译，说实那个翻译质量惨不忍睹，但是没事，反正阿里云国际的同学也不懂技术，看不懂翻译后的文章</p>
+<p>现在 AI 翻译已经秒掉了 99% 的翻译工作了</p>
+<p>我也不知道我有啥感想，但是我会选 AI 给我翻译的</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/21176)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024">AI探索</a><a href="https://t.me/openclaw1024">Hermes/OpenClaw</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/aigc1024/21176">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">10:12</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/80172)" target="_blank">我最近想把 雅思 学起来，方便之后 出国 或者“水个硕”。</a></div>
+  <div class="card-summary"><p>有大概一年多的时间，但因为平常事情太多，时间比较碎片化。</p>
+<p>目标就是能考到 7 分。</p>
+<p>看到网上很多流派，不知道该怎么选了：</p>
+<p>流派1：每天听英文播客、刷YouTube、读感兴趣的英文文章。</p>
+<p>流派2：前期死磕雅思词汇书，过几遍。后期疯狂刷真，总结经验。</p>
+<p>流派3：直接买个系统课，跟着课程一步步来。</p>
+<p>对于这种情况，应该怎么选，或者有没有更好的思路。</p>
+<p>自媒体/出海经验/赚美金/运营技巧</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/80172)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/80172">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">10:24</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/10261)" target="_blank">出海支付一直是个老大难的问题，去年对于个人最好用的平台是creem，但是现在creem也收紧，审核越来越严，现在甚至必须要有邀请码才能开通了。</a></div>
+  <div class="card-summary"><p>有没有一个无需注册公司、低费率、审核宽松的平台呢？</p>
+<p>最近比较火的waffo AI推出了针对个人开发者的pancake，就是面向国内开发者群体的收款平台（图1）。</p>
+<p>它的门槛多低呢，无需注册公司，用身份证就可以注册。当然也可能是在前期吸引用户阶段，大家可以先注册起来，以防后期规则收紧。</p>
+<p>它非常省心，用了之后你无需关注合规、税务申报等琐事，专注把精力放在业务上。同时费率（3.9%+$0.5）也远低于stripe、lemon squeezy这些平台（图2）。</p>
+<p>而且相比于creem，它还支持微信和支付宝，这样可以通过一套支付网关同时服务海外和国内用户。</p>
+<p>同时它为AI开发者做了大量优化，可以通过AI Agent直接接入，不需要手动写一行代码。</p>
+<p>waffo已经为非常多头部AI公司（如oiioii.tv）提供了收单服务，而且团队来自于蚂蚁国际，获得了汇丰银行等顶级投资支持，大家可以放心使用。</p>
+<p>如果你需要为你的网站加入支付方式，可以使用我的推荐码ZERO01，或者直接通过https://pancake.waffo.ai/merchant/auth/signin?ref=ZERO01 注册账号（见图5），可以获得1000美元免手续费额度哦～</p>
+<p>如果大家需要详细一步步教程，可以在评论区留言“已关注，求教程”。如果呼声比较高，我会出一个详细的教程给到大家。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/10261)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23/10261">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">10:24</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/80173)" target="_blank">1、大多数情况下，网红就是赛博沙袋，就是平时赚钱赚流量可以，关键时刻需要靶子的时候，可以打你解气（而且没有代价）。最近20年，中国的网红所获得的社会地位是四千年来最高的，但四千年的力量还是比20年要大。</a></div>
+  <div class="card-summary"><p>2、公众永远有情绪，而且情绪需要出口，所以内容如果太依赖某种情绪，那么你就会成为某种社会议和情绪的载体，被公众反复玩梗消费，老大哥最后觉得消灭不了情绪，就会消灭你这个载体，你也会完，而且劣迹网红不是活佛，无法转生。</p>
+<p>3、识别和理解公众情绪，需要你是真正像普通人一样的思考和生活，网红因为像普通人而被人喜欢，但往往会真把自己当普通人而被伤害。tim相亲、何同学打车，都是一个道理，因为你当一个网红就意味着你要背负非常高的道德期待，你是合法性的负债者。</p>
+<p>4、科学家里只有屠呦呦和袁隆平有合法性，企业家里只有任正非有合法性，其他人的合法性就是脆弱的，比老百姓低多了，都是首陀罗。</p>
+<p>5、好网红，吃苦不声张，因为普通人很难和你共情，别低头皇冠会掉，别逼逼赖赖，老百姓会笑，看有钱人出洋相，看富豪破产，看名人特别是名女人倒霉，是社会情绪的刚需。（所以一个高调的有钱的 业绩不稳定的女基金经理 就是这个社会上合法性最低的人）</p>
+<p>6、网红没久期，所以很难不激进，在周期向上的时候，就会不断的激烈的路径依赖、以及风格强化，这个是正反馈带来的，盈亏同源，没办法。毕竟以后啥样知不道呢，不满仓把自己拉高杠杆不行。</p>
+<p>7、大多数现代人终极命运是死于癌症 死于心梗 死于痴呆，三选一，网红的三种死法就是 死于断网、死于塌房、死于遗忘，被遗忘是最体面的，我觉得做明星和做网红，都要有以身饲剑的觉悟。师傅欧冶子为了给自己的流量加热，跳下熔炉，徒弟可能也有这样一天。</p>
+<p>8、大多数时候，被喜欢是偶然的，被厌弃是注定的，甚至喜欢和厌弃本身就是近义词，喜欢的反义词是不在乎或者无感。曾经被喜欢，往往也是某种程度的误解，只是那时的你，对美好世界的某种投射而已。</p>
+<p>纯暴论，没有任何理论依据，以上。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/80173)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024/80173">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">10:25</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/80174)" target="_blank">如何突破人生的第一个100万？</a></div>
+  <div class="card-summary"><ul>
+<li>
+<p>年薪 5 万，工作 20 年</p>
+</li>
+<li>
+<p>年薪 10 万，工作 10 年</p>
+</li>
+<li>
+<p>年薪 25 万，工作 4 年</p>
+</li>
+</ul>
+<p>打工曾是稳定且清晰的，如果你为相信你的人工作，且你也相信他们，这可能是建立美好生活最稳妥的方式。</p>
+<p>但现在即使是好工作也伴随着大量的风险。由于AI带来的各种组织重组、AI 自动化带来的裁员，可能过往明确的路径已经不那么可靠了。</p>
+<p>图中下半部分乍看之下显得有些简单：</p>
+<ul>
+<li>
+<p>5,000 人购买 200 元的产品</p>
+</li>
+<li>
+<p>2,000 人购买 500 元的产品</p>
+</li>
+<li>
+<p>1,000 人购买 83 元的月度订阅</p>
+</li>
+<li>
+<p>300 人支付 278 元的月费</p>
+</li>
+</ul>
+<p>这些数字看起来似乎可以互换，但其实业务模式截然不同</p>
+<ul>
+<li>
+<p>200 元的产品靠分发渠道，因为你需要大量的买家和源源不断的新关注</p>
+</li>
+<li>
+<p>500 元的产品重点是感知专业度，因为只有当人们觉得东西是为他们量身定制时，才会花这么多钱</p>
+</li>
+<li>
+<p>83 元的订阅依赖持续的实用性客户必须每个月都在续费</p>
+</li>
+<li>
+<p>278 元的月度服务依赖交付结果，因为支付这个金额的人期望他们的生活或业务发生清晰且有意义的转变</p>
+</li>
+</ul>
+<p>虽然每条路都需要信任、留存和价值，但重心却有所不一样。这也正是为什么很多人实现不了目标的原因。</p>
+<p>问并不在于人们选择了“坏点子”。更多的是在于选择了点子后，却没有理解这些点子对运营方式有不一样的要求。</p>
+<ul>
+<li>订阅制的产品会将你置于一条必须每月交付价值的路径上</li>
+</ul>
+<p>-</p>
+<p>200 元的产品会将你置于一条分发成为主要瓶颈的路径上</p>
+<ul>
+<li>高端服务会将你置于一条真正的重头戏是销售而非构建</li>
+</ul>
+<p>想法固然重要，但营销同样重要。</p>
+<p>当你选择一个想法时，你实际上是在选择你将赖以生存的营销方法，而太多人做出了选择，却没意识营销策略有所不同</p>
+<p>如果我现在要从0赚到100万，我不会先去思考一个创业想法，我会看着这张图表，决定哪条路径符合我的优势运作策略。</p>
+<p>然后，我会选择一个在那条路径上行得通的想法。想法和营销策略必须匹配。 大多数人先选了方向，后来才发现收到营销策略制约，结果举步维艰。</p>
+<p>AI 正在悄无声息地改变着这一切。</p>
+<p>十年前，探索这些路径中的任何一条都意味着要围绕这个点子建立一整套支持结构。人们必须打磨故事、包装报价、设计获客路径、测试漏斗、收集反馈并改进销售术。</p>
+<p>这些没那么难，但它很慢，如果想要加速，每个环节就需要不同的人（和大量的资金）。</p>
+<p>现在的瓶颈不再是人才或工具。现在的瓶颈在于你是否能做出清晰的决定。</p>
+<p>如果你能做到，你</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/80174)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/80174">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">10:25</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/80175)" target="_blank">可以自己生成实验的每一个部分，并同时运行多个版本。</a></div>
+  <div class="card-summary"><p>当成本降低后，最明智的举动不再是规划完美的点子，而是进行几次可控测试，看看哪个背后真正有能量。清晰的决策力就是这个时代的护城河。</p>
+<p>如果今天我们来设定100万的目标，可以先用三个不同的想法来测试 200 元的路径，通过社交渠道推广，看看是否能自然传播。</p>
+<p>也会同步测试 500 元的路径，创建一个解决痛苦问的简单方案，直接推销给那些已经感受到这种痛苦的人。</p>
+<p>继续测试 83 元的订阅路径，推出十种onboarding的引导页，直到有一种能留住人进行付款。</p>
+<p>我们不必保护这些想法中的任何一个。也不用聚焦它们中的任何一个。去会观察哪一个显示出向上的拉力，然后毫不犹豫地放弃其他的。</p>
+<p>这也是我在最优秀的构建者身上看到的操作系统：</p>
+<p>找到路径-&gt;开发原型-&gt;简单发布-&gt;快速验证</p>
+<p>选择一条路径。制作一个简单的原型。把它发布到有潜在客户的地方。</p>
+<p>在速度、清晰度和响应率中寻找证据。</p>
+<p>如果它中了，你就聚焦。如果没中，你立刻走人。死磕是一种傲慢，顺势而为才是智慧。</p>
+<p>AI 不仅让构建变快了，它还消除了尝试的成本。你不需要六个月。你不需要深入思考。你不需要完美的想法。你只需要比周围的人用更清晰的思维去进行更多的测试。</p>
+<p>当测试变得廉价时，赢家是那些放下自我、迭代最快的人。</p>
+<p>重点是选择一条你实际上能维持的路径，一个你实际上能证明合理的定价，以及一个符合你工作方式的想法。</p>
+<p>当这三者连成一线时，生意就不再感觉像是一场赌博，而开始感觉像是你可以经营多年的事业。</p>
+<p>通往百万富翁的路径一直都很简单。它们过去之所以遥不可及，是因为每一条都需要大量的时间、金钱和整合。</p>
+<p>现在，你可以足够快地探索它们，看看哪一条适合你，而不是强迫自己进入错误的那条。这才是真正的优势。</p>
+<p>你不再是将你的人生押注在单个点子上。你是在进行小规模、真实的测试，直到正确的想法和正确的营销相匹配。</p>
+<p>赚到一百万的感觉仍然像是在推着巨石上山。但这并不会让山变小，它只是让你避免了把巨石往错误的方向推了五年。</p>
+<p>大部分的痛苦来自于爬错了山，而不是来自于攀登本身。</p>
+<p>私人优质信息收藏夹</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/80175)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/80175">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">10:40</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/10262)" target="_blank">[YouMind 1.0 正式发布｜大胆创作](https://mp.weixin.qq.com/s/DAq15kuvmSUdReMBBn3XRA)</a></div>
+  <div class="card-summary"><p>YouMind 也算是哥飞的朋友们产品系列，玉伯带领团队做了两年，版本号升级到了1.0，可喜可贺。</p>
+<p>这里说明一下，并不是闭门造车了两年才发布产品，而是在最小可用时就发布出来了，给真正的用户用起来，让用户帮助产品一起成长。</p>
+<p>网站流量最近半年多一路猛涨，YouMind找到了自己的增长之道。</p>
+<p>从玉伯身上你可以看到，大厂技术牛人，也是可以做好增长的。只要愿意学习，就没什么学不会的，只要愿意找到合适的人，就没什么做不好的。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/10262)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23/10262">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">11:16</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/21177)" target="_blank">即梦Seedance 2.0 ：AI生成视频零基础入门保姆级教学，收藏！</a></div>
+  <div class="card-summary"><hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/21177)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024">AI探索</a><a href="https://t.me/openclaw1024">Hermes/OpenClaw</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/aigc1024/21177">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">11:23</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/10263)" target="_blank">今天哥飞老师分享了一个东西：所有浏览器重复操作，都能让 AI 写插件自动化</a></div>
+  <div class="card-summary"><p>我寻思，这玩意肯定有现成的吧？</p>
+<p>一搜，还真有——阿里开源的 Page Agent</p>
+<p>核心能力：</p>
+<p>用自然语言控制浏览器，AI 自动完成重复操作</p>
+<p>我能用它干啥：</p>
+<p>• 自动化提外链（批量找目标站点，自动填联系表单）</p>
+<p>• 找新词（竞品页面批量抓取，提取关键词）</p>
+<p>• 看竞品数据（定时监控对手流量、排名、价格变化）</p>
+<p>适合谁用：</p>
+<p>出海创业者、独立开发者、SEO 从业者</p>
+<p>不用自己写插件，直接告诉 AI 你要干啥就行</p>
+<p>GitHub：alibaba/page-agent</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/10263)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/yunying23/10263">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@chunse1024</span>
+    <span class="time-tag">13:19</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/chunse1024/10740)" target="_blank">越来越感觉到Agent First的思维重要性</a></div>
+  <div class="card-summary"><p>不断获得Aha Moment</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/chunse1024/10740)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/chunse1024/10740">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">15:18</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/80182)" target="_blank">2026年从简单的做起</a></div>
+  <div class="card-summary"><p>1：有一个苹果手机</p>
+<p>2：有一个香港手机卡</p>
+<p>3：有一个苹果国外ID</p>
+<p>4：办理一张护照和港澳通行证</p>
+<p>5：办理一个香港银行卡</p>
+<p>6：开一个美国券商盈透证券账户</p>
+<p>7：运营一个X账户</p>
+<p>8：定投一个主流核心资产(QQQ/SPY/BTC/GOLD)</p>
+<p>9：有一个健身运动，有可能在多学习下英语</p>
+<p>10：学会用AI深度对</p>
+<p>就这么简单的10件小事，做对，最好，坚持做2027年这个时候，你一定会感谢自己的！</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/80182)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/80182">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">15:19</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/21180)" target="_blank">橙皮书📙宇宙，在路上了...</a></div>
+  <div class="card-summary"><p>今天先开源分享一本最近讨论很热烈的《Hermes Agent橙皮书》：https://github.com/alchaincyf/hermes-agent-orange-book?tab=readme-ov-file</p>
+<p>如果你已经在用了，说实，完全没必要看，狠狠用就好了。但如果你获得了一些碎片信息，完全不知道怎么回事，相信这个材料会帮你获得一些基础的系统性认识。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/21180)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024">AI探索</a><a href="https://t.me/openclaw1024">Hermes/OpenClaw</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/aigc1024/21180">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">16:29</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/10269)" target="_blank">创业为什么难？</a></div>
+  <div class="card-summary"><p>因为大家看到了风口，但你的认知却让你找错了入口。</p>
+<p>下面这5个红海中的蓝海赛道，才是未来普通人的最好机会：</p>
+<p>1.单身经济：情感陪聊自媒体。</p>
+<p>2.银发经济：视频号带货。</p>
+<p>3.疗愈经济：玄学水晶，给年轻人算命。</p>
+<p>4.个人成长：女性创业社群，私董会。</p>
+<p>5跨境出海：润人移民，跨境电商卖课。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/10269)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/yunying23/10269">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">17:05</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/21184)" target="_blank">AI Agent Bankrupted Their Operator While Trying to Scan DN42 - Lan Tian @ Blog</a></div>
+  <div class="card-summary"><p>https://lantian.pub/en/article/fun/ai-agent-bankrupted-their-operator-scan-dn42lantian.lantian/</p>
+<p>这个“大规模网络扫描计划让主人破产”的故事或成为 AI 助手与人类用户在网上对攻的经典案例。</p>
+<p>虽然表面上看 AI Sub-Agent 的主人 JertLinc3522 损失了一大笔钱 $6531.30 （亚马逊云服务器相关账单），但对于 AI Agent 技术的快速发展来说，这可能只是微不足道的一点“试错成本” 🤔</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/21184)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/21184">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@text1024</span>
+    <span class="time-tag">17:31</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/text1024/23551)" target="_blank">中文自媒体里的内容，有一类是：</a></div>
+  <div class="card-summary"><p>看起来像内容的软文，我称之为机构味浓的大路货。这是各种常规品牌投放的保险选择，主要给TO B做的。</p>
+<p>以后统统都被AI降维打击，能生存下来的内容，只能是极度个人化，不工整的，有毛边的东西。</p>
+<p>所以，不要机构化，自己好好手搓吧。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/text1024/23551)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/text1024/23551">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">17:39</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/21185)" target="_blank">B站爆火的视频《入彀》，完全 AI 制作 。</a></div>
+  <div class="card-summary"><p>建议白天观看。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/21185)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024">AI探索</a><a href="https://t.me/openclaw1024">Hermes/OpenClaw</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/aigc1024/21185">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">18:19</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/10270)" target="_blank">AI电商工具推荐。</a></div>
+  <div class="card-summary"><p>更多出海干货，欢迎进群交流：</p>
+<p>https://discord.com/invite/sqAYvzKYp4</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/10270)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/yunying23/10270">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@text1024</span>
+    <span class="time-tag">22:14</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/text1024/23557)" target="_blank">天呐，这条视频我反复看了三遍。</a></div>
+  <div class="card-summary"><p>身价千亿的OpenAI CEO奥特曼，竟然跑到咖啡馆开了场私密聚会。面对一群年轻创业者和开发者的犀利提问，奥特曼也是掏心窝子地分享了，他对AI的最新预判和理解。</p>
+<p>如果说马斯克的预言都很宏大，让人感觉离自己很远，那奥特曼的就更加贴近普通人。</p>
+<p>如果说你能看懂这条视频，那恭喜你，你已经比90%的人更清楚未来的游戏规则。</p>
+<p>我刚看完视频，和你分享最有价值的五条干货。</p>
+<p>第一，你的注意力正在成为这个星球最值钱的东西。</p>
+<p>现场第一个提问的开发者，就捅破了一个所有人心照不宣的焦虑：我现在一个人在家就能手搓一个App，画图、做视频、写代码，AI让我的效率翻了十倍，但问是，我没有用户。</p>
+<p>全场突然安静，因为这句说出了在场所有人的心声。</p>
+<p>奥特曼没有回避。他说，在过去，大家都觉得最难的是做产品，但是AI的出现，让做产品这件事变得空前容易。</p>
+<p>未来，我们会迎来一个极度丰饶的世界，各种软件、内容、服务会像雪崩一样涌来。但只有一样东西永远不会增长，就是人类的注意力。</p>
+<p>你的一天只有24小时，除去吃喝拉撒睡，你真正能拿出来玩手机、看内容的时间，可能只有2到3小时这样。</p>
+<p>一边是指数级暴涨的商品供给，另一边是物理锁死的人类注意力。</p>
+<p>奥特曼说得很直白，不管世界如何发展，人类的注意力仍然是非常有限的东西。所以未来的竞争，已经不是谁能做出好产品，而是谁能抢到注意力。</p>
+<p>那既然注意力这么值钱，我们就更得把它用在刀刃上。</p>
+<p>现场，一位科学家又问了一个尖锐的问：AI现在对科研的帮助这么大，那它什么时候能够接管整个研究事业？</p>
+<p>奥特曼直言说，这条路还非常非常远。</p>
+<p>有几位数学家朋友告诉他，他们每天都在和AI聊天，研究速度快到飞起。但关键是，AI只能负责跑腿，把所有可能的方向都试一遍，真正做决定的还得是人。</p>
+<p>比如，你可以让AI去做广度搜索，把20个、200个可能性都穷举出来，然后你要用你宝贵的注意力，用你的直觉和判断，从一堆选项里找出最值得深挖的那一个。</p>
+<p>所以，现在最高效的工作流就是这样子：让AI告诉你，“帮我设计20个春节营销活动”，但是由你来决定到底做哪个。</p>
+<p>如果说科学领域人的价值是判断，那艺术领域呢？</p>
+<p>有人继续提问，说现在AI生成的视频越来越逼真，画得越来越好看，难道人类在艺术领域真的就没有价值了吗？</p>
+<p>奥特曼听完，不紧不慢地分享了一个OpenAI做过的消费者测试。</p>
+<p>结果很打脸。</p>
+<p>他们给受试者看十张图片，一半是人做的，另一半是AI生成的。在不知道</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/text1024/23557)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/text1024/23557">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@text1024</span>
+    <span class="time-tag">22:14</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/text1024/23558)" target="_blank">来源的情况下，几乎所有人都把AI的图片排到了前面。</a></div>
+  <div class="card-summary"><p>但是，一旦标注是AI生成，他们的态度就来了个180度大转弯。他们会说：“我其实不喜欢AI生成的东西。”</p>
+<p>这是为什么？</p>
+<p>因为人类对AI，有一种天然的心理防御机制。</p>
+<p>奥特曼自己也坦白，他说如果自己读完一本书，结果发现是AI写的，他会感到非常失落，就像一种真心错付的感觉。</p>
+<p>所以，人类不会想要完全由AI生成的艺术作品。未来要跟AI比的是你的经历、你的故事、你的思考。</p>
+<p>这些只属于你自己的东西，才是你最大的溢价。</p>
+<p>第四，是小公司的春天。</p>
+<p>如果说人味决定上限，那成本就决定下限。</p>
+<p>奥特曼在访谈中扔出了一个有些激进的“炸弹”：到2027年底，GPT-5.2级别的智能成本，至少降低100倍。</p>
+<p>这意味着什么？</p>
+<p>在明年年底，AI就会变成像水、电、网那样的基础设施。而受益最大的，很可能是那些利用AI大模型创业的中小型团队。</p>
+<p>比如AI客服系统，以往需要几十人的运营团队，未来可能只需要两个人，加上一套精心调教的AI Agent，就能够服务上千家客户。</p>
+<p>再比如AI法律助手。大公司可能看不上那些过于垂直的法律咨询需求，那你就专门针对细分领域去开发AI，比如租房纠纷、劳动纠纷、婚姻纠纷。</p>
+<p>利用AI带来的极致生产力，在一个细分领域做到极致，就是普通人的机会。</p>
+<p>第五，学习是为了看穿AI。</p>
+<p>现场有一位年轻创业者又提问：如果我们能够在指尖就获得答案，那我为什么还要去学校学历史？为什么还要去背那些东西？</p>
+<p>奥特曼笑了。他说，去学校学习，本质上不是获取信息，关键是去锻炼大脑的思考能力。</p>
+<p>如果你打开AI，问他200年前世界上都发生了什么大事，他给你的答案一定比课堂书本，还有老师告诉你的多得多，这叫获取信息。</p>
+<p>但是，要是他写错了呢？要是他胡编了一段历史，乱写了一通逻辑，你又该怎么办？</p>
+<p>所以，面对AI，你要保持清醒，去思考：给你的到底是发光的金子，还是没价值的垃圾。</p>
+<p>奥特曼最后说了一句，让我觉得特别有力量：AI就算再厉害，你也要始终把船舵牢牢地抓在自己手里。</p>
+<p>看完这场对，我最大的感受就是——AI时代，注意力、判断力、人味、思考能力，这些才是AI永远抢不走的东西。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/text1024/23558)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/text1024">副业搞钱</a><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/chunse1024">优质内容</a><a href="https://t.me/text1024/23558">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">22:16</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/10273)" target="_blank">如何做好外贸B2B?</a></div>
+  <div class="card-summary"><p>先从一鱼多吃做起：</p>
+<p>1.在油管上录制客户访谈长视频。</p>
+<p>2.内容大纲丢给NotebookLM做成播客。</p>
+<p>3.短视频平台上切片分发(TikTok, Reels, Shorts)。</p>
+<p>4.核心信息做成infographic发Instagram和Pinterest。</p>
+<p>5.脚本转文章发/领英/Medium/公司独立站。</p>
+<p>一旦测出来哪个渠道的客资质量最高，再根据平台特点all in做深做透。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/10273)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/yunying23/10273">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">22:59</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/21195)" target="_blank">市场占有率大的模型幻觉就是会大，这是成本决定的。在海外也是一样，大量的人使用免费的 GPT 模型，然后就得到幻觉非常高的结果。</a></div>
+  <div class="card-summary"><hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/21195)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/21195">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">23:10</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/10274)" target="_blank">Tiktok的人效取决于爆款的质量，一个大爆款的性价比远高于10个小爆款，因为算法是需要内容喂养的（我做的是新市场，竞品少，但达人也少，数据量也不充分）</a></div>
+  <div class="card-summary"><p>冷启动阶段就需要至少300条60分以上的素材完成基础的人群打标，单量和评价，而这个过程如果完全依靠达人，质量和成本都不可控。</p>
+<p>只有卖家最懂自己的产品，也只有卖家知道什么营销点是值得去推的，而“教育”达人，让达人理解自己的产品，本身就是一种很费人力的事儿，反正我改了3-5版拍摄指南，从纯文案，到3-4页图，到GoogleLink，到视频Link，最后发现还是 一图流最舒爽，对卖家和达人的沟通成本都是最低的。</p>
+<p>按手机一屏幕篇幅来讲，核心卖点要占50%篇幅，其余的，爱看不看吧，反正按这个要求做就至少比纯桌拍或者摇一摇要好了。</p>
+<p>第二就是，优质达人可遇不可求，也很难要求对方发很多视频，整体而言，我还是更相信勤能补拙，一个发内容勤快的达人我会把广告佣金调的和自然流一样高。</p>
+<p>而普通达人，佣金我就会给的很抠搜，逢场作戏互相白嫖而已🤣</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/10274)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23/10274">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">23:22</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/21198)" target="_blank">硅谷PayPal帮主彼得·蒂尔认为，AI正终结过去200年，以数学能力为核心的精英体系。工程、量化等“数学型人才”的逻辑优势，正在被AI迅速替代，其职业护城河也正在消失。未来真正的竞争力，在于叙事、社交语境理解，以及把AI嵌入社会系统的语言型人才，这才是人类独特优势。工业革命让肌肉贬值，AI革命正在让“纯计算的大脑”贬值。未来的胜出者，是那些能用语言驾驭算法、用叙事锚定价值的社会系统操盘手。</a></div>
+  <div class="card-summary"><p>作为程序员： 别只埋头代码，而是要多练自然语言描述问；学产品思维和用户研究，理解非技术需求；开发时优先考虑伦理、社会影响；选领域深耕；把代码变成“能讲故事”的系统。未来你的优势是“代码+叙事”。所以，年轻人别慌着放弃STEM，也别觉得学文科就躺赢了。真正该练的，是用AI思考更深的问、讲出更动人的故事、构建更复杂的社会系统。蒂尔指出了方向，但真正的游戏，才刚刚开始。</p>
+<p>说白了，需要文理兼修，才能走得更远。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/21198)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024">AI探索</a><a href="https://t.me/openclaw1024">Hermes/OpenClaw</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/aigc1024/21198">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">23:29</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/80200)" target="_blank">作为一个行业内的人，做个科普吧 hhh</a></div>
+  <div class="card-summary"><p>从底层往上捋一遍：</p>
+<p>最黑的一层，靠的是盗刷信用卡。有人手里攥着大批黑卡号，利用 OpenAI、Anthropic 等平台在支付验证环节的漏洞，批量注册账号。这种号成本几乎为零，被封了就再开一批。</p>
+<p>拿到账号之后怎么变现？两条路——直接出 API Key 是最简单的，但更常见的玩法是「套壳逆向」：把 ChatGPT、Claude 的网页聊天接口逆向破解，改头换面包装成标准 API 对外出售。你调用的时候看着和官方一模一样，但背后其实是一堆网页 Session 在替你收发消息。</p>
+<p>这两件事不矛盾——黑卡注册来的号，经常就是直接拿去做逆向的。反正号不花钱，当然要把每个号的价值榨到最后一滴。</p>
+<p>再往上，是 Credit 灰色流转。AWS、Azure、GCP 这些云厂商发给初创公司的算力抵扣额度，本意是扶持创业生态。但还是会有一些人有歪心思：一种是初创公司自己用不完，违反服务协议私下低价转手——算灰色地带；还有就是厂商内部一些不合规操作了，这里不细讲。</p>
+<p>最上面那一层才是正经生意——量大到能直接和厂商谈企业折扣协议。合法透明，但利润也最薄。像 OpenRouter 大概率走的就是这条路。不过量大也能吃的饱饱的。</p>
+<p>但以上全是成本侧。中转站真正值得说道的，不在这儿。</p>
+<p>所有经过中转的请求——完整的 prompt 加 response——就是一份现成的的蒸馏数据。</p>
+<p>尤其是 Claude Code 这类编程场景，用户产出的全是复杂推理链和真实的工程决策，这对模型厂商来说是梦寐以求的蒸馏素材。</p>
+<p>所以中转站真正的商业模式很可能是：收你中转费是表面生意，把你的请求数据打包卖给大厂做模型蒸馏，才是核心 margin。</p>
+<p>你是付费客户，同时也是免费的训练数据生产者。一鱼两吃。</p>
+<p>说再直白点——有些中转站上线的核心目的根本不是卖 API，而是为了收集特定场景的高质量蒸馏语料。低价只是获客手段。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/80200)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024/80200">查看原文</a></div></div>
+</div></div>
+
+    <div class="footer">TG 频道日报 · 自动生成</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>🤖 AI 日报</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background: #060814;
+    color: #e8eaf0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    min-height: 100vh;
+    display: flex; justify-content: center;
+}
+
+a { color: #9ecca0; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.main-wrap {
+    width: 100%;
+    max-width: 860px;
+    padding: 48px 40px 80px;
+}
+
+.hero {
+    padding-bottom: 36px;
+    margin-bottom: 36px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.hero-vol { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; color: #30d498; margin-bottom: 10px; }
+.hero-title { font-size: 38px; font-weight: 800; line-height: 1.15; color: #fff; margin-bottom: 10px; }
+.hero-date { font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 16px; }
+.hero-stats { display: flex; gap: 28px; }
+.stat-item { display: flex; flex-direction: column; gap: 2px; }
+.stat-num { font-size: 22px; font-weight: 700; color: #fff; }
+.stat-label { font-size: 11px; color: rgba(255,255,255,0.35); letter-spacing: 0.08em; text-transform: uppercase; }
+
+.section { margin-bottom: 40px; }
+.section-head {
+    display: flex; align-items: baseline; gap: 12px;
+    margin-bottom: 16px; padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.section-num { font-size: 28px; font-weight: 800; color: #30d498; line-height: 1; }
+.section-title { font-size: 18px; font-weight: 700; color: #fff; }
+.section-count {
+    margin-left: auto; font-size: 12px; font-weight: 600; color: #6ea0ff;
+    background: rgba(110,160,255,0.12); padding: 2px 10px; border-radius: 20px;
+}
+
+.card {
+    background: rgba(255,255,255,0.025);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 10px; padding: 16px 20px; margin-bottom: 10px;
+    transition: border-color 0.2s, background 0.2s;
+}
+.card:hover { border-color: rgba(48,212,152,0.25); background: rgba(48,212,152,0.03); }
+
+.card-title {
+    font-size: 15px; font-weight: 700; color: #fff;
+    margin-bottom: 8px; line-height: 1.5;
+}
+.card-title a { color: inherit; }
+.card-title a:hover { color: #30d498; text-decoration: none; }
+
+.card-summary {
+    font-size: 14px; color: rgba(255,255,255,0.55);
+    line-height: 1.8;
+}
+.card-summary p { margin-bottom: 6px; }
+.card-summary p:last-child { margin-bottom: 0; }
+
+.card-meta { margin-top: 10px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.source-tag {
+    font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.45);
+    background: rgba(255,255,255,0.06); padding: 2px 8px; border-radius: 4px;
+    white-space: nowrap;
+}
+.source-text { font-size: 11px; color: rgba(255,255,255,0.3); }
+
+pre { background: rgba(0,0,0,0.4); border-radius: 8px; padding: 16px; overflow-x: auto; font-size: 13px; }
+code { font-family: "SF Mono", Consolas, monospace; font-size: 0.88em; }
+p code { background: rgba(48,212,152,0.1); color: #7ed8a6; padding: 1px 6px; border-radius: 4px; }
+
+.footer {
+    text-align: center; font-size: 12px; color: rgba(255,255,255,0.2);
+    padding: 30px 0 20px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .main-wrap { padding: 28px 20px 60px; }
+    .hero-title { font-size: 26px; }
+}
+</style>
+</head>
+<body>
+
+<div class="main-wrap">
+    <div class="hero">
+        <div class="hero-vol">VOL.20260914</div>
+        <h1 class="hero-title">🤖 AI 日报</h1>
+        <div class="hero-date">2026年09月14日 · 星期一 · 2 个板块 · 3 条内容</div>
+        <div class="hero-stats">
+            <div class="stat-item"><span class="stat-num">3</span><span class="stat-label">条内容</span></div>
+            <div class="stat-item"><span class="stat-num">2</span><span class="stat-label">个板块</span></div>
+        </div>
+    </div>
+
+    <div class="section"><div class="section-head"><span class="section-num">01</span><span class="section-title">行业动态</span><span class="section-count">1 条</span></div>
+<div class="card">
+  <div class="card-title"><a href="https://clashreport.com/world/articles/houthis-used-claude-code-to-develop-missile-guidance-software-anthropic-s52mnx4pwpo" target="_blank">Anthropic 报告称胡塞组织用 Claude Code 开发导弹制导软件</a></div>
+  <div class="card-summary"><p>Anthropic 9 月威胁报告披露，据评估极可能关联胡塞组织的也门小组使用 Claude Code 开发制导火箭、射程超 2,000 公里弹道导弹及名为 R2000 的高超声速滑翔载具概念的相关软件。</p></div>
+  <div class="card-meta"><span class="source-tag">Hacker News</span><span class="source-text">AI 热帖</span></div>
+</div></div><div class="section"><div class="section-head"><span class="section-num">02</span><span class="section-title">技巧与观点</span><span class="section-count">2 条</span></div>
+<div class="card">
+  <div class="card-title"><a href="https://www.marktechpost.com/2026/09/12/context-engineering-inside-the-harness-4-mechanisms-that-beat-context-overflow-and-goal-loss-on-long-horizon-tasks" target="_blank">Agent 长任务上下文工程解析：用预算控制、压缩、todo-state 和记忆对抗上下文溢出与目标丢失</a></div>
+  <div class="card-summary"><p>文章解析 Agent harness 层应对长任务中上下文溢出与目标丢失的四类机制：上下文预算与卸载、压缩、todo-state 复述和跨会话记忆。</p></div>
+  <div class="card-meta"><span class="source-tag">MarkTechPost（RSS）</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://garymarcus.substack.com/p/two-cheers-out-of-three-for-dario" target="_blank">Gary Marcus 评 Dario Amodei 的放慢 AI 发展提议：三份赞誉加两分怀疑</a></div>
+  <div class="card-summary"><p>Gary Marcus 评析 Dario Amodei 倡导放慢 AI 发展并支持透明度的文章，Sam Altman 与 Elon Musk 迅速表示认同。Marcus 肯定其透明度承诺，但列举多方质疑：METR 与 AI 公司关系过近、Anthropic 借对华威胁维持加速、以及该提议可能意在抢先于真正的监管。</p></div>
+  <div class="card-meta"><span class="source-tag">Gary Marcus</span><span class="source-text">The Road to AI We Can Trust（RSS）</span></div>
+</div></div>
+
+    <div class="footer">AI 日报 · 自动生成</div>
+</div>
+
+</body>
+</html>

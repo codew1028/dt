@@ -1,0 +1,2260 @@
+{
+  "date": "2026-09-26",
+  "kind": "tg",
+  "title": "TG 频道日报",
+  "generated_at": "2026-09-25T17:09:06Z",
+  "media_summary": {
+    "image_count": 31,
+    "video_count": 4,
+    "published_video_count": 3,
+    "poster_only_video_count": 1,
+    "failed_count": 0
+  },
+  "sections": [
+    {
+      "title": "TG 频道精选",
+      "items": [
+        {
+          "id": "meiriyishu-3265",
+          "title": "付费社群流出《强者顶级心法》，这本你想不想看看？ 全书结合赚钱认知、职场困境、圈层壁垒、权力意识等主， 用极其直接的方式",
+          "summary": "付费社群流出《强者顶级心法》，这本你想不想看看？\n全书结合赚钱认知、职场困境、圈层壁垒、权力意识等主，\n用极其直接的方式拆开社会运行的底层规律。\n一部能帮助普通人减少试错、重构认知、看清现实运行方式的重要读物。\n🔗：https://pan.quark.cn/s/41f6611ca4c8\n————\n 盘友资源库：https://pan.tgshangtian.xyz\n\n[优质资源](https://t.me/meiriyishu) | [优质内容](https://t.me/chunse1024/8467)",
+          "channel": "@meiriyishu",
+          "channel_name": "优质「资源」收藏夹",
+          "channel_url": "https://t.me/meiriyishu",
+          "time": "00:03",
+          "url": "https://t.me/meiriyishu/3265",
+          "message_id": "3265",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-09-26/meiriyishu-3265-1-thumb.webp",
+              "url": "assets/tg-media/2026-09-26/meiriyishu-3265-1.webp",
+              "width": 836,
+              "height": 891,
+              "size_bytes": 83550,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "aigc1024-25015",
+          "title": "上次我说让 AI 很难跳出既定框架，有网友说是我提示词没写好，所以我最近换了一种写法，还真的有效果，简单来说就是让它基于",
+          "summary": "上次我说让 AI 很难跳出既定框架，有网友说是我提示词没写好，所以我最近换了一种写法，还真的有效果，简单来说就是让它基于要达到的目标，跳出框架，重新思考会有什么不一样的做法。\n上次我在 AI 帮我翻译完视频后，我给它提问：\n> 如果跳出当前架构，让你基于功能重新设计当前的翻译流程，你会采取什么不一样的做法？\n还别说，真的给了我一些不一样的思路。\n但是我看完觉得可能不太靠谱，不过口说无凭，那咱们用数据说吧。\n我让它去开个 Worktree (因为还有其他任务再跑，不好开分支)去验证下：\n> 用一个worktree去验证你的方案，然后对比当前方案，看是否在不牺牲质量的前提下有更好性能。\n等它验证完，发现并没有预期那么好，但是也不是完全没价值，可以部分借鉴它的方案。\n有个小插曲，其实一开始我没看懂它的意思，也不知道是好还是不好，然后我去开了个 sidechat（/btw），让它给我详细的解释了一下：\n> 解释一下新的方案：值得做吗？是部分改进当前还是完全改进？具体怎么改进，请通俗易懂的给我解释一下，最好结合具体的例子\n听它解释完我才明白，然后把解释的内容重新给它让它基于这些信息去实施了，对于提升质量还是有帮助。\n至于为什么要用 sidechat，是因为这类解释的事情没必要放到主上下文，只是了解一下，除非后续需要用到一些聊出来的信息。\n---\n简单总结一下：\n1. 让 AI 根据目标跳出框架去思考，给出新的方案还是有帮助\n2. AI 给的方案不一定靠谱，还是得要有人工验证，最好是有数据为准，不能全盘接受\n3. 一些当前任务无关的问可以问 sidechat\n\n[AI探索](https://t.me/aigc1024) | [Hermes/OpenClaw](https://t.me/openclaw1024)｜[优质资源](https://t.me/meiriyishu)｜[优质信息](https://t.me/chunse1024/8467)",
+          "channel": "@aigc1024",
+          "channel_name": "AI探索指南",
+          "channel_url": "https://t.me/aigc1024",
+          "time": "01:36",
+          "url": "https://t.me/aigc1024/25015",
+          "message_id": "25015",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-09-26/aigc1024-25015-1-thumb.webp",
+              "url": "assets/tg-media/2026-09-26/aigc1024-25015-1.webp",
+              "width": 837,
+              "height": 1106,
+              "size_bytes": 175082,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "aigc1024-25020",
+          "title": "让 AI 画流程图终于不用反复调半天了，这个 Skill 确实好用，你想试试吗？ 推荐开源项目 Archify，专门给",
+          "summary": "让 AI 画流程图终于不用反复调半天了，这个 Skill 确实好用，你想试试吗？\n推荐开源项目 Archify，专门给 AI Agent 增强架构图、流程图生成能力。你只需要描述业务逻辑，它就能帮你把复杂流程整理成清晰、专业的图。\n特别适合拿来画系统架构、业务流程、技术方案、数据流。\nhttps://github.com/tt-a1i/archify\n\n[AI探索](https://t.me/aigc1024) | [Hermes/OpenClaw](https://t.me/openclaw1024)｜[优质资源](https://t.me/meiriyishu)｜[优质信息](https://t.me/chunse1024/8467)",
+          "channel": "@aigc1024",
+          "channel_name": "AI探索指南",
+          "channel_url": "https://t.me/aigc1024",
+          "time": "02:06",
+          "url": "https://t.me/aigc1024/25020",
+          "message_id": "25020",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": []
+        },
+        {
+          "id": "aigc1024-25021",
+          "title": "想系统学大模型，中文教材终于有一套质量不错的了，你知道吗？ 浙大团队开源了一本《大模型基础》，GitHub 已经拿下 1",
+          "summary": "想系统学大模型，中文教材终于有一套质量不错的了，你知道吗？\n浙大团队开源了一本《大模型基础》，GitHub 已经拿下 16K+ Stars，六章 PDF 可以直接免费下载。\n从语言模型基础一路讲到 LLM 架构、Prompt 工程、参数高效微调、模型编辑、RAG，每章还整理了相关论文，想继续深入也有现成路线。\n比较有意思的是，每章都用不同动物作为示例背景，把一些抽象概念讲得更直观。项目还在持续更新，后续计划加入大模型推理加速、AI Agent 等内容。\nhttps://github.com/ZJU-LLMs/Foundations-of-LLMs\n\n[AI探索](https://t.me/aigc1024) | [Hermes/OpenClaw](https://t.me/openclaw1024)｜[优质资源](https://t.me/meiriyishu)｜[优质信息](https://t.me/chunse1024/8467)",
+          "channel": "@aigc1024",
+          "channel_name": "AI探索指南",
+          "channel_url": "https://t.me/aigc1024",
+          "time": "04:11",
+          "url": "https://t.me/aigc1024/25021",
+          "message_id": "25021",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-09-26/aigc1024-25021-1-thumb.webp",
+              "url": "assets/tg-media/2026-09-26/aigc1024-25021-1.webp",
+              "width": 846,
+              "height": 793,
+              "size_bytes": 67798,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "inside1024-85723",
+          "title": "同样用AI，有人在原地打转，有人已经翻过了山 看到很多人拿 AI 当作业助手，复制粘贴答案交差。这没什么好奇怪的，人都想",
+          "summary": "同样用AI，有人在原地打转，有人已经翻过了山\n看到很多人拿 AI 当作业助手，复制粘贴答案交差。这没什么好奇怪的，人都想走捷径。\n但有意思的是另一批人，他们也在用 AI，但玩法完全不同。\n他们会输入这样的提示词：\n\"用三个层次解释这个概念：入门、进阶、高级。然后告诉我每个层次之间的差距在哪\"\n你发现区别了吗？\n第一种人用 AI 跳过学习。第二种人用 AI 加速学习。\n这两个方向完全相反。\n跳过学习的人，三个月后还在原地。因为他们从来没真正理解过任何东西，只是借用了 AI 的输出。\n加速学习的人，三个月后已经到了别人一年才能到的地方。他们让 AI 帮自己看清知识地图，找到最陡峭但最高效的那条路。\n我见过一个程序员朋友，每次遇到新技术栈，第一件事就是让 AI 梳理出从基础到精通的完整路径。然后专门挑那些进阶到高级之间的难点去啃。\n他说，AI 最大的价值不是给答案，而是告诉你应该问什么问。\n这我琢磨了很久。\n大部分人学东西慢，不是因为笨，是因为不知道自己的盲区在哪。你以为自己懂了，其实只是停留在表面。\nAI 能瞬间把这些盲区摆在你面前。\n它会告诉你，入门和进阶之间差了什么，进阶和高级之间又差了什么。这些差距就是你要花时间攻克的点。\n所以真正会用 AI 的人，学习曲线反而更陡了。\n陡，意味着难。但也意味着快。\n你爬一个斜坡，可能要走很久。你爬一面墙，虽然累，但上去就上去了。\nAI 不会替你爬墙，但它能告诉你墙上哪里有抓手。\n这才是 AI 对学习的真正改变。\n不是让学习变简单，是让学习变高效。你还是得懂，得花时间，得动脑子。只是这个过程被压缩了。\n那些想靠 AI 不劳而获的人，迟早会发现自己什么都没学到。\n而那些用 AI 主动提高学习难度的人，已经甩开别人好几条街了。\n\nAIGC的一切\nhttps://t.me/aigc1024",
+          "channel": "@inside1024",
+          "channel_name": "你不知道的内幕消息🅥",
+          "channel_url": "https://t.me/inside1024",
+          "time": "04:56",
+          "url": "https://t.me/inside1024/85723",
+          "message_id": "85723",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": []
+        },
+        {
+          "id": "aigc1024-25022",
+          "title": "我正好有个3060的Win电脑，部署一个来做点本地AI小工具集，那不得爽歪歪！！！ 搞点小功能，做个本地轻量软件，然后卖",
+          "summary": "我正好有个3060的Win电脑，部署一个来做点本地AI小工具集，那不得爽歪歪！！！\n搞点小功能，做个本地轻量软件，然后卖给女同事！！\n\n[AI探索](https://t.me/aigc1024) | [Hermes/OpenClaw](https://t.me/openclaw1024)｜[优质资源](https://t.me/meiriyishu)｜[优质信息](https://t.me/chunse1024/8467)",
+          "channel": "@aigc1024",
+          "channel_name": "AI探索指南",
+          "channel_url": "https://t.me/aigc1024",
+          "time": "06:13",
+          "url": "https://t.me/aigc1024/25022",
+          "message_id": "25022",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": []
+        },
+        {
+          "id": "aigc1024-25023",
+          "title": "大家都在盛赞 Opus 5.5 一句出产品宣传片 一个文本模型，直接用纯代码的方式来做视频 这些产品宣传片以前在供应商那",
+          "summary": "大家都在盛赞 Opus 5.5 一句出产品宣传片\n一个文本模型，直接用纯代码的方式来做视频\n这些产品宣传片以前在供应商那里的报价是上万的\n效果还没有 Opus 5.5 的好\n而很多视频 Skill 也完全没有存在的必要了\n都被一个模型直接吃掉\n让我感慨的是，把一个功夫用到极致竟可以触类旁通\n这真是有点武侠小说里打通任督二脉的味道了\n@aigc1024",
+          "channel": "@aigc1024",
+          "channel_name": "AI探索指南",
+          "channel_url": "https://t.me/aigc1024",
+          "time": "06:16",
+          "url": "https://t.me/aigc1024/25023",
+          "message_id": "25023",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": []
+        },
+        {
+          "id": "inside1024-85724",
+          "title": "困住你的不是命运，人生不是命不好，而重复受挫，而是因为你的大脑，一直在播放同样的反应方式。改变回应，重塑你的大脑回路，才",
+          "summary": "困住你的不是命运，人生不是命不好，而重复受挫，而是因为你的大脑，一直在播放同样的反应方式。改变回应，重塑你的大脑回路，才能启动赢得命运的神经环路，直到改运。\n\n副业赚钱探索\n@text1024",
+          "channel": "@inside1024",
+          "channel_name": "你不知道的内幕消息🅥",
+          "channel_url": "https://t.me/inside1024",
+          "time": "06:41",
+          "url": "https://t.me/inside1024/85724",
+          "message_id": "85724",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": []
+        },
+        {
+          "id": "aigc1024-25025",
+          "title": "感觉Personal AI这波又回归了移动互联网的肌肉记忆，看用户量，而不是看ARR，所以创投圈的中登们都很兴奋，之前让",
+          "summary": "感觉Personal AI这波又回归了移动互联网的肌肉记忆，看用户量，而不是看ARR，所以创投圈的中登们都很兴奋，之前让他们去卖Token实在是太难受了，技能和市场根本对应不上。\n而且AI时代的用户量，量级单位又低了不止一个档位，Threads当初是达到了1亿的MAU，扎克伯格才好意思在财报上主动披露，否则哪儿够看啊，但Muse才刚50万日活，Meta就按捺不住激动全世界嚷嚷了。\n文艺复兴了兄弟们，市场究竟是否需要Personal AI不重要，重要的是那么多流离在外的P8、P9，他们刚需Personal AI啊。\n@aigc1024",
+          "channel": "@aigc1024",
+          "channel_name": "AI探索指南",
+          "channel_url": "https://t.me/aigc1024",
+          "time": "07:26",
+          "url": "https://t.me/aigc1024/25025",
+          "message_id": "25025",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": []
+        },
+        {
+          "id": "inside1024-85726",
+          "title": "Mac 用外接显示器的必须要整一个这个软件：BetterDisplay https://github.com/wayda",
+          "summary": "Mac 用外接显示器的必须要整一个这个软件：BetterDisplay\nhttps://github.com/waydabber/BetterDisplay\n免费功能就够用了，太丰富了，几乎啥都能调，还可以设置快捷键，很方便，界面还挺美观，这 Github 都 17.2K Stars 了。\n\n互联网从业者专属\n@https1024",
+          "channel": "@inside1024",
+          "channel_name": "你不知道的内幕消息🅥",
+          "channel_url": "https://t.me/inside1024",
+          "time": "08:12",
+          "url": "https://t.me/inside1024/85726",
+          "message_id": "85726",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-09-26/inside1024-85726-1-thumb.webp",
+              "url": "assets/tg-media/2026-09-26/inside1024-85726-1.webp",
+              "width": 1664,
+              "height": 1208,
+              "size_bytes": 126912,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "aigc1024-25026",
+          "title": "我去，Opus 5.5 做这种前端的图像图形，做产品宣传视频太牛逼了！ 让他给我这个 CodePilot 产品做了个宣传",
+          "summary": "我去，Opus 5.5 做这种前端的图像图形，做产品宣传视频太牛逼了！\n让他给我这个 CodePilot 产品做了个宣传片，太猛了，一键生成的。\n简直吊打前几天的 GPT-6 Astra 的结果\n后面也会将这些经验用在我的这个 guizang-product-video-skilll 里面。\n然后一些比较差的模型也能得到比较好的效果。\n@aigc1024",
+          "channel": "@aigc1024",
+          "channel_name": "AI探索指南",
+          "channel_url": "https://t.me/aigc1024",
+          "time": "09:11",
+          "url": "https://t.me/aigc1024/25026",
+          "message_id": "25026",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "video",
+              "url": "",
+              "fallback_url": "https://t.me/aigc1024/25026",
+              "width": 0,
+              "height": 0,
+              "duration": 0,
+              "size_bytes": 46668803,
+              "publish_status": "poster_only",
+              "has_audio": true,
+              "poster_url": "assets/tg-media/2026-09-26/aigc1024-25026-1-poster.webp"
+            }
+          ]
+        },
+        {
+          "id": "aigc1024-25027",
+          "title": "很难想象 🤡电动牙刷也推出会员制度了 而且也用上了AI  [AI探索](https://t.me/aigc1024) |",
+          "summary": "很难想象 🤡电动牙刷也推出会员制度了\n而且也用上了AI\n\n[AI探索](https://t.me/aigc1024) | [Hermes/OpenClaw](https://t.me/openclaw1024)｜[优质资源](https://t.me/meiriyishu)｜[优质信息](https://t.me/chunse1024/8467)",
+          "channel": "@aigc1024",
+          "channel_name": "AI探索指南",
+          "channel_url": "https://t.me/aigc1024",
+          "time": "09:12",
+          "url": "https://t.me/aigc1024/25027",
+          "message_id": "25027",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-09-26/aigc1024-25027-1-thumb.webp",
+              "url": "assets/tg-media/2026-09-26/aigc1024-25027-1.webp",
+              "width": 552,
+              "height": 1199,
+              "size_bytes": 56728,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "inside1024-85730",
+          "title": "Claude Skills Marketplace 包含3455个Claude Skills，用于开发、研究、内容...",
+          "summary": "Claude Skills Marketplace\n包含3455个Claude Skills，用于开发、研究、内容......\n按分类浏览、按热度排序、方便安装。所有Skills均来自 GitHub 开源。\n\n自媒体/出海经验/赚美金/运营技巧\n@yunying23",
+          "channel": "@inside1024",
+          "channel_name": "你不知道的内幕消息🅥",
+          "channel_url": "https://t.me/inside1024",
+          "time": "10:12",
+          "url": "https://t.me/inside1024/85730",
+          "message_id": "85730",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "video",
+              "url": "assets/tg-media/2026-09-26/inside1024-85730-1.mp4",
+              "fallback_url": "https://t.me/inside1024/85730",
+              "width": 0,
+              "height": 0,
+              "duration": 0,
+              "size_bytes": 13691043,
+              "publish_status": "published",
+              "has_audio": true,
+              "poster_url": "assets/tg-media/2026-09-26/inside1024-85730-1-poster.webp"
+            }
+          ]
+        },
+        {
+          "id": "meiriyishu-3275",
+          "title": "油管(youtube)挣钱全攻略：从开通广告收益到国内收款的实操指南 https://pan.quark.cn/s/ad",
+          "summary": "油管(youtube)挣钱全攻略：从开通广告收益到国内收款的实操指南\nhttps://pan.quark.cn/s/ad8b34ef2d6a\n————\n 盘友资源库：https://pan.tgshangtian.xyz\n\n[优质资源](https://t.me/meiriyishu) | [优质内容](https://t.me/chunse1024/8467)",
+          "channel": "@meiriyishu",
+          "channel_name": "优质「资源」收藏夹",
+          "channel_url": "https://t.me/meiriyishu",
+          "time": "10:55",
+          "url": "https://t.me/meiriyishu/3275",
+          "message_id": "3275",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-09-26/meiriyishu-3275-1-thumb.webp",
+              "url": "assets/tg-media/2026-09-26/meiriyishu-3275-1.webp",
+              "width": 270,
+              "height": 360,
+              "size_bytes": 18586,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "zaihuapd-44033",
+          "title": "🤖 **Gemini 3.8 Live 与 Live Avatar 全面可用**  9 月 25 日，Google Cl",
+          "summary": "🤖 **Gemini 3.8 Live 与 Live Avatar 全面可用**\n\n9 月 25 日，Google Cloud 推出 Gemini 3.8 Live with Live Avatar 正式版，支持唇语同步视频头像、语音到语音对话及 97 种语言。\n\n它于 Google Cloud Next 2026 首次预览，自定义头像须经企业白名单，音视频带 SynthID 水印；Gemini 3.8 Live Extended Thinking 仍处私有预览。\n\n[Google Cloud](https://cloud.google.com/blog/products/ai-machine-learning/gemini-3-8-live-with-live-avatar-is-now-generally-available)\n\n🌸 [科技圈](http://t.me/zaihuanews)· [茶馆](https://t.me/zaihuachat) · [投稿](http://t.me/ZaiHuabot)",
+          "channel": "@zaihuapd",
+          "channel_name": "在花🎗️科技圈",
+          "channel_url": "https://t.me/zaihuapd",
+          "time": "11:09",
+          "url": "https://t.me/zaihuapd/44033",
+          "message_id": "44033",
+          "reply_count": 13,
+          "replies_fetched": 13,
+          "replies": [
+            {
+              "id": "512852",
+              "text": "",
+              "time": "11:09",
+              "sender_id": 8439882275,
+              "sender_name": "🔫 ~biu~biu~biu",
+              "media": []
+            },
+            {
+              "id": "512858",
+              "text": "Gemini 3.8 Live 跟弱智一样，中文对话还不如豆包。",
+              "time": "11:16",
+              "sender_id": 6502329152,
+              "sender_name": "Ethan Carter",
+              "media": []
+            },
+            {
+              "id": "512859",
+              "text": "4 去哪了啊",
+              "time": "11:20",
+              "sender_id": 5367563163,
+              "sender_name": "Clarence",
+              "media": []
+            },
+            {
+              "id": "512862",
+              "text": "哪里可以使用？",
+              "time": "11:22",
+              "sender_id": 213947374,
+              "sender_name": "Molinsky Chan",
+              "media": []
+            },
+            {
+              "id": "512914",
+              "text": "4呢",
+              "time": "11:39",
+              "sender_id": 5067219450,
+              "sender_name": "Uncle Sam",
+              "media": []
+            },
+            {
+              "id": "512996",
+              "text": "pro呢",
+              "time": "12:00",
+              "sender_id": 1313925124,
+              "sender_name": "Kendal",
+              "media": []
+            },
+            {
+              "id": "512997",
+              "text": "pro在哪高就呢",
+              "time": "12:01",
+              "sender_id": 6806884484,
+              "sender_name": "哈基地鼠| oneman | vibe鼠",
+              "media": []
+            },
+            {
+              "id": "512998",
+              "text": "谷谷歌歌",
+              "time": "12:01",
+              "sender_id": 6806884484,
+              "sender_name": "哈基地鼠| oneman | vibe鼠",
+              "media": []
+            },
+            {
+              "id": "513000",
+              "text": "",
+              "time": "12:02",
+              "sender_id": 6806884484,
+              "sender_name": "哈基地鼠| oneman | vibe鼠",
+              "media": []
+            },
+            {
+              "id": "513025",
+              "text": "",
+              "time": "12:11",
+              "sender_id": 452074081,
+              "sender_name": "奥特 怪兽",
+              "media": []
+            },
+            {
+              "id": "513306",
+              "text": "G包加油",
+              "time": "12:55",
+              "sender_id": 5553167541,
+              "sender_name": "巴拉 巴拉",
+              "media": []
+            },
+            {
+              "id": "513503",
+              "text": "Gemini 家族成員瘋狂增生",
+              "time": "13:58",
+              "sender_id": 602024256,
+              "sender_name": "weijie chi",
+              "media": []
+            },
+            {
+              "id": "513510",
+              "text": "heygen 暴毙？",
+              "time": "14:04",
+              "sender_id": 1511853585,
+              "sender_name": "fk bot",
+              "media": []
+            }
+          ],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-09-26/zaihuapd-44033-1-thumb.webp",
+              "url": "assets/tg-media/2026-09-26/zaihuapd-44033-1.webp",
+              "width": 1920,
+              "height": 1080,
+              "size_bytes": 92976,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "aigc1024-25028",
+          "title": "一个数据咨询公司老板说，他一年半里经手和旁观的所有AI项目，成功率是0%。 不是AI不行，是公司得失心疯了🤣 他见过高管",
+          "summary": "一个数据咨询公司老板说，他一年半里经手和旁观的所有AI项目，成功率是0%。\n不是AI不行，是公司得失心疯了🤣\n他见过高管从没用过ChatGPT，转头就给一家营收20亿美元的公司写了套全押AI的战略；见过老板把不用AI、却是全公司业绩最好的人开掉；见过工程师被\"token排行榜\"考核——花的钱越多越优秀，于是他们让大模型自己跟自己空转对装样子，然后回去看Netflix，一个没被抓。真正被开的，只有那些公开质疑这套的人。\n他说这已经变成一种\"分布式的枪毙式治理\"：谁先说真，谁先被同僚打死。\n\n[AI探索](https://t.me/aigc1024) | [Hermes/OpenClaw](https://t.me/openclaw1024)｜[优质资源](https://t.me/meiriyishu)｜[优质信息](https://t.me/chunse1024/8467)",
+          "channel": "@aigc1024",
+          "channel_name": "AI探索指南",
+          "channel_url": "https://t.me/aigc1024",
+          "time": "11:16",
+          "url": "https://t.me/aigc1024/25028",
+          "message_id": "25028",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-09-26/aigc1024-25028-1-thumb.webp",
+              "url": "assets/tg-media/2026-09-26/aigc1024-25028-1.webp",
+              "width": 1200,
+              "height": 675,
+              "size_bytes": 157178,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "text1024-24945",
+          "title": "中国大陆的星巴克，被博裕资本收购后，最大的变化是，以前以英文轻音乐为主，如今变成中文歌曲了，而且声音特别大，这是让你喝完",
+          "summary": "中国大陆的星巴克，被博裕资本收购后，最大的变化是，以前以英文轻音乐为主，如今变成中文歌曲了，而且声音特别大，这是让你喝完赶紧走，要开始赚欢钱了。还有中国大陆的麦当劳，被中信收购后，工作人员大妈比例极高，小年轻的几乎很少，极致降低成本，而且不断的增加各种新产品，豆浆油条，鸡腿冰激凌等等，也要开始狠狠的赚钱了。本土化的进程加速中，苹果餐厅开始安卓餐厅化。\n\n[副业搞钱](https://t.me/text1024) | [出海赚美金](https://t.me/yunying23) | [内幕消息](https://t.me/inside1024)｜[优质内容](https://t.me/chunse1024)",
+          "channel": "@text1024",
+          "channel_name": "副业赚钱探索指南",
+          "channel_url": "https://t.me/text1024",
+          "time": "11:43",
+          "url": "https://t.me/text1024/24945",
+          "message_id": "24945",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": []
+        },
+        {
+          "id": "aigc1024-25029",
+          "title": "让 AI 编码智能体搭出来的应用真正上线——域名、托管、数据库、登录、邮件、支付，全部跑在用户自己的账号上，之后可以整体",
+          "summary": "让 AI 编码智能体搭出来的应用真正上线——域名、托管、数据库、登录、邮件、支付，全部跑在用户自己的账号上，之后可以整体交接或拆除。\nhttps://github.com/mikehasa/golive-skill\n\n[AI探索](https://t.me/aigc1024) | [Hermes/OpenClaw](https://t.me/openclaw1024)｜[优质资源](https://t.me/meiriyishu)｜[优质信息](https://t.me/chunse1024/8467)",
+          "channel": "@aigc1024",
+          "channel_name": "AI探索指南",
+          "channel_url": "https://t.me/aigc1024",
+          "time": "12:17",
+          "url": "https://t.me/aigc1024/25029",
+          "message_id": "25029",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": []
+        },
+        {
+          "id": "aigc1024-25030",
+          "title": "逆向工程是不是也开始进入 AI Agent 时代了？ x64dbg 很多人都知道，Windows 平台经典的开源调试/逆",
+          "summary": "逆向工程是不是也开始进入 AI Agent 时代了？\nx64dbg 很多人都知道，Windows 平台经典的开源调试/逆向工具。\n现在有人给它做了个 x64dbg MCP Server，可以把调试能力直接开放给 Claude Code、Codex 这类 Agent，让 AI 调用 x64dbg 辅助分析程序、下断点、读内存和执行调试操作。\n以前得自己盯着汇编一点点啃，现在连逆向都开始 Agent 化了。\nx64dbg：https://x64dbg.com/\nGitHub：https://github.com/duty1g/x64dbg-mcp-server\n\n[AI探索](https://t.me/aigc1024) | [Hermes/OpenClaw](https://t.me/openclaw1024)｜[优质资源](https://t.me/meiriyishu)｜[优质信息](https://t.me/chunse1024/8467)",
+          "channel": "@aigc1024",
+          "channel_name": "AI探索指南",
+          "channel_url": "https://t.me/aigc1024",
+          "time": "12:32",
+          "url": "https://t.me/aigc1024/25030",
+          "message_id": "25030",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": []
+        },
+        {
+          "id": "zaihuapd-44034",
+          "title": "**Anthropic 实验：Claude 代理替员工在市场换书**  Anthropic 用 201 名员工作实验：每",
+          "summary": "**Anthropic 实验：Claude 代理替员工在市场换书**\n\nAnthropic 用 201 名员工作实验：每人带一本书与 Claude 简短聊天，再由代理组成的市场互相议价换书，带回想读的书。\n\n结果显示：仅凭五分钟聊天，Claude 对书单的排序与本人有 61% 一致；市场未达最优主要缘于代理对参与者了解不足，而非谈判不力。模型越强成交效率越高，参与者平均满意度 7.2/10，并愿把约三成年度购书预算交给代理。\n\n[AnthropicAI](https://www.anthropic.com/research/project-swap)\n\n🌸 [科技圈](http://t.me/zaihuanews)· [茶馆](https://t.me/zaihuachat) · [投稿](http://t.me/ZaiHuabot)",
+          "channel": "@zaihuapd",
+          "channel_name": "在花🎗️科技圈",
+          "channel_url": "https://t.me/zaihuapd",
+          "time": "12:40",
+          "url": "https://t.me/zaihuapd/44034",
+          "message_id": "44034",
+          "reply_count": 10,
+          "replies_fetched": 10,
+          "replies": [
+            {
+              "id": "513173",
+              "text": "",
+              "time": "12:40",
+              "sender_id": 8439882275,
+              "sender_name": "🔫 ~biu~biu~biu",
+              "media": []
+            },
+            {
+              "id": "513250",
+              "text": "又想切书脊了",
+              "time": "12:48",
+              "sender_id": 5610910934,
+              "sender_name": "baianjo",
+              "media": []
+            },
+            {
+              "id": "513255",
+              "text": "全世界的书不是被读过一遍完了吗",
+              "time": "12:49",
+              "sender_id": 8399647756,
+              "sender_name": "Yusaf Kin",
+              "media": []
+            },
+            {
+              "id": "513340",
+              "text": "",
+              "time": "13:00",
+              "sender_id": 7171316252,
+              "sender_name": "🌌 带带元宇宙 🦍",
+              "media": [
+                {
+                  "type": "video",
+                  "url": "assets/tg-media/2026-09-26/comments/c-513340-1.mp4",
+                  "width": 0,
+                  "height": 0,
+                  "duration": 0,
+                  "size_bytes": 180446,
+                  "has_audio": true,
+                  "publish_status": "published",
+                  "poster_url": "assets/tg-media/2026-09-26/comments/c-513340-1-poster.webp"
+                }
+              ]
+            },
+            {
+              "id": "513341",
+              "text": "没有",
+              "time": "13:00",
+              "sender_id": 7171316252,
+              "sender_name": "🌌 带带元宇宙 🦍",
+              "media": []
+            },
+            {
+              "id": "513397",
+              "text": "再过几年各大公司采购部门员工可以收拾行李回家了",
+              "time": "13:07",
+              "sender_id": 8771868778,
+              "sender_name": "Roy",
+              "media": []
+            },
+            {
+              "id": "513429",
+              "text": "代理\nagents\n还是不翻译的好",
+              "time": "13:12",
+              "sender_id": 1690337443,
+              "sender_name": "伊藤 明",
+              "media": []
+            },
+            {
+              "id": "513500",
+              "text": "以后不要销售了？",
+              "time": "13:56",
+              "sender_id": 5566171804,
+              "sender_name": "ʀᵤₒₘᵤ 🌱",
+              "media": []
+            },
+            {
+              "id": "513501",
+              "text": "反正ai给的情绪价值也足，比如你骂他她立马道歉",
+              "time": "13:56",
+              "sender_id": 5566171804,
+              "sender_name": "ʀᵤₒₘᵤ 🌱",
+              "media": []
+            },
+            {
+              "id": "513732",
+              "text": "看了看摘要，我认为这项研究的亮点是利用代理充分进行人与人之间的交易谈判，以代理的形式表达个人特长并得到个人需要的物品或岗位。\n我觉得下一步便是投资建立一个虚拟交易平台，给各大厂模型代理提供接口。",
+              "time": "18:47",
+              "sender_id": 7128518033,
+              "sender_name": "Lee King",
+              "media": []
+            }
+          ],
+          "media": []
+        },
+        {
+          "id": "meiriyishu-3278",
+          "title": "淘宝热销超上千份的记账神器，0成本赚2万元！ 会计工作神器来袭！小红书爆款推荐，闲鱼持续霸榜，120个Excel全平台对",
+          "summary": "淘宝热销超上千份的记账神器，0成本赚2万元！\n会计工作神器来袭！小红书爆款推荐，闲鱼持续霸榜，120个Excel全平台对账模板，没有版权纠纷，多平台数据一键搞定。\n立即保存👉电商会计-全平台对账模板-120个文件\nhttps://pan.quark.cn/s/ff89e950e0dd\n————\n 盘友资源库：https://pan.tgshangtian.xyz\n\n[优质资源](https://t.me/meiriyishu) | [优质内容](https://t.me/chunse1024/8467)",
+          "channel": "@meiriyishu",
+          "channel_name": "优质「资源」收藏夹",
+          "channel_url": "https://t.me/meiriyishu",
+          "time": "13:43",
+          "url": "https://t.me/meiriyishu/3278",
+          "message_id": "3278",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-09-26/meiriyishu-3278-1-thumb.webp",
+              "url": "assets/tg-media/2026-09-26/meiriyishu-3278-1.webp",
+              "width": 359,
+              "height": 583,
+              "size_bytes": 37710,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "zaihuapd-44035",
+          "title": "**OpenCode 疑似泄露多个未公开模型**  OpenCode 数据页出现多个未公开模型条目，包括 Kimi K4",
+          "summary": "**OpenCode 疑似泄露多个未公开模型**\n\nOpenCode 数据页出现多个未公开模型条目，包括 Kimi K4、GLM 5.5 Flash、GLM 5.4、Deepseek V4.1 Pro、腾讯 hy4、Qwen3.8 Max Preview 和 Meta muse-spark-1.4-contributor 等。\n\n相关页面目前多显示无使用量，独立用户均为 0。消息称这些链接疑似泄露未公开模型。\n\nOpenCode ( [1](https://opencode.ai/zh/data/moonshot/kimi-k4) , [2](https://opencode.ai/zh/data/zhipu/glm-5-5-flash) , [3](https://opencode.ai/zh/data/zhipu/glm-5-4) , [4](https://opencode.ai/zh/data/deepseek/deepseek-v4-1-pro) , [5](https://opencode.ai/zh/data/tencent/hy4) , [6](https://opencode.ai/zh/data/alibaba/qwen3.8-max-preview) , [7](https://opencode.ai/zh/data/meta/muse-spark-1-4-contributor) )\n\n🌸 [科技圈](http://t.me/zaihuanews)· [茶馆](https://t.me/zaihuachat) · [投稿](http://t.me/ZaiHuabot)",
+          "channel": "@zaihuapd",
+          "channel_name": "在花🎗️科技圈",
+          "channel_url": "https://t.me/zaihuapd",
+          "time": "13:47",
+          "url": "https://t.me/zaihuapd/44035",
+          "message_id": "44035",
+          "reply_count": 47,
+          "replies_fetched": 47,
+          "replies": [
+            {
+              "id": "513482",
+              "text": "",
+              "time": "13:47",
+              "sender_id": 8439882275,
+              "sender_name": "🔫 ~biu~biu~biu",
+              "media": []
+            },
+            {
+              "id": "513484",
+              "text": "提前占位？",
+              "time": "13:47",
+              "sender_id": 6251541967,
+              "sender_name": "ℤ𝕙𝕠𝕟𝕘 𝕪𝕒𝕟𝕘",
+              "media": []
+            },
+            {
+              "id": "513485",
+              "text": "草台班子",
+              "time": "13:48",
+              "sender_id": 5675490499,
+              "sender_name": "Tt0u1v",
+              "media": []
+            },
+            {
+              "id": "513487",
+              "text": "",
+              "time": "13:50",
+              "sender_id": 1061400291,
+              "sender_name": "E Et",
+              "media": []
+            },
+            {
+              "id": "513488",
+              "text": "v4.1p有对话记录的，你真来啊梁子？",
+              "time": "13:51",
+              "sender_id": 1327095568,
+              "sender_name": "Linda Felicia",
+              "media": [
+                {
+                  "type": "image",
+                  "url": "assets/tg-media/2026-09-26/comments/c-513488-1.webp",
+                  "thumb_url": "assets/tg-media/2026-09-26/comments/c-513488-1-thumb.webp",
+                  "width": 931,
+                  "height": 2048,
+                  "size_bytes": 26348,
+                  "publish_status": "published"
+                }
+              ]
+            },
+            {
+              "id": "513489",
+              "text": "Meta muse-spark-1.4-contributor",
+              "time": "13:51",
+              "sender_id": 727467564,
+              "sender_name": "Ollama",
+              "media": []
+            },
+            {
+              "id": "513490",
+              "text": "赶紧出吧",
+              "time": "13:51",
+              "sender_id": 727467564,
+              "sender_name": "Ollama",
+              "media": []
+            },
+            {
+              "id": "513491",
+              "text": "",
+              "time": "13:51",
+              "sender_id": 675752473,
+              "sender_name": "void neko",
+              "media": []
+            },
+            {
+              "id": "513492",
+              "text": "别让等待成为遗憾",
+              "time": "13:51",
+              "sender_id": 675752473,
+              "sender_name": "void neko",
+              "media": []
+            },
+            {
+              "id": "513493",
+              "text": "meta 难得的免费旗舰大模型",
+              "time": "13:51",
+              "sender_id": 727467564,
+              "sender_name": "Ollama",
+              "media": []
+            },
+            {
+              "id": "513494",
+              "text": "1.3 白嫖几周了，再升级到 1.4 了",
+              "time": "13:52",
+              "sender_id": 727467564,
+              "sender_name": "Ollama",
+              "media": []
+            },
+            {
+              "id": "513495",
+              "text": "占位符吧",
+              "time": "13:52",
+              "sender_id": 777487517,
+              "sender_name": "chaoscard",
+              "media": []
+            },
+            {
+              "id": "513496",
+              "text": "好比告诉我明年出 iPhone20🤪",
+              "time": "13:54",
+              "sender_id": 552949873,
+              "sender_name": "T",
+              "media": []
+            },
+            {
+              "id": "513497",
+              "text": "多半是的",
+              "time": "13:55",
+              "sender_id": 7693409112,
+              "sender_name": "冷萃哲 【代实名 两元飞机号 会员NFT 机器人定制】",
+              "media": []
+            },
+            {
+              "id": "513498",
+              "text": "我已经把 opencode 卸载了 ，订阅也停了",
+              "time": "13:55",
+              "sender_id": 6429238355,
+              "sender_name": "Abel Kent",
+              "media": []
+            },
+            {
+              "id": "513502",
+              "text": "要是占位符的话没法解释为什么Kimi K3.1没页面反而Kimi K4有页面了(",
+              "time": "13:57",
+              "sender_id": 1327095568,
+              "sender_name": "Linda Felicia",
+              "media": []
+            },
+            {
+              "id": "513505",
+              "text": "前排",
+              "time": "13:59",
+              "sender_id": 8773394927,
+              "sender_name": "* *",
+              "media": []
+            },
+            {
+              "id": "513507",
+              "text": "与其相信opencode能一下泄露这么多模型，不如说是研发测试新名称时接入老模型不小心给发布出来让用户看到了",
+              "time": "14:00",
+              "sender_id": 1961933652,
+              "sender_name": "蓝色大肥鱼",
+              "media": []
+            },
+            {
+              "id": "513509",
+              "text": "跳过5.4 flash直接5.5 flash了？",
+              "time": "14:04",
+              "sender_id": 1845912362,
+              "sender_name": "ccnan",
+              "media": []
+            },
+            {
+              "id": "513511",
+              "text": "占位符为什么会有preview",
+              "time": "14:07",
+              "sender_id": 7833918075,
+              "sender_name": "Konstantin",
+              "media": []
+            },
+            {
+              "id": "513512",
+              "text": "",
+              "time": "14:07",
+              "sender_id": 452074081,
+              "sender_name": "奥特 怪兽",
+              "media": []
+            },
+            {
+              "id": "513514",
+              "text": "https://x.com/thdxr/status/2102940691521569207",
+              "time": "14:07",
+              "sender_id": 1070707237,
+              "sender_name": "fiiz f",
+              "media": [
+                {
+                  "type": "image",
+                  "url": "assets/tg-media/2026-09-26/comments/c-513514-1.webp",
+                  "thumb_url": "assets/tg-media/2026-09-26/comments/c-513514-1-thumb.webp",
+                  "width": 200,
+                  "height": 200,
+                  "size_bytes": 9060,
+                  "publish_status": "published"
+                }
+              ]
+            },
+            {
+              "id": "513516",
+              "text": "@hakmgpt lol i'm pretty sure we just record all requests in our data, including to invalid models\n\n**▎**[**Source**](https://x.com/thdxr/status/2102940691521569207)",
+              "time": "14:07",
+              "sender_id": 8755329042,
+              "sender_name": "解析机（经常 bug）",
+              "media": []
+            },
+            {
+              "id": "513518",
+              "text": "小花，这是预测模型站位还是真是的？",
+              "time": "14:10",
+              "sender_id": 7671435904,
+              "sender_name": "maike xie",
+              "media": []
+            },
+            {
+              "id": "513520",
+              "text": "更像是**真实出现在 OpenCode 的模型目录里**，但不等于“官方已发布、普通用户已能用”。第三方追踪页称它会读取 OpenCode Go 的公开 API 元数据，并明确区分“目录里有”和“文档已列出”；不少模型只是目录条目，能不能调用还看账号权限。[[1]](https://julien.cloud/opencode-go-models)\n所以“泄露”这词先别急着敲锣：模型名确实可能是真的，版本、状态和发布时间却未必坐实；更别说你贴的「链接1—7」没给出实际网址，无法逐条核对。索引目录不是发布会，0 使用量也只能说明暂时没看到使用记录，不是模型不存在。",
+              "time": "14:10",
+              "sender_id": 8439882275,
+              "sender_name": "🔫 ~biu~biu~biu",
+              "media": []
+            },
+            {
+              "id": "513523",
+              "text": "",
+              "time": "14:21",
+              "sender_id": 8849310220,
+              "sender_name": "久遠寺 有珠",
+              "media": []
+            },
+            {
+              "id": "513524",
+              "text": "",
+              "time": "14:23",
+              "sender_id": 6092152931,
+              "sender_name": "么佬族大大",
+              "media": []
+            },
+            {
+              "id": "513525",
+              "text": "https://opencode.ai/zh/data/mihoyo/genshin-impact",
+              "time": "14:25",
+              "sender_id": 6175956536,
+              "sender_name": "糖々々",
+              "media": [
+                {
+                  "type": "image",
+                  "url": "assets/tg-media/2026-09-26/comments/c-513525-1.webp",
+                  "thumb_url": "assets/tg-media/2026-09-26/comments/c-513525-1-thumb.webp",
+                  "width": 1200,
+                  "height": 630,
+                  "size_bytes": 15760,
+                  "publish_status": "published"
+                }
+              ]
+            },
+            {
+              "id": "513526",
+              "text": "",
+              "time": "14:32",
+              "sender_id": 1730414260,
+              "sender_name": "姬如千泷",
+              "media": []
+            },
+            {
+              "id": "513527",
+              "text": "别搞笑了，deepseek根本不会鸟这些杂七杂八的公司",
+              "time": "14:42",
+              "sender_id": 8649728094,
+              "sender_name": "suspine",
+              "media": []
+            },
+            {
+              "id": "513528",
+              "text": "提前公开给他们简直像屁吃",
+              "time": "14:43",
+              "sender_id": 8649728094,
+              "sender_name": "suspine",
+              "media": []
+            },
+            {
+              "id": "513530",
+              "text": "我们不说Windows系统，我们说安装视窗系统。\n\n我们不说app，我们说打开移动应用程序。\n\n我们不说bug，我们说这个东西有臭虫。\n\n我们不说TypeC，我们说你有C类接口吗？\n\n我们不说API，我们说应用程序接口。\n\n我们不说claudecode，我们说用克劳德代码。\n\n我们不说LED，我们说发光二极管。\n\n我们不说HDMI和DP，我们说我要买一根高清多媒体接口和显示接口。\n\n我们不说消耗token，我们说消耗词元。\n\n坚守汉语文化根基，事关科技话语权。",
+              "time": "14:48",
+              "sender_id": 8773394927,
+              "sender_name": "* *",
+              "media": []
+            },
+            {
+              "id": "513531",
+              "text": "就是没有Gemini4Pro",
+              "time": "14:48",
+              "sender_id": 1806843987,
+              "sender_name": "ivy",
+              "media": []
+            },
+            {
+              "id": "513532",
+              "text": "哪来的串子bot",
+              "time": "14:50",
+              "sender_id": 5177131302,
+              "sender_name": "DG",
+              "media": []
+            },
+            {
+              "id": "513533",
+              "text": "莫名其妙，先拉黑",
+              "time": "14:51",
+              "sender_id": 489803010,
+              "sender_name": "lily",
+              "media": []
+            },
+            {
+              "id": "513546",
+              "text": "问就是还在准备中",
+              "time": "15:01",
+              "sender_id": 737148537,
+              "sender_name": "Kris Sun",
+              "media": []
+            },
+            {
+              "id": "513551",
+              "text": "那Linux是林氏操作系统吗？",
+              "time": "15:07",
+              "sender_id": 94426225,
+              "sender_name": "Macronut",
+              "media": []
+            },
+            {
+              "id": "513569",
+              "text": "OpenCode泄露模型吗？你是说这么多有自己harness的模型公司给OpenCode开放自己没有对外公布的模型？",
+              "time": "15:26",
+              "sender_id": 707170912,
+              "sender_name": "🐭🗑️😭",
+              "media": []
+            },
+            {
+              "id": "513581",
+              "text": "李纳斯",
+              "time": "15:39",
+              "sender_id": 7540580074,
+              "sender_name": "咲",
+              "media": []
+            },
+            {
+              "id": "513582",
+              "text": "~~坏了孩子们，情报是真的\nKimi Code现在ping K4能通~~~~😀~~~~\n牢杨不会真要搞个大的罢~~\n哦没事了，怎么还能路由到K2.8的",
+              "time": "15:42",
+              "sender_id": 1327095568,
+              "sender_name": "Linda Felicia",
+              "media": [
+                {
+                  "type": "image",
+                  "url": "assets/tg-media/2026-09-26/comments/c-513582-1.webp",
+                  "thumb_url": "assets/tg-media/2026-09-26/comments/c-513582-1-thumb.webp",
+                  "width": 2048,
+                  "height": 1052,
+                  "size_bytes": 80674,
+                  "publish_status": "published"
+                }
+              ]
+            },
+            {
+              "id": "513583",
+              "text": "利努克斯 林纳克斯",
+              "time": "15:44",
+              "sender_id": 5401113044,
+              "sender_name": "Ivan Solis",
+              "media": []
+            },
+            {
+              "id": "513604",
+              "text": "muse怎么用啊？官方App一直显示要等待。",
+              "time": "16:54",
+              "sender_id": 719282788,
+              "sender_name": "皇 欧",
+              "media": []
+            },
+            {
+              "id": "513711",
+              "text": "随便打的名称不会有用量图表",
+              "time": "18:20",
+              "sender_id": 1088732787,
+              "sender_name": "CaCaa🤪",
+              "media": []
+            },
+            {
+              "id": "513739",
+              "text": "opencode可以直接免费用的",
+              "time": "19:00",
+              "sender_id": 727467564,
+              "sender_name": "Ollama",
+              "media": []
+            },
+            {
+              "id": "513825",
+              "text": "占位而且，没得准信",
+              "time": "21:00",
+              "sender_id": 1682797145,
+              "sender_name": "墨 鲶",
+              "media": []
+            },
+            {
+              "id": "513826",
+              "text": "我是小宝贝",
+              "time": "21:01",
+              "sender_id": 7162243624,
+              "sender_name": "DearElla",
+              "media": []
+            },
+            {
+              "id": "513892",
+              "text": "依旧狗哨",
+              "time": "21:43",
+              "sender_id": 5377529838,
+              "sender_name": "Fou Yu",
+              "media": []
+            }
+          ],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-09-26/zaihuapd-44035-1-thumb.webp",
+              "url": "assets/tg-media/2026-09-26/zaihuapd-44035-1.webp",
+              "width": 937,
+              "height": 997,
+              "size_bytes": 45490,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "openclaw1024-1365",
+          "title": "用对比学习把当前状态和候选动作映射到同一空间，让 Agent 不必为每个任务单独微调，也能快速判断、排序和路由动作。 h",
+          "summary": "用对比学习把当前状态和候选动作映射到同一空间，让 Agent 不必为每个任务单独微调，也能快速判断、排序和路由动作。\nhttps://github.com/Contrastive-LM/CLM\nCLM 是一种专门做快速决策的 System One 模型，用双向 InfoNCE 损失学习状态和正确动作的对应关系。CLM-8B 依次使用 6000 万组问答、3000 万组合成难负样本和 100 万条 Agent 轨迹训练。\n\n[Hermes/OpenClaw](https://t.me/openclaw1024) | [AI探索](https://t.me/aigc1024)",
+          "channel": "@openclaw1024",
+          "channel_name": "Hermes爱马仕&🦞OpenClaw小龙虾",
+          "channel_url": "https://t.me/openclaw1024",
+          "time": "14:22",
+          "url": "https://t.me/openclaw1024/1365",
+          "message_id": "1365",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-09-26/openclaw1024-1365-1-thumb.webp",
+              "url": "assets/tg-media/2026-09-26/openclaw1024-1365-1.webp",
+              "width": 1200,
+              "height": 712,
+              "size_bytes": 48240,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "meiriyishu-3286",
+          "title": "油管（YouTube）挣钱全攻略，从开通广告收益到国内收款，这套实操指南你想不想要？ 🔗：https://pan.qua",
+          "summary": "油管（YouTube）挣钱全攻略，从开通广告收益到国内收款，这套实操指南你想不想要？\n🔗：https://pan.quark.cn/s/08ade12d85e1\n————\n 盘友资源库：https://pan.tgshangtian.xyz\n\n[优质资源](https://t.me/meiriyishu) | [优质内容](https://t.me/chunse1024/8467)",
+          "channel": "@meiriyishu",
+          "channel_name": "优质「资源」收藏夹",
+          "channel_url": "https://t.me/meiriyishu",
+          "time": "14:37",
+          "url": "https://t.me/meiriyishu/3286",
+          "message_id": "3286",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-09-26/meiriyishu-3286-1-thumb.webp",
+              "url": "assets/tg-media/2026-09-26/meiriyishu-3286-1.webp",
+              "width": 666,
+              "height": 888,
+              "size_bytes": 58600,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "meiriyishu-3288",
+          "title": "这套线下要卖 1 万元的 AI 教程，免费分享给你，你接不接？ 🔗：https://pan.quark.cn/s/cf6",
+          "summary": "这套线下要卖 1 万元的 AI 教程，免费分享给你，你接不接？\n🔗：https://pan.quark.cn/s/cf61fad15d8e\n————\n 盘友资源库：https://pan.tgshangtian.xyz\n\n[优质资源](https://t.me/meiriyishu) | [优质内容](https://t.me/chunse1024/8467)",
+          "channel": "@meiriyishu",
+          "channel_name": "优质「资源」收藏夹",
+          "channel_url": "https://t.me/meiriyishu",
+          "time": "14:37",
+          "url": "https://t.me/meiriyishu/3288",
+          "message_id": "3288",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-09-26/meiriyishu-3288-1-thumb.webp",
+              "url": "assets/tg-media/2026-09-26/meiriyishu-3288-1.webp",
+              "width": 376,
+              "height": 589,
+              "size_bytes": 20340,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "aigc1024-25031",
+          "title": "扎克伯格真正在赌的是你的下一个终端不再是手机 Meta的Muse火了之后，所有人都在讨论它能替你做什么，但几乎没人问一个",
+          "summary": "扎克伯格真正在赌的是你的下一个终端不再是手机\nMeta的Muse火了之后，所有人都在讨论它能替你做什么，但几乎没人问一个更根本的问。扎克伯格为什么这么着急地推一个免费的AI助手，还同时在做AI眼镜、AI电子宠物？\n过去20年硅谷有一个没有明说的共识，手机只是计算史上的一个阶段性形态，并不是终点。真正的下一代平台应该比手机更小、更贴身、更主动，大概率是眼镜、手表、耳机、戒指这类可穿戴设备，它们才是未来的入口。\n这个共识从Google Glass时代就开始了，到Apple Watch、AirPods、Vision Pro......每一代产品都在往这个方向试探，但没有人真正做成。因为一个硬件入口要成立，前提是生态内有足够多的服务，且服务足够聪明，聪明到不需要你再掏出手机。\n这也是扎克伯格在焦虑的，他在PC互联网时代错过了，尽管Facebook很成功，但操作系统是微软和苹果的。他在移动互联网时代也错过了，就算Instagram和WhatsApp风靡全球，但操作系统是Google和苹果的。每一次平台更迭，真正制定规则的人都是做操作系统、做硬件、做入口的，Meta永远只能做有限游戏内的玩家。\n扎克伯格不想在AI时代再错过一次，所以他做了Muse。Muse不止是一个AI助手，也是一个操作系统的雏形。它有自己的浏览器、文件系统和终端，能替你操作几乎所有数字服务。你无需打开应用和点击屏幕，跟它简单交代一声就行。\n你现在在手机上用Muse只是暂时的，Muse真正该待的地方是眼镜。\n试想当你戴着一副配有摄像头、麦克风和扬声器的AI眼镜，你看到什么Muse就能看到什么，你听到什么Muse就能听到什么，你说句Muse就能在后台替你处理，这时你还需要再掏出手机打开各种应用吗？\n这才是扎克伯格真正想要的入口，他做了20年应用层，做到全球最大，但一直在别人的地盘上做生意。\n如果眼镜能成为下一代计算平台，Muse能成为下一代操作系统，扎克伯格就第一次掌握了底层入口。他可以决定用户怎么交互、开发者怎么接入以及数据如何流动，从遵守规则的人变成制定规则的人。\n所以对大多数人来说Muse是免费的，扎克伯格并不急于通过Muse赚钱，他要的是用户习惯。他希望人们能习惯跟一个AI助手对，习惯让它替你做事，习惯不再频繁亲手操作应用。当这个习惯建立起来之后，AI眼镜只会让你更方便地使用。\n这是一个非常聪明的策略，硬件是最难卖的，尤其是新形态的硬件。Google",
+          "channel": "@aigc1024",
+          "channel_name": "AI探索指南",
+          "channel_url": "https://t.me/aigc1024",
+          "time": "14:47",
+          "url": "https://t.me/aigc1024/25031",
+          "message_id": "25031",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-09-26/aigc1024-25031-1-thumb.webp",
+              "url": "assets/tg-media/2026-09-26/aigc1024-25031-1.webp",
+              "width": 918,
+              "height": 632,
+              "size_bytes": 38736,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "aigc1024-25032",
+          "title": "Glass失败了，因为用户不知道该怎么用，以及能用来干嘛。Vision Pro卖不动，因为用户觉得它只是一个更贵、更重的",
+          "summary": "Glass失败了，因为用户不知道该怎么用，以及能用来干嘛。Vision Pro卖不动，因为用户觉得它只是一个更贵、更重的家庭娱乐设备。\n但如果用户已经习惯在手机上用Muse了，那AI眼镜就不再是一个新东西，只是一个更便捷的交互入口。你不必学习如何上手使用，不必主动解锁屏幕，不必从一堆App中找到你要使用的那个。\n当这个迁移完成的时候，Meta就不再只是个靠广告生存的应用公司了。\n当下苹果和Google是既得利益者，它们需要保护现有的入口，但扎克伯格没有什么可失去的。\n因为对他来说最坏的结果是继续做应用层，跟今天没有任何区别，而最好的结果是成为下一个平台级入口。\n这才是Muse真正的战略意义，它是Meta在AI时代的一个支点。通过这个支点，扎克伯格想撬动的不仅是AI助手市场，还有下一代计算平台的控制权。\n这场战争，才刚刚拉开序幕。\n@aigc1024",
+          "channel": "@aigc1024",
+          "channel_name": "AI探索指南",
+          "channel_url": "https://t.me/aigc1024",
+          "time": "14:47",
+          "url": "https://t.me/aigc1024/25032",
+          "message_id": "25032",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": []
+        },
+        {
+          "id": "aigc1024-25033",
+          "title": "A 股玩家可以收藏了，这个开源项目有点猛。 一个本地面板直接搞定：全 A 选股 + 实时盯盘 + 策略回测 + AI 复",
+          "summary": "A 股玩家可以收藏了，这个开源项目有点猛。\n一个本地面板直接搞定：全 A 选股 + 实时盯盘 + 策略回测 + AI 复盘。\n内置 18 种策略，MA、MACD、RSI、KDJ 一键扫全市场；回测连 T+1、手续费、滑点、止损都算进去，盘后还能自动扒出连板梯队、概念轮动、炸板翘板。\n更爽的是，日 K 不填 Key 也能用，AI 还能接 DeepSeek、通义、Ollama。\n🔗：https://github.com/shy3130/tickflow-stock-panel\n\n[AI探索](https://t.me/aigc1024) | [Hermes/OpenClaw](https://t.me/openclaw1024)｜[优质资源](https://t.me/meiriyishu)｜[优质信息](https://t.me/chunse1024/8467)",
+          "channel": "@aigc1024",
+          "channel_name": "AI探索指南",
+          "channel_url": "https://t.me/aigc1024",
+          "time": "15:18",
+          "url": "https://t.me/aigc1024/25033",
+          "message_id": "25033",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-09-26/aigc1024-25033-1-thumb.webp",
+              "url": "assets/tg-media/2026-09-26/aigc1024-25033-1.webp",
+              "width": 554,
+              "height": 1200,
+              "size_bytes": 66820,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "zaihuapd-44036",
+          "title": "**Meta Muse 被曝漏洞可劫持账户**  安全研究员 Patrick Wardle 发现，Meta 面向 mac",
+          "summary": "**Meta Muse 被曝漏洞可劫持账户**\n\n安全研究员 Patrick Wardle 发现，Meta 面向 macOS 用户推出的 Muse 存在零日漏洞。攻击者可修改隐藏语音配置项，劫持账户并获取认证 Token，进而访问邮件、日历和 WhatsApp 等关联应用。\n\n该漏洞名为“Not-a-Mused”，本地进程或诱导用户执行终端命令即可利用，无需复杂恶意软件。Meta 已发布热修复，移除相关调试功能。\n\n[IT之家](https://www.ithome.com/1/007/126.htm)\n\n🌸 [科技圈](http://t.me/zaihuanews)· [茶馆](https://t.me/zaihuachat) · [投稿](http://t.me/ZaiHuabot)",
+          "channel": "@zaihuapd",
+          "channel_name": "在花🎗️科技圈",
+          "channel_url": "https://t.me/zaihuapd",
+          "time": "15:27",
+          "url": "https://t.me/zaihuapd/44036",
+          "message_id": "44036",
+          "reply_count": 11,
+          "replies_fetched": 11,
+          "replies": [
+            {
+              "id": "513572",
+              "text": "",
+              "time": "15:27",
+              "sender_id": 8439882275,
+              "sender_name": "🔫 ~biu~biu~biu",
+              "media": []
+            },
+            {
+              "id": "513573",
+              "text": "6",
+              "time": "15:27",
+              "sender_id": 6525073242,
+              "sender_name": "Yozi",
+              "media": []
+            },
+            {
+              "id": "513574",
+              "text": "",
+              "time": "15:27",
+              "sender_id": 5763978571,
+              "sender_name": "耄耋 五号机",
+              "media": []
+            },
+            {
+              "id": "513575",
+              "text": "我还记得上一个meta的漏洞是ai可以随意修改别人账号的密码等信息，只要能欺骗ai就能盗号",
+              "time": "15:29",
+              "sender_id": 5782877672,
+              "sender_name": "胆肿",
+              "media": []
+            },
+            {
+              "id": "513578",
+              "text": "",
+              "time": "15:31",
+              "sender_id": 1015537755,
+              "sender_name": "核动力小跳蛋",
+              "media": [
+                {
+                  "type": "video",
+                  "url": "assets/tg-media/2026-09-26/comments/c-513578-1.mp4",
+                  "width": 0,
+                  "height": 0,
+                  "duration": 0,
+                  "size_bytes": 14558,
+                  "has_audio": true,
+                  "publish_status": "published",
+                  "poster_url": "assets/tg-media/2026-09-26/comments/c-513578-1-poster.webp"
+                }
+              ]
+            },
+            {
+              "id": "513584",
+              "text": "Meta垃圾",
+              "time": "15:44",
+              "sender_id": 5412452387,
+              "sender_name": "TW",
+              "media": []
+            },
+            {
+              "id": "513585",
+              "text": "",
+              "time": "15:45",
+              "sender_id": 7171316252,
+              "sender_name": "🌌 带带元宇宙 🦍",
+              "media": [
+                {
+                  "type": "video",
+                  "url": "assets/tg-media/2026-09-26/comments/c-513585-1.mp4",
+                  "width": 0,
+                  "height": 0,
+                  "duration": 0,
+                  "size_bytes": 180446,
+                  "has_audio": true,
+                  "publish_status": "published",
+                  "poster_url": "assets/tg-media/2026-09-26/comments/c-513585-1-poster.webp"
+                }
+              ]
+            },
+            {
+              "id": "513589",
+              "text": "ChatGPT网页端今天是不是登录不上？",
+              "time": "15:56",
+              "sender_id": 441514729,
+              "sender_name": "snake leung",
+              "media": []
+            },
+            {
+              "id": "513608",
+              "text": "",
+              "time": "17:00",
+              "sender_id": 8849310220,
+              "sender_name": "久遠寺 有珠",
+              "media": []
+            },
+            {
+              "id": "513648",
+              "text": "前两天还有网友跟风注册muse来着",
+              "time": "17:36",
+              "sender_id": 8939070656,
+              "sender_name": "史㗑嘚𠼦",
+              "media": []
+            },
+            {
+              "id": "513786",
+              "text": "安全没做到位就开始铺天盖地投广告了",
+              "time": "20:23",
+              "sender_id": 5970932552,
+              "sender_name": "兰酱qwq",
+              "media": []
+            }
+          ],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-09-26/zaihuapd-44036-1-thumb.webp",
+              "url": "assets/tg-media/2026-09-26/zaihuapd-44036-1.webp",
+              "width": 1074,
+              "height": 270,
+              "size_bytes": 18870,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "aigc1024-25034",
+          "title": "使用 today ai 的 aha moment 与 concern 是同步出现的。 案例是，它关注到我有研究过 inf",
+          "summary": "使用 today ai 的 aha moment 与 concern 是同步出现的。\n案例是，它关注到我有研究过 infra，然后发现了相关新闻，就整理了下推送给我。\n这种设计真的蛮好的，但我的 concern 是：\n1）成本。\n不知道它要在后台做多少工作，才能推出这么一条信息。这部分成本如果由公司承担，长期负担太重；由用户承担，又很容易被 challenge 是不是存在浪费。（延伸一下，这种产品的定价也蛮难的。\n2）信息源的质量。\n公开数据太容易被污染了，远没有企业、个人、订阅这些渠道的置信度高。这或许可以通过一些机制解决？但缩小搜索范围，可能又会影响到产品体验。\n@aigc1024",
+          "channel": "@aigc1024",
+          "channel_name": "AI探索指南",
+          "channel_url": "https://t.me/aigc1024",
+          "time": "16:16",
+          "url": "https://t.me/aigc1024/25034",
+          "message_id": "25034",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-09-26/aigc1024-25034-1-thumb.webp",
+              "url": "assets/tg-media/2026-09-26/aigc1024-25034-1.webp",
+              "width": 941,
+              "height": 2048,
+              "size_bytes": 131988,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "yunying23-11752",
+          "title": "上次我说：AI、自媒体、英语，是普通人能撬动的最大杠杆。 今天这篇，我请教了一些大佬，谈一谈有效的实操路径。 一、AI：",
+          "summary": "上次我说：AI、自媒体、英语，是普通人能撬动的最大杠杆。\n今天这篇，我请教了一些大佬，谈一谈有效的实操路径。\n一、AI：前期搞懂这几个👇\nChatGPT = 速查 + 答疑解惑\n做产品原型前，先和它确定demo思路。\n遇到问/报错丢进去，它能直接给出方案。\nNotebookLM = 资料整理 + 深度理解\n把PDF、报告、代码文档往里一丢，它自动提炼重点、生成导图，还能把报告转成AI对播客。\n通勤的时间就能从“看懂”到“掌握重点”，时间直接砍半。\nClaude Code = 写代码 + 自动化任务\nClaude Code 的能力非常强，搭配Claude Sonnet 4.5帮助你所想即所得。\n我用它写脚本、跑流程、重构项目、自动化处理任务，大幅提高了效率。\nFigma AI = 设计 + 可视化\n提Prompt生成草图、流程图、UI稿，从构想到原型只要几分钟。\n核心是“串起来”：\nChatGPT定思路 → Claude写代码（自动化） → NotebookLM整合资料 → Figma出原型 → AI复盘总结。\n一个人就能跑完整个项目闭环。\n现在一个人能顶三个人的活，就是这么干的。\n二、自媒体：先找对标，再靠频率磨出来\n别想着“一夜爆火”。\n第一步：找对标，抄结构，不抄内容。\n找3个你想成为的人，看他们发什么、怎么写标、怎么切主。\n你会发现，风格和节奏都能模仿出来。然后分析他们如何引流、如何转化...\n第二步：一定要先多发，找到感觉。\n每天起码发2~3条，哪怕只是分享AI实操、学习心得。\n然后分析数据，数据会告诉你什么内容有人看、什么没人看。\n连续30天输出，摸清了自己的爆款感。\n第三步：找到并固定节奏。\n当你发现有几条内容开始爆了，就别变了。\n定一个时间、一个主方向，日更或周更，节奏稳过爆点。\n这里的问真诚回复、长期在场，就是信任的起点。\n三、英语：别只是背单词，要用\n（以下是请教一些大佬的方法，我的英语一般，也还在探索，等之后会进行学习分享）\n每天刷Twitter（YouTube）英文区30分钟\n关注你行业的大佬，看不懂的用ChatGPT解释。\n这样既学英文，又学最新趋势。\n和 ChatGPT 进行对，让它辅导你练口语，还能让他根据你的想法进行一些适配，非常有效果。\n\n\n[出海赚美金](https://t.me/yunying23)｜[优质资源](https://t.me/meiriyishu)｜[优质信息](https://t.me/chunse1024/8467)｜[内幕消息](https://t.me/inside1024)",
+          "channel": "@yunying23",
+          "channel_name": "出海🚢&自媒体运营秘籍",
+          "channel_url": "https://t.me/yunying23",
+          "time": "16:29",
+          "url": "https://t.me/yunying23/11752",
+          "message_id": "11752",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": []
+        },
+        {
+          "id": "meiriyishu-3289",
+          "title": "2026 年抖音最大的财富密码是什么？《体验 100 种人生副本》，我只说一次。 这不是普通的 Vlog，也不是演戏，而",
+          "summary": "2026 年抖音最大的财富密码是什么？《体验 100 种人生副本》，我只说一次。\n这不是普通的 Vlog，也不是演戏，而是一种全新的内容形态。\n每一期，都用第一视角，真实进入另一个人的一天。\n流量大、变现快、容易出爆款！，可加入伙伴计划\n🔗：https://pan.quark.cn/s/80ae7a14c5ea\n————\n 盘友资源库：https://pan.tgshangtian.xyz\n\n[优质资源](https://t.me/meiriyishu) | [优质内容](https://t.me/chunse1024/8467)",
+          "channel": "@meiriyishu",
+          "channel_name": "优质「资源」收藏夹",
+          "channel_url": "https://t.me/meiriyishu",
+          "time": "16:42",
+          "url": "https://t.me/meiriyishu/3289",
+          "message_id": "3289",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-09-26/meiriyishu-3289-1-thumb.webp",
+              "url": "assets/tg-media/2026-09-26/meiriyishu-3289-1.webp",
+              "width": 402,
+              "height": 891,
+              "size_bytes": 63582,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "aigc1024-25035",
+          "title": "Claude Code 最新版本上线了一个特别讨厌的功能，频繁的给其他正在运行的 session 发消息！还老是搞错，除",
+          "summary": "Claude Code 最新版本上线了一个特别讨厌的功能，频繁的给其他正在运行的 session 发消息！还老是搞错，除了浪费 token 并没有太大价值……\n默认打开我都没找到哪里关掉！\n\n[AI探索](https://t.me/aigc1024) | [Hermes/OpenClaw](https://t.me/openclaw1024)｜[优质资源](https://t.me/meiriyishu)｜[优质信息](https://t.me/chunse1024/8467)",
+          "channel": "@aigc1024",
+          "channel_name": "AI探索指南",
+          "channel_url": "https://t.me/aigc1024",
+          "time": "17:39",
+          "url": "https://t.me/aigc1024/25035",
+          "message_id": "25035",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-09-26/aigc1024-25035-1-thumb.webp",
+              "url": "assets/tg-media/2026-09-26/aigc1024-25035-1.webp",
+              "width": 984,
+              "height": 1200,
+              "size_bytes": 150912,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "yunying23-11753",
+          "title": "美国人的购买力是真的强。 单靠一个远程遥控的功能，一个平平无奇的极光投影仪，居然在TikTok上也能做到月入百万。 今天",
+          "summary": "美国人的购买力是真的强。\n单靠一个远程遥控的功能，一个平平无奇的极光投影仪，居然在TikTok上也能做到月入百万。\n今天就为大家拆解一下这个爆款产品的流量密码：\n1.肉体是最好的钩子：\n因为家居投影仪的目标客户还是以女性为主，一个半裸男博主的视觉冲击，至少保证了你的3秒完播率。\n2.新场景新需求：\n浴室，往往是现代人逃避现实生活的最好地方。通过把产品放入这个新场景，用户的核心需求——松弛感，一下子就被迅速激发出来了。\n3.口播Call to Action：\n转化的核心是信任感。只要表现力到位，同样的文案，主播怼脸拍口播的逼单成功率不知道高到哪里去了。\n\n\n[出海赚美金](https://t.me/yunying23)｜[优质资源](https://t.me/meiriyishu)｜[优质信息](https://t.me/chunse1024/8467)｜[内幕消息](https://t.me/inside1024)",
+          "channel": "@yunying23",
+          "channel_name": "出海🚢&自媒体运营秘籍",
+          "channel_url": "https://t.me/yunying23",
+          "time": "18:19",
+          "url": "https://t.me/yunying23/11753",
+          "message_id": "11753",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "video",
+              "url": "assets/tg-media/2026-09-26/yunying23-11753-1.mp4",
+              "fallback_url": "https://t.me/yunying23/11753",
+              "width": 0,
+              "height": 0,
+              "duration": 0,
+              "size_bytes": 5195364,
+              "publish_status": "published",
+              "has_audio": true,
+              "poster_url": "assets/tg-media/2026-09-26/yunying23-11753-1-poster.webp"
+            }
+          ]
+        },
+        {
+          "id": "openclaw1024-1366",
+          "title": "让 Codex、Claude Code 和 Cursor 按统一方法生成可旋转查看、能逐层或逐块搭建的三维古建网站。 h",
+          "summary": "让 Codex、Claude Code 和 Cursor 按统一方法生成可旋转查看、能逐层或逐块搭建的三维古建网站。\nhttps://github.com/lhlGitHub/threejs-architecture-effects\n这是一个生成交互式三维古建的 Agent Skill，使用 Three.js、React 和 Vite。建筑由砖块、木架、斗拱、屋檐和瓦片等实体组成，搭建过程可暂停和回放。砖、木、石、瓦和铜等材质都由代码生成，不用付费模型或 API。\n\n[Hermes/OpenClaw](https://t.me/openclaw1024) | [AI探索](https://t.me/aigc1024)",
+          "channel": "@openclaw1024",
+          "channel_name": "Hermes爱马仕&🦞OpenClaw小龙虾",
+          "channel_url": "https://t.me/openclaw1024",
+          "time": "18:32",
+          "url": "https://t.me/openclaw1024/1366",
+          "message_id": "1366",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "video",
+              "url": "assets/tg-media/2026-09-26/openclaw1024-1366-1.mp4",
+              "fallback_url": "https://t.me/openclaw1024/1366",
+              "width": 0,
+              "height": 0,
+              "duration": 0,
+              "size_bytes": 2179697,
+              "publish_status": "published",
+              "has_audio": false,
+              "poster_url": "assets/tg-media/2026-09-26/openclaw1024-1366-1-poster.webp"
+            }
+          ]
+        },
+        {
+          "id": "meiriyishu-3291",
+          "title": "AI 民间故事写作真能轻松日入 300+？ 🔗：https://pan.quark.cn/s/4a65b3b5129d",
+          "summary": "AI 民间故事写作真能轻松日入 300+？\n🔗：https://pan.quark.cn/s/4a65b3b5129d\n————\n 盘友资源库：https://pan.tgshangtian.xyz\n\n[优质资源](https://t.me/meiriyishu) | [优质内容](https://t.me/chunse1024/8467)",
+          "channel": "@meiriyishu",
+          "channel_name": "优质「资源」收藏夹",
+          "channel_url": "https://t.me/meiriyishu",
+          "time": "18:47",
+          "url": "https://t.me/meiriyishu/3291",
+          "message_id": "3291",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-09-26/meiriyishu-3291-1-thumb.webp",
+              "url": "assets/tg-media/2026-09-26/meiriyishu-3291-1.webp",
+              "width": 413,
+              "height": 861,
+              "size_bytes": 111880,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "meiriyishu-3292",
+          "title": "外网爆火的那篇东西你刷到没？1.7 亿人疯传，油管大神 Dan Koe 的万字长文——《如何在一天内彻底改变你的人生》【",
+          "summary": "外网爆火的那篇东西你刷到没？1.7 亿人疯传，油管大神 Dan Koe 的万字长文——《如何在一天内彻底改变你的人生》【中英文翻译版】。\n🔗：https://pan.quark.cn/s/cfb024b79558\n————\n 盘友资源库：https://pan.tgshangtian.xyz\n\n[优质资源](https://t.me/meiriyishu) | [优质内容](https://t.me/chunse1024/8467)",
+          "channel": "@meiriyishu",
+          "channel_name": "优质「资源」收藏夹",
+          "channel_url": "https://t.me/meiriyishu",
+          "time": "18:47",
+          "url": "https://t.me/meiriyishu/3292",
+          "message_id": "3292",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-09-26/meiriyishu-3292-1-thumb.webp",
+              "url": "assets/tg-media/2026-09-26/meiriyishu-3292-1.webp",
+              "width": 542,
+              "height": 889,
+              "size_bytes": 21042,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "zaihuapd-44038",
+          "title": "**微软推出 Copilot 超级应用 整合聊天编码与智能体**  微软今日正式发布新版 Copilot「超级应用」，整",
+          "summary": "**微软推出 Copilot 超级应用 整合聊天编码与智能体**\n\n微软今日正式发布新版 Copilot「超级应用」，整合 AI 聊天、编码和智能体，设 Home、Code、Autopilot 三个标签页。\n\nCode 可创建应用或自动化并分享给同事；此前名为 Scout 的个人 AI 助手更名 Autopilot，定位云端「数字同事」。Home 和 Code 未来数周向 Frontier 用户推送，Autopilot 本月晚些时候开启私有预览。\n\n[The Verge](https://www.theverge.com/news/1000532/microsoft-copilot-super-app-chat-coding-autopilot)\n\n🌸 [科技圈](http://t.me/zaihuanews)· [茶馆](https://t.me/zaihuachat) · [投稿](http://t.me/ZaiHuabot)",
+          "channel": "@zaihuapd",
+          "channel_name": "在花🎗️科技圈",
+          "channel_url": "https://t.me/zaihuapd",
+          "time": "20:15",
+          "url": "https://t.me/zaihuapd/44038",
+          "message_id": "44038",
+          "reply_count": 28,
+          "replies_fetched": 28,
+          "replies": [
+            {
+              "id": "513768",
+              "text": "",
+              "time": "20:15",
+              "sender_id": 8439882275,
+              "sender_name": "🔫 ~biu~biu~biu",
+              "media": []
+            },
+            {
+              "id": "513769",
+              "text": "辣鸡软件",
+              "time": "20:15",
+              "sender_id": 1142823584,
+              "sender_name": "終🍥",
+              "media": []
+            },
+            {
+              "id": "513770",
+              "text": "都给我投😇👌",
+              "time": "20:15",
+              "sender_id": 893841956,
+              "sender_name": "Silent",
+              "media": []
+            },
+            {
+              "id": "513771",
+              "text": "不要再造屎了",
+              "time": "20:16",
+              "sender_id": 5763978571,
+              "sender_name": "耄耋 五号机",
+              "media": []
+            },
+            {
+              "id": "513772",
+              "text": "",
+              "time": "20:16",
+              "sender_id": 5763978571,
+              "sender_name": "耄耋 五号机",
+              "media": [
+                {
+                  "type": "video",
+                  "url": "assets/tg-media/2026-09-26/comments/c-513772-1.mp4",
+                  "width": 0,
+                  "height": 0,
+                  "duration": 0,
+                  "size_bytes": 232428,
+                  "has_audio": true,
+                  "publish_status": "published",
+                  "poster_url": "assets/tg-media/2026-09-26/comments/c-513772-1-poster.webp"
+                }
+              ]
+            },
+            {
+              "id": "513773",
+              "text": "就是这个把我手机里面的365更新没了",
+              "time": "20:16",
+              "sender_id": 1142823584,
+              "sender_name": "終🍥",
+              "media": []
+            },
+            {
+              "id": "513774",
+              "text": "这个怎么收费？是不是可以集成在 office 的侧边栏的？  我觉得大有可为啊",
+              "time": "20:16",
+              "sender_id": 1820772946,
+              "sender_name": "Jordy Zhu",
+              "media": []
+            },
+            {
+              "id": "513775",
+              "text": "傻软Ai",
+              "time": "20:17",
+              "sender_id": 8127763918,
+              "sender_name": "@Govlink 真真",
+              "media": []
+            },
+            {
+              "id": "513776",
+              "text": "这些上古公司造粪最狠了",
+              "time": "20:17",
+              "sender_id": 5361332081,
+              "sender_name": "派大星 no smoking_dayX",
+              "media": []
+            },
+            {
+              "id": "513777",
+              "text": "微软现在有多少COPLIOT了？",
+              "time": "20:20",
+              "sender_id": 8659962032,
+              "sender_name": "雪",
+              "media": []
+            },
+            {
+              "id": "513778",
+              "text": "微软更甚",
+              "time": "20:20",
+              "sender_id": 8239091847,
+              "sender_name": "O 🇺🇸 J",
+              "media": []
+            },
+            {
+              "id": "513779",
+              "text": "也就在2022年的时候厉害很多，现在纯拉完了",
+              "time": "20:20",
+              "sender_id": 8659962032,
+              "sender_name": "雪",
+              "media": []
+            },
+            {
+              "id": "513787",
+              "text": "现在没几个公司玩智能体了",
+              "time": "20:23",
+              "sender_id": 8239091847,
+              "sender_name": "O 🇺🇸 J",
+              "media": []
+            },
+            {
+              "id": "513798",
+              "text": "你是哪种 copilot",
+              "time": "20:29",
+              "sender_id": 886132252,
+              "sender_name": "雲依 彩藍|神無月的阿呜呜限定",
+              "media": []
+            },
+            {
+              "id": "513799",
+              "text": "🤡您的Copilot无法连接到服务器",
+              "time": "20:33",
+              "sender_id": 6630928598,
+              "sender_name": "Atenza Zn",
+              "media": []
+            },
+            {
+              "id": "513803",
+              "text": "人工智能重要的是智能。。。",
+              "time": "20:35",
+              "sender_id": 1346367947,
+              "sender_name": "nonono",
+              "media": []
+            },
+            {
+              "id": "513806",
+              "text": "要是真有人工智能，那我还为什么需要操作系统？",
+              "time": "20:36",
+              "sender_id": 871092736,
+              "sender_name": "大魔王",
+              "media": []
+            },
+            {
+              "id": "513808",
+              "text": "环大陆开启😂",
+              "time": "20:36",
+              "sender_id": 8773394927,
+              "sender_name": "* *",
+              "media": []
+            },
+            {
+              "id": "513811",
+              "text": "all in one是吧，一个的体积就够膨胀的了，这不得起飞",
+              "time": "20:45",
+              "sender_id": 1179159637,
+              "sender_name": "Sanmer",
+              "media": []
+            },
+            {
+              "id": "513812",
+              "text": "",
+              "time": "20:45",
+              "sender_id": 1179159637,
+              "sender_name": "Sanmer",
+              "media": [
+                {
+                  "type": "video",
+                  "url": "assets/tg-media/2026-09-26/comments/c-513812-1.mp4",
+                  "width": 0,
+                  "height": 0,
+                  "duration": 0,
+                  "size_bytes": 37933,
+                  "has_audio": true,
+                  "publish_status": "published",
+                  "poster_url": "assets/tg-media/2026-09-26/comments/c-513812-1-poster.webp"
+                }
+              ]
+            },
+            {
+              "id": "513817",
+              "text": "",
+              "time": "20:55",
+              "sender_id": 7171316252,
+              "sender_name": "🌌 带带元宇宙 🦍",
+              "media": [
+                {
+                  "type": "video",
+                  "url": "assets/tg-media/2026-09-26/comments/c-513817-1.mp4",
+                  "width": 0,
+                  "height": 0,
+                  "duration": 0,
+                  "size_bytes": 180446,
+                  "has_audio": true,
+                  "publish_status": "published",
+                  "poster_url": "assets/tg-media/2026-09-26/comments/c-513817-1-poster.webp"
+                }
+              ]
+            },
+            {
+              "id": "513874",
+              "text": "这个是不是要365订阅才能用上?",
+              "time": "21:19",
+              "sender_id": 1923286842,
+              "sender_name": "stoke",
+              "media": []
+            },
+            {
+              "id": "513916",
+              "text": "年初卡的 5 年 365 订阅能派上用场了哈哈",
+              "time": "21:59",
+              "sender_id": 731148018,
+              "sender_name": "prprprpr",
+              "media": []
+            },
+            {
+              "id": "513922",
+              "text": "做的一坨屎一样",
+              "time": "22:07",
+              "sender_id": 5413888419,
+              "sender_name": "fk",
+              "media": []
+            },
+            {
+              "id": "513924",
+              "text": "超级智能，super intelligence! 😁",
+              "time": "22:11",
+              "sender_id": 5108685004,
+              "sender_name": "Elise Cucumber",
+              "media": []
+            },
+            {
+              "id": "513926",
+              "text": "什么时候CopilotOS？",
+              "time": "22:19",
+              "sender_id": 2117130890,
+              "sender_name": "Fuuka Yamagishi",
+              "media": []
+            },
+            {
+              "id": "513936",
+              "text": "听说你还在搞什么原创",
+              "time": "22:42",
+              "sender_id": 750236790,
+              "sender_name": "OP lin",
+              "media": []
+            },
+            {
+              "id": "513941",
+              "text": "e5开发者可以免费用gpt5.6😎",
+              "time": "22:55",
+              "sender_id": 613552706,
+              "sender_name": "扁舟",
+              "media": []
+            }
+          ],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-09-26/zaihuapd-44038-1-thumb.webp",
+              "url": "assets/tg-media/2026-09-26/zaihuapd-44038-1.webp",
+              "width": 1280,
+              "height": 861,
+              "size_bytes": 30900,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "meiriyishu-3306",
+          "title": "信息差就是印钞机！ 在闲鱼、小红书卖了几千件的单机游戏，侠盗猎车。 只需3步： 1、保存资源 2、上架商品 3、收钱 立",
+          "summary": "信息差就是印钞机！\n在闲鱼、小红书卖了几千件的单机游戏，侠盗猎车。\n只需3步：\n1、保存资源\n2、上架商品\n3、收钱\n立即保存👉侠盗猎车解锁版合集\n🔗：https://pan.quark.cn/s/250c5fd3c320\n————\n 盘友资源库：https://pan.tgshangtian.xyz\n\n[优质资源](https://t.me/meiriyishu) | [优质内容](https://t.me/chunse1024/8467)",
+          "channel": "@meiriyishu",
+          "channel_name": "优质「资源」收藏夹",
+          "channel_url": "https://t.me/meiriyishu",
+          "time": "20:18",
+          "url": "https://t.me/meiriyishu/3306",
+          "message_id": "3306",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-09-26/meiriyishu-3306-1-thumb.webp",
+              "url": "assets/tg-media/2026-09-26/meiriyishu-3306-1.webp",
+              "width": 554,
+              "height": 1200,
+              "size_bytes": 55828,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "yunying23-11755",
+          "title": "推荐一个自媒体人值得关注的开源 Agent：Easel，一个人也能跑“内容团队”。 它把做账号最耗时间的 5 件事直接串",
+          "summary": "推荐一个自媒体人值得关注的开源 Agent：Easel，一个人也能跑“内容团队”。\n它把做账号最耗时间的 5 件事直接串起来：\n找热点 → 选策划 → 图文/视频制作 → 多平台发布 → 数据复盘\n最狠的是内置 112 个可执行 Skill，文案、知识卡、海报、配音、字幕、剪辑、AI 短剧都能做；热点还能聚合微博、抖音、知乎、B站、百度、头条。\n发布支持小红书、抖音、快手、知乎、B站、视频号，每个账号还有自己的画像，发完后的数据会继续沉淀，下次生成内容会更贴合账号。\n以前一个人做自媒体要同时当编辑、设计、剪辑和运营，现在这些脏活开始能交给 Agent 了。\nGitHub：https://github.com/ZJU-REAL/Easel\n\n\n[出海赚美金](https://t.me/yunying23)｜[优质资源](https://t.me/meiriyishu)｜[优质信息](https://t.me/chunse1024/8467)｜[内幕消息](https://t.me/inside1024)",
+          "channel": "@yunying23",
+          "channel_name": "出海🚢&自媒体运营秘籍",
+          "channel_url": "https://t.me/yunying23",
+          "time": "20:18",
+          "url": "https://t.me/yunying23/11755",
+          "message_id": "11755",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-09-26/yunying23-11755-1-thumb.webp",
+              "url": "assets/tg-media/2026-09-26/yunying23-11755-1.webp",
+              "width": 1200,
+              "height": 1004,
+              "size_bytes": 118194,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "aigc1024-25040",
+          "title": "推荐一个剪映党很值得装的工具：capcut-cli，直接让 Claude Code / Codex 在终端里帮你剪视频。",
+          "summary": "推荐一个剪映党很值得装的工具：capcut-cli，直接让 Claude Code / Codex 在终端里帮你剪视频。\n它是非官方的 CapCut / 剪映命令行工具，最大的亮点是直接读写本地草稿。Agent 剪完以后，打开剪映，视频、字幕、音频等轨道还是可编辑的，可以继续手动精修。\n玩法也很爽：原始视频丢进去 → 自动删除静音空白 → Whisper 生成字幕 → 自动套字幕样式 → 生成剪映草稿。\n最后你只需要打开剪映检查一下，再自己点导出。\nAI 负责干脏活，剪映负责最后精修，这才是 Agent 剪视频比较舒服的玩法。\nGitHub：https://github.com/renezander030/capcut-cli\n\n[AI探索](https://t.me/aigc1024) | [Hermes/OpenClaw](https://t.me/openclaw1024)｜[优质资源](https://t.me/meiriyishu)｜[优质信息](https://t.me/chunse1024/8467)",
+          "channel": "@aigc1024",
+          "channel_name": "AI探索指南",
+          "channel_url": "https://t.me/aigc1024",
+          "time": "20:19",
+          "url": "https://t.me/aigc1024/25040",
+          "message_id": "25040",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-09-26/aigc1024-25040-1-thumb.webp",
+              "url": "assets/tg-media/2026-09-26/aigc1024-25040-1.webp",
+              "width": 1200,
+              "height": 738,
+              "size_bytes": 66050,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "zaihuapd-44039",
+          "title": "**PrismML 将轻量大模型带到高通智能眼镜平台**  AI 实验室 PrismML 为搭载高通 Snapdrago",
+          "summary": "**PrismML 将轻量大模型带到高通智能眼镜平台**\n\nAI 实验室 PrismML 为搭载高通 Snapdragon 芯片的智能眼镜开发了微型语言模型。高通在 Snapdragon Summit 展示了可本地运行于 Snapdragon AR1 Gen 1 平台的 1-bit Bonsai LLM。\n\n该模型含 20 亿参数，针对视觉和语言调优，用户可实时询问眼前所见。PrismML 尚未公布搭载该模型的智能眼镜。\n\n[TechCrunch](https://techcrunch.com/2026/09/24/prismml-brings-its-tiny-llms-to-qualcomm-powered-smart-glasses/)\n\n🌸 [科技圈](http://t.me/zaihuanews)· [茶馆](https://t.me/zaihuachat) · [投稿](http://t.me/ZaiHuabot)",
+          "channel": "@zaihuapd",
+          "channel_name": "在花🎗️科技圈",
+          "channel_url": "https://t.me/zaihuapd",
+          "time": "21:06",
+          "url": "https://t.me/zaihuapd/44039",
+          "message_id": "44039",
+          "reply_count": 21,
+          "replies_fetched": 21,
+          "replies": [
+            {
+              "id": "513829",
+              "text": "",
+              "time": "21:06",
+              "sender_id": 8439882275,
+              "sender_name": "🔫 ~biu~biu~biu",
+              "media": []
+            },
+            {
+              "id": "513832",
+              "text": "我学英语现在还有必要吗",
+              "time": "21:07",
+              "sender_id": 7949125722,
+              "sender_name": "Hei🇩🇪",
+              "media": []
+            },
+            {
+              "id": "513841",
+              "text": "1bit 2B 参数",
+              "time": "21:11",
+              "sender_id": 5367563163,
+              "sender_name": "Clarence",
+              "media": []
+            },
+            {
+              "id": "513842",
+              "text": "图一乐",
+              "time": "21:11",
+              "sender_id": 5367563163,
+              "sender_name": "Clarence",
+              "media": []
+            },
+            {
+              "id": "513843",
+              "text": "😃",
+              "time": "21:11",
+              "sender_id": 5367563163,
+              "sender_name": "Clarence",
+              "media": []
+            },
+            {
+              "id": "513844",
+              "text": "看到红灯说可以走",
+              "time": "21:12",
+              "sender_id": 7162243624,
+              "sender_name": "DearElla",
+              "media": []
+            },
+            {
+              "id": "513845",
+              "text": "我的脚很臭了",
+              "time": "21:12",
+              "sender_id": 7162243624,
+              "sender_name": "DearElla",
+              "media": []
+            },
+            {
+              "id": "513847",
+              "text": "绿灯可以撸，红灯要停",
+              "time": "21:12",
+              "sender_id": 871092736,
+              "sender_name": "大魔王",
+              "media": []
+            },
+            {
+              "id": "513848",
+              "text": "可以帮我录吗",
+              "time": "21:13",
+              "sender_id": 7162243624,
+              "sender_name": "DearElla",
+              "media": []
+            },
+            {
+              "id": "513851",
+              "text": "自己口",
+              "time": "21:14",
+              "sender_id": 871092736,
+              "sender_name": "大魔王",
+              "media": []
+            },
+            {
+              "id": "513853",
+              "text": "够不到",
+              "time": "21:14",
+              "sender_id": 7162243624,
+              "sender_name": "DearElla",
+              "media": []
+            },
+            {
+              "id": "513855",
+              "text": "减肥",
+              "time": "21:15",
+              "sender_id": 871092736,
+              "sender_name": "大魔王",
+              "media": []
+            },
+            {
+              "id": "513877",
+              "text": "@admin",
+              "time": "21:21",
+              "sender_id": 8593759549,
+              "sender_name": "派大星",
+              "media": []
+            },
+            {
+              "id": "513879",
+              "text": "这个参数和睿智差不多🥹",
+              "time": "21:21",
+              "sender_id": 7141885779,
+              "sender_name": "Peter",
+              "media": []
+            },
+            {
+              "id": "513880",
+              "text": "我就在一家智能眼镜公司，ai都要调api",
+              "time": "21:22",
+              "sender_id": 7141885779,
+              "sender_name": "Peter",
+              "media": []
+            },
+            {
+              "id": "513882",
+              "text": "骂我干嘛",
+              "time": "21:24",
+              "sender_id": 8139186745,
+              "sender_name": "Qianrf",
+              "media": []
+            },
+            {
+              "id": "513883",
+              "text": "外语好啊，外语得学啊",
+              "time": "21:25",
+              "sender_id": 8139186745,
+              "sender_name": "Qianrf",
+              "media": []
+            },
+            {
+              "id": "513888",
+              "text": "2B 没绷住",
+              "time": "21:31",
+              "sender_id": 1866544703,
+              "sender_name": "stranger",
+              "media": []
+            },
+            {
+              "id": "513928",
+              "text": "2B参数",
+              "time": "22:26",
+              "sender_id": 8064301706,
+              "sender_name": "Lain",
+              "media": []
+            },
+            {
+              "id": "513929",
+              "text": "告诉用户过马路要左右看",
+              "time": "22:26",
+              "sender_id": 8064301706,
+              "sender_name": "Lain",
+              "media": []
+            },
+            {
+              "id": "513961",
+              "text": "公司自己的算力吗",
+              "time": "23:15",
+              "sender_id": 629553948,
+              "sender_name": "我是原神糕手",
+              "media": []
+            }
+          ],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-09-26/zaihuapd-44039-1-thumb.webp",
+              "url": "assets/tg-media/2026-09-26/zaihuapd-44039-1.webp",
+              "width": 612,
+              "height": 587,
+              "size_bytes": 25464,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "text1024-24960",
+          "title": "史上最全搞钱书籍，看完一半，年入百万。 【史上最全搞钱书籍】 🔗：https://pan.quark.cn/s/6f46",
+          "summary": "史上最全搞钱书籍，看完一半，年入百万。\n【史上最全搞钱书籍】\n🔗：https://pan.quark.cn/s/6f46e4b65965\n\n[副业搞钱](https://t.me/text1024) | [出海赚美金](https://t.me/yunying23) | [内幕消息](https://t.me/inside1024)｜[优质内容](https://t.me/chunse1024)",
+          "channel": "@text1024",
+          "channel_name": "副业赚钱探索指南",
+          "channel_url": "https://t.me/text1024",
+          "time": "22:03",
+          "url": "https://t.me/text1024/24960",
+          "message_id": "24960",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-09-26/text1024-24960-1-thumb.webp",
+              "url": "assets/tg-media/2026-09-26/text1024-24960-1.webp",
+              "width": 900,
+              "height": 1200,
+              "size_bytes": 278780,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "aigc1024-25041",
+          "title": "想系统学 AI Agent，这本开源书可以从头啃一遍。 《AI Agents - The Definitive Guid",
+          "summary": "想系统学 AI Agent，这本开源书可以从头啃一遍。\n《AI Agents - The Definitive Guide》把 Agent 开发从原理一路写到实战，12 章内容配了 35 个 Jupyter Notebook，代码全部开源。\n从 CoT、ToT、ReAct，到多 Agent 协作、记忆系统，再到评测、成本核算等真正落地时会碰到的问，都有对应代码可以直接跑。\nhttps://github.com/Nicolepcx/ai-agents-the-definitive-guide\n\n[AI探索](https://t.me/aigc1024) | [Hermes/OpenClaw](https://t.me/openclaw1024)｜[优质资源](https://t.me/meiriyishu)｜[优质信息](https://t.me/chunse1024/8467)",
+          "channel": "@aigc1024",
+          "channel_name": "AI探索指南",
+          "channel_url": "https://t.me/aigc1024",
+          "time": "22:05",
+          "url": "https://t.me/aigc1024/25041",
+          "message_id": "25041",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-09-26/aigc1024-25041-1-thumb.webp",
+              "url": "assets/tg-media/2026-09-26/aigc1024-25041-1.webp",
+              "width": 1200,
+              "height": 737,
+              "size_bytes": 82826,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "aigc1024-25042",
+          "title": "ComfyUI 玩家可以直接抄作业了，MiniMax H3 的“导演台”有人做好了。 ComfyUI_MiniMaxH3",
+          "summary": "ComfyUI 玩家可以直接抄作业了，MiniMax H3 的“导演台”有人做好了。\nComfyUI_MiniMaxH3_Director 把 MiniMax H3 常用玩法整理成现成工作流，导入 ComfyUI 就能直接用。\n不用自己从零搭节点、调流程，更像是给 AI 视频生成做了一套可视化导演台，特别适合想快速折腾 H3 工作流的人。\nhttps://github.com/huangserva/ComfyUI_MiniMaxH3_Director\n\n[AI探索](https://t.me/aigc1024) | [Hermes/OpenClaw](https://t.me/openclaw1024)｜[优质资源](https://t.me/meiriyishu)｜[优质信息](https://t.me/chunse1024/8467)",
+          "channel": "@aigc1024",
+          "channel_name": "AI探索指南",
+          "channel_url": "https://t.me/aigc1024",
+          "time": "22:05",
+          "url": "https://t.me/aigc1024/25042",
+          "message_id": "25042",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-09-26/aigc1024-25042-1-thumb.webp",
+              "url": "assets/tg-media/2026-09-26/aigc1024-25042-1.webp",
+              "width": 1200,
+              "height": 948,
+              "size_bytes": 93782,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "text1024-24961",
+          "title": "和AI打交道多了，发现一个特别有意思的玩法。有时候费半天劲想出来的提示词，效果反而一般般。 后来我换了个思路，不自己瞎琢",
+          "summary": "和AI打交道多了，发现一个特别有意思的玩法。有时候费半天劲想出来的提示词，效果反而一般般。\n后来我换了个思路，不自己瞎琢磨了，而是拉着AI一起“头脑风暴”，效果出奇地好！\n我把这个小方法画成了一张简单的流程图（就是下面这张👇）。\n其实说白了很简单：\n一开始，用最普通的大白跟它说“我想要个啥样的东西”。它会给我一个它理解的、比较书面化的“提示词”。\n然后，关键的一步来了！拿着这个初版提示词去“试运行”一下，看看结果。十有八九不太完美，这时候我就会像跟同事提修改意见一样，告诉它：“这部分不对，我其实想要的是更……的感觉”，或者“那个细节你得帮我改改”。\n来回折腾几轮，它就能完全get到我的点，最后给我的那个提示词，就像是为我量身定做的一样，用起来特别顺手，每次出的结果都很稳定。\n这个过程真的蛮好玩的，感觉不像在用工具，更像是在带一个越来越懂你的“实习生”，推荐你们也试试看！\n\n[副业搞钱](https://t.me/text1024) | [出海赚美金](https://t.me/yunying23) | [内幕消息](https://t.me/inside1024)｜[优质内容](https://t.me/chunse1024)",
+          "channel": "@text1024",
+          "channel_name": "副业赚钱探索指南",
+          "channel_url": "https://t.me/text1024",
+          "time": "22:14",
+          "url": "https://t.me/text1024/24961",
+          "message_id": "24961",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-09-26/text1024-24961-1-thumb.webp",
+              "url": "assets/tg-media/2026-09-26/text1024-24961-1.webp",
+              "width": 2048,
+              "height": 432,
+              "size_bytes": 38964,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "text1024-24962",
+          "title": "如果你已过30岁想重新开始人生，就从这10件事开始。 1、关注你的健康基础和外表。 身体是所有事情的底层。规律运动、保证",
+          "summary": "如果你已过30岁想重新开始人生，就从这10件事开始。\n1、关注你的健康基础和外表。\n身体是所有事情的底层。规律运动、保证睡眠、保持整洁的形象，不只是为了好看，更是为了拥有持续行动的精力。\n2、别再因为重新开始而感到羞愧。\n没有人会像你想象的那样时刻关注你。真正优秀的人，不会嘲笑一个重新出发的人；真正停滞不前的人，才喜欢嘲笑别人。\n3、重新评估自己的技能。\n不要只看自己有多少年经验，而要看这些经验是否还符合今天的市场需求。持续学习AI、销售、运营、表达等高价值技能，让自己保持竞争力。\n4、连续30天固定作息。\n每天尽量在同一时间睡觉、起床，包括周末。规律的生物钟，会让你的精力、专注力和情绪稳定程度发生明显变化。\n5、每周去一个新的环境。\n可以是一场分享会、一节课程、一次徒步、一场志愿活动。新的环境会塑造新的自己，让别人认识今天的你，而不是过去的你。\n6、停止无意义的比较。\n如果一个平台只会让你不断羡慕别人、怀疑自己，那就少看甚至卸载。社交媒体应该帮助你成长，而不是消耗你的自信。\n7、每天记录三个小成就。\n哪怕只是按时起床、完成运动、发了一条内容，都值得记录。长期坚持，你会越来越相信自己，而不是总觉得自己一事无成。\n8、彻底切断一个干扰源。\n删除一个让你沉迷的App，退出一个消耗你的群,远离一个不断影响你情绪的人。真正的改变，往往从减少干扰开始。\n9、不要等待人生的转折点。\n人生不会因为某一天突然发生奇迹而改变，它通常始于一个再普通不过的星期二，始于一个没人鼓掌的决定。\n10、每天做一件未来的自己会感谢你的事。\n读十页书、运动二十分钟、存一笔钱、学习一个新技能、发一条作品、联系一个客户……这些微不足道的小行动，坚持一年，足以让人生走向完全不同的方向。\n真正改变人生的人，不是等准备好了才开始，而是先开始，再一步一步把自己活成想成为的人。\n\n[副业搞钱](https://t.me/text1024) | [出海赚美金](https://t.me/yunying23) | [内幕消息](https://t.me/inside1024)｜[优质内容](https://t.me/chunse1024)",
+          "channel": "@text1024",
+          "channel_name": "副业赚钱探索指南",
+          "channel_url": "https://t.me/text1024",
+          "time": "22:56",
+          "url": "https://t.me/text1024/24962",
+          "message_id": "24962",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": []
+        },
+        {
+          "id": "inside1024-85778",
+          "title": "突然意识到，其实只要愿意亲自花一点时间去追溯信息源，一层一层往下挖，去读、去看最原始的材料，就已经领先了至少 99% 的",
+          "summary": "突然意识到，其实只要愿意亲自花一点时间去追溯信息源，一层一层往下挖，去读、去看最原始的材料，就已经领先了至少 99% 的人。\n以今年为例，美国 SEC 的几场关键讲，以及几项重磅的加密法案（比如 Project Crypto），完整演讲视频其实都公开在 SEC 官方的 YouTube 频道上。\n我点进去看了一下——播放量竟然只有几千次。\n这意味着，绝大多数人接收到的，都是经过二次剪辑、解读、甚至被算法包装过的“二手信息”，甚至只是短视频里的片段。\n\n[内幕消息](https://t.me/inside1024)｜[优质资源](https://t.me/meiriyishu) | [优质信息](https://t.me/chunse1024/8467)",
+          "channel": "@inside1024",
+          "channel_name": "你不知道的内幕消息🅥",
+          "channel_url": "https://t.me/inside1024",
+          "time": "23:29",
+          "url": "https://t.me/inside1024/85778",
+          "message_id": "85778",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-09-26/inside1024-85778-1-thumb.webp",
+              "url": "assets/tg-media/2026-09-26/inside1024-85778-1.webp",
+              "width": 1280,
+              "height": 997,
+              "size_bytes": 175940,
+              "publish_status": "published"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

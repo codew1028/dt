@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>TG 频道日报</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background: #060814;
+    color: #e8eaf0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    min-height: 100vh;
+    display: flex; justify-content: center;
+}
+
+a { color: #6ea0ff; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.main-wrap {
+    width: 100%;
+    max-width: 860px;
+    padding: 48px 40px 80px;
+}
+
+.hero {
+    padding-bottom: 36px;
+    margin-bottom: 36px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.hero-vol { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; color: #6ea0ff; margin-bottom: 10px; }
+.hero-title { font-size: 38px; font-weight: 800; line-height: 1.15; color: #fff; margin-bottom: 10px; }
+.hero-date { font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 16px; }
+.hero-stats { display: flex; gap: 28px; }
+.stat-item { display: flex; flex-direction: column; gap: 2px; }
+.stat-num { font-size: 22px; font-weight: 700; color: #fff; }
+.stat-label { font-size: 11px; color: rgba(255,255,255,0.35); letter-spacing: 0.08em; text-transform: uppercase; }
+
+.section { margin-bottom: 40px; }
+.section-head {
+    display: flex; align-items: baseline; gap: 16px;
+    margin-bottom: 20px; padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.section-num { font-size: 28px; font-weight: 800; color: rgba(255,255,255,0.07); line-height: 1; }
+.section-title { font-size: 17px; font-weight: 700; color: #fff; }
+.section-count {
+    margin-left: auto; font-size: 11px; font-weight: 600; color: #6ea0ff;
+    background: rgba(110,160,255,0.12); padding: 2px 8px; border-radius: 20px;
+}
+
+.card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 12px; padding: 18px 22px; margin-bottom: 12px;
+    transition: border-color 0.2s, background 0.2s;
+}
+.card:hover { border-color: rgba(110,160,255,0.3); background: rgba(110,160,255,0.04); }
+
+.card-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.channel-tag {
+    font-size: 12px; font-weight: 600; color: #fff;
+    background: rgba(110,160,255,0.25); padding: 2px 8px; border-radius: 20px; white-space: nowrap;
+}
+.time-tag { font-size: 12px; color: rgba(255,255,255,0.35); }
+
+.card-title {
+    font-size: 15px; font-weight: 700; color: #fff;
+    margin-bottom: 8px; line-height: 1.5;
+}
+.card-title a { color: inherit; }
+.card-title a:hover { color: #6ea0ff; text-decoration: none; }
+
+.card-summary {
+    font-size: 14px; color: rgba(255,255,255,0.6);
+    line-height: 1.8;
+}
+.card-summary p { margin-bottom: 6px; }
+.card-summary p:last-child { margin-bottom: 0; }
+
+.card-footer {
+    margin-top: 10px; display: flex; align-items: center;
+    gap: 12px; flex-wrap: wrap;
+}
+.source-link { font-size: 12px; color: rgba(255,255,255,0.35); }
+.source-link::before { content: "🔗 "; }
+.channel-links { margin-left: auto; font-size: 11px; color: rgba(255,255,255,0.25); }
+.channel-links a { color: rgba(255,255,255,0.3); margin-right: 6px; }
+.channel-links a:hover { color: #6ea0ff; }
+
+.brief-text { font-size: 15px; color: rgba(255,255,255,0.75); line-height: 1.7; }
+
+pre { background: rgba(0,0,0,0.4); border-radius: 8px; padding: 16px; overflow-x: auto; font-size: 13px; }
+code { font-family: "SF Mono", Consolas, monospace; font-size: 0.88em; }
+p code { background: rgba(110,160,255,0.1); color: #9ec5ff; padding: 1px 6px; border-radius: 4px; }
+
+.footer {
+    text-align: center; font-size: 12px; color: rgba(255,255,255,0.2);
+    padding: 30px 0 20px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .main-wrap { padding: 28px 20px 60px; }
+    .hero-title { font-size: 26px; }
+}
+</style>
+</head>
+<body>
+
+<div class="main-wrap">
+    <div class="hero">
+        <div class="hero-vol">VOL.20260510</div>
+        <h1 class="hero-title">TG 频道日报</h1>
+        <div class="hero-date">2026年05月10日 · 星期日 · 2 个频道 · 4 条内容</div>
+        <div class="hero-stats">
+            <div class="stat-item"><span class="stat-num">4</span><span class="stat-label">条内容</span></div>
+            <div class="stat-item"><span class="stat-num">2</span><span class="stat-label">个频道</span></div>
+        </div>
+    </div>
+
+    <div class="section"><div class="section-head"><span class="section-num">01</span><span class="section-title">TG 频道精选</span><span class="section-count">4 条</span></div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">01:16</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/78586)" target="_blank">#内幕消息</a></div>
+  <div class="card-summary"><p>突然想到，同样金额的MRR，利润不一样，含金量也不一样。</p>
+<p>我们这伙人，流量主要来源是SEO，几乎没成本，所以利润率高。</p>
+<p>而别的团队，可能大部分流量来自于付费买量，几乎没利润。</p>
+<p>他们几乎没利润的MRR和我们几乎没成本的MRR，显然不能直接比较数字。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/78586)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/78586">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">07:27</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/78591)" target="_blank">#@inside1024</a></div>
+  <div class="card-summary"><p>对于中国来说，未来 50 年，有哪些必然？</p>
+<hr />
+<p>先写几条想到的：</p>
+<p>中国为防止美国卡脖子，研发国产芯片、国产光刻机、国产航空发动机这些工业高精尖是必然。</p>
+<p>与美国争夺 AI 话语权，对 AI 领域的持续投入是必然，其中包括 AI 教育、国产显卡、数据中心。</p>
+<p>AI 兴起，导致对传统教育的冲击，一方面针对于动手实践的PBL（项目制学习）是必然，另一方面用于选拔顶尖人才的基础学科研究是必然。</p>
+<p>AI 兴起，让学历贬值，替代许多传统白领岗位，所以在服务业上的扩大、细分、创新是必然，做大 AI 替代不了体验经济，以此容纳就业。</p>
+<p>考虑到化石能源的储量，以及国际博弈下的能源安全，继续开发新能源是必然，包括光伏、风能、水能、可控核聚变。</p>
+<p>在发展新能源的背景下，用电的机械更多，烧油的机械更少。</p>
+<p>少子化、老龄化，所以发展智能机器人是必然，替代缺失的人力。</p>
+<p>AI 作用于数字空间，要想作用于物理空间，所以发展智能机器人是必然。机器人不一定是人形，能够自动驾驶的汽车，也是机器人的一种形态。</p>
+<p>中国巨大的工业产能，需要被消化，所以鼓励出海，开发国际市场是必然。</p>
+<p>随着出海的公司和人更多，提供给这些人的各种专业服务是必然，比如在地导游的、翻译的、食宿的、医疗的、保安的、法律的、物流的、招聘的、销售的、数字基础设施的、金融的、政府公关的。</p>
+<p>开发国际市场，有许多风险，也不是一朝一夕的，而且国际市场需求也是有限的，不能完全指着出海，所以提振国内市场的内需是必然，一起来消化中国的工业产能。</p>
+<p>结婚生孩子少，但是人的情感需求并未减少，被其他东西填充是必然，包括宠物、情趣用品、陪伴机器人、AI、旅行、各种搭子、兴趣社群。</p>
+<p>许多人没有孩子养老，那么新的养老方式，和配套这些养老方式的设施是必然。</p>
+<p>出海的货，成本最低的还是海运，所以控制关键航道和海峡是必然，要想保证这一点，建海外基地和投放军力是必然。</p>
+<p>要想投放军力，发展军工是必然，尤其是适应现代及未来战争的新武器。</p>
+<p>控制了更多海洋后，开发海洋是必然，需要更多海洋相关人才是必然。</p>
+<p>控制海洋不容易，哪怕是控制了，也要从百年视角看，留一个备份，所以陆地建铁路是必然，海运受影响了就陆运，包括在中亚、东南亚、中东、非洲、欧洲建铁路、建电网。</p>
+<p>大量之前未被交易的事物，甚至从未想过这也能拿出来卖的事物，会市场化，拿到市场上公开交易，会货币化，明码标价。旧的组织变革或解体，比如宗族、大家庭，由这些组织提供的服务将更多交给市场上细分的专门化服务。</p>
+<p>...</p>
+<p>要想赚短期的钱，就要研究什么在变化。</p>
+<p>要想赚长期的钱，就要研究什么是必然。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/78591)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/78591">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">11:23</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/9647)" target="_blank">对于大部分公司来说，出海增长主要靠3种方式：</a></div>
+  <div class="card-summary"><p>产品驱动，营销驱动，社群驱动。</p>
+<p>第一点大部分公司做不到，第二点对资金要求太高。</p>
+<p>看上去最靠谱的，也是做容易做到的，还是最后一点：社群驱动增长。</p>
+<p>但是呢，对于没有太多出海运营经验的公司来说，这里最大的卡点在于：</p>
+<p>海外机构太贵，本土团队太水。</p>
+<p>所以，最好的解决方案可能有点反直觉：线下活动。</p>
+<p>线上拉群虽然不用花钱，但维系活跃度的运营成本其实是相当高的。</p>
+<p>而线下活动看上去成本高，但只要赛道切得准，找几个赞助商，再加上适当收点门票，办活动不仅不花钱，可能还能小赚点。</p>
+<p>更重要的是，你能以极低的时间成本，在一个相当自由的场域里，直接和用户深度对。</p>
+<p>短期来看，你几乎不花钱就获得了精准的销售线索。</p>
+<p>长期来看，这些跟你面对面聊过天的用户，就是你的产品能够开启口碑传播的最重要起点。</p>
+<p>要知道，一个品牌能做起来，从来都不是花大量时间去寻找什么流量洼地。</p>
+<p>而是离你的用户近点近点再近点。</p>
+<p>流量只是杠杆。起点错了，杠杆越强，死的越快。</p>
+<p>而伟大的公司最伟大的地方就在于：</p>
+<p>在创业的第一天，就敢于让用户当面破除自己的妄念。</p>
+<p>剩下要做的就是，不预设任何立场，没有感情的迭代迭代再迭代。</p>
+<p>只有这样，今天对着产品哭的你，明天才能对着公司银行账户笑。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/9647)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/yunying23/9647">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">18:19</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/9650)" target="_blank">《如何抄自媒体 IP 又不让别人觉得自己在抄》</a></div>
+  <div class="card-summary"><p>1、用 get 笔记把这个人的短视频文稿都复制下来</p>
+<p>2、把这些文稿都丢进 NotebookLM 生成思维导图</p>
+<p>3、点击这里面的任何一个节点（其实就是选）可以和 NotebookLM 对</p>
+<p>4、【最重要】确保你在对中理解了、学会了这件事情，然后手写自己的文稿（不要复制任何一个字）</p>
+<p>如果没有第 4 步，你只是想通过前 3 步让 AI 来洗稿，这个「捷径」一定是「弯路」</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/9650)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/yunying23/9650">查看原文</a></div></div>
+</div></div>
+
+    <div class="footer">TG 频道日报 · 自动生成</div>
+</div>
+
+</body>
+</html>
