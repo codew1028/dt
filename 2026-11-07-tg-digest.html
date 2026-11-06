@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>TG 频道日报</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background: #060814;
+    color: #e8eaf0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    min-height: 100vh;
+    display: flex; justify-content: center;
+}
+
+a { color: #6ea0ff; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.main-wrap {
+    width: 100%;
+    max-width: 860px;
+    padding: 48px 40px 80px;
+}
+
+.hero {
+    padding-bottom: 36px;
+    margin-bottom: 36px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.hero-vol { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; color: #6ea0ff; margin-bottom: 10px; }
+.hero-title { font-size: 38px; font-weight: 800; line-height: 1.15; color: #fff; margin-bottom: 10px; }
+.hero-date { font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 16px; }
+.hero-stats { display: flex; gap: 28px; }
+.stat-item { display: flex; flex-direction: column; gap: 2px; }
+.stat-num { font-size: 22px; font-weight: 700; color: #fff; }
+.stat-label { font-size: 11px; color: rgba(255,255,255,0.35); letter-spacing: 0.08em; text-transform: uppercase; }
+
+.section { margin-bottom: 40px; }
+.section-head {
+    display: flex; align-items: baseline; gap: 16px;
+    margin-bottom: 20px; padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.section-num { font-size: 28px; font-weight: 800; color: rgba(255,255,255,0.25); line-height: 1; }
+.section-title { font-size: 17px; font-weight: 700; color: #fff; }
+.section-count {
+    margin-left: auto; font-size: 11px; font-weight: 600; color: #6ea0ff;
+    background: rgba(110,160,255,0.12); padding: 2px 8px; border-radius: 20px;
+}
+
+.card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 12px; padding: 18px 22px; margin-bottom: 12px;
+    transition: border-color 0.2s, background 0.2s;
+}
+.card:hover { border-color: rgba(110,160,255,0.3); background: rgba(110,160,255,0.04); }
+
+.card-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.channel-tag {
+    font-size: 12px; font-weight: 600; color: #fff;
+    background: rgba(110,160,255,0.25); padding: 2px 8px; border-radius: 20px; white-space: nowrap;
+}
+.time-tag { font-size: 12px; color: rgba(255,255,255,0.35); }
+
+.card-title {
+    font-size: 15px; font-weight: 700; color: #fff;
+    margin-bottom: 8px; line-height: 1.5;
+}
+.card-title a { color: inherit; }
+.card-title a:hover { color: #6ea0ff; text-decoration: none; }
+
+.card-summary {
+    font-size: 14px; color: rgba(255,255,255,0.6);
+    line-height: 1.8;
+}
+.card-summary p { margin-bottom: 6px; }
+.card-summary p:last-child { margin-bottom: 0; }
+
+.card-footer {
+    margin-top: 10px; display: flex; align-items: center;
+    gap: 12px; flex-wrap: wrap;
+}
+.source-link { font-size: 12px; color: rgba(255,255,255,0.35); }
+.source-link::before { content: "🔗 "; }
+.channel-links { margin-left: auto; font-size: 11px; color: rgba(255,255,255,0.25); }
+.channel-links a { color: rgba(255,255,255,0.3); margin-right: 6px; }
+.channel-links a:hover { color: #6ea0ff; }
+
+.brief-text { font-size: 15px; color: rgba(255,255,255,0.75); line-height: 1.7; }
+
+pre { background: rgba(0,0,0,0.4); border-radius: 8px; padding: 16px; overflow-x: auto; font-size: 13px; }
+code { font-family: "SF Mono", Consolas, monospace; font-size: 0.88em; }
+p code { background: rgba(110,160,255,0.1); color: #9ec5ff; padding: 1px 6px; border-radius: 4px; }
+
+.footer {
+    text-align: center; font-size: 12px; color: rgba(255,255,255,0.2);
+    padding: 30px 0 20px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .main-wrap { padding: 28px 20px 60px; }
+    .hero-title { font-size: 26px; }
+}
+</style>
+</head>
+<body>
+
+<div class="main-wrap">
+    <div class="hero">
+        <div class="hero-vol">VOL.20261107</div>
+        <h1 class="hero-title">TG 频道日报</h1>
+        <div class="hero-date">2026年11月07日 · 星期六 · 7 个频道 · 68 条内容</div>
+        <div class="hero-stats">
+            <div class="stat-item"><span class="stat-num">68</span><span class="stat-label">条内容</span></div>
+            <div class="stat-item"><span class="stat-num">7</span><span class="stat-label">个频道</span></div>
+        </div>
+    </div>
+
+    <div class="section"><div class="section-head"><span class="section-num">01</span><span class="section-title">TG 频道精选</span><span class="section-count">68 条</span></div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">01:16</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/26687)" target="_blank">别用AI一分钟刷好几条评论了，求你们了，比“看我福黑不黑”的还他妈傻逼</a></div>
+  <div class="card-summary"><hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/26687)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/26687">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">01:16</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/89341)" target="_blank">最近在看《穷查理宝典》这本书，有一句话让我印象很深，但又觉得深奥难懂，浅浅解读一下</a></div>
+  <div class="card-summary"><p>先发下载地址：https://pan.quark.cn/s/9faee8b13166</p>
+<ol>
+<li>独立的价值高于金钱</li>
+</ol>
+<p>赚钱的真正目的，不是为了拥有更多的物质财富，而是为了实现独立自主的生活状态。这里的独立，可以理解为思想的独立、行动的独立和生活选择的自由。也就是说，拥有足够的财务资源，是为了让自己可以不受他人控制，按照自己的意愿过生活。</p>
+<ol start="2">
+<li>不要被金钱绑架</li>
+</ol>
+<p>这句话反过来也在提醒我们：金钱本身不应成为人生的终极目标。如果人一生都被赚钱的欲望驱使，甚至让金钱决定一切，那么就失去了独立。也就是说，如果赚钱的目的只是为了满足对金钱的占有欲，那么你其实是被金钱控制了，而不是在利用金钱获得自由。</p>
+<ol start="3">
+<li>倒过来的逻辑</li>
+</ol>
+<p>如果把“独立”视为赚钱的手段，而不是目的，就会陷入一个悖论：为了更多的钱，不断地牺牲时间、自由和价值观，最终永远无法实现真正的独立。换言之，“金钱应该为独立服务，而不是让独立为金钱服务”。</p>
+<p>一些启示：</p>
+<p>明确赚钱的意义：赚钱的意义在于赋予你选择的自由，而非成为金钱的奴隶。</p>
+<p>追求思想与生活的独立：通过理性思考和明智选择，让金钱成为帮助你实现自我价值的工具。</p>
+<p>避免“为了赚钱而赚钱”：不要让赚钱的过程牺牲你最宝贵的东西，比如自由、健康和关系。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/89341)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/89341">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">01:16</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/89342)" target="_blank">最近用claude比较多，发现anthropic的搜索做的不咋样，信息源的质量很差，远不如ChatGPT，搜资料这类的活还是适合丢给别的AI去干</a></div>
+  <div class="card-summary"><hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/89342)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/89342">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">01:17</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/44951)" target="_blank">🤖 **OpenAI 发布 GPT-6 Cyber 安全模型**</a></div>
+  <div class="card-summary"><p>OpenAI 发布 GPT-6 Cyber，称其在安全研究领域取得重大进展，能力更强且模型对齐更好。该模型驱动了昨日公布的 Linux 内核研究，Mozilla、Palo Alto Networks、Cisco 等公司的安全团队已在使用。</p>
+<p>目前该模型仅向部分 Daybreak Red 客户开放，OpenAI 表示将逐步扩大访问范围。</p>
+<p><a href="https://x.com/OpenAI/status/2118390190246879554">OpenAI(@OpenAI)</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/44951)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/zaihuanews">科技圈</a><a href="https://t.me/zaihuachat">茶馆</a><a href="http://t.me/ZaiHuabot">投稿</a><a href="https://t.me/zaihuapd/44951">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">01:52</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/26689)" target="_blank">真的是叹为观止！</a></div>
+  <div class="card-summary"><p>REA之后，AI逆向再出炸裂神器！！</p>
+<p>刚发现一个堪称离谱的开源项目！！</p>
+<p>逆向+AI重建！一揽子搞定！</p>
+<p>上线不到一周，GitHub 狂揽 1.4 万 Star！！</p>
+<p>它叫 Craft Anything。</p>
+<p>背后团队之前做出爆火的开源版Adobe全家桶，它们把核心工作流全部开源！！</p>
+<p>只要给它一个网站、App，甚至游戏，它就能尝试把整个产品给你重新做出来！！</p>
+<p>最夸张的是！它居然把「逆向分析 + AI 编程 + 效果验证 + 自动迭代」直接做成了一套完整的工作流！</p>
+<p>整个过程非常暴力：</p>
+<p>1、分析原版：研究目标产品的界面布局、视觉样式、交互行为，在深度模式下分析程序代码和文件。</p>
+<p>2、AI 开发：调用 Claude Code 等编程 Agent，根据分析结果，从头构建一个新项目。</p>
+<p>3、自动对比：把生成结果和原版放在一起检查，找出页面、布局和功能上的差异。</p>
+<p>4、持续迭代：根据检查结果继续调整，逐步逼近原版效果。</p>
+<p>项目底层集成了 320 个分析和操作工具，全部支持 CLI 和 MCP，可以直接交给 AI Agent 调用！！</p>
+<p>甚至连反汇编、反编译、调用图分析这些传统逆向工程能力都整合进去了。</p>
+<p>这种逆天的逆向能力，软件开发几乎没什么门槛了！</p>
+<p>软件版权保护，难如登天！！</p>
+<p>开源地址在下面，有兴趣可以看一下！</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/26689)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024">AI探索</a><a href="https://t.me/openclaw1024">Hermes/OpenClaw</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/aigc1024/26689">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">03:21</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/26691)" target="_blank">都2026年了，地球上怎么依然没出现一家全文科民办三本vibe coding出来的科技互联网公司呢？</a></div>
+  <div class="card-summary"><p>不是说好有了claude code就能写一切代码，世界上已经不需要程序员，学编程已经没有任何意义了吗？</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/26691)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024">AI探索</a><a href="https://t.me/openclaw1024">Hermes/OpenClaw</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/aigc1024/26691">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">03:46</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/12581)" target="_blank">说个暴论：</a></div>
+  <div class="card-summary"><p>普通人赚钱最快的方式之一，就是学会当二道贩子！</p>
+<p>很多人还在苦思冥想怎么创新，有些人光靠搬运信息、整合资源、赚取差价，就已经把钱赚了。</p>
+<p>1、有人专门盯着 TikTok、Amazon 的爆款产品，国外刚火起来，立马去 1688 找货源，再拿到国内平台卖。</p>
+<p>2、有人天天研究 Etsy、Gumroad 上的数字产品，发现什么模板卖得好，就重新设计成中文版，挂到闲鱼、小红书变现。</p>
+<p>3、有人每天刷 GitHub、Product Hunt、Reddit，发现好用的 AI 工具，立刻做成中文教程、提示词包、工作流模板，打包出售。</p>
+<p>4、有人在 Fiverr、Upwork 上接海外订单，设计 Logo、做 PPT、剪视频，转头找国内自由职业者交付，自己赚中间的差价。</p>
+<p>5、有人专门研究 YouTube 上的热门内容，把国外验证过的选重新创作成中文视频，发到抖音、小红书，通过带货、广告和课程变现。</p>
+<p>6、有人在 1688、拼多多找冷门商品，直接挂到闲鱼，有人下单再找上游采购，自己不囤货，赚的就是供需差价。</p>
+<p>7、有人用 AI 批量设计壁纸、海报、婚礼邀请函、PPT 模板，挂到 Etsy、Gumroad 上卖。一份数字产品做好，就有机会反复销售。</p>
+<p>8、还有人专门研究海外已经跑通的商业模式，国外做 AI 代运营，他就在国内帮商家做；国外卖定制旅行攻略，他就在小红书接单。</p>
+<p>发现没有？</p>
+<p>很多生意赚的根本不是技术的钱，而是信息差、渠道差和认知差。</p>
+<p>你知道哪里有便宜的货源，别人不知道。</p>
+<p>你知道什么产品已经卖爆了，别人还没发现。</p>
+<p>你能把一个市场验证过的模式，合法地复制到另一个市场。</p>
+<p>这中间就有赚钱机会。</p>
+<p>普通人真没必要天天想着颠覆行业、改变世界。</p>
+<p>先学会发现需求，整合资源，把别人的成功模式变成自己的生意。</p>
+<p>说白了，先学会做一个聪明的二道贩子！</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/12581)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/yunying23/12581">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@text1024</span>
+    <span class="time-tag">04:06</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/text1024/26480)" target="_blank">最牛的一句：</a></div>
+  <div class="card-summary"><p>“人生其实就是一个钱字，人和人的关系就是钱的关系，只是表面伪装成了亲情、友情还有爱情。没有钱，一切都是无情。人和人最终的关系只有利益关系。钱是感情的照妖镜，是人品的试金石，是良心的验证码，也是道德的二维码。扫一扫，全是真相和欲望。”</p>
+<p>人为财死，鸟为食亡！绝大多数人活在这个世界上一辈子，一切追求，一切奋斗，一切折腾，不就是为了钱吗？不要觉得钱有铜臭味，不要觉得钱不干净，不要觉得钱玷污了你的道德情操，钱的本质是什么？我告诉你，不是一般等价物，不是普通的货币，他是一个人的生存资源，生存空间，生存条件。</p>
+<p>一个人只有有钱了，你才会有吃的，有穿的，有喝的，有住的，你才会有必要的人际关系，你才能够进一步追求自己的生命价值。没有钱，你连活下去的资格都没有。英国作家王尔德说过，年轻的时候，我认为金钱很重要，现在我老了才知道，的确如此。人与人之间的关系，归根到底是利益关系。利益关系说白了，就是钱的关系。</p>
+<p>活到一定的年纪，就会发现这个世界上所有的亲情，爱情，友情或者其他的感情都是靠钱来支撑起来的，或者根本就离不开金钱的维系。一个聪明人千万不会在赚钱这件事情上矫情，而是会努力的赚钱。一个赚不到钱的人，就是被抽去了脊梁骨的软体动物，一个一辈子都活的穷不拉几的人，注定要在社会的最底层忍气吞声。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/text1024/26480)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/text1024">副业搞钱</a><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/chunse1024">优质内容</a><a href="https://t.me/text1024/26480">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">06:36</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/26692)" target="_blank">🙈</a></div>
+  <div class="card-summary"><p>转发</p>
+<p>: 《AI 泡沫破裂的前夜》</p>
+<p>https://mp.weixin.qq.com/s/3609l8zUcjLSrGuNslCHpA</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/26692)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/26692">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">06:41</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/89362)" target="_blank">其实能够创业成功的，99%都是渣男。如果你也想创业，就一定要把这渣男思维牢牢记住：第一，吹牛皮，学会包装自己，资源才会向你靠拢，无限的放大自身的价值，各种吹牛，各种表演，各种展示，会给姑娘画饼，才能给投资人讲愿景。第二，心狠要手辣，白手起家的人，都是没有感情的冷血。目标明确，做事只想效率，不会在任何一个港湾停留太久，浪费时间。我们是一个浪子，上山的路，就是要不停的丢东西，丢掉无用的人事物。第三，不要脸，癞蛤蟆就得吃天鹅肉，长得越丑越要追漂亮的姑娘，失败就很正常，万一成功了呢，血赚。所以普通人怎么创业，找骂挨打，然后继续干。</a></div>
+  <div class="card-summary"><p>副业赚钱探索</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/89362)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/89362">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">06:46</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/89363)" target="_blank">最近硅谷有个哥们儿在网上哀嚎，说自己快要被Claude和Codex搞破产了。</a></div>
+  <div class="card-summary"><p>整整几个月，他每天坐在电脑前输入几行优雅的指令，眼看着屏幕上的代码像瀑布一样倾泻而出。</p>
+<p>今天加个炫酷的动效，明天重构个底层架构，永远有下一个完美的功能等着他去实现。</p>
+<p>不用跟投资人扯皮，不用去求爷爷告奶奶地找客户，整个数字世界都在他的掌控之中，这感觉简直太爽了。</p>
+<p>直到他把这个打磨得像艺术品一样的App推到别人面前后，现实给了他一记响亮的耳光。</p>
+<p>有人划了两下就丢到一边，有人问这玩意儿到底能干嘛，还有人直言自己早就用惯了别的竞品。</p>
+<p>为了逃避这种致命的挫败感，他迅速缩回屏幕后面告诉自己肯定是因为还差一个关键功能，肯定是设计还不够极致。</p>
+<p>只要再给他几个星期，等一切完美了再去见人。结果几个月过去，几千美金的算力费烧了个精光，连个付费用户的影子都没见着。</p>
+<p>这届极客们嘲笑下沉市场大妈每天沉迷短剧、消消乐，转头却扎进了一场名为“我要用AI改变世界”的单机游戏里。</p>
+<p>写代码就是打怪升级，每次成功的运行就是多巴胺分泌的瞬间，而不断续费的API账单就是他氪掉的金。</p>
+<p>人为了躲避真正的难，往往愿意去干任何看似极其勤奋的事情。去跑市场、去求着别人试用你的产品、去忍受别人挑剔和拒绝的眼光，这太难了。</p>
+<p>相比之下，坐在空调房里喝着咖啡，指挥着世界上最聪明的AI去修改一个毫无卵用的按钮颜色，简直是世界上最舒适的避风港。</p>
+<p>有人在朋友圈晒自己一个月烧了多少亿的Token，有人为了新模型跑分高了几个百分点激动得彻夜难眠，但这就像在游戏里疯狂炫耀自己花了多少钱买皮肤一样可笑。</p>
+<p>你把提示词写的倒背如流，你把工作流编排得像个精密仪器，但商业世界的硬通货从来都不是你的Token消耗量。</p>
+<p>代码写得再优雅，架构搭得再宏大，只要这东西没人买单，它甚至连个玩具都谈不上。</p>
+<p>你可以用AI一键复制别人的代码和产品，但你复制不了人家花了一年时间建立的线下地推团队。你没法用AI去签下那份排他性的独家协议，更没法用AI去搞定某个地方复杂的政企关系。</p>
+<p>别再用战术上的勤奋来掩盖战略上的懒惰了，看着生成的一大堆文档、图表、代码就感觉自己生产力爆棚，这其实跟躺在床上做白日梦没有任何区别。</p>
+<p>拔掉网线，走出那个让你觉得极其安全的赛博无菌室，去看看真实世界里的那些烂摊子。</p>
+<p>去被人拒绝，去听到真实用户骂你，去为了几分钱的利润跟供应链扯皮。</p>
+<p>当你觉得用AI干活很痛苦、很不爽甚至处处碰壁的时候，恭喜你，你开始真正摸到赚钱的门道了。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/89363)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/89363">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">07:36</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/26694)" target="_blank">每天白送的 AI 额度，最容易忘的反而是&quot;签到&quot;这一步。</a></div>
+  <div class="card-summary"><p>有人专门给 AgentRouter 写了个自动签到工具：agentrouter-auto-signin。</p>
+<p>每天自动领签到额度；支持多账号，还能自动读取余额并换算。更实用的是，电脑当天没开机、错过了签到时间，之后启动它还能自动补签。</p>
+<p>https://github.com/88lin/agentrouter-auto-signin</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/26694)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024">AI探索</a><a href="https://t.me/openclaw1024">Hermes/OpenClaw</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/aigc1024/26694">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">07:56</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/26695)" target="_blank">上周末写了一篇文章《AI泡沫破裂的前夜》</a></div>
+  <div class="card-summary"><p>为什么一个对 AI 充满信仰的创业者要突然清醒地写一篇这样的文章呢？</p>
+<p>在文章里我提出了一个重要的观点：</p>
+<p>AI 目前只是在替代人类，从人类原本的工作中抢夺价值。</p>
+<p>AI 目前还没有为人类创造增量价值。</p>
+<p>我还观察到了四个现象：</p>
+<ol>
+<li>
+<p>AI 的数据中心大跃进，各种 AI 基建硬件大涨价，导致消费电子也跟着大涨价。这让人类买不起手机和电脑了。</p>
+</li>
+<li>
+<p>AI 让智能变得廉价可得，让以前很贵的东西变得便宜，但量增价跌，整体并无增量经济价值产生。人类疯狂的创造软件，但不知道卖给谁，不 2A 不 2B 不 2C，只是 2me。</p>
+</li>
+<li>
+<p>AI 是通过答案直接提供智能，消除了智能传递的中间过程，消除了中间商，降低了交易总量大盘，降低了互联网流量大盘。大量的公司会被 AI 吃掉。</p>
+</li>
+<li>
+<p>AI 数据中心的钱不够了怎么办？大公司的选择是裁员。微软、谷歌以及未来更多的公司，都准备把公司的资本投入放在 AI 而不是人类员工上。大量的人类会面临裁员。</p>
+</li>
+</ol>
+<p>总体而言，世界在 All in AI 生产力，甚至加了很多杠杆来押注生产力。</p>
+<p>没有人关心生产关系，没有人关心人类受到的冲击，没有人去做任何事情。</p>
+<p>人类在激烈的竞争中迷失自我，甚至忘了发展经济的目的是什么。</p>
+<p>人类每次技术革命的初期都是这样的。</p>
+<p>这就是周期的一部分。</p>
+<p>周期就是人性。</p>
+<p>但人类有个神奇自我矫正的机制。</p>
+<p>以前不可能发生事情会一件一件地发生。</p>
+<p>就像德州人民不再考公务员一样。</p>
+<p>没人能想到美国从加速 AI 的时间线，切换到禁止 AI 的时间线只需要 2 天。</p>
+<p>巨大的技术革命浩浩荡荡，没有人能阻拦，但人类最好能够控制节奏。</p>
+<p>AI 最终会给人类带来福祉，特别是医药方面的巨大进展，甚至可能大幅提升人类的寿命。</p>
+<p>我们无比期待那一天的到来。</p>
+<p>但中间过程可以更人性化一些。</p>
+<p>没必要猴急。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/26695)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/26695">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@meiriyishu</span>
+    <span class="time-tag">08:02</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/meiriyishu/4815)" target="_blank">搞钱人必看的10部神级金融电影</a></div>
+  <div class="card-summary"><p>钱，根本不是挣来的！</p>
+<p>🔗：https://pan.quark.cn/s/5d626ed60ca9</p>
+<p>————</p>
+<p>盘友资源库：https://pan.tgshangtian.xyz</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/meiriyishu/4815)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质内容</a><a href="https://t.me/meiriyishu/4815">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">08:21</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/44952)" target="_blank">🤖 **Google 发布 Gemini Omni 1.2 Flash 视频模型**</a></div>
+  <div class="card-summary"><p>Google 发布视频生成模型 Gemini Omni 1.2 Flash，来自 Google DeepMind。官方称生成更快、成本降低 30%：可用 360p 或 720p 草稿（0.07 美元/秒）再放大至 1080p 或 4K。</p>
+<p>视频最长 15 秒，可从 3 至 15 秒中任选时长；支持对话式逐轮改换背景、主体或光照，多说话人语音与唇形同步更自然，镜头运动更可控、跳切更少。</p>
+<p><a href="https://x.com/Google/status/2118390406316728555">Google(@Google)</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/44952)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/zaihuanews">科技圈</a><a href="https://t.me/zaihuachat">茶馆</a><a href="http://t.me/ZaiHuabot">投稿</a><a href="https://t.me/zaihuapd/44952">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">08:54</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/44953)" target="_blank">🤖 **Claude 接入银行账户，推出个人理财功能**</a></div>
+  <div class="card-summary"><p>Anthropic 为 Claude 推出个人理财功能，通过 Plaid 连接用户的银行和信用卡账户。用户可询问本月钱花在哪，Claude 会按房租水电、购物、餐饮等类别生成支出概览。</p>
+<p>该功能为只读权限，Claude 无法转账、理财或提供投资建议，但可查看账户余额、信用额度及最长两年的交易记录。本周起向美国 Pro、Max 和 Ultra 订阅用户开放测试。</p>
+<p><a href="https://www.theverge.com/ai-artificial-intelligence/1027652/anthropic-claude-plaid-personal-finance">The Verge</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/44953)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/zaihuanews">科技圈</a><a href="https://t.me/zaihuachat">茶馆</a><a href="http://t.me/ZaiHuabot">投稿</a><a href="https://t.me/zaihuapd/44953">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">09:17</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/12583)" target="_blank">近期大厂疯狂裁员！失业的人一定要看看！最近非常热的OPC一人公司的一套教程，免费给大家，是油管KOL Dan Koe搞的，这是未来的趋势，必读！</a></div>
+  <div class="card-summary"><p>链接：https://pan.quark.cn/s/50b30cd48861</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/12583)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/yunying23/12583">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">09:22</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/26696)" target="_blank">具身智能”做家“赵昊：相信物理AI有解，机器人叠毛巾已经快过人类 - 502自习室</a></div>
+  <div class="card-summary"><p>https://www.xiaoyuzhoufm.com/episode/6aec9d4859687ba320bc1283?s=eyJ1IjogIjVmZTMxY2RlZTBmNWU3MjNiYjJjMWUxYyJ9</p>
+<p>许久未更，更一条日常交流</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/26696)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/26696">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">10:00</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/44954)" target="_blank">**印度拟 24 个月内自研 GPU 芯片**</a></div>
+  <div class="card-summary"><p>印度电子和信息技术部秘书 S. Krishnan 11 月 4 日表示，在「印度半导体使命 2.0」下计划用约 24 个月开发出本土 GPU 芯片，并把 AI 视为 IT 产业类似「千年虫」时期的新机遇。</p>
+<p>他未透露制造商或芯片供应商；印度还计划把基于 RISC-V 的 SHAKTI、VEGA 处理器推向商用市场。印度半导体市场规模目前约 500 亿美元，预计 2030 年接近 1000 亿美元。</p>
+<p><a href="https://www.tomshardware.com/tech-industry/semiconductors/india-targets-creating-homegrown-gpus-within-2-years-and-plans-to-commercialize-indigenous-shakti-and-vega-risc-v-processors-sees-ai-boom-as-a-potential-repeat-of-the-y2k-opportunity-for-its-it-industry">Tom's Hardware</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/44954)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/zaihuanews">科技圈</a><a href="https://t.me/zaihuachat">茶馆</a><a href="http://t.me/ZaiHuabot">投稿</a><a href="https://t.me/zaihuapd/44954">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">10:12</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/89372)" target="_blank">发现很多 开发者 还在纯手动 docker 部署服务，推荐一个开源项目。</a></div>
+  <div class="card-summary"><p>🧩 Dokploy 是一个现代的轻量PaaS，自托管部署平台。</p>
+<p>它的目标很简单：</p>
+<p>👉 让你在自己的服务器上，像在 Vercel 或 Render 一样部署应用。</p>
+<p>用法几乎是 plug &amp; play：</p>
+<p>✅ UI界面清爽，操作简单，自带监控面板，完全开源</p>
+<p>✅ 支持 GitHub/GitLab 集成，自动部署</p>
+<p>✅ 内置数据库管理（Postgres, MySQL 等）</p>
+<p>✅ 支持 Docker / Docker Compose</p>
+<p>一键部署前后端应用</p>
+<p>自媒体/出海经验/赚美金/运营技巧</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/89372)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/89372">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">10:25</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/89375)" target="_blank">最近重温《天道》，看到剧里丁元英跟芮小丹算了一笔账，很好的解释了为什么普通人一般拿不住凭运气赚的钱。</a></div>
+  <div class="card-summary"><p>这笔账，堪称全剧最精彩的商业课。</p>
+<p>丁元英对芮小丹说，以你的条件和资源，只要努力，15年内赚到1000万不成问。</p>
+<p>丁元英自己就是一个典型的商界怪才，靠私募基金赚了513.6万马克的分红，换算成当时的人民币，是普通人几辈子都挣不到的数字。</p>
+<p>所以他说这句，绝不是画大饼。</p>
+<p>然后，他给了芮小丹两条建议，第一条是关于学习的，第二条是关于借钱买房的。</p>
+<p>这两条建议，表面上是在谈钱，但实际上，这背后藏着一个特别重要的底层逻辑。</p>
+<p>理解以后，你会发现它几乎可以解释生活中90%关于赚钱和亏钱的现象。</p>
+<p>芮小丹的父亲是知名导演，母亲是演员，她自己从小在法兰克福长大，天然熟悉中西方文化。</p>
+<p>这些资源摆在那里，但如果芮小丹自己没有意识到该怎么用，这些资源就只是资源，永远变不成钱。</p>
+<p>丁元英做的事情，是帮她看清楚自己的优势在哪里，市场需求在哪里，然后把两者对接起来。</p>
+<p>这就是认知的力量。</p>
+<p>丁元英给出的第一条建议是，不要以求职应聘为目标，什么有用学什么，学位没什么太大意义。</p>
+<p>《有限与无限的游戏》这本书里提出过一个概念。</p>
+<p>作者詹姆斯·卡斯把人生分成两种游戏，一种是有限游戏，目标是赢；另一种是无限游戏，目标是让游戏继续下去。</p>
+<p>很显然，求职应聘就是典型的有限游戏，你投简历、面试、拿offer，游戏结束。</p>
+<p>然后，真正的成长和创造是无限游戏，它没有终点，只有不断迭代。</p>
+<p>丁元英看到的问是，太多人把无限游戏玩成了有限游戏。</p>
+<p>学历是敲门砖，但敲开门之后呢？</p>
+<p>一旦被裁员，才发现自己在职场上积累的那些技能，换个地方根本不值钱。</p>
+<p>丁元英担心的就是这个。</p>
+<p>这并非学历无用论，而是在提醒一个容易被忽视的问：很多人把手段当成了目的。</p>
+<p>学历是工具，不是终点，如果为了学历而学习，为了简历而工作，最后很可能竹篮打水一场空。</p>
+<p>真正聪明的做法是什么？</p>
+<p>是沉下心来学点真东西，等本事够了，不用找工作，机会自然会找你。</p>
+<p>丁元英给出的第二条建议是：借给你五百万，年息百分之三，第十五年一次清偿，本息七百二十五万。你拿这笔钱，在柏林买一套房子。</p>
+<p>这笔账，他算得很清楚。</p>
+<p>房子折旧按百分之二计算，十五年就是一百五十万。加上十五年的利息二百二十五万，绝对风险是三百七十五万。</p>
+<p>为什么丁元英要把风险说得这么明白？</p>
+<p>因为这不是给芮小丹的礼物，而是她想要站着对的代价。</p>
+<p>这句背后的逻辑是，任何财富的获取都有条件，如果你觉得这是天上掉下来的馅饼，那你迟早会被这个馅饼噎住。</p>
+<p>只有自己能扛住风险算清账，这东西才真的是你的。</p>
+<p>然后，小丹问了一个很现实的问：如果五年以后你嫌我老了呢？</p>
+<p>丁元英的回答堪称教科书级别的：“有可能。而且还不止这一个如果，也许五年以后你嫌我平庸了，也许有一天你把我扫地出门了呢？但这都不影响独立的债权债务关系，也不改变今天的事实。”</p>
+<p>这段对，表面上是在谈感情，实际上是在谈一个更深层的道理：你的价值从来不是靠别人不嫌弃得来的，是靠你自己的能力撑起来的。</p>
+<p>不管五年后两个人怎么样，是恩爱还是分手，只要手里有自己的本事，有能立足的资本，就不用怕被扫地出门。</p>
+<p>小丹的这句，堪称全剧的点睛之笔：只要不是我悟到的，你给不了我。给了我，我也拿不住。</p>
+<p>这听起来有点绕，但细品之后，你会发现这是一条颠扑不破的财富规律。</p>
+<p>有人可能要问了，那怎么才能让自己的认知配得上财富呢？</p>
+<p>丁元英给出的答案是：觉到，悟到，然后做到。</p>
+<p>觉到，是指意识到问的存在。</p>
+<p>很多人一辈子都不知道自己的认知有问，还以为是运气不好或者时运不济。能意识到自己的局限性，这本身就是一种进步。</p>
+<p>悟到，是指理解问背后的规律。</p>
+<p>知道自己有问还不够，还得搞明白问出在哪里，规律是什么。</p>
+<p>这需要学习，需要思考，需要在实践中不断试错。</p>
+<p>做到，是指把认知转化为行动。</p>
+<p>很多人道理都懂，但就是做不到，因为知道和做到之间，隔着一道叫做习惯的鸿沟。</p>
+<p>这三步，每一步都不容易，但只有走完这三步，赚到的钱才是你的，学到的本事才能变现。</p>
+<p>财富从来不是终点，而是认知的投影。你的认知到了哪一层，你的财富就停在哪一层。</p>
+<p>换句说，每个人都是在为自己的认知买单。</p>
+<p>私人优质信息收藏夹</p>
+<p>https://t.me/chunse1024</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/89375)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/89375">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">10:41</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/26699)" target="_blank">ai游戏才刚开始就价值泯灭了</a></div>
+  <div class="card-summary"><hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/26699)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/26699">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">10:56</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/26700)" target="_blank">做了一个非非非常好用的跨 AI 上下文工具！</a></div>
+  <div class="card-summary"><p>实时备份电脑、网页上的所有 AI 聊天，跨 AI 共享上下文，再也不怕 Claude 封号了</p>
+<p>支持 Mac、Windows，特别适合：</p>
+<p>1) 经常换 Agent 产品，聊天记录散落各处</p>
+<p>2) 跨 AI 聊天接续任务，但不想每次重新口述背景</p>
+<p>几个非常棒的亮点：</p>
+<p>1️⃣ 实时备份电脑 Agent、网页 AI 对</p>
+<p>2️⃣ 打通不同 AI 间的聊天上下文，同一件事，换个 AI 也能接着聊</p>
+<p>3️⃣ 隐私安全，对只存在你自己的电脑</p>
+<p>4️⃣ 秒级查询，记忆召回精准</p>
+<p>官网：https://chatmemo.ai</p>
+<p>Chat Memo 的这个版本打磨了很久，也是我自用的产品，内测的朋友一致认为非常好用！</p>
+<p>目前处于早期内测阶段，欢迎随时 @ 我提建议、share 你的玩法，也欢迎把它分享给你的朋友们。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/26700)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/26700">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">11:15</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/44955)" target="_blank">🤖 **OpenAI 广告主破 10 万**</a></div>
+  <div class="card-summary"><p>OpenAI 自 2026 年 2 月上线广告以来，ChatGPT 广告主已超 10 万家；Google 上周把 AI Mode 广告扩至美国以外 10 国；Anthropic 仍坚持 Claude 不投广告，IPO 文件也未提广告创收。</p>
+<p>创业公司 Koah 为 200 多款应用供广告，客户量仅为 OpenAI 的十分之一；其称 AI 参与的广告点击率翻倍，整体约 3%。</p>
+<p><a href="https://www.wired.com/story/ads-in-chatbots-have-arrived-heres-whats-working-and-whats-not/">WIRED</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/44955)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/zaihuanews">科技圈</a><a href="https://t.me/zaihuachat">茶馆</a><a href="http://t.me/ZaiHuabot">投稿</a><a href="https://t.me/zaihuapd/44955">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">11:23</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/12584)" target="_blank">赚钱，其实就是“信息差”这仨字。</a></div>
+  <div class="card-summary"><p>赚的就是“看不明白，但愿意付钱”的人群。</p>
+<p>信息透明？不存在。</p>
+<p>绝大多数人根本不想多研究，懒，是常态。</p>
+<p>假如大家都能直接从工厂拿货，</p>
+<p>还会有这么多商家吗？</p>
+<p>谁还守着直播间、熬大夜卷销量？</p>
+<p>大多数岗位，其实是“信息差在养活”。</p>
+<p>哪怕2025年了，还是无数人在靠信息差过日子。什么爆款、什么套路？</p>
+<p>归根结底，买的是“消息闭塞”，</p>
+<p>也是被“被情绪触动”的价值。</p>
+<p>认知，渠道，习惯，</p>
+<p>决定了99%的人，信息始终慢半拍。</p>
+<p>那么这样就清晰了，</p>
+<p>赚钱就是找到那个“看不明白，但愿意付钱”的人群。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/12584)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/yunying23/12584">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@chunse1024</span>
+    <span class="time-tag">11:43</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/chunse1024/12257)" target="_blank">如何突破人生的第一个100万？</a></div>
+  <div class="card-summary"><ul>
+<li>
+<p>年薪 5 万，工作 20 年</p>
+</li>
+<li>
+<p>年薪 10 万，工作 10 年</p>
+</li>
+<li>
+<p>年薪 25 万，工作 4 年</p>
+</li>
+</ul>
+<p>打工曾是稳定且清晰的，如果你为相信你的人工作，且你也相信他们，这可能是建立美好生活最稳妥的方式。</p>
+<p>但现在即使是好工作也伴随着大量的风险。由于AI带来的各种组织重组、AI 自动化带来的裁员，可能过往明确的路径已经不那么可靠了。</p>
+<p>图中下半部分乍看之下显得有些简单：</p>
+<ul>
+<li>
+<p>5,000 人购买 200 元的产品</p>
+</li>
+<li>
+<p>2,000 人购买 500 元的产品</p>
+</li>
+<li>
+<p>1,000 人购买 83 元的月度订阅</p>
+</li>
+<li>
+<p>300 人支付 278 元的月费</p>
+</li>
+</ul>
+<p>这些数字看起来似乎可以互换，但其实业务模式截然不同</p>
+<ul>
+<li>
+<p>200 元的产品靠分发渠道，因为你需要大量的买家和源源不断的新关注</p>
+</li>
+<li>
+<p>500 元的产品重点是感知专业度，因为只有当人们觉得东西是为他们量身定制时，才会花这么多钱</p>
+</li>
+<li>
+<p>83 元的订阅依赖持续的实用性客户必须每个月都在续费</p>
+</li>
+<li>
+<p>278 元的月度服务依赖交付结果，因为支付这个金额的人期望他们的生活或业务发生清晰且有意义的转变</p>
+</li>
+</ul>
+<p>虽然每条路都需要信任、留存和价值，但重心却有所不一样。这也正是为什么很多人实现不了目标的原因。</p>
+<p>问并不在于人们选择了“坏点子”。更多的是在于选择了点子后，却没有理解这些点子对运营方式有不一样的要求。</p>
+<ul>
+<li>订阅制的产品会将你置于一条必须每月交付价值的路径上</li>
+</ul>
+<p>-</p>
+<p>200 元的产品会将你置于一条分发成为主要瓶颈的路径上</p>
+<ul>
+<li>高端服务会将你置于一条真正的重头戏是销售而非构建</li>
+</ul>
+<p>想法固然重要，但营销同样重要。</p>
+<p>当你选择一个想法时，你实际上是在选择你将赖以生存的营销方法，而太多人做出了选择，却没意识营销策略有所不同</p>
+<p>如果我现在要从0赚到100万，我不会先去思考一个创业想法，我会看着这张图表，决定哪条路径符合我的优势运作策略。</p>
+<p>然后，我会选择一个在那条路径上行得通的想法。想法和营销策略必须匹配。 大多数人先选了方向，后来才发现收到营销策略制约，结果举步维艰。</p>
+<p>AI 正在悄无声息地改变着这一切。</p>
+<p>十年前，探索这些路径中的任何一条都意味着要围绕这个点子建立一整套支持结构。人们必须打磨故事、包装报价、设计获客路径、测试漏斗、收集反馈并改进销售术。</p>
+<p>这些没那么难，但它很慢，如果想要加速，每个环节就需要不同的人（和大量的资金）。</p>
+<p>现在的瓶颈不再是人才或工具。现在的瓶颈在于你是否能做出清晰的决定。</p>
+<p>如果你能做到，你</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/chunse1024/12257)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/chunse1024/12257">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@chunse1024</span>
+    <span class="time-tag">11:43</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/chunse1024/12258)" target="_blank">可以自己生成实验的每一个部分，并同时运行多个版本。</a></div>
+  <div class="card-summary"><p>当成本降低后，最明智的举动不再是规划完美的点子，而是进行几次可控测试，看看哪个背后真正有能量。清晰的决策力就是这个时代的护城河。</p>
+<p>如果今天我们来设定100万的目标，可以先用三个不同的想法来测试 200 元的路径，通过社交渠道推广，看看是否能自然传播。</p>
+<p>也会同步测试 500 元的路径，创建一个解决痛苦问的简单方案，直接推销给那些已经感受到这种痛苦的人。</p>
+<p>继续测试 83 元的订阅路径，推出十种onboarding的引导页，直到有一种能留住人进行付款。</p>
+<p>我们不必保护这些想法中的任何一个。也不用聚焦它们中的任何一个。去会观察哪一个显示出向上的拉力，然后毫不犹豫地放弃其他的。</p>
+<p>这也是我在最优秀的构建者身上看到的操作系统：</p>
+<p>找到路径-&gt;开发原型-&gt;简单发布-&gt;快速验证</p>
+<p>选择一条路径。制作一个简单的原型。把它发布到有潜在客户的地方。</p>
+<p>在速度、清晰度和响应率中寻找证据。</p>
+<p>如果它中了，你就聚焦。如果没中，你立刻走人。死磕是一种傲慢，顺势而为才是智慧。</p>
+<p>AI 不仅让构建变快了，它还消除了尝试的成本。你不需要六个月。你不需要深入思考。你不需要完美的想法。你只需要比周围的人用更清晰的思维去进行更多的测试。</p>
+<p>当测试变得廉价时，赢家是那些放下自我、迭代最快的人。</p>
+<p>重点是选择一条你实际上能维持的路径，一个你实际上能证明合理的定价，以及一个符合你工作方式的想法。</p>
+<p>当这三者连成一线时，生意就不再感觉像是一场赌博，而开始感觉像是你可以经营多年的事业。</p>
+<p>通往百万富翁的路径一直都很简单。它们过去之所以遥不可及，是因为每一条都需要大量的时间、金钱和整合。</p>
+<p>现在，你可以足够快地探索它们，看看哪一条适合你，而不是强迫自己进入错误的那条。这才是真正的优势。</p>
+<p>你不再是将你的人生押注在单个点子上。你是在进行小规模、真实的测试，直到正确的想法和正确的营销相匹配。</p>
+<p>赚到一百万的感觉仍然像是在推着巨石上山。但这并不会让山变小，它只是让你避免了把巨石往错误的方向推了五年。</p>
+<p>大部分的痛苦来自于爬错了山，而不是来自于攀登本身。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/chunse1024/12258)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/chunse1024">优质「内容」</a><a href="https://t.me/meiriyishu">优质「资源」</a><a href="https://t.me/inside1024">你不知道的内幕消息🌳</a><a href="https://t.me/chunse1024/12258">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">11:46</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/26703)" target="_blank">AI 画画最难的地方，有时候还真不是提示词不会写，而是压根不清楚自己想要哪种风格。</a></div>
+  <div class="card-summary"><p>这个项目直接整理了 261 种手绘插画风格，而且不是只丢一堆风格名，而是做成了一个能直接看图挑的风格库。</p>
+<p>看到喜欢的效果，选中对应风格，再跟 Codex / AI 说一句"按这个风格画一张 XXX"，基本就能开画。</p>
+<p>水彩、蜡笔、铅笔、儿童绘本、复古插画……各种手绘方向都齐。</p>
+<p>https://github.com/yang0/handraw-style</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/26703)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024">AI探索</a><a href="https://t.me/openclaw1024">Hermes/OpenClaw</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/aigc1024/26703">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">12:06</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/89377)" target="_blank">北邮计算机，笑死人。 现在都2026年了，AGI都干到6.0 extra了， 除了清北的顶尖计算机人才，谁还需要普通计算机人才啊？ 求求官方和自媒体，别再拿计算机专业说事了，没用了，真没用了。</a></div>
+  <div class="card-summary"><p>北邮计算机，笑死人。</p>
+<p>现在都2026年了，AGI都迭代到6.0 extra版本了，</p>
+<p>除了清北的顶尖计算机方向人才，谁还需要普通计算机相关从业者啊？</p>
+<p>求求官方和自媒体，别再拿计算机专业说事了，没用了，真没用了。</p>
+<p>从去年2025到今年2026，短短一年时间，行业变化天翻地覆，整个环境完全不一样了。</p>
+<p>这一点，连业内最顶尖的技术团队也没有预料到。</p>
+<p>一年之后，竟然是这样的光景。</p>
+<p>计算机，已经成了就业门槛极高的专业了，相关理由如下：</p>
+<ol>
+<li>
+<p>要你写代码？开通两千二十加二十层的codex会员，代码全给你写的明明白白，要你做什么？</p>
+</li>
+<li>
+<p>1万2的工资给你，我找个懂AI的人不更好？</p>
+</li>
+</ol>
+<p>时代变了，真的变了。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/89377)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024/89377">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@text1024</span>
+    <span class="time-tag">12:17</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/text1024/26487)" target="_blank">惨烈，赵薇前夫出事了</a></div>
+  <div class="card-summary"><p>赵薇前夫黄有龙出事了，荣华富贵一场空。</p>
+<p>没想到，曾经登上财富名人榜、迎娶女明星的亿万富豪，如今居然落得这个凄惨下场。</p>
+<p>就在昨天，香港高等法院驳回了他的上诉，维持原判：7.317亿港元，一分不能少。其中约3.7亿还在按判决利率继续滚利息。这笔欠债源于2017年，他控制的离岸公司拿了4.5亿港元票据融资，他做了个人担保。但钱没按期还，利息和违约条款层层叠加，越滚越大。他上诉称，债权人当年口头答应过个人担保“只是走个形式”。但法院表示：没有证据。</p>
+<p>至于赵薇这边，切割得极早。2024年底她发微博时，称呼已从“老公”变成“黄先生”。她表示，两人多年前就已离婚。任何黄有龙的事都与她无关。</p>
+<p>一个人能赚多少钱，有时靠机遇。但能守住多少钱，往往靠智慧。真正的商业高手，不仅要有赚钱的本事，更要有控制风险的能力。否则再大的家业，也可能付诸东流。大家对此怎么看？</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/text1024/26487)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/text1024">副业搞钱</a><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/chunse1024">优质内容</a><a href="https://t.me/text1024/26487">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">12:17</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/89378)" target="_blank">现在的大环境真的太不好了。</a></div>
+  <div class="card-summary"><p>有班上的，天天担心被裁员。就算是体制内，有的不发工资，变相逼着人走。</p>
+<p>昨天跟一个朋友聊天，她就是体制内的。以前绩效高，日子看着稳稳当当。家里两个儿子，房贷车贷加起来，每个月要还五千多。</p>
+<p>现在绩效停了，工资差不多五个月才发一次。日子一下子就紧巴巴的。</p>
+<p>赶上儿子过生日，想要一辆四百多的玩具车。</p>
+<p>她跑了一整天，各个商场来回比价，磨着老板讲价，最后还是咬牙买下了。</p>
+<p>她说付钱的时候，心都在滴血。</p>
+<p>她老公每个月的收入，刚够还车贷，一分钱都帮不上家里，一家人开销全靠她硬扛。</p>
+<p>没办法，她只能靠着写作副业，多挣一点补贴家用。</p>
+<p>谁能想到，以前人人羡慕的体制内，现在也难成这样。</p>
+<p>今早我又联系了一个姐妹，前两年她就天天焦虑，夜里睡不着，总怕自己被裁。今年她四十五岁了。</p>
+<p>我问她现在工作还好吗，要不要给自己留个后手，找个副业当备胎。</p>
+<p>她说想，但是不知道能干啥。</p>
+<p>想着下班去开出租车，或者出去打小时工。</p>
+<p>我跟她说，这些路子其实意义不大。不是肯吃苦就能往上走的。</p>
+<p>我们烟台这边小时工，也就十三到十五块钱一小时。就算洗碗再卖力，老板也不可能给到三十。</p>
+<p>开出租也是一样，她虽然有电车，可没有单，平台不派活，大家出门都骑电动车、坐公交，很少打车。</p>
+<p>再拼命跑，没客人也是白搭。</p>
+<p>我跟她说，不如跟着我一起试试写作。</p>
+<p>她动心了，但是说自己不会。</p>
+<p>我说可以慢慢学。先花个几块钱，就一杯奶茶的钱，先进群看一看，先了解清楚。</p>
+<p>真打算好好做，后面几百块的投入，压力也不大，不会一下子花很多钱。</p>
+<p>我们就这么说定了。</p>
+<p>还有之前一起开店做美容的朋友，现在也是人心惶惶。</p>
+<p>我不是故意制造焦虑。</p>
+<p>我们这种普通人，学历不高，没有背景，手里也没多少存款。上有老，下有小，每天睁开眼就是柴米油盐。</p>
+<p>外人看着好像日子还行，只有自己知道，心里一直慌慌的，一点都不踏实。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/89378)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024/89378">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">13:01</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/26704)" target="_blank">一张图理解 AI 编程经济学 //</a></div>
+  <div class="card-summary"><p>转发</p>
+<p>: ai游戏才刚开始就价值泯灭了</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/26704)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/26704">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">13:37</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/26705)" target="_blank">Claude 正式进军个人理财了！</a></div>
+  <div class="card-summary"><p>Anthropic 在美国推出 Personal Finance，连接银行、投资账户后，就能直接问 AI：</p>
+<p>钱花哪儿了？怎么优化预算？如何规划储蓄和投资？</p>
+<p>Claude 能结合真实财务数据，帮你分析资产、制定理财计划。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/26705)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024">AI探索</a><a href="https://t.me/openclaw1024">Hermes/OpenClaw</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/aigc1024/26705">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">13:46</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/26706)" target="_blank">Anthropic的超级IPO与“垃圾信用”评级</a></div>
+  <div class="card-summary"><p>https://mp.weixin.qq.com/s/O9kXO8iTAcTx6HCi3O_fwg</p>
+<p>关于 Anthropic 近期核心成员离职、IPO筹备、以及AI资本循环</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/26706)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/26706">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">13:48</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/26707)" target="_blank">在X上做AI代充已经赚不到什么钱了</a></div>
+  <div class="card-summary"><p>价格已经被卷到很低了，</p>
+<p>但是国内市场依然有很大潜力可以挖</p>
+<p>https://fang.aileaderme.top</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/26707)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024">AI探索</a><a href="https://t.me/openclaw1024">Hermes/OpenClaw</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/aigc1024/26707">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">14:25</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/12585)" target="_blank">4 个可以替代 Google Play 的 APK 下载网站，很多国产安卓手机的弊端就是上不了Google play，或者无法安装GMS导致无法使用Google Play</a></div>
+  <div class="card-summary"><p>安卓用户建议收藏备用：</p>
+<p>1）APKPure：https://apkpure.com/cn/ —— APK 资源非常全，很多海外 App 都能找到</p>
+<p>2）APKMirror：https://www.apkmirror.com/ —— 老牌 APK 下载站，历史版本也很丰富</p>
+<p>3）F-Droid：https://f-droid.org/zh_Hans/ —— 专注免费开源 Android 应用，干净无广告的神器很多</p>
+<p>4）Uptodown：https://en.uptodown.com/ —— 大型第三方应用商店，App、游戏资源丰富</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/12585)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/yunying23/12585">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">14:30</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/89398)" target="_blank">郑强这次把说透了。</a></div>
+  <div class="card-summary"><p>资本不搞芯片、不搞发动机，整天围着送餐机器人、无人分拣这些转——说白了，不是技术突破，是冲着把人替掉去的。</p>
+<p>欧美搞无人化，是真缺人，工地招不到工、养老院没护工。</p>
+<p>咱们不一样，光劳动年龄人口就八九个亿，村里大哥、县城大姐、四十五岁还在跑单的骑手，靠的就是这些看着不高级的岗位养家。</p>
+<p>机器一上，仓库亮堂了，可门口蹲着抽烟等派活的人也多了。</p>
+<p>有人说：旧饭碗没了会出新饭碗。说得轻巧。让干了二十年流水线的师傅去学大模型？让五十岁分拣员转行写代码？新饭碗是有，但未必给旧人留着门。</p>
+<p>我最怕的不是AI进步，是进步省下来的钱，全进了报表，没回流到被替掉的那家人锅里。科技该去替人扛炸药、下矿井、上火场，不是先把手脚勤快的老实人挤下桌。</p>
+<p>郑强这盆冷水，泼得对——机器可以不知冷暖，咱不能装看不见人。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/89398)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024/89398">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">14:40</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/44960)" target="_blank">**广电总局重申扶持真人微短剧、规范 AI 剧**</a></div>
+  <div class="card-summary"><p>国家广播电视总局相关负责人 11 月 5 日重申，微短剧领域要扶持真人剧、规范 AI 剧，并要求平台落实“凡播必审、全量人审”，优化算法，持续打击 AI 洗稿、盗版翻拍及未经授权使用肖像、声音等侵权行为。</p>
+<p>该负责人表示，AI 应辅助精品创作，真人创作仍是微短剧主体；规范 AI 剧需守住版权和伦理底线。广电总局公布的数据显示，今年前 8 个月上线微短剧 43 万部，其中 AI 剧占比超过九成。</p>
+<p><a href="https://www.ithome.com/1/023/215.htm">IT之家</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/44960)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/zaihuanews">科技圈</a><a href="https://t.me/zaihuachat">茶馆</a><a href="http://t.me/ZaiHuabot">投稿</a><a href="https://t.me/zaihuapd/44960">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@chunse1024</span>
+    <span class="time-tag">15:06</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/chunse1024/12259)" target="_blank">牛来火出海了</a></div>
+  <div class="card-summary"><hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/chunse1024/12259)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/chunse1024">优质「内容」</a><a href="https://t.me/meiriyishu">优质「资源」</a><a href="https://t.me/inside1024">你不知道的内幕消息🌳</a><a href="https://t.me/chunse1024/12259">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@meiriyishu</span>
+    <span class="time-tag">15:37</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/meiriyishu/4823)" target="_blank">保姆级AI漫剧零基础全套教程｜从剧本、生图生视频到剪辑出片，手把手入门精通</a></div>
+  <div class="card-summary"><p>百度网盘：https://pan.baidu.com/s/17P3C8IM2hO3PaUKBZaXZCA?pwd=3ab8</p>
+<p>提取码：3ab8</p>
+<p>https://fuyezy.com/57880.html</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/meiriyishu/4823)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/meiriyishu/4823">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">16:44</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/89408)" target="_blank">台湾地区那个长期阻碍中国统一的人就是马英九。这个人非常之狡猾！在他担任领导人期间，从美国购买军火从没有中断过，投资企业近20年从中国大陆赚取了数千亿的好处，把两岸和平当政治资本，只会错失推动统一的宝贵窗口。</a></div>
+  <div class="card-summary"><p>2008年5月20日，马英九接任台湾地区领导人，上台后常挂在嘴边的是“不统、不独、不武”。三个“不”听上去面面俱到，细看就会发现，“不独”和“不武”是替他自己省麻烦，唯独“不统”，让他在岛内一分代价都不用付。</p>
+<p>往后八年的许多做法，基本都是顺着这个思路走下来的。先从钱说起。2010年6月29日，两岸两会在重庆签了ECFA，大陆开出的早期收获清单有539项，台湾这边只有267项，差了一倍还多。</p>
+<p>这笔账马英九自己也爱算，他在2014年4月2日对外说，ECFA让台湾累计省下约新台币420亿元的关税。岛内企业这近20年在大陆投资，赚到的钱常被形容为数千亿，具体数字各家算法不同，但生意越做越大，是谁都看得见的事。</p>
+<p>到了今年，国台办发言人张晗在2026年10月21日介绍，1至9月两岸贸易额已有3011.8亿美元，同比增长30.3%，其中大陆自台湾进口2162.8亿美元，对台出口849亿美元。</p>
+<p>大陆敞开市场让台湾赚钱，从来没有变过，可在政治上往前迈一步，马英九任内始终不肯。再看他把钱花在哪里。</p>
+<p>2008年10月3日，美方宣布了第一批对台军售，金额约64亿美元，里面有阿帕奇直升机和爱国者三型导弹。此后八年，对美军购一笔接一笔，总额以百亿美元计，任内几乎没停过。</p>
+<p>一边在大陆这个大市场里拿红利，一边给美国军火商送订单，这样的算盘，打得不可谓不精。课本上也留着痕迹。</p>
+<p>2009年起，他宣布冻结“98课纲”，后来又有“104课纲”的微调，可台湾史和中国史依然被分开来讲，并没有从根子上把问理顺。</p>
+<p>2015年夏天，岛内围绕课纲闹出了一场不小的风波。年轻人是读着这样含糊的教材长大的，将来怎么看自己的来处，很多时候就跟课本怎么写有关系。</p>
+<p>最让人觉得可惜的是时机。马英九任内那八年，两岸关系正处在难得的缓和期，政治对本来有条件往前推。他却始终把相关议当成不能碰的雷区，既怕得罪美国，又怕被绿营攻击，结果好端端的窗口就这么错过去了。</p>
+<p>卸任以后，他多次率青年到大陆参访，交流是做了不少，可一谈到核心问，就又绕开了。2026年5月27日，国台办发言人陈斌华在回应马英九基金会相关传闻时，肯定了基金会这些年办的两岸青年交流活动，并强调两岸同胞都是中国人、一家人，</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/89408)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/89408">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">16:48</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/89410)" target="_blank">携程拿去花太坑了！从去年某个月开始把我自动还款改成了自动还最低金额，然后每个月自动扣最低还款服务费。关于“自动最低还款”及“服务费”，每个月悄悄进行，没有任何形式的通知，刚查了下才发现已经累计扣了 6000 多人民币服务费。小红书查了下，发现类似情况相当多，用户全在骂。</a></div>
+  <div class="card-summary"><hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/89410)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/89410">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@text1024</span>
+    <span class="time-tag">17:05</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/text1024/26496)" target="_blank">不查不知道，一查吓一跳！赵本山儿子的奢侈，远超普通人想象</a></div>
+  <div class="card-summary"><p>都说条条大路通罗马，可有些人，一出生就站在了罗马之巅。</p>
+<p>本以为明星子女的生活只是衣食无忧，直到看完赵本山独子赵一楠的日常，才真正明白：有钱人的快乐，是普通人这辈子都触及不到的天花板。</p>
+<p>不查不知道，一查彻底被震撼，他的奢侈，根本不是我们能想象的级别！</p>
+<p>赵一楠作为赵本山唯一的儿子，被全家极致宠爱，从小锦衣玉食，活成了妥妥的顶级纨绔少爷。看似低调佛系，实则每一处日常，都藏着极致的奢华。</p>
+<p>普通人奋斗一辈子买不起的资产，在他眼里不过是随手可得的玩物。</p>
+<p>他日常随手把玩的黄金烟斗，价值2000万，全球仅仅只有三个，堪称顶级绝版奢侈品，随便一件配饰，就抵得上普通人几十辈子的收入。</p>
+<p>日常身上佩戴的百万手串、稀有珠宝数不胜数，随意放在家里，如同平价饰品，毫不在意价值。</p>
+<p>最让人瞠目结舌的是他的消费方式，任性到极致。</p>
+<p>闲来无事想养宠物，普通人顶多就近选购，而他直接坐着私人飞机远赴美国，豪掷300万重金买下一只宠物狗，只为消遣解闷，这份随性，无人能及。</p>
+<p>玩直播更是出手阔绰，刷礼物从不看价格。看上主播短短五分钟，随手豪刷几十万，眼睛都不眨一下，挥金如土的模样，尽显顶级豪门底气。</p>
+<p>曾经更是直言霸气坦言：自家存款的利息，足够自己潇洒挥霍十辈子，这辈子根本不用努力赚钱。</p>
+<p>反观普通人，为了几千块的工资起早贪黑，为了柴米油盐省吃俭用，为了一套房子奋斗半生、背负房贷。</p>
+<p>有人终其一生，都赚不到他随手玩乐的零花钱。</p>
+<p>有人拼尽全力谋生，他生来就坐拥财富自由。</p>
+<p>明明都是同龄人，人生差距却天差地别，看完让人瞬间看透人间参差。</p>
+<p>我们不得不承认：人的起点，真的藏着一生的终点。</p>
+<p>父母打拼一辈子的终点，仅仅是他与生俱来的起点。</p>
+<p>世人奔波忙碌为碎银几两，他生来便坐拥万丈荣光，不用吃苦、不用奔波、不用谋生，一生衣食无忧，富贵无忧。</p>
+<p>看完赵一楠的生活，终于懂了那句：万般皆是命，半点不由人。</p>
+<p>人生百态，各有归途，平凡有平凡的安稳，富贵有富贵的人生，知足常乐，便是最好的圆满。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/text1024/26496)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/text1024">副业搞钱</a><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/chunse1024">优质内容</a><a href="https://t.me/text1024/26496">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">17:59</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/26710)" target="_blank">分享个找需求的邪修方法</a></div>
+  <div class="card-summary"><p>你的codex/claude套餐用得完吗？我用不完，token剩的多的时候我会开发一些小网站，比如 https://hourglass.im/ 是昨天两个小时开发完的。开发小产品的难度已经不在代码实现，在找需求。</p>
+<p>我来分享下自己是怎么做的：把词典里的单词全部列出来，加上词频，挨个问AI：</p>
+<p>是否值得围绕这个词做个兼具实用性和独特性的网站，0-9打分并说明理由，该0分时就0分，0分时不需要说明理由。其中 1、需要大量人力的减分，线下业务减分 2、技术难以覆盖，完成度低的减分 3、不要把它当做认识某个单词含义的，和认知学习无关 4、不要因为有竞品就想当然的认为没机会，做不出差异性; 5、如果能在两三天完成加分</p>
+<p>于是我得到了一个经过AI粗筛的词表，针对七分以上的数据，我可能会进一步问一下 该如何做到独特，两轮筛选后，几万个词 就变成了百十个值得进一步琢磨的待选项目，配合 ahrefs看看关键词难度和google搜索结果，决定自己要不要搞一个。</p>
+<p>词表我已经放在 https://wideseek.ai/zh/dataset/word-list-explore 了，在客户端里可以直接用，它有各种用法，很好的诠释了 WideSeek 开屏那句：</p>
+<p>🤔智者带着有限命审视生活</p>
+<p>💥邪修抛给 AI 海量问筛选碰撞</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/26710)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/26710">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">18:09</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/44963)" target="_blank">**豆包工作个人版取消 5 小时额度限制**</a></div>
+  <div class="card-summary"><p>11 月 6 日起，豆包工作个人版取消 5 小时额度限制。个人用户不再受短周期额度约束，可在周额度范围内自行安排使用时间，周额度及其他使用规则仍以对应套餐为准，用户可在「设置-订阅与额度管理」查看剩余额度与具体规则。</p>
+<p>豆包工作是面向生产力场景打造的 AI 产品，可根据任务目标自主拆解任务、调用工具，完成调研分析、内容创作、数据处理、应用搭建等工作。</p>
+<p><a href="https://www.ithome.com/1/023/414.htm">IT之家</a></p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/44963)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/zaihuanews">科技圈</a><a href="https://t.me/zaihuachat">茶馆</a><a href="http://t.me/ZaiHuabot">投稿</a><a href="https://t.me/zaihuapd/44963">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">18:16</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/89422)" target="_blank">欧洲很可能要返贫了?因为欧洲“返贫三要素”已经集齐了：</a></div>
+  <div class="card-summary"><p>第一，吃了几十年的俄罗斯廉价油气，硬生生让自己掐断了；</p>
+<p>第二，攒了上百年的工业老本，正以肉眼可见的速度往外流失；</p>
+<p>第三，中国这个全球最大的消费市场，他们能分到的蛋糕，是一年比一年小。</p>
+<p>这三个变化，单独看都是一道难，放在一起，却可能形成一个越转越吃力的圈：能源贵，工厂利润薄；利润薄，企业减少投资；投资少，新产品跟不上，原来的客户就可能被别人抢走。</p>
+<p>欧洲过去的好日子，靠的是一套很会赚钱的组合。进口能源和原材料，用成熟的技术、设备和工人，把它们做成汽车、机械、化工产品，再卖到世界各地。工厂创造利润和工资，政府拿到税收，养老金、医疗和公共服务才有支撑。</p>
+<p>现在，这套组合的几个关键环节，都在变贵、变难。</p>
+<p>先看能源。2021年，俄罗斯天然气占欧盟天然气进口的45%，到2025年降至13%。缺口要从挪威、美国等供应方补上，液化天然气的重要性随之上升。</p>
+<p>天然气变成液体，需要低温处理；跨海运输，需要专用船；到岸之后，还需要接收站重新气化。换了供应渠道，安全账可以重新算，成本账也得重新算。</p>
+<p>2024年，欧洲企业面对的电价仍是美国的两到三倍，天然气价格是美国的四到五倍。这个差距，对办公室或许只是多一笔开支，对化肥、钢铁、玻璃、化工企业，却可能决定一条生产线还有没有利润。</p>
+<p>尤其是化工，天然气既能当燃料，也能当原料。同样一件产品，别人从原料端就便宜一截，欧洲企业即使设备好、工人熟练，也很难靠喊口号把这笔差价抹掉。</p>
+<p>于是，第二个问出现了：企业开始重新决定，把下一笔钱投到哪里。</p>
+<p>巴斯夫就是一个很有代表性的故事。2024年8月，这家德国化工巨头宣布，计划在2025年关闭路德维希港基地的己二酸等生产装置。这些名字普通人不熟悉，却连着塑料、涂料等下游产业。</p>
+<p>镜头再转到中国。2026年3月26日，巴斯夫广东湛江一体化基地全面投产，总投资约87亿欧元，投产18套装置、32条生产线。</p>
+<p>一边调整老基地，一边建成新基地。两件事不能简单画成“拆走德国工厂搬到中国”的等号，但它们让人看清了资本的选择：未来的生产和客户在哪里，新增投资就会向哪里靠。</p>
+<p>这也是工业流失最让人担心的地方。今天少上一条生产线，街上未必立刻出现失业队伍；几年以后，维修订单、零部件采购、年轻人的学徒岗位，都可能跟着减少。</p>
+<p>工业老本是一张长期积累的协作网。厂房还在，不代表网络就完整；老工程师退休，年轻人不再入行，等到想恢复产能时，重新找人、培</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/89422)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/89422">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">18:16</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/89423)" target="_blank">养人，又是一大笔成本。</a></div>
+  <div class="card-summary"><p>到了第三关，欧洲面对的变化更加深刻：曾经购买欧洲产品的客户，越来越有能力自己生产。</p>
+<p>过去，中国企业需要进口设备，消费者愿意为欧洲汽车品牌买单。如今，新能源汽车、动力电池、工业设备等领域的竞争越来越激烈。欧洲厂商面对的是技术、价格和产品更新速度一起变化的新市场。</p>
+<p>2025年，欧盟对华货物出口约1996亿欧元，比上年下降6.5%。大众集团当年在中国的汽车交付量约269万辆，同比下降8%。对依靠中国市场摊薄研发成本、扩大销量的企业来说，这种压力十分直接。</p>
+<p>汽车销量减少，影响的不只是整车厂，还会传到零部件、研发和物流环节。一个大市场里的竞争变化，能够沿着供应链，一层层传回欧洲。</p>
+<p>不过，巴斯夫湛江项目还藏着另一层变化：它的大部分产品直接供应中国客户。欧洲企业要继续做中国生意，正在把更多生产环节放到中国，与本地供应链结合。</p>
+<p>这样一来，企业仍可能获得利润，但新增工厂、就业和采购，更多发生在中国。欧洲企业的全球成绩单，与欧洲本土工人的饭碗，未必始终同步。这才是比一两年出口下降更值得琢磨的问。</p>
+<p>三股压力叠加，最后会落到普通人的生活里。</p>
+<p>工厂为了保住订单，不敢轻易加工资；家庭担心工作，买东西更加谨慎；企业看到需求偏弱，又推迟投资。如果税收增长放缓，养老、医疗、基础设施还都需要花钱，政府就得在借债、加税和压缩开支之间做选择。</p>
+<p>这种压力持续下去，普通家庭可能遇到这样的生活：工资单上的数字还在涨，能存下来的钱却没增加；福利项目还在，等待时间却拉长；年轻人念完书，发现稳定的工业岗位比父辈那一代难找。</p>
+<p>欧洲手里仍有精密制造、医药、航空等积累，也有庞大的内部市场。它能否稳住生活水平，关键在于能不能把能源成本降下来，把资金变成新设备、新技术和新订单。</p>
+<p>如果成本迟迟降不下去，新增投资又不断向外走，那么欧洲最先失去的，可能就是“下一代会比上一代过得更好”的底气。</p>
+<p>一个地区的富裕可以积累上百年，但要让富裕持续下去，每一代人都得有新的赚钱本事。老品牌能带来信任，却无法替下一张订单付款。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/89423)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024/89423">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">18:19</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/12588)" target="_blank">抖虫</a></div>
+  <div class="card-summary"><p>一个专业的视频转文字工具，支持从抖音、小红书、快手、Bilibili、TikTok、YouTube等平台快速提取视频中的语音内容、标、描述和封面图片，并提供AI语音识别功能，确保高达95%以上的准确率。</p>
+<p>https://www.dousnap.com/</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/12588)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/yunying23/12588">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@text1024</span>
+    <span class="time-tag">18:26</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/text1024/26500)" target="_blank">炒股赚大钱，靠的是这四点：</a></div>
+  <div class="card-summary"><p>第一，本金得足够多。</p>
+<p>你拿1万翻倍也就赚1万，改变不了什么；如果投100万翻倍，那就是100万。</p>
+<p>所以赚大钱靠的是重仓持有——要么你本金多，要么你敢在机会来时下重注。</p>
+<p>第二，管住自己的手，宁愿空仓等大跌。</p>
+<p>没机会的时候别强迫自己买，错过上涨你不会损失什么，顶多是看别人赚钱；但乱买下跌，亏的是你自己的真金白银。手握现金，永远都有主动权。</p>
+<p>第三，要懂周期。</p>
+<p>短期看情绪周期——资金往哪儿涌，哪儿就热，哪怕烂票也能炒上天；</p>
+<p>长期看行业周期——每个行业都有冷热轮回，冷两三年、热两三年。就像银行股，2022年没人要，2022年到现在也能翻一倍。</p>
+<p>第四，买之前想明白：你赚的是哪份钱？</p>
+<p>· 如果做短线，就按趋势做，涨了跟，跌了跑；</p>
+<p>· 如果做价值回归，就等好公司打折后慢慢买，热了再分批卖；</p>
+<p>· 如果做股息收租，就在好公司跌透后囤股，只要股息率还能维持在4%以上，就拿住不动，涨跌都无所谓。</p>
+<p>把这四点搞明白，炒股就不会再是“碰运气”——</p>
+<p>你知道什么时候该等，什么时候该动；</p>
+<p>知道该押多少，该拿多久；</p>
+<p>知道赚的是情绪钱、周期钱，还是分红钱。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/text1024/26500)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/text1024">副业搞钱</a><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/chunse1024">优质内容</a><a href="https://t.me/text1024/26500">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">18:37</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/44964)" target="_blank">**美国民主党拟调查苹果、Meta 及马斯克旗下公司**</a></div>
+  <div class="card-summary"><p>美国民主党正筹备一轮针对大型企业的国会调查，苹果、Meta 及马斯克旗下公司被列为早期目标。调查可能聚焦苹果托管移民执法部门使用的追踪应用、Meta 要求地方政府就数据中心项目签保密协议，以及特朗普用马斯克旗下 AI 聊天机器人 Grok 策划军事行动等事项。</p>
+<p>知情人士称，民主党赢得众议院和参议院多数席位后正加紧筹备；苹果、Meta、X 与马斯克均未立即回应置评请求。</p>
+<p><a href="https://www.washingtonpost.com/technology/2026/11/06/after-courting-trump-corporate-america-faces-democratic-reckoning/">The Washington Post</a></p>
+<p><strong>苹果（Apple）</strong></p>
+<p>要求交出向特朗普白宫宴会厅项目捐款的相关文件（否则可能发传票）；继续调查其在特朗普政府压力下从App Store下架ICE追踪应用的决定。</p>
+<p><strong>Meta</strong></p>
+<p>要求交出宴会厅捐款文件；调查与地方政府就数据中心项目签署的保密协议（NDA），并要求说明电力、水资源使用情况。</p>
+<p><strong>谷歌（Alphabet / Google）</strong></p>
+<p>要求交出宴会厅捐款文件；调查数据中心保密协议；要求报告AI模型安全事故（发现后48小时内通知国会）。</p>
+<p><strong>亚马逊（Amazon）</strong></p>
+<p>要求交出宴会厅捐款文件；调查数据中心保密协议。</p>
+<p><strong>英伟达（Nvidia）</strong></p>
+<p>要求交出宴会厅捐款文件；共和党议员要求CEO黄仁勋就与被指为中国情报人员的黄乐（Alice Huang）的互动，以及公司防间谍安全机制，于11月18日进行国会闭门简报。</p>
+<p><strong>微软（Microsoft）</strong></p>
+<p>要求交出宴会厅捐款文件。</p>
+<p><strong>甲骨文（Oracle）</strong></p>
+<p>调查与地方政府签署的数据中心保密协议。</p>
+<p><strong>OpenAI</strong></p>
+<p>要求在发现AI模型“错位”或安全事故后48小时内向国会报告；可能传唤CEO作证。</p>
+<p><strong>Anthropic</strong></p>
+<p>要求在发现AI模型安全事故后48小时内向国会报告；可能传唤CEO作证。</p>
+<p><strong>马斯克旗下公司（xAI、X、SpaceX、特斯拉）</strong></p>
+<p>调查马斯克领导DOGE期间的裁员、合同取消与数据使用；审查与联邦政府的合同及潜在利益冲突；要求保存特朗普与Grok的官方对话记录；可能审查xAI的联邦合同与AI安全问题。</p>
+<p>以上措施目前多为发函要求、准备传票与听证会阶段，主要由民主党在中期选举后推进的监督计划。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/44964)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/zaihuanews">科技圈</a><a href="https://t.me/zaihuachat">茶馆</a><a href="http://t.me/ZaiHuabot">投稿</a><a href="https://t.me/zaihuapd/44964">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@meiriyishu</span>
+    <span class="time-tag">18:38</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/meiriyishu/4826)" target="_blank">GEO营销实战课，告别流量漏斗焦虑，抢占AI第一推荐率，把品牌变成AI首选答案</a></div>
+  <div class="card-summary"><p>百度网盘：https://pan.baidu.com/s/1DZBXqWoBbVrP4-zUWoC6eQ?pwd=cd03</p>
+<p>提取码：cd03</p>
+<p>https://fuyezy.com/57887.html</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/meiriyishu/4826)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/meiriyishu/4826">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">18:58</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/26712)" target="_blank">如果这次 A 社 IPO 真的失败了</a></div>
+  <div class="card-summary"><p>那这事儿就真的太邪门儿了</p>
+<p>ANT 蚂蚁这个代码可能被诅咒了</p>
+<p>巧合的是，上次 ANT 蚂蚁上市失败也是在 11 月</p>
+<p>还有人开玩笑说当特朗普把 AI 改成 SI 的那一刻</p>
+<p>就已经开始邪门儿了</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/26712)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/26712">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@meiriyishu</span>
+    <span class="time-tag">19:38</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/meiriyishu/4827)" target="_blank">Ai航海家大课2026年9.12-9.13深圳线下课，最前沿的AI电商运营方法，打造Ai Native电商业务，让每个员工都拥有最强业务大脑</a></div>
+  <div class="card-summary"><p>百度网盘：https://pan.baidu.com/s/11w_wT4S6y1a-Bq3aJFoYvA?pwd=4fc4</p>
+<p>提取码：4fc4</p>
+<p>https://fuyezy.com/57889.html</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/meiriyishu/4827)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/meiriyishu/4827">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">20:04</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/26715)" target="_blank">🔥 【ChatGPT Plus 官方正规代扣 · 现货秒充】</a></div>
+  <div class="card-summary"><p>还在担心第三方黑卡封号吗？</p>
+<p>MaplePass 支持个人原号覆盖升级，聊天记录与自定义 GPTs 100% 完整保留！</p>
+<p>✨ 本季特惠现货直供：</p>
+<p>⚡️ 谷歌官方渠道自助升级：15.80 USDT / 月 （免密极速秒充 · 30天满保）</p>
+<p>⚡️ 菲律宾正规卡自助升级：16.70 USDT / 月 （官方卡直充 · 稳定防封）</p>
+<p>🛡 平台四大品质承诺：</p>
+<p>1️⃣ 100% 官方正规通道，拒绝黑卡，杜绝封号</p>
+<p>2️⃣ 7×24小时全自动系统发货，秒级充值到账</p>
+<p>3️⃣ 30天满期全额质保，售后无忧</p>
+<p>4️⃣ 支持 USDT (TRC20 / BEP20) 快捷结算</p>
+<p>🤖 立即在 Telegram 内一键秒开：</p>
+<p>👉 https://t.me/MaplePassBot?start=google</p>
+<p>💬 人工客服/大额批发：@fengye1189</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/26715)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/26715">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">20:04</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/89428)" target="_blank">🔥 【ChatGPT Plus 官方正规代扣 · 现货秒充】</a></div>
+  <div class="card-summary"><p>还在担心第三方黑卡封号吗？</p>
+<p>MaplePass 支持个人原号覆盖升级，聊天记录与自定义 GPTs 100% 完整保留！</p>
+<p>✨ 本季特惠现货直供：</p>
+<p>⚡️ 谷歌官方渠道自助升级：15.80 USDT / 月 （免密极速秒充 · 30天满保）</p>
+<p>⚡️ 菲律宾正规卡自助升级：16.70 USDT / 月 （官方卡直充 · 稳定防封）</p>
+<p>🛡 平台四大品质承诺：</p>
+<p>1️⃣ 100% 官方正规通道，拒绝黑卡，杜绝封号</p>
+<p>2️⃣ 7×24小时全自动系统发货，秒级充值到账</p>
+<p>3️⃣ 30天满期全额质保，售后无忧</p>
+<p>4️⃣ 支持 USDT (TRC20 / BEP20) 快捷结算</p>
+<p>🤖 立即在 Telegram 内一键秒开：</p>
+<p>👉 https://t.me/MaplePassBot?start=google</p>
+<p>💬 人工客服/大额批发：@fengye1189</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/89428)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/89428">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">20:16</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/89429)" target="_blank">#内幕消息</a></div>
+  <div class="card-summary"><p>在这个世界上，确实存在早12点上班、晚6点下班，且年薪百万的工作。</p>
+<p>分享一个我身边的例子：曾经的同学在毕业后进入了量化私募行业，加入到一个规模适中、发展良好的团队里，在工作的前三年做出了突出贡献（类似搭建阿尔法量化体系）。现在，他已经无需花费过多时间在工作上就可以获取高薪——只需要偶尔关注服务器的稳定性是否影响交易策略。</p>
+<p>像这样的真实案例为我们证明，如果一个人能够尽早掌握生产要素并获得复利，就可以更早地过上人们想象中“早12晚6年薪百万”的生活。</p>
+<p>研究这个时代的生产要素吧，比如产品（如自媒体、代码和AI）、资本或劳动力。</p>
+<p>未来是现在某个选择的展开。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/89429)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/89429">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@meiriyishu</span>
+    <span class="time-tag">20:38</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/meiriyishu/4830)" target="_blank">淘宝人群资产模块协同联动Ai闭环体系广州线下课2026年4月17-19，2026年最牛的淘宝课，电商老板必看</a></div>
+  <div class="card-summary"><p>百度网盘：https://pan.baidu.com/s/1GGe_Bh36ITGPuMwXAdS8rA?pwd=cdae</p>
+<p>提取码：cdae</p>
+<p>https://fuyezy.com/57891.html</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/meiriyishu/4830)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/meiriyishu/4830">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">20:48</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/26716)" target="_blank">我用 MiniMax Code 从 0-1 用 AI 搓了两款 CG 游戏，绝了！</a></div>
+  <div class="card-summary"><p>https://mp.weixin.qq.com/s/hq8nZBt8zb0Tay6OgSohuA?from=singlemessage&amp;isappinstalled=0&amp;scene=1&amp;clicktime=1793968713&amp;enterid=1793968713</p>
+<p>周末愉快！分享用多模态 AI 直接生成含 CG 动画的「游戏」思路给大家~~  魂斗罗等游戏内容加MiniMax H3生成的过场动画，非常丝滑~ 周末闲余时间可以搓几款游戏</p>
+<p>现在用 AI 搓游戏越来越舒服了~</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/26716)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/26716">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@text1024</span>
+    <span class="time-tag">22:14</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/text1024/26513)" target="_blank">10条极简的人生建议，越早明白，越少走弯路。</a></div>
+  <div class="card-summary"><p>很多真正有用的道理，其实简单得不像，但能做到的人并不多。</p>
+<p>1、高频使用的东西，舍得花钱。</p>
+<p>床垫、枕头、鞋子、办公椅，每天都在用，买能力范围内最好的。</p>
+<p>2、不要什么都学，深耕一个领域。</p>
+<p>普通人最好的破局方式，就是把一件事研究深、研究透，再借助互联网放大。</p>
+<p>3、先开始，再慢慢变好。</p>
+<p>永远不要等准备好了才行动。实践、复盘、优化，本身就是成长。</p>
+<p>4、从消费者变成生产者。</p>
+<p>少刷别人创造的内容，多去写、拍、做、卖。只有真正下场，机会才属于你。</p>
+<p>5、专注，比知道更多方法重要。</p>
+<p>真正赚钱的人，往往不是懂100种方法，而是把一种方法重复做到极致。</p>
+<p>6、健康才是最大的本金。</p>
+<p>少熬夜、坚持运动、保证睡眠。身体状态好了，精力、情绪和执行力都会跟着提升。</p>
+<p>7、遇到问，先想怎么解决。</p>
+<p>抱怨和甩锅改变不了结果，解决问的能力才真正值钱。</p>
+<p>8、人脉的本质，是价值交换。</p>
+<p>与其花时间讨好别人，不如让自己变得更有价值。</p>
+<p>9、学会拒绝，也别太在意别人怎么看你。</p>
+<p>不想做就拒绝，不必解释一大堆。人生最大的内耗之一，就是活在别人的评价里。</p>
+<p>10、永远不要透支身体和金钱。</p>
+<p>身体欠的债，要拿未来的钱还；金钱欠的债，要拿未来的时间还。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/text1024/26513)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/text1024">副业搞钱</a><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/chunse1024">优质内容</a><a href="https://t.me/text1024/26513">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">22:16</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/89433)" target="_blank">#你不知道的内幕消息</a></div>
+  <div class="card-summary"><p>之前写过的关于条赚钱的14个tips：</p>
+<p>1、所有赚钱的事情都是从微小的事情开始做起的。先赚到第一波盈利，再去想下一步干什么。要时刻踩在土地上，学历只是人生一部分的，学历不是情商背书和人品背书，情商和办事能力才最重要。</p>
+<p>2、没有任何一个公司一个组织能给你绝对的安全感。你要看你的能力以及手里的东西在你离开现在的平台后能帮自己赚到多少钱。</p>
+<p>3、不屑于赚小钱的人，一定赚不到大钱。所有的路要自己走过一遍，要先做一些苦活，才会找到自己的康庄大道。才知道哪些事情是适合自己的，要持续做困难的事情。</p>
+<p>4、上坡很难，你觉得很难的时候，有可能是在因为在走上坡路（这么想是不是很宽慰自己哈哈哈）</p>
+<p>5、承认人生很难不是消极的态度。要接受人生艰难的事实，去克服，去努力工作，才能在辛苦之外收获很多的快乐与美好。知道真相，就会更加努力，去学习，去做事情，去对抗危机。</p>
+<p>6、格局打开后，会发现天地很广阔。很多时候人和人之间不是零和游戏，而是合作共赢。找1＋1是＞2的合作契机。</p>
+<p>7、钱是世界回报给你的掌声，尊重你的人会给你花钱。</p>
+<p>8、工作就是为了赚钱的。对工作寄托了太多精神需求的时候会混淆真实的目的，放弃在工作里边找意义，把事情做了，把钱赚了就是最大的意义。意义是对老板的。工作不能给你意义，但是也不要去找给你痛苦的工作。所有的工作都在吃屎，各有各的难吃，不要给工作那么高的预期。</p>
+<p>9、工作的时候观察别人是怎么赚钱的，公司是怎么赚钱的。去观察，去琢磨，问问自己：如果是我，我可以这样赚钱吗？不断地锻炼自己。</p>
+<p>10、钝感力很重要的，钝感力可以屏蔽掉外界的声音。知道自己在做什么，且知道自己做的是对的，只在乎亲近的人，不care其他，不在乎别人说你什么，默认为攻击是因为嫉妒。</p>
+<p>11、不要在意别人的评价。做和别人不一样的事情，一定会带来别人的观察，评价甚至是攻击，太正常了，心态稳一点。很多人躺在地上，看到你动起来就会对你不爽。</p>
+<p>12、学会未雨绸缪。把弹药和粮草先全部储存起来，才能活下来。</p>
+<p>13、社会是很现实的，我们没有办法要求别人，自尊只能自己给自己，身边的人喜欢你就够了，从身边的人以及尊重的人那里得到了很多爱，不在乎无关人的评价和眼光。</p>
+<p>14、人不下牌桌，永远有机会。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/89433)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/89433">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@meiriyishu</span>
+    <span class="time-tag">22:38</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/meiriyishu/4841)" target="_blank">千川全域推广系统课程，商品推广+直播投放双线打通，付费撬动商品卡自然流量，实现全域起店</a></div>
+  <div class="card-summary"><p>百度网盘：https://pan.baidu.com/s/1ipL_ii0JBTGE0K3T0IWr7Q?pwd=60d6</p>
+<p>提取码：60d6</p>
+<p>https://fuyezy.com/57895.html</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/meiriyishu/4841)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/meiriyishu/4841">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@aigc1024</span>
+    <span class="time-tag">22:55</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/aigc1024/26718)" target="_blank">油管大神Dan Koe：2026年「一人公司」全新生存模式</a></div>
+  <div class="card-summary"><p>Dan Koe给出2026最硬核的一人公司蓝图：</p>
+<ul>
+<li>
+<p>从「雇员思维」彻底切换到「资产思维」</p>
+</li>
+<li>
+<p>用极简系统+AI杠杆，把时间换成可规模化的收入</p>
+</li>
+<li>
+<p>构建「一人即公司」的闭环：内容→产品→社区→复利</p>
+</li>
+</ul>
+<p>他用亲身实验证明：普通人也能在未来3-5年内做到月入10万刀+的自由。</p>
+<p>👉https://pan.quark.cn/s/c1f42e4aa44a</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/aigc1024/26718)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/aigc1024/26718">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">22:59</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/12595)" target="_blank">下载视频还得一个平台配一个工具？这个开源项目干脆做成了&quot;大一统&quot;。</a></div>
+  <div class="card-summary"><p>VideoDL 是个纯 Python 的轻量视频下载器，优先解析高清、无水印资源，眼下覆盖抖音、快手、小红书、B站、YouTube、TikTok、微博、知乎、央视频、腾讯、爱奇艺、芒果等一大票平台。</p>
+<p>复制链接就能解析下载，也能配合 FFmpeg、aria2c 这些工具一起用；作者还做了每日自动测试，盯着各平台接口还能不能用。</p>
+<p>https://github.com/CharlesPikachu/videodl</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/12595)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/yunying23/12595">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">23:09</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/12597)" target="_blank">在深圳这片热土上死磕硬混上个整整十年，你才会猛然撞醒一个极其残酷的真相：大把在这儿身家几千万的大老板，根本就没几个人是靠自己搁车间里拧螺丝、搓产品发家致富的。</a></div>
+  <div class="card-summary"><p>这帮人真正玩到登峰造极的顶级绝活，通篇拧出来其实就死死凝结在四个字上——空手组局！</p>
+<p>就拿最简单的做企业宣传片来说吧，假如现在客户手里拽着八万块钱的硬预算找上门来。 普通打工人的第一反应，肯定是我赶忙去报班学摄影、研究剪辑、钻研调色，硬生生把自己逼成个全能裁缝。</p>
+<p>可深圳这帮搞钱高手是怎么玩的？</p>
+<p>人家第一步死死抱住客户的腿把订单拿下来；</p>
+<p>第二步转身去全网筛选靠谱的技术制作团队，把交付标准一敲定，硬生生谈成五万块钱全包；</p>
+<p>剩下的三万块钱毛差价，稳稳拿来覆盖沟通成本、税费、改稿损耗还有垫资风险。 你看，客户要的是最终高大上的成品，制作团队饿得要死要的是活生生的订单，而你从头到尾不用碰一下相机，就把资源整合的利息给稳稳当当揣进了口袋！</p>
+<p>再瞅瞅外贸圈子里的路数： 一家大工厂手里攒着五百万的出口订单产能，可急得跟热锅上的蚂蚁一样，压根找不到海外的销售渠道。</p>
+<p>你只要能凭本事撬动海外有真实采购需求的买家，把合规合法的佣金协议往桌上一拍，单单这一笔撮合，可能就稳稳当当入账好几万块钱的服务费。 你不需要砸上千万资金去盖厂房，不需要买任何重型生产设备，但你脑子里必须有客户、嘴里必须懂业务、手里必须能死死控住交易风险，还能担保最后东西能平平安安交付掉。</p>
+<p>这才是深圳这帮老油条商人最可怕、最毒辣的地方。</p>
+<p>那些天天累得跟狗一样却穷得响叮当的人，脑袋里永远死磕着什么都要亲力亲为；而真正会疯狂割钱的高手，满脑子琢磨的都是怎么让外面的资源心甘情愿替自己卖命打工！</p>
+<p>所以说普通人要是想在这时代逆天改命翻个身，最该去苦练的绝不是什么单项技术，</p>
+<p>而是这三种通杀天下的野兽能力：</p>
+<p>第一，能精准嗅到哪儿有舍得掏钱的大客户；</p>
+<p>第二，能从泥潭里挖出绝对靠谱的供应商；</p>
+<p>第三，能硬生生把这两拨人单独在一起绝对搞不定的死结，给当场搞定！</p>
+<p>说一千道一万，就记住这一句掏心窝子的：但凡你能靠拉拢撮合轻轻松松赚走十万块，就千千万万别再把自己死死困在那个时薪只有一百块的苦力活里了。</p>
+<p>这地方到处都是漫天飞舞的富贵机会，但这里的真金白银，从来都绝不会去奖励那些只知道埋头死干的憨大笨粗</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/12597)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/yunying23/12597">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@yunying23</span>
+    <span class="time-tag">23:19</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/yunying23/12598)" target="_blank">日本祖先真相大白：不是徐福后代，DNA检测结果让日本人无法接受，根据基因研究，日本人群的遗传谱系与徐福传说毫无关联，这一颠覆性结论令日本学界陷入集体困惑。</a></div>
+  <div class="card-summary"><p>以前这个说法，只有古书传说撑着，没有实打实的生物证据，直到近些年基因检测技术成熟，研究团队联手提取古人骨头里的DNA，把这件事查明白了。</p>
+<p>日本的科研团队，在日本各地古墓挖出绳文、弥生、古坟时代的人骨，提取完整基因组做测序。同时国内研究团队，在徐福传说的发源地，采集秦代中原古人遗骸样本，两边放到同一个基因库里比对。</p>
+<p>比对结果出来，秦代中原人群标志性的基因片段，在日本同期古人类样本里找不到。就算后世少数日本人身上检出一点点中原基因，时间线也对不上，属于后来零星移民带过去的，不是徐福那一支大规模人群留下来的血脉。</p>
+<p>研究报告写明，现代日本人，主要是两拨古人慢慢融合出来的。最早一拨叫绳文人，几万年前就在日本岛上定居，靠打猎捕鱼过日子。</p>
+<p>后来第二拨弥生人，从东北亚顺着朝鲜半岛渡海过去，把种水稻、打铁的技术带到日本，两拨人长期通婚混血，一点点形成现在日本人的主体基因。</p>
+<p>消息对外公布之后，日本学界一下子乱了。很多常年研究徐福文化、专门考证徐福和日本渊源的学者，手里原先的论点站不住脚。</p>
+<p>不少地方常年办徐福祭祀的民间团体，活动照常办，但没法再拿“始祖血缘”当依据。</p>
+<p>咱们要分清一件事。史书上确实写了徐福出海这件事，《史记》有记录，他带着人出海求仙药，之后没有返回中原。</p>
+<p>但是古书从头到尾，没有白纸黑字写清楚徐福落脚的地方就是日本。徐福传说，更像是古代文化交流留下的故事，不能当成血缘溯源的定论。</p>
+<p>也不是说徐福这群人一定没踏上日本土地。就算当年徐福船队真的到过日本，这批人的数量太少，没能在当地留下能影响整个族群的遗传痕迹。传说归传说，基因检测看的是代代相传的血脉标记，有就是有，没有就是没有。</p>
+<p>我觉得传说和科学本来就不是一回事。徐福东渡是一段有意思的历史故事，代表古时候两岸早就有海上往来。基因检测只是厘清血缘来源，不否定古代文化传播。神传说可以继续流传，但讲人群起源，还是得拿科学证据说。</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/yunying23/12598)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/yunying23">出海赚美金</a><a href="https://t.me/meiriyishu">优质资源</a><a href="https://t.me/chunse1024/8467">优质信息</a><a href="https://t.me/inside1024">内幕消息</a><a href="https://t.me/yunying23/12598">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@inside1024</span>
+    <span class="time-tag">23:26</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/inside1024/89441)" target="_blank">油管大神Dan Koe：2026年「一人公司」全新生存模式</a></div>
+  <div class="card-summary"><p>Dan Koe给出2026最硬核的一人公司蓝图：</p>
+<ul>
+<li>
+<p>从「雇员思维」彻底切换到「资产思维」</p>
+</li>
+<li>
+<p>用极简系统+AI杠杆，把时间换成可规模化的收入</p>
+</li>
+<li>
+<p>构建「一人即公司」的闭环：内容→产品→社区→复利</p>
+</li>
+</ul>
+<p>他用亲身实验证明：普通人也能在未来3-5年内做到月入10万刀+的自由。</p>
+<p>👉https://pan.quark.cn/s/c1f42e4aa44a</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/inside1024/89441)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/inside1024/89441">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@meiriyishu</span>
+    <span class="time-tag">23:39</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/meiriyishu/4842)" target="_blank">千川全域推商品系统课程，全域推商品精细化投放，付费带自然流，打爆商品卡流量池</a></div>
+  <div class="card-summary"><p>百度网盘：https://pan.baidu.com/s/1tXMwV83q6uhimkJACWIrLg?pwd=22c8</p>
+<p>提取码：22c8</p>
+<p>https://fuyezy.com/57897.html</p>
+<hr /></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/meiriyishu/4842)" target="_blank">查看原文</a><div class="channel-links"><a href="https://t.me/meiriyishu/4842">查看原文</a></div></div>
+</div>
+<div class="card">
+  <div class="card-meta">
+    <span class="channel-tag">@zaihuapd</span>
+    <span class="time-tag">23:56</span>
+  </div>
+  <div class="card-title"><a href="https://t.me/zaihuapd/44970)" target="_blank">✈️ **Telegram 13.2 支持聊天内运行 HTML 消息**</a></div>
+  <div class="card-summary"><p>Telegram 的 Android、iOS、macOS 客户端升至 13.2 版，Desktop 升至 7.4 版。开发者可用 HTML、CSS 和 JavaScript 制作互动消息，直接在聊天里运行，不必打开 Mini App，例如带触控和进度保存的小游戏。</p>
+<p>群组与机器人话题新增「侧边栏」布局，话题列表从屏幕右侧展开，该布局已在频道私聊和「收藏」中自动启用。</p>
+<p><a href="http://t.me/tginfo">Tginfo</a>  | <a href="https://play.google.com/store/apps/details?id=org.telegram.messenger&amp;hl=en_US">GooglePlay</a> | <a href="https://apps.apple.com/us/app/telegram-messenger/id686449807">App Store</a></p>
+<hr />
+<!-- 已过滤 1 条重复内容（@aigc1024: 1） --></div>
+  <div class="card-footer"><a class="source-link" href="https://t.me/zaihuapd/44970)" target="_blank">查看原文</a><div class="channel-links"><a href="http://t.me/zaihuanews">科技圈</a><a href="https://t.me/zaihuachat">茶馆</a><a href="http://t.me/ZaiHuabot">投稿</a><a href="https://t.me/zaihuapd/44970">查看原文</a></div></div>
+</div></div>
+
+    <div class="footer">TG 频道日报 · 自动生成</div>
+</div>
+
+</body>
+</html>
