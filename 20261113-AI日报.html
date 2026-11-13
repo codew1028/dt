@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>🤖 AI 日报</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background: #060814;
+    color: #e8eaf0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    min-height: 100vh;
+    display: flex; justify-content: center;
+}
+
+a { color: #9ecca0; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.main-wrap {
+    width: 100%;
+    max-width: 860px;
+    padding: 48px 40px 80px;
+}
+
+.hero {
+    padding-bottom: 36px;
+    margin-bottom: 36px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.hero-vol { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; color: #30d498; margin-bottom: 10px; }
+.hero-title { font-size: 38px; font-weight: 800; line-height: 1.15; color: #fff; margin-bottom: 10px; }
+.hero-date { font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 16px; }
+.hero-stats { display: flex; gap: 28px; }
+.stat-item { display: flex; flex-direction: column; gap: 2px; }
+.stat-num { font-size: 22px; font-weight: 700; color: #fff; }
+.stat-label { font-size: 11px; color: rgba(255,255,255,0.35); letter-spacing: 0.08em; text-transform: uppercase; }
+
+.section { margin-bottom: 40px; }
+.section-head {
+    display: flex; align-items: baseline; gap: 12px;
+    margin-bottom: 16px; padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.section-num { font-size: 28px; font-weight: 800; color: #30d498; line-height: 1; }
+.section-title { font-size: 18px; font-weight: 700; color: #fff; }
+.section-count {
+    margin-left: auto; font-size: 12px; font-weight: 600; color: #6ea0ff;
+    background: rgba(110,160,255,0.12); padding: 2px 10px; border-radius: 20px;
+}
+
+.card {
+    background: rgba(255,255,255,0.025);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 10px; padding: 16px 20px; margin-bottom: 10px;
+    transition: border-color 0.2s, background 0.2s;
+}
+.card:hover { border-color: rgba(48,212,152,0.25); background: rgba(48,212,152,0.03); }
+
+.card-title {
+    font-size: 15px; font-weight: 700; color: #fff;
+    margin-bottom: 8px; line-height: 1.5;
+}
+.card-title a { color: inherit; }
+.card-title a:hover { color: #30d498; text-decoration: none; }
+
+.card-summary {
+    font-size: 14px; color: rgba(255,255,255,0.55);
+    line-height: 1.8;
+}
+.card-summary p { margin-bottom: 6px; }
+.card-summary p:last-child { margin-bottom: 0; }
+
+.card-meta { margin-top: 10px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.source-tag {
+    font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.45);
+    background: rgba(255,255,255,0.06); padding: 2px 8px; border-radius: 4px;
+    white-space: nowrap;
+}
+.source-text { font-size: 11px; color: rgba(255,255,255,0.3); }
+
+pre { background: rgba(0,0,0,0.4); border-radius: 8px; padding: 16px; overflow-x: auto; font-size: 13px; }
+code { font-family: "SF Mono", Consolas, monospace; font-size: 0.88em; }
+p code { background: rgba(48,212,152,0.1); color: #7ed8a6; padding: 1px 6px; border-radius: 4px; }
+
+.footer {
+    text-align: center; font-size: 12px; color: rgba(255,255,255,0.2);
+    padding: 30px 0 20px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .main-wrap { padding: 28px 20px 60px; }
+    .hero-title { font-size: 26px; }
+}
+</style>
+</head>
+<body>
+
+<div class="main-wrap">
+    <div class="hero">
+        <div class="hero-vol">VOL.20261113</div>
+        <h1 class="hero-title">🤖 AI 日报</h1>
+        <div class="hero-date">2026年11月13日 · 星期五 · 5 个板块 · 19 条内容</div>
+        <div class="hero-stats">
+            <div class="stat-item"><span class="stat-num">19</span><span class="stat-label">条内容</span></div>
+            <div class="stat-item"><span class="stat-num">5</span><span class="stat-label">个板块</span></div>
+        </div>
+    </div>
+
+    <div class="section"><div class="section-head"><span class="section-num">01</span><span class="section-title">⚡ 精选快讯</span><span class="section-count">7 条</span></div>
+<div class="card">
+  <div class="card-title"><a href="https://x.com/drfeifei/status/2120942509786558671" target="_blank">World Labs 开放世界模型 Atlas，支持生成关键帧、视频片段和 3D Gaussian splats</a></div>
+  <div class="card-summary"></div>
+  <div class="card-meta"><span class="source-tag">X</span><span class="source-text">Fei-Fei Li (@drfeifei, World Labs)</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://claude.com/blog/claude-tag-guide-for-startups" target="_blank">Anthropic 发布 Claude Tag 创业公司使用指南</a></div>
+  <div class="card-summary"></div>
+  <div class="card-meta"><span class="source-tag">Claude</span><span class="source-text">Blog（网页）</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://epochai.substack.com/p/what-huaweis-horinger-data-center" target="_blank">Epoch AI 分析华为和林格尔数据中心，揭示中美算力差距</a></div>
+  <div class="card-summary"></div>
+  <div class="card-meta"><span class="source-tag">Epoch AI</span><span class="source-text">Gradient Updates（RSS）</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://alignment.openai.com/fuzzy-robustness/" target="_blank">OpenAI 用自动化红队训练提升 GPT-6 Astra 和 Sol 在高风险领域的模糊鲁棒性</a></div>
+  <div class="card-summary"></div>
+  <div class="card-meta"><span class="source-tag">OpenAI</span><span class="source-text">Alignment 研究博客（RSS）</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://www.figma.com/blog/how-3d-transforms-and-figmas-agent-brought-a-launch-video-to-life/" target="_blank">Figma 3D transforms 开放测试上线，品牌团队分享用它制作发布视频的过程</a></div>
+  <div class="card-summary"></div>
+  <div class="card-meta"><span class="source-tag">Figma AI / Agent / Make</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://x.com/bot/status/2120582957782200586" target="_blank">Grok Bot 1.0 发布，主打团队协作的 AI 智能体队友</a></div>
+  <div class="card-summary"></div>
+  <div class="card-meta"><span class="source-tag">X</span><span class="source-text">Grok Bot (@bot)</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://x.com/thinkymachines/status/2120982625582195011" target="_blank">Thinking Machines 开源 Inkling 2 Small 模型权重，采用 Apache 2.0 许可</a></div>
+  <div class="card-summary"></div>
+  <div class="card-meta"><span class="source-tag">X</span><span class="source-text">Thinking Machines (@thinkymachines)</span></div>
+</div></div><div class="section"><div class="section-head"><span class="section-num">02</span><span class="section-title">模型发布/更新</span><span class="section-count">1 条</span></div>
+<div class="card">
+  <div class="card-title"><a href="https://deepmind.google/blog/introducing-gemini-4-hydrogen/" target="_blank">Google DeepMind 发布 Gemini 4 Hydrogen</a></div>
+  <div class="card-summary"><p>Google DeepMind 发布 Gemini 4 Hydrogen，定位快速执行日常编码与智能体工作流，面向 Gemini API、AI Studio、Gemini 应用、Google Search 等全层级开放。</p></div>
+  <div class="card-meta"><span class="source-tag">Google DeepMind</span><span class="source-text">Blog（RSS）</span></div>
+</div></div><div class="section"><div class="section-head"><span class="section-num">03</span><span class="section-title">产品发布/更新</span><span class="section-count">4 条</span></div>
+<div class="card">
+  <div class="card-title"><a href="https://claude.com/blog/claude-meetings" target="_blank">Anthropic 推出 Claude Meetings，Claude 以参会者身份加入视频会议</a></div>
+  <div class="card-summary"><p>Anthropic 推出 Claude Meetings beta，Claude 可作为可见参会者加入视频通话，在会中回答提问、协作创建文档和白板，并生成笔记和行动项。</p></div>
+  <div class="card-meta"><span class="source-tag">Claude</span><span class="source-text">Blog（网页）</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://claude.com/blog/using-claude-opus-5-5-as-your-daily-driver-for-knowledge-work" target="_blank">Anthropic 建议把 Claude Opus 5.5 作为知识工作的日常主力模型</a></div>
+  <div class="card-summary"><p>Anthropic 宣布 Claude Opus 5.5 成为 Pro、Max、Ultra 和 Team 套餐的默认模型，并推荐将其作为研究、分析和写作等知识工作的日常主力。</p></div>
+  <div class="card-meta"><span class="source-tag">Claude</span><span class="source-text">Blog（网页）</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://x.com/joshwoodward/status/2120990821902397885" target="_blank">Google 智能眼镜开放预购，12 月 10 日发货</a></div>
+  <div class="card-summary"><p>Josh Woodward 宣布 Google 智能眼镜开启预购，用户可在 https://glasses.google 下单，12 月 10 日发货。首批用户可到部分 Warby Parker、Gentle Monster 和 Google 门店试戴体验。</p></div>
+  <div class="card-meta"><span class="source-tag">X</span><span class="source-text">Josh Woodward (@joshwoodward, Google Labs VP)</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://replit.com/blog/replit-agent-ads-commerce" target="_blank">Replit Agent 新增代购能力和 Google Ads 投放功能</a></div>
+  <div class="card-summary"><p>Replit 给 Replit Agent 新增两项能力：通过 Stripe Link 和 Visa 为企业代购物资，以及在 Replit 内直接创建和投放 Google Ads 覆盖 Search、YouTube 等渠道。</p></div>
+  <div class="card-meta"><span class="source-tag">Replit</span><span class="source-text">Blog（RSS）</span></div>
+</div></div><div class="section"><div class="section-head"><span class="section-num">04</span><span class="section-title">行业动态</span><span class="section-count">5 条</span></div>
+<div class="card">
+  <div class="card-title"><a href="https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition" target="_blank">NVIDIA 宣布 CEO 变动：Jensen Huang 辞任，CFO Colette Kress 出任临时 CEO</a></div>
+  <div class="card-summary"><p>NVIDIA 董事会宣布 Jensen Huang 即刻辞去总裁、CEO 及董事职务，CFO Colette Kress 被任命为临时 CEO，直至选定永久继任者，董事会已启动内外部人选遴选。</p></div>
+  <div class="card-meta"><span class="source-tag">NVIDIA</span><span class="source-text">Newsroom（RSS）</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://x.com/AnthropicAI/status/2120841731302154708" target="_blank">Anthropic 官宣首次公开募股（IPO）</a></div>
+  <div class="card-summary"><p>Anthropic 官方宣布启动首次公开募股（IPO），并公布入口 ipo.anthropic.com。Anthropic 已向 SEC 提交注册声明及招股说明书，证券在注册声明生效前不得出售，初步招股说明书可经高盛与摩根士丹利获取。</p></div>
+  <div class="card-meta"><span class="source-tag">X</span><span class="source-text">Anthropic (@AnthropicAI)</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://tomtunguz.com/the-impact-of-jensens-resignation/" target="_blank">Jensen Huang 辞任 Nvidia CEO 后对 AI 经济的五点影响分析</a></div>
+  <div class="card-summary"><p>Tomasz Tunguz 分析 Jensen Huang 即日辞任 Nvidia 总裁、CEO 及董事后对 AI 行业的影响，CFO Colette Kress 出任临时 CEO。</p></div>
+  <div class="card-meta"><span class="source-tag">Tomasz Tunguz 博客（VC 分析）</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://techcrunch.com/2026/11/12/democrats-launch-nvidia-investigation-write-scathing-letter-on-huangs-scheme-with-trump/" target="_blank">民主党对 Nvidia 对华芯片销售启动调查，致函质疑黄仁勋与特朗普的安排</a></div>
+  <div class="card-summary"><p>民主党议员 Rep. Richard Neal 和 Sen. Ron Wyden 就特朗普政府处理 Nvidia 对华芯片销售一事开启调查，并致函商务部长 Howard Lutnick 要求保存相关记录。</p></div>
+  <div class="card-meta"><span class="source-tag">TechCrunch</span><span class="source-text">AI（RSS）</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://x.com/rohanpaul_ai/status/2120994977421705296" target="_blank">Rohan Paul 类比乔布斯被逐，评 NVIDIA 放走黄仁勋</a></div>
+  <div class="card-summary"><p>Lex Fridman 发文称 NVIDIA 让黄仁勋离开对美国和人类都是巨大错误，堪比 Apple 当年解雇 Steve Jobs 但影响更大，并为其品格辩护、回应间谍传闻。Rohan Paul 转引并列举 Atari 1978（Nolan Bushnell）、Apple 1985（Steve Jobs）、Uber 2017（Travis Kalanick）、OpenAI 2023（Sam Altman），称每隔几年董事会就会重新认识到创始人本身就是战略。</p></div>
+  <div class="card-meta"><span class="source-tag">X</span><span class="source-text">Rohan Paul (@rohanpaul_ai)</span></div>
+</div></div><div class="section"><div class="section-head"><span class="section-num">05</span><span class="section-title">技巧与观点</span><span class="section-count">2 条</span></div>
+<div class="card">
+  <div class="card-title"><a href="https://openrouter.ai/blog/announcements/openrouter-in-8-languages/" target="_blank">OpenRouter 详解自纠错网站本地化流水线：GPT-6.1 Sol 翻译 7 种语言全站约 $460</a></div>
+  <div class="card-summary"><p>OpenRouter 上线简体中文、日语等 7 种语言 Beta 本地化，并详解配套的自纠错翻译流水线：GPT-6.1 Sol 翻译 16,918 条字符串，经代码检查、同模型校验和每日 AI 审查重试，最坏情况每条约 20 次模型调用。全站重译 7 种语言约 $460，约为 Smartling 机器翻译牌价的 6%，错误报告会转化为术语规则、风格注释或评测用例。</p></div>
+  <div class="card-meta"><span class="source-tag">OpenRouter</span><span class="source-text">Announcements（RSS）</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://openrouter.ai/blog/tutorials/ai-agent-infinite-loop/" target="_blank">OpenRouter 实测六模型并给出四层防护，解决 AI Agent 无限循环烧钱问题</a></div>
+  <div class="card-summary"><p>OpenRouter 发布教程，讲解 AI Agent 因工具反复失败而陷入无限循环的成因，并给出四层防护：doom-loop 检测、loopKey 参数归一化、stopWhen 步数与成本上限、API key 信用额度。</p></div>
+  <div class="card-meta"><span class="source-tag">OpenRouter</span><span class="source-text">Announcements（RSS）</span></div>
+</div></div>
+
+    <div class="footer">AI 日报 · 自动生成</div>
+</div>
+
+</body>
+</html>
