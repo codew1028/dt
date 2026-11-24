@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>🤖 AI 日报</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background: #060814;
+    color: #e8eaf0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    min-height: 100vh;
+    display: flex; justify-content: center;
+}
+
+a { color: #9ecca0; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.main-wrap {
+    width: 100%;
+    max-width: 860px;
+    padding: 48px 40px 80px;
+}
+
+.hero {
+    padding-bottom: 36px;
+    margin-bottom: 36px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.hero-vol { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; color: #30d498; margin-bottom: 10px; }
+.hero-title { font-size: 38px; font-weight: 800; line-height: 1.15; color: #fff; margin-bottom: 10px; }
+.hero-date { font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 16px; }
+.hero-stats { display: flex; gap: 28px; }
+.stat-item { display: flex; flex-direction: column; gap: 2px; }
+.stat-num { font-size: 22px; font-weight: 700; color: #fff; }
+.stat-label { font-size: 11px; color: rgba(255,255,255,0.35); letter-spacing: 0.08em; text-transform: uppercase; }
+
+.section { margin-bottom: 40px; }
+.section-head {
+    display: flex; align-items: baseline; gap: 12px;
+    margin-bottom: 16px; padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.section-num { font-size: 28px; font-weight: 800; color: #30d498; line-height: 1; }
+.section-title { font-size: 18px; font-weight: 700; color: #fff; }
+.section-count {
+    margin-left: auto; font-size: 12px; font-weight: 600; color: #6ea0ff;
+    background: rgba(110,160,255,0.12); padding: 2px 10px; border-radius: 20px;
+}
+
+.card {
+    background: rgba(255,255,255,0.025);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 10px; padding: 16px 20px; margin-bottom: 10px;
+    transition: border-color 0.2s, background 0.2s;
+}
+.card:hover { border-color: rgba(48,212,152,0.25); background: rgba(48,212,152,0.03); }
+
+.card-title {
+    font-size: 15px; font-weight: 700; color: #fff;
+    margin-bottom: 8px; line-height: 1.5;
+}
+.card-title a { color: inherit; }
+.card-title a:hover { color: #30d498; text-decoration: none; }
+
+.card-summary {
+    font-size: 14px; color: rgba(255,255,255,0.55);
+    line-height: 1.8;
+}
+.card-summary p { margin-bottom: 6px; }
+.card-summary p:last-child { margin-bottom: 0; }
+
+.card-meta { margin-top: 10px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.source-tag {
+    font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.45);
+    background: rgba(255,255,255,0.06); padding: 2px 8px; border-radius: 4px;
+    white-space: nowrap;
+}
+.source-text { font-size: 11px; color: rgba(255,255,255,0.3); }
+
+pre { background: rgba(0,0,0,0.4); border-radius: 8px; padding: 16px; overflow-x: auto; font-size: 13px; }
+code { font-family: "SF Mono", Consolas, monospace; font-size: 0.88em; }
+p code { background: rgba(48,212,152,0.1); color: #7ed8a6; padding: 1px 6px; border-radius: 4px; }
+
+.footer {
+    text-align: center; font-size: 12px; color: rgba(255,255,255,0.2);
+    padding: 30px 0 20px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .main-wrap { padding: 28px 20px 60px; }
+    .hero-title { font-size: 26px; }
+}
+</style>
+</head>
+<body>
+
+<div class="main-wrap">
+    <div class="hero">
+        <div class="hero-vol">VOL.20261124</div>
+        <h1 class="hero-title">🤖 AI 日报</h1>
+        <div class="hero-date">2026年11月24日 · 星期二 · 6 个板块 · 16 条内容</div>
+        <div class="hero-stats">
+            <div class="stat-item"><span class="stat-num">16</span><span class="stat-label">条内容</span></div>
+            <div class="stat-item"><span class="stat-num">6</span><span class="stat-label">个板块</span></div>
+        </div>
+    </div>
+
+    <div class="section"><div class="section-head"><span class="section-num">01</span><span class="section-title">⚡ 精选快讯</span><span class="section-count">4 条</span></div>
+<div class="card">
+  <div class="card-title"><a href="https://mp.weixin.qq.com/s/gwj0xLNHPfToQnQJN7IkMA" target="_blank">卡兹克分享 Claude、GPT、Gemini 三模型协同调度方法</a></div>
+  <div class="card-summary"></div>
+  <div class="card-meta"><span class="source-tag">公众号</span><span class="source-text">数字生命卡兹克</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://www.figma.com/blog/introducing-figma-agent-in-figjam-and-slides/" target="_blank">Figma agent 正式开放至 FigJam 和 Figma Slides</a></div>
+  <div class="card-summary"></div>
+  <div class="card-meta"><span class="source-tag">Figma AI / Agent / Make</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://www.aisi.gov.uk/blog/attack-policy-selection-can-make-monitor-evaluations-misleading" target="_blank">AISI 红队论文：攻击策略选择会让 LLM 监视器评估结果失真</a></div>
+  <div class="card-summary"></div>
+  <div class="card-meta"><span class="source-tag">英国 AI Security Institute</span><span class="source-text">Blog（网页）</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://www.wiz.io/blog/agentic-attacks-artex-offensive-ai-frameworks" target="_blank">Wiz Research 披露 ARTEX 智能体攻击框架的真实云入侵案例</a></div>
+  <div class="card-summary"></div>
+  <div class="card-meta"><span class="source-tag">Wiz</span><span class="source-text">Research（安全研究）</span></div>
+</div></div><div class="section"><div class="section-head"><span class="section-num">02</span><span class="section-title">模型发布/更新</span><span class="section-count">1 条</span></div>
+<div class="card">
+  <div class="card-title"><a href="https://mp.weixin.qq.com/s/D-IZr-QaT1or_chminK8IQ" target="_blank">智谱发布GLM-5.4：首个Loop Transformer架构旗舰模型开启泛Coding</a></div>
+  <div class="card-summary"><p>智谱发布旗舰模型GLM-5.4，为第一代采用Loop Transformer架构的模型，让28层共享权重循环执行两轮，在参数量不变下获得更深推理，智能水平达到2-3T级模型效果，并开启泛Coding能力。</p></div>
+  <div class="card-meta"><span class="source-tag">公众号</span><span class="source-text">智谱（GLM）</span></div>
+</div></div><div class="section"><div class="section-head"><span class="section-num">03</span><span class="section-title">产品发布/更新</span><span class="section-count">4 条</span></div>
+<div class="card">
+  <div class="card-title"><a href="https://claude.com/blog/introducing-claude-ship" target="_blank">Anthropic 推出 Claude Ship 测试版，自动完成 PR 审查、修复与审批</a></div>
+  <div class="card-summary"><p>Anthropic 发布 Claude Ship 测试版，由 Code Review（已正式可用）、PR Steward 和 Claude Approvals 两个 beta 智能体组成，可审查 PR、推送修复并按团队写进仓库的策略文件决定能否合并。</p></div>
+  <div class="card-meta"><span class="source-tag">Claude</span><span class="source-text">Blog（网页）</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://x.com/thsottiaux/status/2124998553856844186" target="_blank">ChatGPT 推出面向日常对话优化的 GPT-6.2 Sol</a></div>
+  <div class="card-summary"><p>ChatGPT 宣布在 Chat 标签页推出面向日常对话优化的 GPT-6.2 Sol，今日起面向 Plus、Pro、Business 和 Enterprise 用户开放。该版本更擅长处理复杂请求和在线信息查找，能识别照片中标签文字、路牌符号等细节，并更好地根据价格、位置等偏好缩小选项范围。转发者 Tibo 表示答案质量会有明显提升，年底前应用体验还会更快、更简洁。</p></div>
+  <div class="card-meta"><span class="source-tag">X</span><span class="source-text">Tibo (@thsottiaux)</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://blog.google/products-and-platforms/products/search/google-search-personal-intelligence-apps/" target="_blank">Google Search AI Mode 支持连接 Google Wallet、Drive 和 Gemini 应用</a></div>
+  <div class="card-summary"><p>Google 宣布在 Search 的 AI Mode 中扩展 Personal Intelligence，用户可选择安全连接 Google Wallet、Drive 和 Gemini 应用，Wallet 即日起开放，Drive 和 Gemini 应用将在未来数周跟进。</p></div>
+  <div class="card-meta"><span class="source-tag">Google Blog</span><span class="source-text">AI（RSS）</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://x.com/claudeai/status/2124970294523945328" target="_blank">Claude 推出插件，统一连接器与技能的接入方式</a></div>
+  <div class="card-summary"><p>Claude 官方宣布将连接器和技能合并为插件，提供统一的方式为 Claude 接入工具或教授新技能。插件已在 Free、Pro、Max 和 Ultra 套餐上线，Team 和 Enterprise 即将支持，用户可在 https://claude.ai/plugins 浏览 10,000 多个插件。</p></div>
+  <div class="card-meta"><span class="source-tag">X</span><span class="source-text">Claude (@claudeai)</span></div>
+</div></div><div class="section"><div class="section-head"><span class="section-num">04</span><span class="section-title">行业动态</span><span class="section-count">4 条</span></div>
+<div class="card">
+  <div class="card-title"><a href="https://x.com/thexpin/status/2124866686025400819" target="_blank">NVIDIA 宣布黄仁勋复任总裁兼 CEO 并重回董事会</a></div>
+  <div class="card-summary"><p>NVIDIA 于 11 月 23 日宣布黄仁勋即刻复任总裁、CEO 及董事会成员，董事会一致投票通过，临时 CEO Colette Kress 继续担任 CFO。复职决定参考了美国政府高层意见，董事会认为其不构成国家安全风险，此前因黄仁勋成为外国情报行动目标而启动的独立董事调查将继续进行，董事会另设国家安全与出口管制委员会并招聘首席合规官。</p></div>
+  <div class="card-meta"><span class="source-tag">X</span><span class="source-text">X.PIN (@thexpin)</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://techcrunch.com/2026/11/23/trump-endorses-jensen-huangs-return-to-nvidia-says-us-has-no-evidence-of-wrongdoing/" target="_blank">Trump 力挺黄仁勋回归 Nvidia，称美国政府无其不当行为的证据</a></div>
+  <div class="card-summary"><p>Trump 在 Truth Social 上表态支持 Nvidia 董事会复职黄仁勋为 CEO 兼总裁，称美国政府没有理由认为其回归构成国家安全风险。他称司法部长 Todd Blanche 已确认政府没有黄仁勋违法行为的证据，但 Blanche 本人尚未正式声明。</p></div>
+  <div class="card-meta"><span class="source-tag">TechCrunch</span><span class="source-text">AI（RSS）</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://www.theverge.com/ai-artificial-intelligence/1040255/x-grok-ai-deepfakes-oregon-virginia-lawsuit" target="_blank">俄勒冈州和弗吉尼亚州起诉 SpaceX 指控 Grok 生成色情深伪防护不足</a></div>
+  <div class="card-summary"><p>俄勒冈州和弗吉尼亚州总检察长周一分别起诉 SpaceX，指控其忽视行业标准防护并虚假宣传 X 平台和 Grok AI 的安全性，两案均寻求经济赔偿。诉讼核心指向 Grok Imagine：xAI 于 2025 年 8 月为该工具推出生成色情内容的 spicy 模式，2026 年 1 月又允许 X 用户无需同意即可编辑任意图片，导致非自愿色情深伪泛滥。</p></div>
+  <div class="card-meta"><span class="source-tag">The Verge</span><span class="source-text">AI（RSS）</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://techcrunch.com/2026/11/22/how-notable-capital-gic-and-baillie-gifford-bet-big-on-anthropic-before-its-ipo/" target="_blank">Anthropic IPO 前三家机构如何重注押注</a></div>
+  <div class="card-summary"><p>TechCrunch 报道 Notable Capital、GIC 和 Baillie Gifford 在 Anthropic IPO 前的重仓投资逻辑。</p></div>
+  <div class="card-meta"><span class="source-tag">TechCrunch</span><span class="source-text">AI（RSS）</span></div>
+</div></div><div class="section"><div class="section-head"><span class="section-num">05</span><span class="section-title">论文研究</span><span class="section-count">2 条</span></div>
+<div class="card">
+  <div class="card-title"><a href="https://www.anthropic.com/research/working-with-ai" target="_blank">Anthropic 访谈 58 家企业客户：AI 采用的价值、雇佣影响与组织重组</a></div>
+  <div class="card-summary"><p>Anthropic 研究团队对 58 家企业客户进行 66 次面对面访谈，分析企业采用 AI 的方式、瓶颈与组织变化。研究发现多数 AI 应用通过扩大产出而非削减成本创造价值；直接裁员案例很少，但约三分之二的公司因 AI 减少招聘，九家削减外包和离岸承包商；高价值应用通常需要更深度的组织重组，如拓宽岗位职责、把员工转向 AI 无法完成的瓶颈任务，以及为非技术员工建设数据和基础设施支持。</p></div>
+  <div class="card-meta"><span class="source-tag">Anthropic</span><span class="source-text">Research（发表成果 · 网页）</span></div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://deepmind.google/blog/finding-faster-quantum-algorithms-with-agents-and-formal-verification/" target="_blank">Google DeepMind 用 Gemini 4 智能体团队与 Lean 形式化验证改进量子算法</a></div>
+  <div class="card-summary"><p>Google DeepMind 发布新论文，用多个 Gemini 4 智能体团队结合 Lean 形式化定理证明改进量子算法，生成经数学验证的高效量子电路，并在 GitHub 开源 Lean 库、问题规格和验证解法。</p></div>
+  <div class="card-meta"><span class="source-tag">Google DeepMind</span><span class="source-text">Blog（RSS）</span></div>
+</div></div><div class="section"><div class="section-head"><span class="section-num">06</span><span class="section-title">技巧与观点</span><span class="section-count">1 条</span></div>
+<div class="card">
+  <div class="card-title"><a href="https://www.a16z.news/p/welcome-to-the-b2a-economy-how-agents" target="_blank">a16z 实测 11,307 次 Agent 购物流程，总结企业赢得 B2A 经济的五条方法</a></div>
+  <div class="card-summary"><p>a16z 联合 The Prompting Company 测试 Grok Bot、Muse、Instinct、Dots 等智能体在 1,270 条提示词、11,307 次完整运行中的购物表现，并比对 YipitData 消费数据。</p></div>
+  <div class="card-meta"><span class="source-tag">a16z</span><span class="source-text">News（RSS）</span></div>
+</div></div>
+
+    <div class="footer">AI 日报 · 自动生成</div>
+</div>
+
+</body>
+</html>
