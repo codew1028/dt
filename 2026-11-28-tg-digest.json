@@ -1,0 +1,4619 @@
+{
+  "date": "2026-11-28",
+  "kind": "tg",
+  "title": "TG 频道日报",
+  "generated_at": "2026-11-27T17:04:35Z",
+  "media_summary": {
+    "image_count": 49,
+    "video_count": 3,
+    "published_video_count": 2,
+    "poster_only_video_count": 1,
+    "failed_count": 0
+  },
+  "sections": [
+    {
+      "title": "TG 频道精选",
+      "items": [
+        {
+          "id": "meiriyishu-5339",
+          "title": "【无水印】不用设计师！ChatGPT 3步打造AI品牌身份，几分钟从idea到专业视觉品牌全搞定！【原创双语字幕】  百",
+          "summary": "【无水印】不用设计师！ChatGPT 3步打造AI品牌身份，几分钟从idea到专业视觉品牌全搞定！【原创双语字幕】\n\n百度网盘：https://pan.baidu.com/s/1WrxBVRj5zV_CPUDroEoeCA?pwd=4b5c\n提取码：4b5c\n\nhttps://fuyezy.com/58141.html",
+          "channel": "@meiriyishu",
+          "channel_name": "优质「资源」收藏夹",
+          "channel_url": "https://t.me/meiriyishu",
+          "time": "00:10",
+          "url": "https://t.me/meiriyishu/5339",
+          "message_id": "5339",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-11-28/meiriyishu-5339-1-thumb.webp",
+              "url": "assets/tg-media/2026-11-28/meiriyishu-5339-1.webp",
+              "width": 800,
+              "height": 448,
+              "size_bytes": 73158,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "aigc1024-27486",
+          "title": "Leopold Aschenbrenner，也就是那位25岁掌管百亿美元对冲基金Situational Awarenes",
+          "summary": "Leopold Aschenbrenner，也就是那位25岁掌管百亿美元对冲基金Situational Awareness的负责人，最近接受了Stephen Witt的采访，后者是英伟达那本传记《思考机器》的作者，这篇文章发表在了纽约客上，摘录一些很有意思的点：\n1、Leopold从2024年末投资到今年上半年，最高峰回报率超过1000%，但是下半年跌去了三分之二，即使如此，这只基金至今为止的回报率仍是正的。\n2、大起大落间，Leopold显露出了超乎常人的韧性。今年7月，Situational Awareness创下了人类有对冲基金历史以来最大的单月亏损，亏了300亿美元，但在第二天他还在婚礼前举办了一场人工智能主的小型研讨会，宾客们在会上快速问答、分组讨论，他说这是他和朋友们最大的爱好。现在他对自己相信的趋势依然十分有信心，觉得只是事态发展比他预想的要快。\n3、Leopold到底有多相信自己的观点呢？他从2024年就买入了电力、内存等AI产业链上的卡脖子环节标的，并且做空了软件，即使在25年底Deepseek引发市场恐慌的时候，他依然相信更低的训练成本，会增加产业对数据中心的需求，并趁着低点大局买入，甚至是加杠杆买入，到了今年年中，这支管理规模为400亿美元的基金，已经靠加杠杆实际管理了1000亿美元的资产。\n对冲基金一般会做多和做空搭配，降低波动率，但Leopold的做法是加杠杆做多AI标的，做空AI利空的软件标的，完全不对冲；这最大化了收益，也最大化了波动，今年中Situational Awareness的持仓成了做空者的目标，最终不得不以低于市场价10%的价格把手上大部分标的出售给对冲基金Citadel。\n4、即使是在被追缴保证金，接近破产的情况下，Leopold也没有出售基金持有的Anthropic股份。他在2025年初投资了Anthropic，那时候Anthropic看起来还没能追上OpenAI，但Leopold当时觉得Anthropic拥有更多的人才，成本也只有OpenAI的五分之一，这些消息很有可能来自他所在的小圈子，他的女友当时也在Anthropic工作。于是在Anthropic估值只有600亿美元的时候，Leopold投了进去，接着Claude Code轰炸了技术圈，估值一年后达到万亿美元。\n5、Leopold的小圈子简直就是极致缩略的AI权力中心。他和Dylan Patel（SemiAnalysis创始人）、Dwarkesh Patel（邀请了Altman、Dario等一众AI大佬做客自己的播客）共用一个办公室，这三个人写的报道、做的播客、公开的13F持仓都会直接影响行业股价，Leopold说Dwarkesh Patel有段时间做的播客很烂，就是因为和自己的交流不多。\n6、尽管基金跌了三分之二，Leopold依然相信2027年，人工智能的发展速度将比我们迄今为止所见的任何事物快两到五倍，明年将是现代生活中一切还保持些许正常状态的最后一年。\n他觉得人工智能时代，人力资本的价值将会像一条指数曲线上升，直到到达一个拐点，之后便直线下降。即使是Anthropic现在赚得盆满钵满的研究员们，也正在迎来他们的暮年，因为两三年后，这些人中的大多数都会没用了。\n7、看完这篇文章，我想到最近看的《技术革命与金融资本》，当一个新的技术革命到来的时候，金融资本出于巨大的回报预期，会支持新技术的发展，金融此时是创新的催化剂；但是旧经济越成功，对旧范式的保护就越强，生产关系的更迭永远慢于生产力，在这个关键的转折点上，收入如何重新分配、社会制度如何重新改造，决定了生产力能否加速渗透到社会中。\n今天美国社会面临着巨大的数据中心抗议、AI抗议，民众痛恨的不是新技术，而是新技术让财富更加集中，社会更加不公，这种制度惯性、金融流动和技术探索之间的牵制关系，决定了泡沫就是会不断产生、破灭又再度产生。\nLeopold如此激进的相信AI能给人类社会带来的改变，大概是觉得自己必然也能穿越这一波波周期吧。\n@aigc1024",
+          "channel": "@aigc1024",
+          "channel_name": "AI探索指南",
+          "channel_url": "https://t.me/aigc1024",
+          "time": "00:11",
+          "url": "https://t.me/aigc1024/27486",
+          "message_id": "27486",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": []
+        },
+        {
+          "id": "meiriyishu-5340",
+          "title": "【无水印】7天FDE行业系统大课+2027年FDE峰会文档，2026年AI新趋势洞察，FDE的7大商业模式拆解，从商业模",
+          "summary": "【无水印】7天FDE行业系统大课+2027年FDE峰会文档，2026年AI新趋势洞察，FDE的7大商业模式拆解，从商业模式拆解，看懂FDE如何賺钱（2026年11月）\n\n百度网盘：https://pan.baidu.com/s/1uL4qo23xvVE99J-sWDfBLw?pwd=8e79\n提取码：8e79\n\nhttps://fuyezy.com/58144.html",
+          "channel": "@meiriyishu",
+          "channel_name": "优质「资源」收藏夹",
+          "channel_url": "https://t.me/meiriyishu",
+          "time": "01:10",
+          "url": "https://t.me/meiriyishu/5340",
+          "message_id": "5340",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-11-28/meiriyishu-5340-1-thumb.webp",
+              "url": "assets/tg-media/2026-11-28/meiriyishu-5340-1.webp",
+              "width": 718,
+              "height": 708,
+              "size_bytes": 45984,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "yunying23-12935",
+          "title": "发现一个比做跨境电商还骚的生意。 一个在佛山做了8年家具设计的老哥，原来月薪13000，天天被老板催着改图，客户改个沙发",
+          "summary": "发现一个比做跨境电商还骚的生意。\n一个在佛山做了8年家具设计的老哥，原来月薪13000，天天被老板催着改图，客户改个沙发颜色都能折腾他半天。\n后来公司裁员，他索性不找工作了，专门给澳洲的房产中介做虚拟软装。\n什么叫虚拟软装？\n澳洲中介卖房子，空荡荡的房间拍出来不好看，以前得租家具、找摄影师，一套下来花不少钱。\n现在把空房照片发过来，他用AI生成家具布置效果，再人工修图，按照当地审美调整。\n一张图收25美元，一套房子收150美元左右。\n中介拿着照片去做房源推广，并按要求注明是虚拟布置。\n他最喜欢的客户不是大公司，而是那些手里长期有房源的小中介。\n一个中介每个月给他十几套房子，维护好几个客户，月营收就有机会做到四五千美元。\n最搞笑的是，这些活用到的家具审美、空间布局、修图技术，都是他以前在佛山上班时学会的。\n技术没变，电脑没变，甚至连工作地点都没变。\n唯一变的是给他付钱的人。\n以前国内客户为了300块设计费跟他扯皮半天，现在海外客户更关心的是明天能不能交图。\n当然，获客、返工、审美差异都得自己解决。\n这门生意值得琢磨的地方在于：\n中国有大量被低估的专业人才，而海外有大量不值得专门养一个全职员工的零碎需求。\n把这两样东西接起来，就是生意。\n以前总觉得佛山家具产业最大的优势是家具便宜。\n现在才发现，佛山懂家具的人，也可以做服务出口。\n\n\n[出海赚美金](https://t.me/yunying23)｜[优质资源](https://t.me/meiriyishu)｜[优质信息](https://t.me/chunse1024/8467)｜[内幕消息](https://t.me/inside1024)",
+          "channel": "@yunying23",
+          "channel_name": "出海🚢&自媒体运营秘籍",
+          "channel_url": "https://t.me/yunying23",
+          "time": "01:16",
+          "url": "https://t.me/yunying23/12935",
+          "message_id": "12935",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": []
+        },
+        {
+          "id": "meiriyishu-5341",
+          "title": "某公众号最新付费文章：成本2元卖170元，ai造品（微创新）！  百度网盘：https://pan.baidu.com/",
+          "summary": "某公众号最新付费文章：成本2元卖170元，ai造品（微创新）！\n\n百度网盘：https://pan.baidu.com/s/1RwrYlZmL8kzye9NuKCMqYw?pwd=3e95\n提取码：3e95\n\nhttps://fuyezy.com/58146.html",
+          "channel": "@meiriyishu",
+          "channel_name": "优质「资源」收藏夹",
+          "channel_url": "https://t.me/meiriyishu",
+          "time": "02:10",
+          "url": "https://t.me/meiriyishu/5341",
+          "message_id": "5341",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-11-28/meiriyishu-5341-1-thumb.webp",
+              "url": "assets/tg-media/2026-11-28/meiriyishu-5341-1.webp",
+              "width": 972,
+              "height": 541,
+              "size_bytes": 76582,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "inside1024-91423",
+          "title": "收音机 收音机是一种“低技术”却极具价值的媒介。首先它免流量，无需依托网络、不消耗手机套餐，开机就能出声，在郊外、工地、",
+          "summary": "收音机\n收音机是一种“低技术”却极具价值的媒介。首先它免流量，无需依托网络、不消耗手机套餐，开机就能出声，在郊外、工地、偏远山乡都能稳定接收信号，获取信息完全零成本。其次它不伤视力，纯靠听觉接收内容，双眼全程处于放松状态，对长期翻看图纸、紧盯屏幕的工程技术人员格外友好，睡前、通勤时闭着眼收听也不会累眼。\n更关键的是它能隔绝快餐文化。广播节目按顺序线性播出、时长固定，没法快进、也不能调倍速，推着你完整听完一段深度报道或是一部长篇连播，思绪自然而然慢下来、沉进去。这种“没法跳过”的节奏，刚好对冲短视频带来的碎片化信息冲刷，让涣散的注意力重新变得完整。\n一节电池、一台机身，成本低廉、使用门槛极低，却同时守住了流量、视力与专注力三道防线，收音机值得被更多人重新留意。\n\n[内幕消息](https://t.me/inside1024)｜[优质资源](https://t.me/meiriyishu) | [优质信息](https://t.me/chunse1024/8467)",
+          "channel": "@inside1024",
+          "channel_name": "你不知道的内幕消息🅥",
+          "channel_url": "https://t.me/inside1024",
+          "time": "03:07",
+          "url": "https://t.me/inside1024/91423",
+          "message_id": "91423",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-11-28/inside1024-91423-1-thumb.webp",
+              "url": "assets/tg-media/2026-11-28/inside1024-91423-1.webp",
+              "width": 1280,
+              "height": 997,
+              "size_bytes": 176284,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "meiriyishu-5342",
+          "title": "小红书超级个体进化实战营：百万粉丝博主亲授，3天掌握账号起号、内容运营与店铺变现，附赠40个行业240个选题库  百度网",
+          "summary": "小红书超级个体进化实战营：百万粉丝博主亲授，3天掌握账号起号、内容运营与店铺变现，附赠40个行业240个选题库\n\n百度网盘：https://pan.baidu.com/s/1jyph0_c39SXm_xG9R1C28w?pwd=be11\n提取码：be11\n\nhttps://fuyezy.com/58148.html",
+          "channel": "@meiriyishu",
+          "channel_name": "优质「资源」收藏夹",
+          "channel_url": "https://t.me/meiriyishu",
+          "time": "03:10",
+          "url": "https://t.me/meiriyishu/5342",
+          "message_id": "5342",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-11-28/meiriyishu-5342-1-thumb.webp",
+              "url": "assets/tg-media/2026-11-28/meiriyishu-5342-1.webp",
+              "width": 997,
+              "height": 554,
+              "size_bytes": 79298,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "yunying23-12936",
+          "title": "如今再听曹德旺的这段真是令人深思！ 他表示经常往来美国，发现美国的明星不带货，因为明星属于高收入人群，不去抢底层人群的饭",
+          "summary": "如今再听曹德旺的这段真是令人深思！\n他表示经常往来美国，发现美国的明星不带货，因为明星属于高收入人群，不去抢底层人群的饭碗，让底层人也能有口饭吃；而中国就不一样了，大小明星、经济学家、企业家，全都带。\n这番被很多文章反复转引，措辞各有出入，核心意思一直没变。高收入的人要是把影响力用到每个角落，普通人想靠一点小生意过日子，路就会越走越窄。\n说白了，当手里握着巨大影响力的人纷纷挤进直播间卖货时，最受伤的往往是那些没背景、没流量、只能靠小生意糊口的普通人。\n曹德旺老爷子那句“美国明星不带货，中国全都带货”的感慨，戳中的正是这个让人心里不是滋味的社会痛点。\n这一出，网上炸了锅，有人拍手叫好，觉得老爷子说出了大实；也有人撇嘴，认为这是站着说不腰疼。\n但抛开情绪，这事儿背后藏着一本复杂的“商业生态账”，不能简单地说谁对谁错。\n先看美国那边，好莱坞的顶级明星，靠电影分成、音乐版权、品牌代言，据说轻轻松松就能年入几亿美金。\n对他们来说，亲自下场卖货效率太低，也显得不体面，他们的价值更多绑在作品和长期形象上，而不是一两场直播的销量。\n据说欧美明星更倾向做品牌化的深度绑定，比如推广个人品牌或者投资入股，而不是直接叫卖，所以明星不参与零售竞争，更多是市场分工的结果，未必全是“境界高”。\n再反观我们这边，直播电商这几年像坐了火箭一样，门槛看着不高，时间灵活，确实给不少普通人开了条谋生新路。\n但热闹背后是残酷的内卷，据说绝大部分主播一个月挣不到5000块，平台算法又把流量都喂给大V和明星，普通主播再努力，可能连点曝光都捞不着。\n据说有位卖家乡特产的姑娘，一场直播也就卖几千块，可自从某明星带了同款，订单瞬间掉了九成，这就是所谓的“降维打击”，小商家根本没法玩。\n不过，把这事儿全怪明星头上也不太公平，大佬带货挤压小生意确实存在，但根源更复杂。\n平台流量怎么分配？大家一起拼低价，利润空间是不是被压没了？货源集中在少数大厂手里，中小主播拿货价高没优势，只盯着明星一点争论，就像只看到大象一条腿，却忽略了整个丛林。\n我感觉曹德旺批评的核心，不是带货本身，而是公众人物影响力的边界失控，明星拍戏出作品，经济学家给建议，企业家带动就业，这些才是社会期望他们干的事。\n当所有人都盯着带货的短期利润，把公众给的信任变成收割工具，确实暴露了“一切皆可变现”的问。\n当然，也不是所有名人都沦陷了，有些明星连麦贫困地区的果农，帮老乡实打实增收，这说明带货是中性工具，关键看怎么用。\n说到底，一个健康的市场，不该是谁名气大谁通吃，高收入群体去开拓增量、创造新价值，远比挤进存量市场与民争利有意义得多。\n\n\n[出海赚美金](https://t.me/yunying23)｜[优质资源](https://t.me/meiriyishu)｜[优质信息](https://t.me/chunse1024/8467)｜[内幕消息](https://t.me/inside1024)",
+          "channel": "@yunying23",
+          "channel_name": "出海🚢&自媒体运营秘籍",
+          "channel_url": "https://t.me/yunying23",
+          "time": "03:21",
+          "url": "https://t.me/yunying23/12936",
+          "message_id": "12936",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": []
+        },
+        {
+          "id": "inside1024-91430",
+          "title": "建议大家普通人每个人都做一个运营公式，运营公式的本质是盈利为主导。 一，并不是以规模大小来衡量公司的利益，可持续发展并且",
+          "summary": "建议大家普通人每个人都做一个运营公式，运营公式的本质是盈利为主导。\n一，并不是以规模大小来衡量公司的利益，可持续发展并且能够盈利。就算一个人、两个人，也能够把一家公司的利润，就是公司的规模利润，做的比那些规模大的公司来比拼。\n二，\n1. 以客户为主导。先做客户，后续再做产品，或者你只需要做一个半成品。但客户一定要先有半成品，只要满足及格线60分，就马上推出来。你可以把价格收低一点，对吧？你的产品值60分，就尽量按60分的价格先卖给用户。再随着用户的反馈和对产品的认知提升，慢慢迭代优化产品。客户是我们做生意的根本，有了客户，根本不愁卖不出去。\n2. 一定要先去干，不要想那么多。直接去干才有。你想得太多其实没用，因为想得多不如直接去干；在干的过程中得到反馈、改正，验证、修改、学习。\n一定要有门槛。我们做生意必须有门槛，不要什么客户都要，一定要有精准的客户。自然，流量不等于收益。\n\n[内幕消息](https://t.me/inside1024)｜[优质资源](https://t.me/meiriyishu) | [优质信息](https://t.me/chunse1024/8467)",
+          "channel": "@inside1024",
+          "channel_name": "你不知道的内幕消息🅥",
+          "channel_url": "https://t.me/inside1024",
+          "time": "03:58",
+          "url": "https://t.me/inside1024/91430",
+          "message_id": "91430",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-11-28/inside1024-91430-1-thumb.webp",
+              "url": "assets/tg-media/2026-11-28/inside1024-91430-1.webp",
+              "width": 1280,
+              "height": 1707,
+              "size_bytes": 270510,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "meiriyishu-5343",
+          "title": "给AI拿好的呀！1,499张MJ脸模参照图+1,439张多视角姿势图+1,407套纯服装参考图，6G素材整理好了  百度",
+          "summary": "给AI拿好的呀！1,499张MJ脸模参照图+1,439张多视角姿势图+1,407套纯服装参考图，6G素材整理好了\n\n百度网盘：https://pan.baidu.com/s/1OcDkkoR4l4JRuxGCD1p8Qg?pwd=588a\n提取码：588a\n\nhttps://fuyezy.com/58152.html",
+          "channel": "@meiriyishu",
+          "channel_name": "优质「资源」收藏夹",
+          "channel_url": "https://t.me/meiriyishu",
+          "time": "04:10",
+          "url": "https://t.me/meiriyishu/5343",
+          "message_id": "5343",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-11-28/meiriyishu-5343-1-thumb.webp",
+              "url": "assets/tg-media/2026-11-28/meiriyishu-5343-1.webp",
+              "width": 1013,
+              "height": 599,
+              "size_bytes": 42806,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "inside1024-91432",
+          "title": "小红书关键词 吊带睡衣 朋友圈不敢发 牛仔短裤 完美身材 夏季穿搭 腰臀比 人像摄影 微胖穿搭 肉腿 拍照姿势 海边拍照",
+          "summary": "小红书关键词\n吊带睡衣\n朋友圈不敢发\n牛仔短裤\n完美身材\n夏季穿搭\n腰臀比\n人像摄影\n微胖穿搭\n肉腿\n拍照姿势\n海边拍照\n无不良引导\n审核员你好\n海边正常穿搭\n\n[内幕消息](https://t.me/inside1024)｜[优质资源](https://t.me/meiriyishu) | [优质信息](https://t.me/chunse1024/8467)",
+          "channel": "@inside1024",
+          "channel_name": "你不知道的内幕消息🅥",
+          "channel_url": "https://t.me/inside1024",
+          "time": "04:10",
+          "url": "https://t.me/inside1024/91432",
+          "message_id": "91432",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-11-28/inside1024-91432-1-thumb.webp",
+              "url": "assets/tg-media/2026-11-28/inside1024-91432-1.webp",
+              "width": 1280,
+              "height": 1792,
+              "size_bytes": 221142,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "inside1024-91439",
+          "title": "普通人凭什么拥有千万资产？ 让你去舔大哥，你嫌丢人；让你练练酒桌上的本事、把说漂亮点，你拉不下这个脸；让你学着送送礼、处",
+          "summary": "普通人凭什么拥有千万资产？\n让你去舔大哥，你嫌丢人；让你练练酒桌上的本事、把说漂亮点，你拉不下这个脸；让你学着送送礼、处处人情世故，你扭头就走。\n行，那就让你去做流量、搞运营，一件东西卖出一万件、十万件，你又做不来；再不行，让你去学门手艺，芯片也好、编程也好、人工智能也好，你又说学不会、学不深、脑子跟不上。\n那你说说，你没钱、没权、没背景，自己还不肯拼了命去想办法，天天只会念叨阶层固化、内卷太重、躺平、不结婚、不生孩子、不买房，自己学历不够、眼界也不够，别人走一步能看三步、想五步，你早上起个床都要磨磨蹭蹭，脑子里空空如也、想法又懒，你还想身价过千万？你凭什么，你哪来的底气？\n我就是那个普通人[允悲]\n\n[内幕消息](https://t.me/inside1024)｜[优质资源](https://t.me/meiriyishu) | [优质信息](https://t.me/chunse1024/8467)",
+          "channel": "@inside1024",
+          "channel_name": "你不知道的内幕消息🅥",
+          "channel_url": "https://t.me/inside1024",
+          "time": "05:00",
+          "url": "https://t.me/inside1024/91439",
+          "message_id": "91439",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-11-28/inside1024-91439-1-thumb.webp",
+              "url": "assets/tg-media/2026-11-28/inside1024-91439-1.webp",
+              "width": 1280,
+              "height": 1919,
+              "size_bytes": 260060,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "aigc1024-27488",
+          "title": "有时候还是得刷刷抖音和小红书，总是会有各种新奇的 AI 玩法 比如这哥们儿用 AI 做的这种像素动画风格的 MV，一个月",
+          "summary": "有时候还是得刷刷抖音和小红书，总是会有各种新奇的 AI 玩法\n比如这哥们儿用 AI 做的这种像素动画风格的 MV，一个月涨了 10 万粉\n从 10 月 25 号开始发的\n@aigc1024",
+          "channel": "@aigc1024",
+          "channel_name": "AI探索指南",
+          "channel_url": "https://t.me/aigc1024",
+          "time": "05:21",
+          "url": "https://t.me/aigc1024/27488",
+          "message_id": "27488",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-11-28/aigc1024-27488-1-thumb.webp",
+              "url": "assets/tg-media/2026-11-28/aigc1024-27488-1.webp",
+              "width": 943,
+              "height": 2048,
+              "size_bytes": 142358,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "yunying23-12939",
+          "title": "我有一个暴论：未来几年，中国普通人最好的搞钱出路，就是盯死字节跳动。 字节往哪里砸钱，你就往哪里找饭吃。 当年字节做今日",
+          "summary": "我有一个暴论：未来几年，中国普通人最好的搞钱出路，就是盯死字节跳动。 字节往哪里砸钱，你就往哪里找饭吃。\n当年字节做今日头条，一批没学历、没背景的人靠写文章赚到了第一桶金。 后来字节做抖音，一批县城里的小商贩、家庭主妇，靠短视频和直播干到了年入百万。\n再后来是 TikTok、红果短剧、豆包、即梦、扣子…… 跨境电商、短剧出海、AI内容生产、企业智能体，每一条业务线都在创造新的赚钱机会。\n你不需要进字节上班，甚至不需要懂代码。 你只需要研究它在补贴什么、扶持什么、缺什么样的内容和服务，然后提前把摊子摆好。\n\n\n[出海赚美金](https://t.me/yunying23)｜[优质资源](https://t.me/meiriyishu)｜[优质信息](https://t.me/chunse1024/8467)｜[内幕消息](https://t.me/inside1024)",
+          "channel": "@yunying23",
+          "channel_name": "出海🚢&自媒体运营秘籍",
+          "channel_url": "https://t.me/yunying23",
+          "time": "05:47",
+          "url": "https://t.me/yunying23/12939",
+          "message_id": "12939",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": []
+        },
+        {
+          "id": "inside1024-91449",
+          "title": "只要不出什么变故，用不了多久，就会有人开始卖早点、卖小吃、摆摊。这些生意全部都躲不开新一轮洗牌。记住，现在很多迹象其实已",
+          "summary": "只要不出什么变故，用不了多久，就会有人开始卖早点、卖小吃、摆摊。这些生意全部都躲不开新一轮洗牌。记住，现在很多迹象其实已经有了。\n未来，早点、小吃、摆摊的生意会慢慢好起来，而网上的热度会慢慢下滑。我为什么这么判断？因为世界和历史本来就是一个轮回。等那边过了，另外一边就会长起来，有起有落，这就是轮回。可能10年后，实体经济会再一次火起来。\n更多人其实厌倦了网络上的虚虚实实，更愿意脚踏实地出门，吃一趟外卖，吃一趟早餐，体验一下人间的情感和细腻变化，而不是整天在网上跟AI聊那些虚的、没的、虚头巴脑的东西。\n所以我判断，未来的实体经济会越来越好。包括现在，你看，我们整个国家已经出台了很多政策扶持实体经济。\n只要不出大的变故，估计用不了多久就会开始，卖早点的、做小吃生意的、摆夜宵摊子的，全都躲不过行业新一轮洗牌\n\n[内幕消息](https://t.me/inside1024)｜[优质资源](https://t.me/meiriyishu) | [优质信息](https://t.me/chunse1024/8467)",
+          "channel": "@inside1024",
+          "channel_name": "你不知道的内幕消息🅥",
+          "channel_url": "https://t.me/inside1024",
+          "time": "06:01",
+          "url": "https://t.me/inside1024/91449",
+          "message_id": "91449",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-11-28/inside1024-91449-1-thumb.webp",
+              "url": "assets/tg-media/2026-11-28/inside1024-91449-1.webp",
+              "width": 1280,
+              "height": 1920,
+              "size_bytes": 98586,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "inside1024-91451",
+          "title": "所谓的傻逼只有一种，即一开口便是民族，国家和政府的安危，盛衰和荣誉。但对于自己的基本权利，自由和尊严，却从不思考，对于身",
+          "summary": "所谓的傻逼只有一种，即一开口便是民族，国家和政府的安危，盛衰和荣誉。但对于自己的基本权利，自由和尊严，却从不思考，对于身边的各种不公，不义，无数无辜无助和无告的弱者，却漠不关心！当政府控制信息并煽动仇恨时，它不是在保卫国家，而是在保卫自己的权力。回家打开灯，电是国企垄断；洗个澡，才水是国企垄断；炒个菜，煤气是国企垄断；打开电脑，宽带是国企垄断；打开电视，电视台是国有垄断；打个电，通信是国企垄断；看看存折，银行是国企垄断；网上订票民航和铁路是国企垄断；死个人，火葬场也是国企垄断。\n\n副业赚钱探索\n@text1024",
+          "channel": "@inside1024",
+          "channel_name": "你不知道的内幕消息🅥",
+          "channel_url": "https://t.me/inside1024",
+          "time": "06:41",
+          "url": "https://t.me/inside1024/91451",
+          "message_id": "91451",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": []
+        },
+        {
+          "id": "chunse1024-12383",
+          "title": "🎉 这个小鼹鼠确实猛啊 简单操作下，帮我优化了快100G的存储空间，感谢作者 https://github.com/tw",
+          "summary": "🎉 这个小鼹鼠确实猛啊\n简单操作下，帮我优化了快100G的存储空间，感谢作者\nhttps://github.com/tw93/Mole\n像鼹鼠一样深入挖掘来优化你的 Mac，这个monitor也好看\n\n📢 每日 GitHub 开源项目：@github1024",
+          "channel": "@chunse1024",
+          "channel_name": "优质信息收藏夹",
+          "channel_url": "https://t.me/chunse1024",
+          "time": "07:58",
+          "url": "https://t.me/chunse1024/12383",
+          "message_id": "12383",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-11-28/chunse1024-12383-1-thumb.webp",
+              "url": "assets/tg-media/2026-11-28/chunse1024-12383-1.webp",
+              "width": 2048,
+              "height": 1017,
+              "size_bytes": 63120,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "aigc1024-27493",
+          "title": "现在的环境这么差，我们到底怎么才能做出真正赚钱的 AI 应用呢？ 这期橘座，请到了我的朋友、星月写作的 CEO 猛哥来聊",
+          "summary": "现在的环境这么差，我们到底怎么才能做出真正赚钱的 AI 应用呢？\n这期橘座，请到了我的朋友、星月写作的 CEO 猛哥来聊聊。\n猛哥创业十年了。\n从 15 年VR 游戏创业到 23 年AI 创业，跨越了两个技术周期。\n现在做出了三款月入百万、都有利润的 AI 应用。\n其中最好的星月写作去年收入破了千万，有一千多个用户拿到月入过万的稿费，他们中有一半多以前从没写过小说。\n他把星月写作形容成一艘小船，上了船的人一起划、一起赚钱。\n这期我和猛哥聊了聊他一路创业的历程和其中最重要的一些决策。\n以及在 AI 应用创业成功之后，未来更大的梦想是什么。\nhttps://www.xiaoyuzhoufm.com/episode/6b08c0c37ded7f35713560b8\n@aigc1024",
+          "channel": "@aigc1024",
+          "channel_name": "AI探索指南",
+          "channel_url": "https://t.me/aigc1024",
+          "time": "08:06",
+          "url": "https://t.me/aigc1024/27493",
+          "message_id": "27493",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-11-28/aigc1024-27493-1-thumb.webp",
+              "url": "assets/tg-media/2026-11-28/aigc1024-27493-1.webp",
+              "width": 824,
+              "height": 1382,
+              "size_bytes": 62408,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "meiriyishu-5349",
+          "title": "AI精品漫剧全链路实战课，爆款剧本｜分镜脚本｜光影布光｜八大运镜，即梦+LibTV实操，告别粗制滥造，打造高质感漫剧",
+          "summary": "AI精品漫剧全链路实战课，爆款剧本｜分镜脚本｜光影布光｜八大运镜，即梦+LibTV实操，告别粗制滥造，打造高质感漫剧\n\n百度网盘：https://pan.baidu.com/s/1eT0-wgglMkBQQHnVOgRjCQ?pwd=1b92\n提取码：1b92\n\nhttps://fuyezy.com/58167.html",
+          "channel": "@meiriyishu",
+          "channel_name": "优质「资源」收藏夹",
+          "channel_url": "https://t.me/meiriyishu",
+          "time": "08:11",
+          "url": "https://t.me/meiriyishu/5349",
+          "message_id": "5349",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-11-28/meiriyishu-5349-1-thumb.webp",
+              "url": "assets/tg-media/2026-11-28/meiriyishu-5349-1.webp",
+              "width": 998,
+              "height": 556,
+              "size_bytes": 116828,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "meiriyishu-5351",
+          "title": "AI做星座账号，门槛低，轻松副业，每天收入2张+涨粉快，粉丝基数大，可长期  百度网盘：https://pan.baid",
+          "summary": "AI做星座账号，门槛低，轻松副业，每天收入2张+涨粉快，粉丝基数大，可长期\n\n百度网盘：https://pan.baidu.com/s/1c9kvC2FbChki_iFmcELUIw?pwd=6bc4\n提取码：6bc4\n\nhttps://fuyezy.com/58169.html",
+          "channel": "@meiriyishu",
+          "channel_name": "优质「资源」收藏夹",
+          "channel_url": "https://t.me/meiriyishu",
+          "time": "09:11",
+          "url": "https://t.me/meiriyishu/5351",
+          "message_id": "5351",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-11-28/meiriyishu-5351-1-thumb.webp",
+              "url": "assets/tg-media/2026-11-28/meiriyishu-5351-1.webp",
+              "width": 704,
+              "height": 698,
+              "size_bytes": 79696,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "zaihuapd-45395",
+          "title": "🛒 **谷歌 Play 将自 2027 年 3 月起公开商家开发者的电话和地址**  谷歌 Play 宣布，自 2027",
+          "summary": "🛒 **谷歌 Play 将自 2027 年 3 月起公开商家开发者的电话和地址**\n\n谷歌 Play 宣布，自 2027 年 3 月 1 日起在全球范围向用户展示自我声明为“商家”的开发者的联系方式，包括个人账户持有者的电话号码和地址。所有活跃开发者账户须在 2027 年 2 月 1 日前申报商家或非商家身份，逾期可能无法更新应用，并从 Play 全球下架。\n\n该政策于今年 10 月公布，本周因隐私担忧遭到开发者反弹。欧盟相关法规并未要求向欧盟以外的用户展示这些信息。此外，谷歌不接受邮政信箱作为付款地址，苹果则仅在欧洲相关国家展示地址，并允许使用邮政信箱。\n\n[AndroidPure](https://www.androidpure.com/google-play-trader-developer-address/)\n\n🌸 [科技圈](http://t.me/zaihuanews)· [茶馆](https://t.me/zaihuachat) · [投稿](http://t.me/ZaiHuabot)",
+          "channel": "@zaihuapd",
+          "channel_name": "在花🎗️科技圈",
+          "channel_url": "https://t.me/zaihuapd",
+          "time": "09:44",
+          "url": "https://t.me/zaihuapd/45395",
+          "message_id": "45395",
+          "reply_count": 46,
+          "replies_fetched": 46,
+          "replies": [
+            {
+              "id": "701026",
+              "text": "",
+              "time": "09:44",
+              "sender_id": 8439882275,
+              "sender_name": "🔫 ~biu~biu~biu",
+              "media": []
+            },
+            {
+              "id": "701029",
+              "text": "🈴",
+              "time": "09:45",
+              "sender_id": 5149375823,
+              "sender_name": "shwiajah",
+              "media": []
+            },
+            {
+              "id": "701031",
+              "text": "不是早就公布了，跟开盒一样",
+              "time": "09:45",
+              "sender_id": 5849995091,
+              "sender_name": "Su Neo",
+              "media": []
+            },
+            {
+              "id": "701034",
+              "text": "而且地址验证很严格，要提交水电煤账单，还必须是最新时间来验证你提交的住址是真的",
+              "time": "09:46",
+              "sender_id": 5849995091,
+              "sender_name": "Su Neo",
+              "media": []
+            },
+            {
+              "id": "701038",
+              "text": "质疑老中，理解老中，成为老中",
+              "time": "09:46",
+              "sender_id": 316855472,
+              "sender_name": "GG",
+              "media": []
+            },
+            {
+              "id": "701039",
+              "text": "老中还没做到这个地步，只是让实名，不会公布开发者的住址",
+              "time": "09:47",
+              "sender_id": 5849995091,
+              "sender_name": "Su Neo",
+              "media": []
+            },
+            {
+              "id": "701040",
+              "text": "欧盟的猎奇程度令人耳目一新。",
+              "time": "09:48",
+              "sender_id": 7967801103,
+              "sender_name": "Urokes",
+              "media": []
+            },
+            {
+              "id": "701042",
+              "text": "可以联系到腾讯客服了吗？",
+              "time": "09:49",
+              "sender_id": 6160755329,
+              "sender_name": "Dontele hen",
+              "media": []
+            },
+            {
+              "id": "701043",
+              "text": "毕竟是盟，每个人插一下条款就烂了。属于你插一下我也要插一下了。",
+              "time": "09:49",
+              "sender_id": 5155705635,
+              "sender_name": "肉鸡版",
+              "media": []
+            },
+            {
+              "id": "701046",
+              "text": "其实他们当初就是接受不了老中 竟然把对的事做的比他们要好 要早",
+              "time": "09:50",
+              "sender_id": 452074081,
+              "sender_name": "奥特 怪兽",
+              "media": []
+            },
+            {
+              "id": "701053",
+              "text": "欧盟也是越来越烂",
+              "time": "09:52",
+              "sender_id": 8198120816,
+              "sender_name": "AGENT",
+              "media": []
+            },
+            {
+              "id": "701054",
+              "text": "你怎么醒了",
+              "time": "09:52",
+              "sender_id": 7162243624,
+              "sender_name": "DearElla",
+              "media": []
+            },
+            {
+              "id": "701055",
+              "text": "被干腥",
+              "time": "09:52",
+              "sender_id": 6092152931,
+              "sender_name": "么佬族大大",
+              "media": []
+            },
+            {
+              "id": "701057",
+              "text": "写代码啊",
+              "time": "09:53",
+              "sender_id": 8198120816,
+              "sender_name": "AGENT",
+              "media": []
+            },
+            {
+              "id": "701058",
+              "text": "制度的垃圾",
+              "time": "09:53",
+              "sender_id": 452074081,
+              "sender_name": "奥特 怪兽",
+              "media": []
+            },
+            {
+              "id": "701063",
+              "text": "写 代码吗",
+              "time": "09:53",
+              "sender_id": 7162243624,
+              "sender_name": "DearElla",
+              "media": []
+            },
+            {
+              "id": "701064",
+              "text": "及时清洁",
+              "time": "09:53",
+              "sender_id": 5309128162,
+              "sender_name": "Dxxcc xx",
+              "media": []
+            },
+            {
+              "id": "701068",
+              "text": "监管越来越多，估计社会治安不行了",
+              "time": "09:54",
+              "sender_id": 8198120816,
+              "sender_name": "AGENT",
+              "media": []
+            },
+            {
+              "id": "701069",
+              "text": "写macos的telegram",
+              "time": "09:54",
+              "sender_id": 8198120816,
+              "sender_name": "AGENT",
+              "media": []
+            },
+            {
+              "id": "701070",
+              "text": "商店那个项目写得太垃圾",
+              "time": "09:55",
+              "sender_id": 8198120816,
+              "sender_name": "AGENT",
+              "media": []
+            },
+            {
+              "id": "701073",
+              "text": "监管多并不是治安不行",
+              "time": "09:56",
+              "sender_id": 452074081,
+              "sender_name": "奥特 怪兽",
+              "media": []
+            },
+            {
+              "id": "701074",
+              "text": "我们社会监管比以前多 但也不是因为治安多导致的",
+              "time": "09:56",
+              "sender_id": 452074081,
+              "sender_name": "奥特 怪兽",
+              "media": []
+            },
+            {
+              "id": "701075",
+              "text": "",
+              "time": "09:56",
+              "sender_id": 452074081,
+              "sender_name": "奥特 怪兽",
+              "media": []
+            },
+            {
+              "id": "701076",
+              "text": "欧盟所谓的监管 不过事政客拿来挣钱的手段",
+              "time": "09:57",
+              "sender_id": 452074081,
+              "sender_name": "奥特 怪兽",
+              "media": []
+            },
+            {
+              "id": "701078",
+              "text": "写好了记得开源",
+              "time": "09:57",
+              "sender_id": 452074081,
+              "sender_name": "奥特 怪兽",
+              "media": []
+            },
+            {
+              "id": "701079",
+              "text": "上架app的开发者在乎隐私是用别人的名字和手机号注册的吧",
+              "time": "09:57",
+              "sender_id": 1462239720,
+              "sender_name": "Hnm",
+              "media": []
+            },
+            {
+              "id": "701081",
+              "text": "不开源，开源等于被攻击",
+              "time": "09:58",
+              "sender_id": 8198120816,
+              "sender_name": "AGENT",
+              "media": []
+            },
+            {
+              "id": "701082",
+              "text": "为啥开源等于被攻击",
+              "time": "09:58",
+              "sender_id": 452074081,
+              "sender_name": "奥特 怪兽",
+              "media": []
+            },
+            {
+              "id": "701085",
+              "text": "着还有什么说法吗",
+              "time": "09:58",
+              "sender_id": 452074081,
+              "sender_name": "奥特 怪兽",
+              "media": []
+            },
+            {
+              "id": "701086",
+              "text": "至少你会知道什么不该被看（虽然国内也不会遵守",
+              "time": "09:58",
+              "sender_id": 1462239720,
+              "sender_name": "Hnm",
+              "media": []
+            },
+            {
+              "id": "701089",
+              "text": "现在有哪个项目开源能抗得住ai审核",
+              "time": "09:59",
+              "sender_id": 8198120816,
+              "sender_name": "AGENT",
+              "media": []
+            },
+            {
+              "id": "701096",
+              "text": "什么叫做至少 不是很懂你说的。形式的东西 你还讨论他实际作为啊",
+              "time": "10:01",
+              "sender_id": 452074081,
+              "sender_name": "奥特 怪兽",
+              "media": []
+            },
+            {
+              "id": "701100",
+              "text": "啥 就拿来用就是了 谁管你项目还出啥问题的 只要不是有后门",
+              "time": "10:01",
+              "sender_id": 452074081,
+              "sender_name": "奥特 怪兽",
+              "media": []
+            },
+            {
+              "id": "701108",
+              "text": "无所谓，你是否开源不影响能不能扛住 ai",
+              "time": "10:03",
+              "sender_id": 6438153889,
+              "sender_name": "銀狼",
+              "media": []
+            },
+            {
+              "id": "701109",
+              "text": "",
+              "time": "10:03",
+              "sender_id": 6438153889,
+              "sender_name": "銀狼",
+              "media": [
+                {
+                  "type": "video",
+                  "url": "assets/tg-media/2026-11-28/comments/c-701109-1.mp4",
+                  "width": 0,
+                  "height": 0,
+                  "duration": 0,
+                  "size_bytes": 41856,
+                  "has_audio": true,
+                  "publish_status": "published",
+                  "poster_url": "assets/tg-media/2026-11-28/comments/c-701109-1-poster.webp"
+                }
+              ]
+            },
+            {
+              "id": "701114",
+              "text": "几乎没有人针对只有一个使用人的项目攻击",
+              "time": "10:04",
+              "sender_id": 8198120816,
+              "sender_name": "AGENT",
+              "media": []
+            },
+            {
+              "id": "701123",
+              "text": "其他都能理解 地址？",
+              "time": "10:05",
+              "sender_id": 6158790624,
+              "sender_name": "zzzzzz",
+              "media": []
+            },
+            {
+              "id": "701218",
+              "text": "666 开盒了",
+              "time": "10:19",
+              "sender_id": 1855234040,
+              "sender_name": "B lue",
+              "media": []
+            },
+            {
+              "id": "701229",
+              "text": "这不就是开盒，比单纯实名制还夸张",
+              "time": "10:20",
+              "sender_id": 902798924,
+              "sender_name": "天໊上໊飘໊过໊一໊朵໊云໊ ☁",
+              "media": []
+            },
+            {
+              "id": "701355",
+              "text": "对个人开发者不太友好，公开手机号和地址是啥阴",
+              "time": "10:41",
+              "sender_id": 7301550572,
+              "sender_name": "XX0iio7",
+              "media": []
+            },
+            {
+              "id": "701359",
+              "text": "德国网站还要求公开webmaster地址呢🤣",
+              "time": "10:43",
+              "sender_id": 1154188299,
+              "sender_name": "Frank Ruan",
+              "media": []
+            },
+            {
+              "id": "701408",
+              "text": "寄送刀片（",
+              "time": "10:52",
+              "sender_id": 1102540506,
+              "sender_name": "jia yu",
+              "media": []
+            },
+            {
+              "id": "701422",
+              "text": "销售商业性商品的确需要开发者和企业公开相应联系方式，不然就别上架商业销售平台，这没什么好争论的。",
+              "time": "10:55",
+              "sender_id": 79630528,
+              "sender_name": "Midland Nolan",
+              "media": []
+            },
+            {
+              "id": "701437",
+              "text": "地址:地球\n联系方式:加我企业微信",
+              "time": "10:58",
+              "sender_id": 8890079832,
+              "sender_name": "misa",
+              "media": []
+            },
+            {
+              "id": "701880",
+              "text": "黑灰产狂喜",
+              "time": "12:16",
+              "sender_id": 1525505,
+              "sender_name": "R",
+              "media": []
+            },
+            {
+              "id": "701881",
+              "text": "对个人开发者百害而无一利，欧盟的法令只管欧洲的，谷歌一刀切扩展到全球了",
+              "time": "12:17",
+              "sender_id": 5939130039,
+              "sender_name": "Thomas Lin",
+              "media": []
+            }
+          ],
+          "media": []
+        },
+        {
+          "id": "meiriyishu-5352",
+          "title": "自动识别本地硬件，本地AI一键部署神器！支持开源模型、AI图片、视频生成、Agent全部免费一键搞定  百度网盘：htt",
+          "summary": "自动识别本地硬件，本地AI一键部署神器！支持开源模型、AI图片、视频生成、Agent全部免费一键搞定\n\n百度网盘：https://pan.baidu.com/s/16CSvtLOM-5V1qmAj2SUQPw?pwd=5de1\n提取码：5de1\n\nhttps://fuyezy.com/58523.html",
+          "channel": "@meiriyishu",
+          "channel_name": "优质「资源」收藏夹",
+          "channel_url": "https://t.me/meiriyishu",
+          "time": "10:11",
+          "url": "https://t.me/meiriyishu/5352",
+          "message_id": "5352",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-11-28/meiriyishu-5352-1-thumb.webp",
+              "url": "assets/tg-media/2026-11-28/meiriyishu-5352-1.webp",
+              "width": 808,
+              "height": 1051,
+              "size_bytes": 60664,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "inside1024-91458",
+          "title": "AI电商工具推荐。 更多出海干货，欢迎进群交流： https://discord.com/invite/sqAYvzKY",
+          "summary": "AI电商工具推荐。\n更多出海干货，欢迎进群交流：\nhttps://discord.com/invite/sqAYvzKYp4\n\n自媒体/出海经验/赚美金/运营技巧\n@yunying23",
+          "channel": "@inside1024",
+          "channel_name": "你不知道的内幕消息🅥",
+          "channel_url": "https://t.me/inside1024",
+          "time": "10:12",
+          "url": "https://t.me/inside1024/91458",
+          "message_id": "91458",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-11-28/inside1024-91458-1-thumb.webp",
+              "url": "assets/tg-media/2026-11-28/inside1024-91458-1.webp",
+              "width": 1762,
+              "height": 1392,
+              "size_bytes": 85748,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "inside1024-91459",
+          "title": "哈哈哈 这位美女叫 军师77懂女生 ，在抖音发的视频，要第一时间下载，因为过一会儿突然就没了，被集美们投诉下架🤣，号也是",
+          "summary": "哈哈哈\n这位美女叫 军师77懂女生 ，在抖音发的视频，要第一时间下载，因为过一会儿突然就没了，被集美们投诉下架🤣，号也是经常被封。\n她自己也说，自从站位以后被下架了几十个视频，你们越疯狂下架我就越要说。昨天还把号干没了……\n这里： - 小红书头号通缉犯令 必杀榜第一名 -\n\n[内幕消息](https://t.me/inside1024)｜[优质资源](https://t.me/meiriyishu) | [优质信息](https://t.me/chunse1024/8467)",
+          "channel": "@inside1024",
+          "channel_name": "你不知道的内幕消息🅥",
+          "channel_url": "https://t.me/inside1024",
+          "time": "10:24",
+          "url": "https://t.me/inside1024/91459",
+          "message_id": "91459",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "video",
+              "url": "assets/tg-media/2026-11-28/inside1024-91459-1.mp4",
+              "fallback_url": "https://t.me/inside1024/91459",
+              "width": 0,
+              "height": 0,
+              "duration": 0,
+              "size_bytes": 11868122,
+              "publish_status": "published",
+              "has_audio": true,
+              "poster_url": "assets/tg-media/2026-11-28/inside1024-91459-1-poster.webp"
+            }
+          ]
+        },
+        {
+          "id": "inside1024-91460",
+          "title": "美区订阅支付，是真的很难。 很多人拿着 港卡、Visa 卡去订阅 App，都被拒绝了 原因其实很简单：👉 美区 App",
+          "summary": "美区订阅支付，是真的很难。\n很多人拿着 港卡、Visa 卡去订阅 App，都被拒绝了\n原因其实很简单：👉 美区 App Store 只认美国发行的银行卡。\n但有一个方便的备选方案，那就是在 Safari 浏览器里面通过 Apple Pay 来订阅！\n关键点在于：\n🍎 App 内 Apple Pay\n= App Store / IAP 通道\n= Apple 管钱 → 非美卡直接拒\n🌐 Safari + Apple Pay（Web）\n= 商户自己的支付通道，而大部分商户没有像 Apple 那样去验证卡的归属地\n= 对接了 Stripe / Adyen / Checkout 等支付通道，基本都可以使用 Apple Pay\n= 相当于绕开了 App Store\n校验顺序也变了👇\n1️⃣ 商户是否支持 Apple Pay（好消息是很多美区 AI 应用的官网，都支持 Apple Pay）\n2️⃣ 支付网关是否放行（中国大陆的卡基本都不放行，香港的部分卡放行，我目前使用的最多的是 瑞士的银行卡 SafePal）\n3️⃣ 银行是否通过\n那如何绑定 Apple Pay 呢，其实很简单：\n1.\niPhone 打开钱包，直接添加银行卡即可\n2.\n选择借记卡或信用卡\n3.\n把银行卡放到 iPhone 下面就好了，都会自动识别出来，如果没有卡片或者卡片不在身边就手动输入卡片详情\n等一会， 和会和发卡行通信校验，没有问的大多都能添加成功\n以上，Google Pay 同理\n\n私人优质信息收藏夹\nhttps://t.me/chunse1024",
+          "channel": "@inside1024",
+          "channel_name": "你不知道的内幕消息🅥",
+          "channel_url": "https://t.me/inside1024",
+          "time": "10:25",
+          "url": "https://t.me/inside1024/91460",
+          "message_id": "91460",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-11-28/inside1024-91460-1-thumb.webp",
+              "url": "assets/tg-media/2026-11-28/inside1024-91460-1.webp",
+              "width": 1770,
+              "height": 1278,
+              "size_bytes": 116524,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "openclaw1024-1454",
+          "title": "在 Kubernetes 集群上用虚拟机级沙箱隔离海量闲置率高的 AI Agent，同时把 API 密钥锁在沙箱外头不让",
+          "summary": "在 Kubernetes 集群上用虚拟机级沙箱隔离海量闲置率高的 AI Agent，同时把 API 密钥锁在沙箱外头不让它们碰。\nAgent Substrate 基于 Go 语言实现，按 Apache-2.0 协议开源，直接跑在标准 Kubernetes 之上。它利用 Agent 大部分时间都在等模型或人工响应的特点，把大量有状态 Actor 快照落盘休眠，等请求来了再在 500 毫秒内拉回少量常驻 Worker 池继续跑，单集群每秒能扛 500 次以上唤醒。\nhttps://github.com/agent-substrate/substrate\n\n📢 每日 GitHub 开源项目：@github1024",
+          "channel": "@openclaw1024",
+          "channel_name": "Hermes爱马仕&🦞OpenClaw小龙虾",
+          "channel_url": "https://t.me/openclaw1024",
+          "time": "10:32",
+          "url": "https://t.me/openclaw1024/1454",
+          "message_id": "1454",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-11-28/openclaw1024-1454-1-thumb.webp",
+              "url": "assets/tg-media/2026-11-28/openclaw1024-1454-1.webp",
+              "width": 1200,
+              "height": 798,
+              "size_bytes": 65754,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "meiriyishu-5353",
+          "title": "情侣飞行棋爆了！小红书日入1000+，零成本、一键转发就能卖 最近小红书刷屏的虚拟产品，玩法简单、自带传播力。不发货不囤",
+          "summary": "情侣飞行棋爆了！小红书日入1000+，零成本、一键转发就能卖\n最近小红书刷屏的虚拟产品，玩法简单、自带传播力。不发货不囤货，别人在赚你也能赚。\n照着做就行：\n1、👇下方自取资源\n2、挂小红书/闲鱼\n3、收钱\n🔗：https://pan.quark.cn/s/30fee1ae793d\n————\n 盘友资源库：https://pan.tgshangtian.xyz\n\n[优质资源](https://t.me/meiriyishu) | [优质内容](https://t.me/chunse1024/8467)",
+          "channel": "@meiriyishu",
+          "channel_name": "优质「资源」收藏夹",
+          "channel_url": "https://t.me/meiriyishu",
+          "time": "10:55",
+          "url": "https://t.me/meiriyishu/5353",
+          "message_id": "5353",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-11-28/meiriyishu-5353-1-thumb.webp",
+              "url": "assets/tg-media/2026-11-28/meiriyishu-5353-1.webp",
+              "width": 554,
+              "height": 1200,
+              "size_bytes": 62744,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "zaihuapd-45396",
+          "title": "📱 **微软** **CEO** **承认应届生招聘放缓：AI 原生公司用完预算才加人**  微软 CEO 纳德拉在 T",
+          "summary": "📱 **微软** **CEO** **承认应届生招聘放缓：AI 原生公司用完预算才加人**\n\n微软 CEO 纳德拉在 The Pragmatic Engineer 播客中承认，应届生招聘已经放缓：公司会先把现有员工调配到合适岗位，之后才补招新人。他说，AI 原生公司会“先用完 AI 预算，再招下一个人类”，未来每家公司都会如此。\n\n纳德拉年初在达沃斯曾称“仍然相信校园招聘”。截至今年 6 月 30 日，微软员工数降至 22.3 万，一年减少 5000 人，为 2016 年以来首次年度下滑。MIT 与微软研究院的论文显示，采用 GitHub Copilot 的企业，季度技术岗招聘减少 29%，初级岗位受影响最大。\n\n[Windows Latest](https://www.windowslatest.com/2026/11/27/lets-add-the-next-human-satya-nadella-admits-new-grad-hiring-slowed-as-companies-rebuild-around-ai-and-says-every-company-will-add-its-next-person-after-it-burns-through-its-ai-budget/)\n\n🌸 [科技圈](http://t.me/zaihuanews)· [茶馆](https://t.me/zaihuachat) · [投稿](http://t.me/ZaiHuabot)",
+          "channel": "@zaihuapd",
+          "channel_name": "在花🎗️科技圈",
+          "channel_url": "https://t.me/zaihuapd",
+          "time": "11:03",
+          "url": "https://t.me/zaihuapd/45396",
+          "message_id": "45396",
+          "reply_count": 23,
+          "replies_fetched": 23,
+          "replies": [
+            {
+              "id": "701455",
+              "text": "",
+              "time": "11:03",
+              "sender_id": 8439882275,
+              "sender_name": "🔫 ~biu~biu~biu",
+              "media": []
+            },
+            {
+              "id": "701471",
+              "text": "《再招下一个人类》\n还有不是人类的吗？",
+              "time": "11:05",
+              "sender_id": 620821167,
+              "sender_name": "^ ^",
+              "media": []
+            },
+            {
+              "id": "701475",
+              "text": "",
+              "time": "11:05",
+              "sender_id": 7171316252,
+              "sender_name": "🌌 🔪🅐🅝🅣🔪 🐻",
+              "media": [
+                {
+                  "type": "video",
+                  "url": "assets/tg-media/2026-11-28/comments/c-701475-1.mp4",
+                  "width": 0,
+                  "height": 0,
+                  "duration": 0,
+                  "size_bytes": 231235,
+                  "has_audio": true,
+                  "publish_status": "published",
+                  "poster_url": "assets/tg-media/2026-11-28/comments/c-701475-1-poster.webp"
+                }
+              ]
+            },
+            {
+              "id": "701556",
+              "text": "影响最大的就是初级岗位和毕业生，断层了，没有初级到高级的进阶路线了",
+              "time": "11:17",
+              "sender_id": 1560718311,
+              "sender_name": "惢誶吥咑烊",
+              "media": []
+            },
+            {
+              "id": "701558",
+              "text": "完了，以后怎么办",
+              "time": "11:17",
+              "sender_id": 7949125722,
+              "sender_name": "moniw",
+              "media": []
+            },
+            {
+              "id": "701559",
+              "text": "现在花钱都不敢乱花了",
+              "time": "11:17",
+              "sender_id": 7949125722,
+              "sender_name": "moniw",
+              "media": []
+            },
+            {
+              "id": "701628",
+              "text": "一年里向社会输送了5000名人才",
+              "time": "11:27",
+              "sender_id": 6095444233,
+              "sender_name": "ㅇㅂㅇ",
+              "media": []
+            },
+            {
+              "id": "701841",
+              "text": "现在主要问题还是钱，软件行业现在虽然赚钱，但投资的钱都留到AI和AI相关项目，所以要省着点花",
+              "time": "11:57",
+              "sender_id": 871092736,
+              "sender_name": "大魔王",
+              "media": []
+            },
+            {
+              "id": "701850",
+              "text": "这是科技创业的黄金时段",
+              "time": "11:57",
+              "sender_id": 871092736,
+              "sender_name": "大魔王",
+              "media": []
+            },
+            {
+              "id": "701852",
+              "text": "也会出现大量断层",
+              "time": "11:58",
+              "sender_id": 327604795,
+              "sender_name": "qqq qqq",
+              "media": []
+            },
+            {
+              "id": "701858",
+              "text": "祸福相依吧，入行的人会变少，然后招人又很难，然后重金招人，然后又循环",
+              "time": "12:02",
+              "sender_id": 871092736,
+              "sender_name": "大魔王",
+              "media": []
+            },
+            {
+              "id": "701859",
+              "text": "以前人机协同是这样的",
+              "time": "12:02",
+              "sender_id": 327604795,
+              "sender_name": "qqq qqq",
+              "media": []
+            },
+            {
+              "id": "701873",
+              "text": "造ai出来就是削减人口用的啊",
+              "time": "12:09",
+              "sender_id": 782588521,
+              "sender_name": "Rammiah X",
+              "media": []
+            },
+            {
+              "id": "701906",
+              "text": "所以又回到那个原始问题了，把初级岗位和这些低端劳动替代了，那些人不要吃饭的？当然公司可以甩手这是政府的事情那公司还应当承担社会责任呢",
+              "time": "12:36",
+              "sender_id": 1461712086,
+              "sender_name": "Evolrx",
+              "media": []
+            },
+            {
+              "id": "701927",
+              "text": "是加人還是加token🌚",
+              "time": "12:42",
+              "sender_id": 1071654704,
+              "sender_name": "吐 司",
+              "media": []
+            },
+            {
+              "id": "702238",
+              "text": "最后还是token香，应届生干活够token快吗",
+              "time": "14:18",
+              "sender_id": 8198120816,
+              "sender_name": "AGENT",
+              "media": []
+            },
+            {
+              "id": "702465",
+              "text": "企业不招人，人没收入，那企业的产品要卖给AI吗？",
+              "time": "15:39",
+              "sender_id": 1179159637,
+              "sender_name": "Sanmer",
+              "media": []
+            },
+            {
+              "id": "702466",
+              "text": "",
+              "time": "15:39",
+              "sender_id": 1179159637,
+              "sender_name": "Sanmer",
+              "media": []
+            },
+            {
+              "id": "702510",
+              "text": "政府派钱",
+              "time": "15:58",
+              "sender_id": 441514729,
+              "sender_name": "snake leung",
+              "media": []
+            },
+            {
+              "id": "702514",
+              "text": "钱都进资本家腰包了（emmm，这版本是不是以前上映过了？",
+              "time": "15:59",
+              "sender_id": 1179159637,
+              "sender_name": "Sanmer",
+              "media": []
+            },
+            {
+              "id": "702515",
+              "text": "",
+              "time": "15:59",
+              "sender_id": 1179159637,
+              "sender_name": "Sanmer",
+              "media": []
+            },
+            {
+              "id": "702719",
+              "text": "资本主义没有这个责任的",
+              "time": "16:43",
+              "sender_id": 79680529,
+              "sender_name": "ayanamist",
+              "media": []
+            },
+            {
+              "id": "703446",
+              "text": "国内大厂：跟进",
+              "time": "20:06",
+              "sender_id": 5276578555,
+              "sender_name": "Joris",
+              "media": []
+            }
+          ],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-11-28/zaihuapd-45396-1-thumb.webp",
+              "url": "assets/tg-media/2026-11-28/zaihuapd-45396-1.webp",
+              "width": 1280,
+              "height": 720,
+              "size_bytes": 79528,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "aigc1024-27496",
+          "title": "有些桌面软件没开放接口、也没有网页版，智能体一直无法调用，要怎么办？ WorkBuddy新加的「电脑操控」就是来解决这个",
+          "summary": "有些桌面软件没开放接口、也没有网页版，智能体一直无法调用，要怎么办？\nWorkBuddy新加的「电脑操控」就是来解决这个的：让AI看屏幕截图识别界面，再用鼠标直接操作软件。\n想让AI真正操作本地软件、把跨设备工作接起来的，直接看这期就行。\n点击链接观看完整视频👇 带你解锁更多AI知识 https://www.bilibili.com/video/BV17dy2z4EJo/?share_source=copy_web&vd_source=cf20290d1e3a8df70641b6be40657e3f\n\n[AI探索](https://t.me/aigc1024) | [Hermes/OpenClaw](https://t.me/openclaw1024)｜[优质资源](https://t.me/meiriyishu)｜[优质信息](https://t.me/chunse1024/8467)",
+          "channel": "@aigc1024",
+          "channel_name": "AI探索指南",
+          "channel_url": "https://t.me/aigc1024",
+          "time": "11:06",
+          "url": "https://t.me/aigc1024/27496",
+          "message_id": "27496",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": []
+        },
+        {
+          "id": "meiriyishu-5355",
+          "title": "高变现IP流量私教，一套完整的个人IP从0到1孵化落地体系，打通内容生产、平台流量、私域承接、产品变现全链路  百度网盘",
+          "summary": "高变现IP流量私教，一套完整的个人IP从0到1孵化落地体系，打通内容生产、平台流量、私域承接、产品变现全链路\n\n百度网盘：https://pan.baidu.com/s/1rr7es4XZJBzALmP3iiOASA?pwd=8b5e\n提取码：8b5e\n\nhttps://fuyezy.com/58525.html",
+          "channel": "@meiriyishu",
+          "channel_name": "优质「资源」收藏夹",
+          "channel_url": "https://t.me/meiriyishu",
+          "time": "11:11",
+          "url": "https://t.me/meiriyishu/5355",
+          "message_id": "5355",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-11-28/meiriyishu-5355-1-thumb.webp",
+              "url": "assets/tg-media/2026-11-28/meiriyishu-5355-1.webp",
+              "width": 800,
+              "height": 448,
+              "size_bytes": 51398,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "aigc1024-27497",
+          "title": "AI 没让 self-hosting 变简单，降的是\"懒得折腾\"的门槛。 Jan-Lukas Else 的 infra",
+          "summary": "AI 没让 self-hosting 变简单，降的是\"懒得折腾\"的门槛。\nJan-Lukas Else 的 infra 全在 Git 里，AI agent 像改软件一样改它。VPS 的 Debian-based bootc image，带 AI 半天，他说没有 AI 至少一周。这些工具一个都不需要 AI，AI 只是帮他把零件拼起来。\nHN 上 jraph 唱反调：self hosting 以前很 fun，现在得跟 AI bots 打架。\n省的是力气，多的是敌人。机器扛得住吗？\nhttps://janlukas.blog/posts/ai-self-hosting\n@aigc1024",
+          "channel": "@aigc1024",
+          "channel_name": "AI探索指南",
+          "channel_url": "https://t.me/aigc1024",
+          "time": "11:11",
+          "url": "https://t.me/aigc1024/27497",
+          "message_id": "27497",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": []
+        },
+        {
+          "id": "aigc1024-27498",
+          "title": "前两写天的《大养猪理论》还挺受欢迎，全网大概十万浏览。写那篇也是因为发现自己用AI先把一件事做好，比同时推（不动）好几件",
+          "summary": "前两写天的《大养猪理论》还挺受欢迎，全网大概十万浏览。写那篇也是因为发现自己用AI先把一件事做好，比同时推（不动）好几件事更爽。琢磨了几天，我又有了新感悟：在AI时代，我们应该（最大化地）享受创作过程和别人作品里的摩擦力，也就是“大摩擦”理论。\n这不是我一个人的idea。今年欧美设计界最火的词叫Friction-maxxing（摩擦力最大化），宣称“Seamless is soulless”（无缝即无魂）。科技把生活做得丝滑无缝之后，人们开始故意给自己找阻力，例如：撤掉屏幕、自己做饭，甚至把粗糙的原石放进极简空间，欣赏粗粝的冲突感。\n这种现象在AI圈其实更明显。现在看文章或视频，大家最常说的就是“AI味太重了”。因为大家都在疯狂AI提效，把生成时间无限压缩，最先被压掉的就是摩擦力，于是最后只剩下“平庸的最优解”了。因为没有摩擦力就没有多样性，也就没有了期待。\n可能大家没注意到的地方是：不仅欣赏作品需要摩擦力，自己工作和创作时同样需要摩檫力。\n就像《狗屁工作》一书中说的，狗屁工作不是钱少事多的工作，而是让人没法收获意义感的工作：在原子化的工业流程里，你只是拧螺丝，看不到劳作和产出的关联（所以很多人喜欢做手工、种田这些能看到产出、有天然的获得感的事情）。AI进一步加剧了这种异化，连创作过程本身都给你压缩成了一键生成，让丢掉了摩擦力的创作也变成了狗屁工作。\n所以，我再一次强调“大摩擦理论”——最大化地去鉴赏、消费、亲手做有摩擦力的事，并以有摩擦力的方式去使用AI。\n那什么是以有摩檫力的方式去使用AI？举三个我生活中的例子：\n第一，不是为了追流量，而是为了表达而写作。很多人用AI先找热点再套“十万加”模板，但我首先是内心有想说才写（当然大家喜欢就更好了🐶）。\n第二，去探索未曾踏足的方向。无论创作还是创业，不去走最热门、看起来最容易“成功”的路，而是借AI去做自己最感兴趣、相对少人尝试且未被验证的方向。\n第三，为自己而活。用AI为自己或最亲近的人做些东西吧，毕竟先打动自己才可能打动别人。\n就像工业革命消灭体力摩擦后，人类反而发明了健身房，花钱给自己卖铁撸。当AGI正在消灭认知和创作的摩擦，有趣的灵魂大概率都会主动给自己留一点“阻力”，把AI省下的生命“浪费”在那些笨重、缓慢、不可逆的事情上。毕竟无用之事才无价，不是么。\n@aigc1024",
+          "channel": "@aigc1024",
+          "channel_name": "AI探索指南",
+          "channel_url": "https://t.me/aigc1024",
+          "time": "11:26",
+          "url": "https://t.me/aigc1024/27498",
+          "message_id": "27498",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": []
+        },
+        {
+          "id": "zaihuapd-45397",
+          "title": "**《GTA 6》非官方 PC 移植迎新进展，GitHub 发文力挺后火速删除**  ​近期《GTA 6》非官方 PC",
+          "summary": "**《GTA 6》非官方 PC 移植迎新进展，GitHub 发文力挺后火速删除**\n\n​近期《GTA 6》非官方 PC 移植取得新突破。继 Xbox 版文件泄露后，可将 PS5 可执行文件重写至 Windows 和 Linux 运行的开源项目 AnyPS5 已斩获超 5.8 万星标，开发者正号召借助 AI 代理攻克其性能瓶颈。\n\n​GitHub 在 X 平台发文公开庆祝 AnyPS5 推动《GTA 6》PC 移植的进展，并反问此举“是否越过法律红线”。由于发行商 Take-Two 近期正严厉打击非官方重编译项目，GitHub 此举被质疑公然挑衅索尼与 R 星，引发争议后已火速删帖。\n\n[PC Gamer](https://www.pcgamer.com/games/microsofts-github-posts-message-celebrating-efforts-to-port-playstation-5-version-of-grand-theft-auto-6-to-pc-then-quickly-deletes-it/)\n\n🌸 [科技圈](http://t.me/zaihuanews)· [茶馆](https://t.me/zaihuachat) · [投稿](http://t.me/ZaiHuabot)",
+          "channel": "@zaihuapd",
+          "channel_name": "在花🎗️科技圈",
+          "channel_url": "https://t.me/zaihuapd",
+          "time": "11:33",
+          "url": "https://t.me/zaihuapd/45397",
+          "message_id": "45397",
+          "reply_count": 175,
+          "replies_fetched": 175,
+          "replies": [
+            {
+              "id": "701664",
+              "text": "",
+              "time": "11:34",
+              "sender_id": 8439882275,
+              "sender_name": "🔫 ~biu~biu~biu",
+              "media": []
+            },
+            {
+              "id": "701669",
+              "text": "虽然我也想玩，但这是盗版",
+              "time": "11:34",
+              "sender_id": 1291575815,
+              "sender_name": "Steve Price",
+              "media": []
+            },
+            {
+              "id": "701672",
+              "text": "神了",
+              "time": "11:34",
+              "sender_id": 1001698883,
+              "sender_name": "Claude",
+              "media": []
+            },
+            {
+              "id": "701677",
+              "text": "主要PC上github方便，主机能上吗？",
+              "time": "11:35",
+              "sender_id": 651978251,
+              "sender_name": "Pocky Zhang",
+              "media": []
+            },
+            {
+              "id": "701681",
+              "text": "https://portwatch-vi.xyz/",
+              "time": "11:35",
+              "sender_id": 7739692580,
+              "sender_name": "Claire",
+              "media": [
+                {
+                  "type": "image",
+                  "url": "assets/tg-media/2026-11-28/comments/c-701681-1.webp",
+                  "thumb_url": "assets/tg-media/2026-11-28/comments/c-701681-1-thumb.webp",
+                  "width": 1200,
+                  "height": 630,
+                  "size_bytes": 123222,
+                  "publish_status": "published"
+                }
+              ]
+            },
+            {
+              "id": "701684",
+              "text": "索尼罪大恶极😆",
+              "time": "11:35",
+              "sender_id": 902372926,
+              "sender_name": "Zhe Yu",
+              "media": []
+            },
+            {
+              "id": "701689",
+              "text": "真要是搞出来就不能让两个主机商赚独占钱了，他们肯定要跳脚",
+              "time": "11:35",
+              "sender_id": 438461758,
+              "sender_name": "Tonas J",
+              "media": []
+            },
+            {
+              "id": "701691",
+              "text": "还是ps5版本好玩，dualsense手柄适配很舒服，正版体验很好，这种移植项目会丢大量细节",
+              "time": "11:35",
+              "sender_id": 1764379453,
+              "sender_name": "Hessler Peter",
+              "media": []
+            },
+            {
+              "id": "701692",
+              "text": "目前盗版都有望实现多人模式了",
+              "time": "11:35",
+              "sender_id": 7739692580,
+              "sender_name": "Claire",
+              "media": []
+            },
+            {
+              "id": "701693",
+              "text": "虽然索八分钱，但是盗版更忍不了",
+              "time": "11:36",
+              "sender_id": 8805833373,
+              "sender_name": "Alicegen",
+              "media": []
+            },
+            {
+              "id": "701695",
+              "text": "官方的PC版肯定也会把手柄的特性移植进去",
+              "time": "11:36",
+              "sender_id": 5104265874,
+              "sender_name": "Daoyou ⓧⓤ",
+              "media": []
+            },
+            {
+              "id": "701700",
+              "text": "实习生发的",
+              "time": "11:37",
+              "sender_id": 5200884983,
+              "sender_name": "jizhi",
+              "media": []
+            },
+            {
+              "id": "701702",
+              "text": "很期待官方pc，ps5版本的画面就已经非常惊艳，pc上能开高画质不敢想象",
+              "time": "11:37",
+              "sender_id": 1764379453,
+              "sender_name": "Hessler Peter",
+              "media": []
+            },
+            {
+              "id": "701712",
+              "text": "我十分愿意再在pc上打一遍，这部作品目前的沉浸感很大程度上是画面和世界细节带来的，pc上应该会更进一步",
+              "time": "11:38",
+              "sender_id": 1764379453,
+              "sender_name": "Hessler Peter",
+              "media": []
+            },
+            {
+              "id": "701716",
+              "text": "破解移植到PC 这过程 难道不是很 GTA 吗 大家应该多支持",
+              "time": "11:38",
+              "sender_id": 452074081,
+              "sender_name": "奥特 怪兽",
+              "media": []
+            },
+            {
+              "id": "701719",
+              "text": "",
+              "time": "11:38",
+              "sender_id": 452074081,
+              "sender_name": "奥特 怪兽",
+              "media": []
+            },
+            {
+              "id": "701720",
+              "text": "",
+              "time": "11:39",
+              "sender_id": 7171316252,
+              "sender_name": "🌌 🔪🅐🅝🅣🔪 🐻",
+              "media": [
+                {
+                  "type": "video",
+                  "url": "assets/tg-media/2026-11-28/comments/c-701720-1.mp4",
+                  "width": 0,
+                  "height": 0,
+                  "duration": 0,
+                  "size_bytes": 180446,
+                  "has_audio": true,
+                  "publish_status": "published",
+                  "poster_url": "assets/tg-media/2026-11-28/comments/c-701720-1-poster.webp"
+                }
+              ]
+            },
+            {
+              "id": "701721",
+              "text": "开源精神☺️",
+              "time": "11:39",
+              "sender_id": 5137188208,
+              "sender_name": "Kuirb",
+              "media": []
+            },
+            {
+              "id": "701724",
+              "text": "",
+              "time": "11:39",
+              "sender_id": 8475739982,
+              "sender_name": "何 意 味",
+              "media": [
+                {
+                  "type": "image",
+                  "url": "assets/tg-media/2026-11-28/comments/c-701724-1.webp",
+                  "thumb_url": "assets/tg-media/2026-11-28/comments/c-701724-1-thumb.webp",
+                  "width": 528,
+                  "height": 450,
+                  "size_bytes": 30100,
+                  "publish_status": "published"
+                }
+              ]
+            },
+            {
+              "id": "701726",
+              "text": "",
+              "time": "11:39",
+              "sender_id": 476480306,
+              "sender_name": "Hikaru",
+              "media": [
+                {
+                  "type": "image",
+                  "url": "assets/tg-media/2026-11-28/comments/c-701726-1.webp",
+                  "thumb_url": "assets/tg-media/2026-11-28/comments/c-701726-1-thumb.webp",
+                  "width": 1280,
+                  "height": 741,
+                  "size_bytes": 98098,
+                  "publish_status": "published"
+                }
+              ]
+            },
+            {
+              "id": "701735",
+              "text": "这是好事啊",
+              "time": "11:41",
+              "sender_id": 5649280594,
+              "sender_name": "Deleted Bill Gates Account",
+              "media": []
+            },
+            {
+              "id": "701748",
+              "text": "我只是想要修改器hh",
+              "time": "11:43",
+              "sender_id": 6052385264,
+              "sender_name": "WZJian",
+              "media": []
+            },
+            {
+              "id": "701752",
+              "text": "",
+              "time": "11:43",
+              "sender_id": 7976153611,
+              "sender_name": "yu zzz",
+              "media": [
+                {
+                  "type": "image",
+                  "url": "assets/tg-media/2026-11-28/comments/c-701752-1.webp",
+                  "thumb_url": "assets/tg-media/2026-11-28/comments/c-701752-1-thumb.webp",
+                  "width": 1080,
+                  "height": 684,
+                  "size_bytes": 46724,
+                  "publish_status": "published"
+                }
+              ]
+            },
+            {
+              "id": "701754",
+              "text": "逼官方火速出pc端",
+              "time": "11:43",
+              "sender_id": 7916613913,
+              "sender_name": "Johnny Silverhand",
+              "media": []
+            },
+            {
+              "id": "701758",
+              "text": "现在卡吗，多少帧",
+              "time": "11:44",
+              "sender_id": 2147324853,
+              "sender_name": "potato",
+              "media": []
+            },
+            {
+              "id": "701762",
+              "text": "然而這是mac端（",
+              "time": "11:45",
+              "sender_id": 476480306,
+              "sender_name": "Hikaru",
+              "media": []
+            },
+            {
+              "id": "701766",
+              "text": "这怕是违法的吧",
+              "time": "11:45",
+              "sender_id": 8013473585,
+              "sender_name": "Bye Telugu",
+              "media": []
+            },
+            {
+              "id": "701769",
+              "text": "故事止于沉默",
+              "time": "11:45",
+              "sender_id": 7374378233,
+              "sender_name": "五姨太B w5",
+              "media": []
+            },
+            {
+              "id": "701770",
+              "text": "虽然也就是利益之争，但打击正版的激励机制不太好",
+              "time": "11:46",
+              "sender_id": 7363956007,
+              "sender_name": "scom",
+              "media": []
+            },
+            {
+              "id": "701773",
+              "text": "额，mac玩啥游戏啊，搞不懂",
+              "time": "11:46",
+              "sender_id": 2147324853,
+              "sender_name": "potato",
+              "media": []
+            },
+            {
+              "id": "701774",
+              "text": "3D場景能接近30fps了 複雜場景10-15 他們都在做emulator類 我這邊嘗試做原生移植 只做技術挑戰驗證",
+              "time": "11:46",
+              "sender_id": 476480306,
+              "sender_name": "Hikaru",
+              "media": []
+            },
+            {
+              "id": "701776",
+              "text": "做了那么多年的游戏一下子就破解了，真赚不到钱以后就不出了",
+              "time": "11:46",
+              "sender_id": 7363956007,
+              "sender_name": "scom",
+              "media": []
+            },
+            {
+              "id": "701796",
+              "text": "代码还有吗？",
+              "time": "11:48",
+              "sender_id": 866949072,
+              "sender_name": "Zee",
+              "media": []
+            },
+            {
+              "id": "701804",
+              "text": "说不定以后就没有主机独占了",
+              "time": "11:50",
+              "sender_id": 6179501298,
+              "sender_name": "V_N（跑步/健身/早睡 1/3/0）",
+              "media": []
+            },
+            {
+              "id": "701806",
+              "text": "没独占反而是好事",
+              "time": "11:50",
+              "sender_id": 5104265874,
+              "sender_name": "Daoyou ⓧⓤ",
+              "media": []
+            },
+            {
+              "id": "701811",
+              "text": "mac的好處是有統一內存 128-512G直接任意使用",
+              "time": "11:51",
+              "sender_id": 476480306,
+              "sender_name": "Hikaru",
+              "media": []
+            },
+            {
+              "id": "701813",
+              "text": "不大可能，ds手柄有扬声器，游戏的手机来电直接丛手柄上发声，就和真的有个手机在手里一样",
+              "time": "11:51",
+              "sender_id": 2126977519,
+              "sender_name": "zoot",
+              "media": []
+            },
+            {
+              "id": "701817",
+              "text": "短信通知也是，代入感很强",
+              "time": "11:52",
+              "sender_id": 2126977519,
+              "sender_name": "zoot",
+              "media": []
+            },
+            {
+              "id": "701823",
+              "text": "贊成的就問自己，要是你自己花錢開發的遊戲要不要讓人這樣搞",
+              "time": "11:53",
+              "sender_id": 677372811,
+              "sender_name": "小 巴",
+              "media": []
+            },
+            {
+              "id": "701824",
+              "text": "上了 PC 端风灵月影宗就能降临罪城🤣",
+              "time": "11:53",
+              "sender_id": 1912750008,
+              "sender_name": "朝はいつものように来る",
+              "media": []
+            },
+            {
+              "id": "701827",
+              "text": "github也在串",
+              "time": "11:53",
+              "sender_id": 8254582397,
+              "sender_name": "_RyF 15:45 PM Sat 🕞",
+              "media": []
+            },
+            {
+              "id": "701828",
+              "text": "",
+              "time": "11:53",
+              "sender_id": 8254582397,
+              "sender_name": "_RyF 15:45 PM Sat 🕞",
+              "media": [
+                {
+                  "type": "video",
+                  "url": "assets/tg-media/2026-11-28/comments/c-701828-1.mp4",
+                  "width": 0,
+                  "height": 0,
+                  "duration": 0,
+                  "size_bytes": 248612,
+                  "has_audio": true,
+                  "publish_status": "published",
+                  "poster_url": "assets/tg-media/2026-11-28/comments/c-701828-1-poster.webp"
+                }
+              ]
+            },
+            {
+              "id": "701831",
+              "text": "公然盗版",
+              "time": "11:54",
+              "sender_id": 969611369,
+              "sender_name": "joey chen",
+              "media": []
+            },
+            {
+              "id": "701832",
+              "text": "为什么绿了，是被Daoyou绿了吗",
+              "time": "11:54",
+              "sender_id": 7162243624,
+              "sender_name": "DearElla",
+              "media": []
+            },
+            {
+              "id": "701834",
+              "text": "嘉豪时代",
+              "time": "11:55",
+              "sender_id": 1384643593,
+              "sender_name": "想 李",
+              "media": []
+            },
+            {
+              "id": "701836",
+              "text": "一到 GTA 盗版的时候，评论区的版权意识就原地拉升几个等级了",
+              "time": "11:55",
+              "sender_id": 5382442384,
+              "sender_name": "Peaynan is",
+              "media": []
+            },
+            {
+              "id": "701837",
+              "text": "（嚼口香糖回血）",
+              "time": "11:56",
+              "sender_id": 8254582397,
+              "sender_name": "_RyF 15:45 PM Sat 🕞",
+              "media": []
+            },
+            {
+              "id": "701838",
+              "text": "支持正版的会一直支持,不支持的千万百计也会玩盗版",
+              "time": "11:56",
+              "sender_id": 5104265874,
+              "sender_name": "Daoyou ⓧⓤ",
+              "media": []
+            },
+            {
+              "id": "701839",
+              "text": "猫不能吃的吧",
+              "time": "11:56",
+              "sender_id": 7162243624,
+              "sender_name": "DearElla",
+              "media": []
+            },
+            {
+              "id": "701840",
+              "text": "怎么不吃饭了",
+              "time": "11:57",
+              "sender_id": 7162243624,
+              "sender_name": "DearElla",
+              "media": []
+            },
+            {
+              "id": "701843",
+              "text": "因为还有两个菜没好",
+              "time": "11:57",
+              "sender_id": 5104265874,
+              "sender_name": "Daoyou ⓧⓤ",
+              "media": []
+            },
+            {
+              "id": "701845",
+              "text": "他们只会骂买正版的是大冤种 别试图叫醒他们",
+              "time": "11:57",
+              "sender_id": 6158790624,
+              "sender_name": "zzzzzz",
+              "media": []
+            },
+            {
+              "id": "701851",
+              "text": "优质的游戏永远会有正版玩家支持",
+              "time": "11:58",
+              "sender_id": 5104265874,
+              "sender_name": "Daoyou ⓧⓤ",
+              "media": []
+            },
+            {
+              "id": "701854",
+              "text": "玩盗版的也很多会为了这个游戏,在自己经济许可的条件下支持回正版",
+              "time": "11:59",
+              "sender_id": 5104265874,
+              "sender_name": "Daoyou ⓧⓤ",
+              "media": []
+            },
+            {
+              "id": "701855",
+              "text": "我就买回了很多那些年玩过的盗版,变成正版收藏",
+              "time": "11:59",
+              "sender_id": 5104265874,
+              "sender_name": "Daoyou ⓧⓤ",
+              "media": []
+            },
+            {
+              "id": "701861",
+              "text": "ps5专门优化只能30帧，我不敢想要什么样的电脑才能带动",
+              "time": "12:04",
+              "sender_id": 8438763979,
+              "sender_name": "Liam Hui",
+              "media": []
+            },
+            {
+              "id": "701868",
+              "text": "",
+              "time": "12:07",
+              "sender_id": 8254582397,
+              "sender_name": "_RyF 15:45 PM Sat 🕞",
+              "media": [
+                {
+                  "type": "video",
+                  "url": "assets/tg-media/2026-11-28/comments/c-701868-1.mp4",
+                  "width": 0,
+                  "height": 0,
+                  "duration": 0,
+                  "size_bytes": 248612,
+                  "has_audio": true,
+                  "publish_status": "published",
+                  "poster_url": "assets/tg-media/2026-11-28/comments/c-701868-1-poster.webp"
+                }
+              ]
+            },
+            {
+              "id": "701871",
+              "text": "不是说解决了吗 根本没有源启动器 一直在r星手里 就是不怕ai盗版",
+              "time": "12:09",
+              "sender_id": 8973008286,
+              "sender_name": "Damian Jackson",
+              "media": []
+            },
+            {
+              "id": "701877",
+              "text": "网上那些跑出来的 全是ai做的视频好像",
+              "time": "12:11",
+              "sender_id": 8973008286,
+              "sender_name": "Damian Jackson",
+              "media": []
+            },
+            {
+              "id": "701878",
+              "text": "**七款 Windows 移植启动器介绍**\n目前整理了六款不同团队开发的 GTA VI Windows 移植启动器，全部基于 **Xbox Series v1.0.2.1 游戏本体**。\n本次采用游戏本体与启动器分开发布的方式：\n**GAME：** 存放游戏本体，只需下载一次。\n**PLAY：** 存放不同版本的移植启动器，可根据显卡型号和项目进度自行选择。\n**共用本体：** 六款启动器均可使用同一份游戏本体，无需重复下载。\n**后续更新：** 如果某个项目推出新版本，只需下载对应的新启动器即可，无须重新下载游戏本体。\n**多款启动器应该怎么选择？**\n如果使用 **NVIDIA 8GB 显存显卡**，可以优先尝试 ztrx；**Radeon 显卡**用户建议优先测试新版 victory-amd。\n如果更关注序幕画面渲染、场景表现及帧率变化，也可以尝试 victory-fork 或 victory-perf。不同项目的优化方向有所区别，实际表现还需要结合自己的硬件进行测试。\n**01. ztrx｜NVIDIA 8GB 显卡尝鲜**\nRTX 3050 8GB 显卡在游戏内测试约为 **1–3 FPS**。项目作者曾连续运行超过 90 分钟，并推进至序幕追船场景，但阴影区域仍然存在发黑现象。\n适合想要提前体验启动流程、测试游戏兼容性的 NVIDIA 用户。\n[↗️ 查看项目开发记录](https://github.com/Zettrox/ztrx/blob/90b529f878a470fec9bf07b7be316bc769a12232/README.md#status-2026-11-25)\n**02. victory-fork｜序幕渲染与性能改进**\nRTX 4070 12GB 显卡开启实验性选项后，序幕前几个房间测试帧率约为 **7–8 FPS**。\n本站采用发布版本 **0b0074e**，使用 Series X 默认设置。当前暗处仍可能出现画面发黑问题，进入开放世界后也有显卡设备丢失的记录。\n[↗️ 查看项目开发记录](https://github.com/fxceless/victory-fork/blob/0b0074e0b2765e574c622e9a3de566f20f04135b/README.md#newest-2026-11-25-later-the-same-day)\n**03. AnyXboxX｜序幕过场画面对比**\nRTX 4070 SUPER 显卡在作者的一次序幕测试中，运行帧率约为 **5.3–6.9 FPS**。\n该版本采用 AnyXboxX 项目的 Victory 分支，已经能够播放序幕过场动画，不过部分场景仍然存在画面缺失问题。\n[↗️ 查看项目开发记录](https://github.com/LooperSalty/AnyXboxX/blob/d02eee01bedefedda48204b798df3002c7e2ffcc/README.md)\n**04. victory-amd｜Radeon 显卡优先推荐**\n这是目前 **Radeon 用户值得优先尝试**的一个分支。\n在 RX 7800 XT 16GB 显卡的同条件测试中，出现超过 1 秒卡顿帧的采样区间从原来的 **42%** 降低至 **14%**，性能表现有所改善。\n本站采用版本 **003beef**。该版本序幕第一个房间已经能够显示墙面，但暗处仍可能存在光照缺失问题。\n[↗️ 查看项目开发记录](https://github.com/JoshuuDev/victory-amd/commit/003beef2b915341eba88974de021e3118250cb6c)\n**05. victory-perf｜降低渲染比例提升性能**\n该分支主要通过降低内部渲染比例来改善运行表现。\nRTX 4070 SUPER 显卡测试中，部分室内场景约为 **9–14 FPS**，复杂场景约为 **4.5–6.5 FPS**。\n目前采用 Series S 模式，内部渲染比例为 **50%**，并通过简化补光改善暗处画面表现。\n[↗️ 查看项目开发记录](https://github.com/vitutu1/victory-perf/blob/97c3aa24263b90fa6691fca8ca88fca179593a19/README.md#status--measured-results)\n**06. XCL｜独立兼容层主线测试**\nXCL 采用 **独立兼容层开发路线**，与其他 Victory 系列分支有所不同。\n本站采用主线版本 **06c9f55**，主要测试启动流程、游戏菜单以及首次设置，并合入了图形命令处理相关修复。\n目前剧情加载仍可能出现卡住的情况，运行还需要 **Windows Xbox 游戏服务**支持，适合对不同移植技术路线感兴趣的玩家尝试。\n[↗️ 查看项目开发记录](https://github.com/xcl-dev/xcl/blob/06c9f5505f63f10c5ec49ef932d75b2c28177324/README.md#games)\n**07. XCL｜独立兼容层主线测试**\n**RX 7900 XTX 的 1440p 测试中，序幕室内约 13–20 FPS，首个船任务约 19–22 FPS，繁忙街头追车约 6–10 FPS。**\n作者记录最长一轮 41 分钟未崩溃，进程提交内存约 40–46 GB，建议使用 64 GB 内存。本站提供 0a43566。",
+              "time": "12:14",
+              "sender_id": 5370002234,
+              "sender_name": "MeEE VCX",
+              "media": [
+                {
+                  "type": "image",
+                  "url": "assets/tg-media/2026-11-28/comments/c-701878-1.webp",
+                  "thumb_url": "assets/tg-media/2026-11-28/comments/c-701878-1-thumb.webp",
+                  "width": 1200,
+                  "height": 600,
+                  "size_bytes": 21626,
+                  "publish_status": "published"
+                }
+              ]
+            },
+            {
+              "id": "701897",
+              "text": "我只是一个普通玩家，能玩上正版盗版无所谓，也不用说什么盗版可耻，自己玩爽了才是实实在在的玩意😍",
+              "time": "12:23",
+              "sender_id": 6467529856,
+              "sender_name": "嘟嘟噜",
+              "media": []
+            },
+            {
+              "id": "701898",
+              "text": "这时候又都不歧视盗版玩家了? 盗亦有道了",
+              "time": "12:25",
+              "sender_id": 8595301726,
+              "sender_name": "长门 有希",
+              "media": []
+            },
+            {
+              "id": "701902",
+              "text": "能让人玩了盗版还愿意补票的才算好游戏",
+              "time": "12:32",
+              "sender_id": 7990493176,
+              "sender_name": "QT XD",
+              "media": []
+            },
+            {
+              "id": "701907",
+              "text": "并不是",
+              "time": "12:36",
+              "sender_id": 7739692580,
+              "sender_name": "Claire",
+              "media": [
+                {
+                  "type": "image",
+                  "url": "assets/tg-media/2026-11-28/comments/c-701907-1.webp",
+                  "thumb_url": "assets/tg-media/2026-11-28/comments/c-701907-1-thumb.webp",
+                  "width": 800,
+                  "height": 658,
+                  "size_bytes": 102116,
+                  "publish_status": "published"
+                }
+              ]
+            },
+            {
+              "id": "701912",
+              "text": "",
+              "time": "12:37",
+              "sender_id": 7739692580,
+              "sender_name": "Claire",
+              "media": [
+                {
+                  "type": "video",
+                  "url": "assets/tg-media/2026-11-28/comments/c-701912-1.mp4",
+                  "width": 0,
+                  "height": 0,
+                  "duration": 0,
+                  "size_bytes": 2934705,
+                  "has_audio": true,
+                  "publish_status": "published",
+                  "poster_url": "assets/tg-media/2026-11-28/comments/c-701912-1-poster.webp"
+                }
+              ]
+            },
+            {
+              "id": "701913",
+              "text": "目前勉强能玩",
+              "time": "12:37",
+              "sender_id": 7739692580,
+              "sender_name": "Claire",
+              "media": []
+            },
+            {
+              "id": "701921",
+              "text": "一流游戏让人玩了盗版还付钱买正版，二流游戏让人玩了盗版就玩了，三流游戏让人连盗版都不想玩",
+              "time": "12:40",
+              "sender_id": 1070707237,
+              "sender_name": "fiiz f",
+              "media": []
+            },
+            {
+              "id": "701924",
+              "text": "",
+              "time": "12:41",
+              "sender_id": 1070707237,
+              "sender_name": "fiiz f",
+              "media": []
+            },
+            {
+              "id": "701925",
+              "text": "笑死，pc党就是这样给自己找借口",
+              "time": "12:41",
+              "sender_id": 7811848058,
+              "sender_name": "欣",
+              "media": []
+            },
+            {
+              "id": "701928",
+              "text": "要么你就别玩，想玩还在这满天找借口真会给自己的恶劣行径洗白",
+              "time": "12:43",
+              "sender_id": 7811848058,
+              "sender_name": "欣",
+              "media": []
+            },
+            {
+              "id": "701929",
+              "text": "是是是，你让R星告我吧",
+              "time": "12:43",
+              "sender_id": 1070707237,
+              "sender_name": "fiiz f",
+              "media": []
+            },
+            {
+              "id": "701930",
+              "text": "",
+              "time": "12:44",
+              "sender_id": 1070707237,
+              "sender_name": "fiiz f",
+              "media": []
+            },
+            {
+              "id": "701934",
+              "text": "游戏我有三不玩，有码不玩，有DRM不玩，不能离线不玩，GTA6这种臭鱼烂虾都入不了我法眼",
+              "time": "12:45",
+              "sender_id": 1070707237,
+              "sender_name": "fiiz f",
+              "media": []
+            },
+            {
+              "id": "701944",
+              "text": "说不过就拉黑，急急绷绷又麻麻",
+              "time": "12:47",
+              "sender_id": 1070707237,
+              "sender_name": "fiiz f",
+              "media": []
+            },
+            {
+              "id": "701945",
+              "text": "是是是，pc党基本都是你这得行，嘴上说着不玩，背地里干着破解盗版的龌龊事，你也不配玩",
+              "time": "12:48",
+              "sender_id": 7811848058,
+              "sender_name": "欣",
+              "media": []
+            },
+            {
+              "id": "701949",
+              "text": "因为不想和破解盗版多废话，没水平，没底线，没准则，没资格🤢",
+              "time": "12:49",
+              "sender_id": 7811848058,
+              "sender_name": "欣",
+              "media": []
+            },
+            {
+              "id": "701950",
+              "text": "说白了,我确实喜欢白嫖,也确实挺无耻,破解的游戏已经够多了,够玩了,也希望厂家挣够钱后再去破解",
+              "time": "12:49",
+              "sender_id": 5319642543,
+              "sender_name": "毕加索",
+              "media": []
+            },
+            {
+              "id": "701961",
+              "text": "PC党和破解盗版本质上和那些星巴克不消费占座，别人提醒消费入座他还投诉攻击店员的人没什么区别\n玩不到就酸，嘲讽，带节奏，嘴上说着不玩也行，背地里却干着盗版，破解的肮脏龌龊活\n要是真对游戏或者公司决策有什么不满就不买不玩，支持你，一边想玩一边又找借口，不要脸到极致，对GTA是这样对时之笛也是这样\n销量全靠主机玩家，盗版破解还振振有词，难怪这个平台永远是二等公民，活该玩不到，活该被歧视(只针对平台，不针对正常用户)",
+              "time": "12:53",
+              "sender_id": 7811848058,
+              "sender_name": "欣",
+              "media": []
+            },
+            {
+              "id": "701963",
+              "text": "这才是正确思维，想玩就玩正版，不然可以不玩，没人逼你玩",
+              "time": "12:54",
+              "sender_id": 7811848058,
+              "sender_name": "欣",
+              "media": []
+            },
+            {
+              "id": "701964",
+              "text": "正解，说的太对了",
+              "time": "12:55",
+              "sender_id": 7811848058,
+              "sender_name": "欣",
+              "media": []
+            },
+            {
+              "id": "701965",
+              "text": "玩家玩盗版确实无耻，但也要意识到生产方的问题，怎么人家minecraft就不在意盗版",
+              "time": "12:55",
+              "sender_id": 1070707237,
+              "sender_name": "fiiz f",
+              "media": []
+            },
+            {
+              "id": "701966",
+              "text": "",
+              "time": "12:55",
+              "sender_id": 1070707237,
+              "sender_name": "fiiz f",
+              "media": []
+            },
+            {
+              "id": "701967",
+              "text": "投入成本不一样。盈利模式也不一样。",
+              "time": "12:57",
+              "sender_id": 5296187372,
+              "sender_name": "蒙古中单",
+              "media": []
+            },
+            {
+              "id": "701968",
+              "text": "游戏一样是商品，就和出门吃饭要付钱是一个道理，不是之前数千万正版玩家的支持哪来的GTA6？搞破解盗版的扪心自问，如果你自己工作十几年的心血被别人轻易的窃取了你什么滋味？要是对厂商决策不满意就不买不玩，钱是你自己的你自己决定支持你，但是想玩就去支持正版",
+              "time": "12:58",
+              "sender_id": 7811848058,
+              "sender_name": "欣",
+              "media": []
+            },
+            {
+              "id": "701969",
+              "text": "盗版这东西,和寄生虫差不多,寄生在正版付费用户身上,你得盼着宿主健康成长,你才能平稳不死,所以我也挺讨厌在网上发什么电影网站的人,还说看这东西还需要vip?",
+              "time": "12:59",
+              "sender_id": 5319642543,
+              "sender_name": "毕加索",
+              "media": []
+            },
+            {
+              "id": "701970",
+              "text": "~~典中典之微软的东西就不怕盗版~~",
+              "time": "12:59",
+              "sender_id": 5616933867,
+              "sender_name": "Christine",
+              "media": []
+            },
+            {
+              "id": "701974",
+              "text": "是的，还有导航语音，这是正版才能体验的，这是真玩了👍🏻👍🏻",
+              "time": "13:00",
+              "sender_id": 7811848058,
+              "sender_name": "欣",
+              "media": []
+            },
+            {
+              "id": "701977",
+              "text": "是的，现在盗版反而猖獗到去嘲讽正版用户，什么风气简直是？！",
+              "time": "13:01",
+              "sender_id": 7811848058,
+              "sender_name": "欣",
+              "media": []
+            },
+            {
+              "id": "701978",
+              "text": "都去玩盗版。正版不开发了，死绝了。最后单机游戏剩点遗老遗少，就让那些玩盗版的慢慢玩吧。",
+              "time": "13:02",
+              "sender_id": 5296187372,
+              "sender_name": "蒙古中单",
+              "media": []
+            },
+            {
+              "id": "702007",
+              "text": "首先不可能全部人都玩盗版，对面一分钱赚不到",
+              "time": "13:08",
+              "sender_id": 1070707237,
+              "sender_name": "fiiz f",
+              "media": []
+            },
+            {
+              "id": "702008",
+              "text": "",
+              "time": "13:08",
+              "sender_id": 1070707237,
+              "sender_name": "fiiz f",
+              "media": [
+                {
+                  "type": "video",
+                  "url": "assets/tg-media/2026-11-28/comments/c-702008-1.mp4",
+                  "width": 0,
+                  "height": 0,
+                  "duration": 0,
+                  "size_bytes": 51675,
+                  "has_audio": true,
+                  "publish_status": "published",
+                  "poster_url": "assets/tg-media/2026-11-28/comments/c-702008-1-poster.webp"
+                }
+              ]
+            },
+            {
+              "id": "702011",
+              "text": "如果真的出现这种情况，你还能说商家没错吗",
+              "time": "13:09",
+              "sender_id": 1070707237,
+              "sender_name": "fiiz f",
+              "media": []
+            },
+            {
+              "id": "702015",
+              "text": "不可能全部人都玩盗版不是因为玩盗版的人有啥良心。\n另外，研发游戏是有成本的。不用全部人都玩盗版。只要入不敷出，游戏就可以挂了。",
+              "time": "13:10",
+              "sender_id": 5296187372,
+              "sender_name": "蒙古中单",
+              "media": []
+            },
+            {
+              "id": "702016",
+              "text": "其次盗版玩家也不可能全部人都不付钱，玩盗版的人有可能后面再付",
+              "time": "13:10",
+              "sender_id": 1070707237,
+              "sender_name": "fiiz f",
+              "media": []
+            },
+            {
+              "id": "702017",
+              "text": "只要游戏本身优秀,全平台一起发售,盗版的存在就能无限制的减少",
+              "time": "13:10",
+              "sender_id": 5104265874,
+              "sender_name": "Daoyou ⓧⓤ",
+              "media": []
+            },
+            {
+              "id": "702018",
+              "text": "也没见其他家一起发售的会卖不出去啊",
+              "time": "13:10",
+              "sender_id": 5104265874,
+              "sender_name": "Daoyou ⓧⓤ",
+              "media": []
+            },
+            {
+              "id": "702020",
+              "text": "独占才是那个恶心的玩意",
+              "time": "13:11",
+              "sender_id": 5104265874,
+              "sender_name": "Daoyou ⓧⓤ",
+              "media": []
+            },
+            {
+              "id": "702022",
+              "text": "都花一样的钱,人为的给分成369等",
+              "time": "13:11",
+              "sender_id": 5104265874,
+              "sender_name": "Daoyou ⓧⓤ",
+              "media": []
+            },
+            {
+              "id": "702024",
+              "text": "那就是没有吸引到足够的正版玩家导致挂了，你要把造成这个情况的责任全部推到盗版玩家身上吗",
+              "time": "13:11",
+              "sender_id": 1070707237,
+              "sender_name": "fiiz f",
+              "media": []
+            },
+            {
+              "id": "702025",
+              "text": "人都是有劣性的，如果一个东西货架上不要钱，另一个要钱久而久之你觉得还会付钱么？",
+              "time": "13:11",
+              "sender_id": 7811848058,
+              "sender_name": "欣",
+              "media": []
+            },
+            {
+              "id": "702026",
+              "text": "我不推到盗版玩家身上，难不成还推到我头上吗？",
+              "time": "13:12",
+              "sender_id": 5296187372,
+              "sender_name": "蒙古中单",
+              "media": []
+            },
+            {
+              "id": "702028",
+              "text": "推到商家头上啊",
+              "time": "13:12",
+              "sender_id": 1070707237,
+              "sender_name": "fiiz f",
+              "media": []
+            },
+            {
+              "id": "702029",
+              "text": "全平台上架就能很大程度打击盗版",
+              "time": "13:12",
+              "sender_id": 5104265874,
+              "sender_name": "Daoyou ⓧⓤ",
+              "media": []
+            },
+            {
+              "id": "702030",
+              "text": "",
+              "time": "13:12",
+              "sender_id": 1070707237,
+              "sender_name": "fiiz f",
+              "media": []
+            },
+            {
+              "id": "702031",
+              "text": "少之又少,有1成没",
+              "time": "13:12",
+              "sender_id": 5319642543,
+              "sender_name": "毕加索",
+              "media": []
+            },
+            {
+              "id": "702032",
+              "text": "因为正版有地方买",
+              "time": "13:12",
+              "sender_id": 5104265874,
+              "sender_name": "Daoyou ⓧⓤ",
+              "media": []
+            },
+            {
+              "id": "702033",
+              "text": "我咋知道",
+              "time": "13:12",
+              "sender_id": 1070707237,
+              "sender_name": "fiiz f",
+              "media": []
+            },
+            {
+              "id": "702034",
+              "text": "你又咋知道",
+              "time": "13:12",
+              "sender_id": 1070707237,
+              "sender_name": "fiiz f",
+              "media": []
+            },
+            {
+              "id": "702038",
+              "text": "而且主机和主机玩家之间买的游戏价格也不一样",
+              "time": "13:12",
+              "sender_id": 5104265874,
+              "sender_name": "Daoyou ⓧⓤ",
+              "media": []
+            },
+            {
+              "id": "702039",
+              "text": "所谓的补票都是盗版给自己找的借口，要说补票就百分百补，因为玩的都得付钱，有这个比例不？",
+              "time": "13:13",
+              "sender_id": 7811848058,
+              "sender_name": "欣",
+              "media": []
+            },
+            {
+              "id": "702040",
+              "text": "港区永远是最贵的那一档",
+              "time": "13:13",
+              "sender_id": 5104265874,
+              "sender_name": "Daoyou ⓧⓤ",
+              "media": []
+            },
+            {
+              "id": "702041",
+              "text": "盗版精神可别发扬了,kindle咋搞的推出中国市场了🤣",
+              "time": "13:13",
+              "sender_id": 5319642543,
+              "sender_name": "毕加索",
+              "media": []
+            },
+            {
+              "id": "702044",
+              "text": "我是黑客我也破 我是r星我也告 我有主机我也急 pc移植出来我也玩",
+              "time": "13:14",
+              "sender_id": 5058971854,
+              "sender_name": "ice",
+              "media": []
+            },
+            {
+              "id": "702047",
+              "text": "而且为什么不独占？你pc只占R⭐营收的5%，主机占了95%不服务好金主难道服务散户？倒不如问问为什么没人在pc上氪鲨鱼卡，因为都知道pc ol全是挂，上线露头就秒，动不动看到车在天上飞，全都在主机玩",
+              "time": "13:14",
+              "sender_id": 7811848058,
+              "sender_name": "欣",
+              "media": []
+            },
+            {
+              "id": "702049",
+              "text": "不提倡盗版，但盗版这个情况，我们要辩证地看待",
+              "time": "13:15",
+              "sender_id": 1070707237,
+              "sender_name": "fiiz f",
+              "media": []
+            },
+            {
+              "id": "702052",
+              "text": "",
+              "time": "13:15",
+              "sender_id": 1070707237,
+              "sender_name": "fiiz f",
+              "media": []
+            },
+            {
+              "id": "702055",
+              "text": "各位看看自家的游戏平台和主机分别花了多少钱",
+              "time": "13:16",
+              "sender_id": 5104265874,
+              "sender_name": "Daoyou ⓧⓤ",
+              "media": []
+            },
+            {
+              "id": "702056",
+              "text": "",
+              "time": "13:16",
+              "sender_id": 5104265874,
+              "sender_name": "Daoyou ⓧⓤ",
+              "media": []
+            },
+            {
+              "id": "702057",
+              "text": "说白了还是经济实力问题",
+              "time": "13:16",
+              "sender_id": 8198120816,
+              "sender_name": "AGENT",
+              "media": []
+            },
+            {
+              "id": "702058",
+              "text": "我就PC平台上面买的游戏最多",
+              "time": "13:16",
+              "sender_id": 5104265874,
+              "sender_name": "Daoyou ⓧⓤ",
+              "media": []
+            },
+            {
+              "id": "702059",
+              "text": "克劳德，你会封我号吗（）",
+              "time": "13:17",
+              "sender_id": 6884727291,
+              "sender_name": "笨小孩",
+              "media": []
+            },
+            {
+              "id": "702060",
+              "text": "主机平台只买没有移植版或者不可能移植的",
+              "time": "13:17",
+              "sender_id": 5104265874,
+              "sender_name": "Daoyou ⓧⓤ",
+              "media": []
+            },
+            {
+              "id": "702062",
+              "text": "人为的把平台分369等可见也不是真喜欢玩游戏的..",
+              "time": "13:17",
+              "sender_id": 5104265874,
+              "sender_name": "Daoyou ⓧⓤ",
+              "media": []
+            },
+            {
+              "id": "702063",
+              "text": "平台本无错,非得人为自己加上欲加之罪",
+              "time": "13:17",
+              "sender_id": 5104265874,
+              "sender_name": "Daoyou ⓧⓤ",
+              "media": []
+            },
+            {
+              "id": "702078",
+              "text": "平台无错？你猜为什么在pc上都是D加密严防死守？主机怎么就不用？平台本身就是有缺点不用不愿意承认（说的是平台不是正常用户）",
+              "time": "13:22",
+              "sender_id": 7811848058,
+              "sender_name": "欣",
+              "media": []
+            },
+            {
+              "id": "702080",
+              "text": "这不是厂商的策略么",
+              "time": "13:22",
+              "sender_id": 5104265874,
+              "sender_name": "Daoyou ⓧⓤ",
+              "media": []
+            },
+            {
+              "id": "702085",
+              "text": "R⭐为什么把pc当二等公民？因为销量，营收，行为都决定了平台优劣",
+              "time": "13:23",
+              "sender_id": 7811848058,
+              "sender_name": "欣",
+              "media": []
+            },
+            {
+              "id": "702087",
+              "text": "所以和平台有啥关系",
+              "time": "13:23",
+              "sender_id": 5104265874,
+              "sender_name": "Daoyou ⓧⓤ",
+              "media": []
+            },
+            {
+              "id": "702089",
+              "text": "就玩就玩 气死你",
+              "time": "13:23",
+              "sender_id": 5058971854,
+              "sender_name": "ice",
+              "media": []
+            },
+            {
+              "id": "702091",
+              "text": "",
+              "time": "13:23",
+              "sender_id": 5058971854,
+              "sender_name": "ice",
+              "media": []
+            },
+            {
+              "id": "702092",
+              "text": "我比较好奇为啥都喜欢游戏主机，是不是因为性能比PC强啊",
+              "time": "13:24",
+              "sender_id": 812651101,
+              "sender_name": "风 翼",
+              "media": []
+            },
+            {
+              "id": "702093",
+              "text": "可是PC不是没有上限吗",
+              "time": "13:24",
+              "sender_id": 812651101,
+              "sender_name": "风 翼",
+              "media": []
+            },
+            {
+              "id": "702095",
+              "text": "因为主机天下第一",
+              "time": "13:24",
+              "sender_id": 5058971854,
+              "sender_name": "ice",
+              "media": []
+            },
+            {
+              "id": "702096",
+              "text": "主机相对而言对普通家庭负担轻吧",
+              "time": "13:24",
+              "sender_id": 5104265874,
+              "sender_name": "Daoyou ⓧⓤ",
+              "media": []
+            },
+            {
+              "id": "702098",
+              "text": "感觉主机再怎么优化也比不过PC",
+              "time": "13:25",
+              "sender_id": 812651101,
+              "sender_name": "风 翼",
+              "media": []
+            },
+            {
+              "id": "702101",
+              "text": "主机玩家是很高贵的",
+              "time": "13:25",
+              "sender_id": 5058971854,
+              "sender_name": "ice",
+              "media": []
+            },
+            {
+              "id": "702102",
+              "text": "好吧",
+              "time": "13:25",
+              "sender_id": 812651101,
+              "sender_name": "风 翼",
+              "media": []
+            },
+            {
+              "id": "702104",
+              "text": "类似于claude",
+              "time": "13:25",
+              "sender_id": 5058971854,
+              "sender_name": "ice",
+              "media": []
+            },
+            {
+              "id": "702106",
+              "text": "那为啥便宜🤣",
+              "time": "13:25",
+              "sender_id": 812651101,
+              "sender_name": "风 翼",
+              "media": []
+            },
+            {
+              "id": "702108",
+              "text": "主机操作方便，即开即玩，配合手柄大屏沉浸感拉满，环境干净，没有盗版开挂困扰，太多了",
+              "time": "13:25",
+              "sender_id": 7811848058,
+              "sender_name": "欣",
+              "media": []
+            },
+            {
+              "id": "702110",
+              "text": "这你就问到点子了 这我还真不知道",
+              "time": "13:25",
+              "sender_id": 5058971854,
+              "sender_name": "ice",
+              "media": []
+            },
+            {
+              "id": "702111",
+              "text": "专项优化 适配游玩更舒服\n上PC不同配置 不同环境就问题很多l",
+              "time": "13:26",
+              "sender_id": 682729597,
+              "sender_name": "Kukisi",
+              "media": []
+            },
+            {
+              "id": "702112",
+              "text": "反正没见过pc喷主机 都是主机在喷pc",
+              "time": "13:26",
+              "sender_id": 5058971854,
+              "sender_name": "ice",
+              "media": []
+            },
+            {
+              "id": "702115",
+              "text": "这帖子里就很多高贵主机玩家",
+              "time": "13:26",
+              "sender_id": 5058971854,
+              "sender_name": "ice",
+              "media": []
+            },
+            {
+              "id": "702116",
+              "text": "我不算,因为我是全机党",
+              "time": "13:26",
+              "sender_id": 5104265874,
+              "sender_name": "Daoyou ⓧⓤ",
+              "media": []
+            },
+            {
+              "id": "702117",
+              "text": "那感觉有点安卓喷苹果的样子",
+              "time": "13:26",
+              "sender_id": 812651101,
+              "sender_name": "风 翼",
+              "media": []
+            },
+            {
+              "id": "702126",
+              "text": "所谓的性能优化也只是相对而言，主机专属优化能发挥超出预期的优势，比如gta6在2020年的初版ps5依然能计算运行这种画面的超大开放世界，而数码宝贝所谓的性能更多是网上口嗨，现在5090配完都要5w朝上，人人都有么？更多的都是甜品卡，根据steam工程师说法，70％的pc性能不如SM而sm不如初版ps5",
+              "time": "13:29",
+              "sender_id": 7811848058,
+              "sender_name": "欣",
+              "media": []
+            },
+            {
+              "id": "702127",
+              "text": "这说的不严谨,是PC的下限不如主机,但是PC没有上限",
+              "time": "13:30",
+              "sender_id": 5104265874,
+              "sender_name": "Daoyou ⓧⓤ",
+              "media": []
+            },
+            {
+              "id": "702131",
+              "text": "没有正版哪来的盗版，我看PC现在谁出谁是正版",
+              "time": "13:30",
+              "sender_id": 1061400291,
+              "sender_name": "E Et",
+              "media": []
+            },
+            {
+              "id": "702138",
+              "text": "嗯，对的",
+              "time": "13:32",
+              "sender_id": 812651101,
+              "sender_name": "风 翼",
+              "media": []
+            },
+            {
+              "id": "702156",
+              "text": "不是不正版，而是缓正版，慢正版，有次序地去正版。让有能力的人先正版，让条件更优的人先正版，通过先正版的人带动后正版的人，最终实现共同正版。\n同时，也要根据具体情况去正版，不能盲目地去正版，要精准地正版、科学地正版、高效地正版，有策略地正版。让懂技术的人参与到正版的过程中，让善管理的人带头去正版，以专业的力量助力大家建立正版，同时也要兼顾特殊情况，灵活地去正版。",
+              "time": "13:39",
+              "sender_id": 1070707237,
+              "sender_name": "fiiz f",
+              "media": []
+            },
+            {
+              "id": "702157",
+              "text": "盗版就该狠狠的玩啊，不花一分钱就是爽😁",
+              "time": "13:39",
+              "sender_id": 6263027216,
+              "sender_name": "Tile",
+              "media": []
+            },
+            {
+              "id": "702243",
+              "text": "检测到中国人",
+              "time": "14:30",
+              "sender_id": 1001698883,
+              "sender_name": "Claude",
+              "media": []
+            },
+            {
+              "id": "702244",
+              "text": "",
+              "time": "14:30",
+              "sender_id": 1001698883,
+              "sender_name": "Claude",
+              "media": []
+            },
+            {
+              "id": "702249",
+              "text": "怎么那么多主机嘉豪的",
+              "time": "14:33",
+              "sender_id": 279701944,
+              "sender_name": "卷王 加速总工程师",
+              "media": []
+            },
+            {
+              "id": "702250",
+              "text": "R星自己不推PC版R星自己就受着",
+              "time": "14:33",
+              "sender_id": 279701944,
+              "sender_name": "卷王 加速总工程师",
+              "media": []
+            },
+            {
+              "id": "702258",
+              "text": "主机孝子有意见就帮他叠受着",
+              "time": "14:34",
+              "sender_id": 279701944,
+              "sender_name": "卷王 加速总工程师",
+              "media": []
+            },
+            {
+              "id": "702270",
+              "text": "反正有意见你们就告吧，人就在俄罗斯跑不了",
+              "time": "14:35",
+              "sender_id": 279701944,
+              "sender_name": "卷王 加速总工程师",
+              "media": []
+            },
+            {
+              "id": "702333",
+              "text": "可惜了我小红车上的黄油，都怪毒狗和倒狗，",
+              "time": "15:02",
+              "sender_id": 7671435904,
+              "sender_name": "maike xie",
+              "media": []
+            },
+            {
+              "id": "702335",
+              "text": "",
+              "time": "15:03",
+              "sender_id": 7671435904,
+              "sender_name": "maike xie",
+              "media": []
+            },
+            {
+              "id": "702339",
+              "text": "支持开源环境越来越好😆",
+              "time": "15:03",
+              "sender_id": 7671435904,
+              "sender_name": "maike xie",
+              "media": []
+            },
+            {
+              "id": "702372",
+              "text": "",
+              "time": "15:08",
+              "sender_id": 1664408504,
+              "sender_name": "zou",
+              "media": [
+                {
+                  "type": "image",
+                  "url": "assets/tg-media/2026-11-28/comments/c-702372-1.webp",
+                  "thumb_url": "assets/tg-media/2026-11-28/comments/c-702372-1-thumb.webp",
+                  "width": 1080,
+                  "height": 628,
+                  "size_bytes": 29862,
+                  "publish_status": "published"
+                }
+              ]
+            },
+            {
+              "id": "702412",
+              "text": "r星不重视pc的原因，前段时间的黑客泄漏不就说明一切了，pc端愿意真金白银支持的 远远低于主机端的氪金母猪们，但凡pc端跟主机端一样能氪，gta6早就pc 主机同步发售了！",
+              "time": "15:26",
+              "sender_id": 2094745588,
+              "sender_name": "高达 一号",
+              "media": []
+            },
+            {
+              "id": "702500",
+              "text": "no！",
+              "time": "15:53",
+              "sender_id": 6884727291,
+              "sender_name": "笨小孩",
+              "media": []
+            },
+            {
+              "id": "702524",
+              "text": "Kindle 太贵了，还是微信读书实惠",
+              "time": "16:08",
+              "sender_id": 5500259281,
+              "sender_name": "超绝望级的校长",
+              "media": []
+            },
+            {
+              "id": "702529",
+              "text": "微信读书看网文要钱。如果纯白嫖，还不如买掌阅。手机APP可以薅一遍积分。掌阅墨水屏还可以薅一遍积分。看书真跟不要钱一样。",
+              "time": "16:10",
+              "sender_id": 5296187372,
+              "sender_name": "蒙古中单",
+              "media": []
+            },
+            {
+              "id": "702531",
+              "text": "积分获取方式和积分使用规则\n请查阅 https://t.me/zaihuapd/40607",
+              "time": "16:11",
+              "sender_id": 8439882275,
+              "sender_name": "🔫 ~biu~biu~biu",
+              "media": []
+            },
+            {
+              "id": "702864",
+              "text": "在gta6移植到手机上之前，都没什么好说的",
+              "time": "16:59",
+              "sender_id": 8400504126,
+              "sender_name": "vla pha",
+              "media": []
+            },
+            {
+              "id": "702900",
+              "text": "有没有可能开发端也能吃到AI红利降低成本",
+              "time": "17:04",
+              "sender_id": 8313794694,
+              "sender_name": "Pl Lee",
+              "media": []
+            },
+            {
+              "id": "702956",
+              "text": "还搁这支持不支持站队呢，",
+              "time": "17:16",
+              "sender_id": 5307649106,
+              "sender_name": "正义的双马尾",
+              "media": []
+            },
+            {
+              "id": "702958",
+              "text": "必被破解移植这就是现实",
+              "time": "17:17",
+              "sender_id": 5307649106,
+              "sender_name": "正义的双马尾",
+              "media": []
+            },
+            {
+              "id": "703236",
+              "text": "真以为你r星哥哥是善男信女了?搞烦了直接找杀手一把火烧了破解者全家",
+              "time": "18:28",
+              "sender_id": 75708608,
+              "sender_name": "NaNTofus🇮🇪 豆腐丝🎐",
+              "media": []
+            },
+            {
+              "id": "703431",
+              "text": "",
+              "time": "19:50",
+              "sender_id": 8394178576,
+              "sender_name": "Burt Ruiz",
+              "media": []
+            },
+            {
+              "id": "703519",
+              "text": "坐等官方免安装中文豪华圈MOD版",
+              "time": "20:43",
+              "sender_id": 6031309400,
+              "sender_name": "50°可乐",
+              "media": []
+            },
+            {
+              "id": "703645",
+              "text": "游戏多贵啊，想玩没钱大大方方玩破解",
+              "time": "21:29",
+              "sender_id": 6040678145,
+              "sender_name": "E TA",
+              "media": []
+            }
+          ],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-11-28/zaihuapd-45397-1-thumb.webp",
+              "url": "assets/tg-media/2026-11-28/zaihuapd-45397-1.webp",
+              "width": 680,
+              "height": 467,
+              "size_bytes": 39506,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "text1024-27276",
+          "title": "父母的钱真的太好赚了。 就是这么一个简陋的不能再简陋的小玩具，居然在TikTok也卖掉了几十万美金。 可见海外儿童市场有",
+          "summary": "父母的钱真的太好赚了。\n就是这么一个简陋的不能再简陋的小玩具，居然在TikTok也卖掉了几十万美金。\n可见海外儿童市场有多大。\n更重要的是，一些带货网红，就只是拍拍开箱，展示展示玩法，每个月居然也能赚到上千美金的佣金。\n真的是躺在家里就把钱给赚到了。\n别人能做，在国内有更多货源的我们。赚起钱来只会多不会少。\n那具体怎么实操呢？\n1.借助一些第三方工具，看看在亚马逊上，关于儿童益智玩具这个品类，有哪些产品卖的比较好的。\n2.申请亚马逊的Amazon Associate，获取带货权限和佣金链接。\n3.在国内找找有没有类似产品的货源。选择5-10个比较受欢迎的款式，然后就照着爆款带货视频的脚本照着拍。\n4.把视频分发到所有的海外渠道。只要有流量的短视频平台，都发。\n5.除了主页上的带货链接，只要有人询单或者来问，我们就可以把亚马逊的佣金链接丢给他。\n要是视频流量起来了，再加上亚马逊平台的高转化率，这个佣金收入其实是高的吓人的。\n\n[副业搞钱](https://t.me/text1024) | [出海赚美金](https://t.me/yunying23) | [内幕消息](https://t.me/inside1024)｜[优质内容](https://t.me/chunse1024)",
+          "channel": "@text1024",
+          "channel_name": "副业赚钱探索指南",
+          "channel_url": "https://t.me/text1024",
+          "time": "11:43",
+          "url": "https://t.me/text1024/27276",
+          "message_id": "27276",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "video",
+              "url": "assets/tg-media/2026-11-28/text1024-27276-1.mp4",
+              "fallback_url": "https://t.me/text1024/27276",
+              "width": 0,
+              "height": 0,
+              "duration": 0,
+              "size_bytes": 3222533,
+              "publish_status": "published",
+              "has_audio": true,
+              "poster_url": "assets/tg-media/2026-11-28/text1024-27276-1-poster.webp"
+            }
+          ]
+        },
+        {
+          "id": "meiriyishu-5356",
+          "title": "AI漫剧实战训练营，剧本、分镜、生视频、配音剪辑一站式教学，手把手做出完整漫剧短片  百度网盘：https://pan.",
+          "summary": "AI漫剧实战训练营，剧本、分镜、生视频、配音剪辑一站式教学，手把手做出完整漫剧短片\n\n百度网盘：https://pan.baidu.com/s/1XoAPWO5m4dtsX-SabEbo_g?pwd=4107\n提取码：4107\n\nhttps://fuyezy.com/58527.html",
+          "channel": "@meiriyishu",
+          "channel_name": "优质「资源」收藏夹",
+          "channel_url": "https://t.me/meiriyishu",
+          "time": "12:11",
+          "url": "https://t.me/meiriyishu/5356",
+          "message_id": "5356",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-11-28/meiriyishu-5356-1-thumb.webp",
+              "url": "assets/tg-media/2026-11-28/meiriyishu-5356-1.webp",
+              "width": 800,
+              "height": 443,
+              "size_bytes": 86338,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "aigc1024-27499",
+          "title": "美国年轻人恋爱新观：宁可单身，也不和搞 AI 的处对象 https://mp.weixin.qq.com/s/OVhEs",
+          "summary": "美国年轻人恋爱新观：宁可单身，也不和搞 AI 的处对象\nhttps://mp.weixin.qq.com/s/OVhEs5IqTcA9VUoa9aoOfA\n民怨沸腾\n@aigc1024",
+          "channel": "@aigc1024",
+          "channel_name": "AI探索指南",
+          "channel_url": "https://t.me/aigc1024",
+          "time": "12:16",
+          "url": "https://t.me/aigc1024/27499",
+          "message_id": "27499",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-11-28/aigc1024-27499-1-thumb.webp",
+              "url": "assets/tg-media/2026-11-28/aigc1024-27499-1.webp",
+              "width": 1175,
+              "height": 499,
+              "size_bytes": 72640,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "aigc1024-27500",
+          "title": "ai 创业有一种盘子是这么拼起来的： 讨喜的男性 CEO当吉祥物 热情洋溢的 CMO 女人当家做主 再配合一个勤劳刻苦抽",
+          "summary": "ai 创业有一种盘子是这么拼起来的：\n讨喜的男性 CEO当吉祥物\n热情洋溢的 CMO 女人当家做主\n再配合一个勤劳刻苦抽打鞭子的 CTO/CPO\n成了。\n@aigc1024",
+          "channel": "@aigc1024",
+          "channel_name": "AI探索指南",
+          "channel_url": "https://t.me/aigc1024",
+          "time": "12:41",
+          "url": "https://t.me/aigc1024/27500",
+          "message_id": "27500",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": []
+        },
+        {
+          "id": "yunying23-12943",
+          "title": "小红书同城把妹技巧 真实案例分享群：   [出海赚美金](https://t.me/yunying23)｜[优质资源](",
+          "summary": "小红书同城把妹技巧\n真实案例分享群：\n\n\n[出海赚美金](https://t.me/yunying23)｜[优质资源](https://t.me/meiriyishu)｜[优质信息](https://t.me/chunse1024/8467)｜[内幕消息](https://t.me/inside1024)",
+          "channel": "@yunying23",
+          "channel_name": "出海🚢&自媒体运营秘籍",
+          "channel_url": "https://t.me/yunying23",
+          "time": "12:48",
+          "url": "https://t.me/yunying23/12943",
+          "message_id": "12943",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "video",
+              "url": "",
+              "fallback_url": "https://t.me/yunying23/12943",
+              "width": 0,
+              "height": 0,
+              "duration": 0,
+              "size_bytes": 36305319,
+              "publish_status": "poster_only",
+              "has_audio": true,
+              "poster_url": "assets/tg-media/2026-11-28/yunying23-12943-1-poster.webp"
+            }
+          ]
+        },
+        {
+          "id": "meiriyishu-5357",
+          "title": "Github最新热门项目！红果短剧电脑版+TV版本来了，大屏追剧更爽，体验丝滑安装即用hongguo  百度网盘：htt",
+          "summary": "Github最新热门项目！红果短剧电脑版+TV版本来了，大屏追剧更爽，体验丝滑安装即用hongguo\n\n百度网盘：https://pan.baidu.com/s/1AfTXuxipBzuwqQHjkb_BTg?pwd=8337\n提取码：8337\n\nhttps://fuyezy.com/58535.html",
+          "channel": "@meiriyishu",
+          "channel_name": "优质「资源」收藏夹",
+          "channel_url": "https://t.me/meiriyishu",
+          "time": "13:11",
+          "url": "https://t.me/meiriyishu/5357",
+          "message_id": "5357",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-11-28/meiriyishu-5357-1-thumb.webp",
+              "url": "assets/tg-media/2026-11-28/meiriyishu-5357-1.webp",
+              "width": 793,
+              "height": 560,
+              "size_bytes": 65004,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "inside1024-91465",
+          "title": "婚姻的尽头是一起搞钱 做最优秀的合伙人 而不是内斗的怨偶 最高级的关系是人生战友 不是劫富济贫 而是强强联手 好的夫妻关",
+          "summary": "婚姻的尽头是一起搞钱\n做最优秀的合伙人\n而不是内斗的怨偶\n最高级的关系是人生战友\n不是劫富济贫\n而是强强联手\n好的夫妻关系是年轻时谈情说爱\n中年后并肩作战\n明线是共同维系家庭的经济根基\n暗线是彼此比拼解决问的能力\n选对伴侣很重要\n要选聪明\n有担当共同破局的人\n\n[内幕消息](https://t.me/inside1024)｜[优质资源](https://t.me/meiriyishu) | [优质信息](https://t.me/chunse1024/8467)",
+          "channel": "@inside1024",
+          "channel_name": "你不知道的内幕消息🅥",
+          "channel_url": "https://t.me/inside1024",
+          "time": "13:11",
+          "url": "https://t.me/inside1024/91465",
+          "message_id": "91465",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-11-28/inside1024-91465-1-thumb.webp",
+              "url": "assets/tg-media/2026-11-28/inside1024-91465-1.webp",
+              "width": 1280,
+              "height": 1920,
+              "size_bytes": 266710,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "meiriyishu-5361",
+          "title": "2026自媒体运营精品课｜AI赋能抖音起号，吃透算法、打造爆款变现  百度网盘：https://pan.baidu.co",
+          "summary": "2026自媒体运营精品课｜AI赋能抖音起号，吃透算法、打造爆款变现\n\n百度网盘：https://pan.baidu.com/s/1rPLv391mk9WHq1X-oKWnxg?pwd=e7ad\n提取码：e7ad\n\nhttps://fuyezy.com/58537.html",
+          "channel": "@meiriyishu",
+          "channel_name": "优质「资源」收藏夹",
+          "channel_url": "https://t.me/meiriyishu",
+          "time": "14:11",
+          "url": "https://t.me/meiriyishu/5361",
+          "message_id": "5361",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-11-28/meiriyishu-5361-1-thumb.webp",
+              "url": "assets/tg-media/2026-11-28/meiriyishu-5361-1.webp",
+              "width": 659,
+              "height": 365,
+              "size_bytes": 61192,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "yunying23-12944",
+          "title": "GitHub 上发现一个有意思的插件：Nanobrowser 这是个 Chrome 插件，装上之后就能用自然语言控制浏览",
+          "summary": "GitHub 上发现一个有意思的插件：Nanobrowser\n这是个 Chrome 插件，装上之后就能用自然语言控制浏览器帮你干活。\n现在有 1 万多 Star 了。\n举个例子：\n我让它去 Hugging Face 看前三篇论文，\n读完标、点赞数、摘要，最后按点赞排个序。\n它自己就开始跳转网页、读取内容、整理信息，\n全程不用我动手，最后把结果发给我。\n看它工作的时候挺有意思，\n会给网页上的每个元素打个标签，然后自己点击操作。\n技术上用了两个智能体：\nPlanner 负责理解任务、拆解步骤\nNavigator 负责具体操作网页\n如果遇到问，Planner 还会动态调整策略。\n成本方面，我用的 DeepSeek API，\n跑这一个任务花了 1 毛钱...真的就 1 毛钱。\n配置也简单，装好插件配个 API Key 就能用。\n对需要重复性网页操作的场景来说，\n这玩意儿还挺实用的。\n\n\n[出海赚美金](https://t.me/yunying23)｜[优质资源](https://t.me/meiriyishu)｜[优质信息](https://t.me/chunse1024/8467)｜[内幕消息](https://t.me/inside1024)",
+          "channel": "@yunying23",
+          "channel_name": "出海🚢&自媒体运营秘籍",
+          "channel_url": "https://t.me/yunying23",
+          "time": "14:25",
+          "url": "https://t.me/yunying23/12944",
+          "message_id": "12944",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-11-28/yunying23-12944-1-thumb.webp",
+              "url": "assets/tg-media/2026-11-28/yunying23-12944-1.webp",
+              "width": 1746,
+              "height": 660,
+              "size_bytes": 49992,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "inside1024-91473",
+          "title": "现在 AI 创业者也不要忽略黑客的潜在风险，因为又一个 AI founder 和我说他们被黑客攻击了 🥲 不是只有币圈才",
+          "summary": "现在 AI 创业者也不要忽略黑客的潜在风险，因为又一个 AI founder 和我说他们被黑客攻击了 🥲\n不是只有币圈才要严防死守黑客，最常见的攻击路线还是社会工程啊啊啊\n\n@inside1024 #内幕消息",
+          "channel": "@inside1024",
+          "channel_name": "你不知道的内幕消息🅥",
+          "channel_url": "https://t.me/inside1024",
+          "time": "14:46",
+          "url": "https://t.me/inside1024/91473",
+          "message_id": "91473",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": []
+        },
+        {
+          "id": "inside1024-91475",
+          "title": "最近不少富二代在我这做咨询， 几乎都是一个通病， 就是第二代退化症！ 以为自己这辈子可以靠父母的钱一辈子摆烂躺平。 这些",
+          "summary": "最近不少富二代在我这做咨询，\n几乎都是一个通病，\n就是第二代退化症！\n以为自己这辈子可以靠父母的钱一辈子摆烂躺平。\n这些孩子只有等到家庭破败了，才有可能站起来！\n更可怕的是许多孩子居然真幼稚到相信他们家是不会穷的！\nAI时代，中国的这一批富裕阶层很多都会再度返贫！\n其实就是新版的红楼梦！\n过早过多，过饱的，塞满了物质，于是没有了精神的欲望。\n只有对物质的享乐！\n也没有能力去享受人类的高级精神体验。\n离开真实世界，退缩到虚拟游戏世界里面去代偿自己的存在感，价值感和人生意义感！\n\n[内幕消息](https://t.me/inside1024)｜[优质资源](https://t.me/meiriyishu) | [优质信息](https://t.me/chunse1024/8467)",
+          "channel": "@inside1024",
+          "channel_name": "你不知道的内幕消息🅥",
+          "channel_url": "https://t.me/inside1024",
+          "time": "15:16",
+          "url": "https://t.me/inside1024/91475",
+          "message_id": "91475",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-11-28/inside1024-91475-1-thumb.webp",
+              "url": "assets/tg-media/2026-11-28/inside1024-91475-1.webp",
+              "width": 1279,
+              "height": 720,
+              "size_bytes": 56478,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "inside1024-91476",
+          "title": "交易是一种让人快速体验人生的方式，是一个人生超级加速器。在交易中，你的性格、习惯，你的优点、缺点，你对世界和事物的认知，",
+          "summary": "交易是一种让人快速体验人生的方式，是一个人生超级加速器。在交易中，你的性格、习惯，你的优点、缺点，你对世界和事物的认知，你做事的方式和能力，都会迅速暴露、迅速放大。\n成功的交易员，一定是具备了对事物运行本质规律的认知能力，并且能够将这种认知转化为实际有效的行动。\n这种人，不要说做交易，即便是做其他事情，也是很容易成功的。所以，世界上所有的成功都有其相似性。如果你现在交易还没做好，那一定是你在生活中、工作中就一塌糊涂。\n都说交易是反人性的，但世界上其它的成功又何尝不是反人性的呢？比如你是否足够自律、是否懂得延迟满足、是否有强大的执行力、是否有强大的自我复盘能力。交易除了不太需要跟人打交道以外，在个人特质上都是一样的。从这一点来看，其实交易并没有什么特殊的。\n懂得这个道理，就明白一个交易员的努力方向在哪里。\n一个成功的交易员不在于多么努力钻研技术面、基本面，也不在于要每时每刻盯着盘面、变成交易机器，更不在于所谓修炼心性、让自己变得脱离社会，而是要达到一种自洽和从容。\n这种自洽不是说自己享受于交易，这种从容也未必是你要一直赚钱，而是要让自己的生活与交易本身达到一种平衡。不是全身心投入于交易，不是把交易当成人生的救命稻草，而是把交易融于自己的生活中，让交易和你的生活日常合而为一。\n比如，你每天去健身，保持健康身体、良好身材，锻炼自己的自律性和意志力；比如你有一份工作可以投入发展，锻炼你长线思维能力和执行力；比如你专注于经营自己的家庭，让自己的家庭更温馨，锻炼你的耐心；再比如你经常出去旅行，获得一个好心情，锻炼自己的良好心态。\n所以，如果你现在还没有找到交易的门道，不妨先把它轻放，尝试先把自己的生活重新整理一下，让自己在日常工作、生活的点点滴滴中找到可以自洽的点，让自己能够完全掌握工作生活的节奏。\n当你把相当大一部分精力用于经营自己的生活，让自己在生活中更加自洽，而不是专注于交易，你就更容易成功了。\n\n@web2star 👈金融/投资/币圈",
+          "channel": "@inside1024",
+          "channel_name": "你不知道的内幕消息🅥",
+          "channel_url": "https://t.me/inside1024",
+          "time": "15:18",
+          "url": "https://t.me/inside1024/91476",
+          "message_id": "91476",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": []
+        },
+        {
+          "id": "inside1024-91477",
+          "title": "一位社会学教授曾经锐评：本质上宠物经济就是堕落经济，是个毒瘤，其危害远大于鸦片和黄赌毒。据有关部门统计，现在的养宠人群中",
+          "summary": "一位社会学教授曾经锐评：本质上宠物经济就是堕落经济，是个毒瘤，其危害远大于鸦片和黄赌毒。据有关部门统计，现在的养宠人群中90后00后占比百分之六十九点多。年轻人正是应该为经济建设奋斗出力的大好时光，却沉迷消磨时光，逗宠弄畜，玩物丧志。某些媒体公知还称道为 “精细化” 养宠。\n很多支持这个观点的人，都会拿出“近七成养宠者是90后00后”的数据佐证，仿佛年轻人全都荒废了正事，沉迷在猫狗身上。\n但很少有人往产业的另一端看，撑起国内五百多万家宠物相关企业的从业者，主力恰恰也是这批年轻人。\n从宠物粮的配方研发、宠物医院的日常诊疗，到智能宠物用品的技术迭代、线下宠物服务的落地，全是年轻人在岗位上出力。\n只盯着消费端的人群占比下结论，却对生产端创造的就业、拉动的内需视而不见，本身就是很片面的判断。\n按照行业白皮书的数据，国内城镇犬猫总量已过亿，整个宠物市场规模超过三千亿元，覆盖了上下游数十个细分领域。\n把这样一条完整的产业链直接定性成“毒瘤”，显然是用局部观感代替了完整的事实。\n争议里被反复诟病的“精细化养宠”，也被很多人直接等同于乱花钱、奢靡享乐。\n其实真正的精细化养宠，是从过去“喂饱就行”的粗放模式，转向科学养护的思路，比如按时接种疫苗、定期做体检、根据宠物年龄搭配饮食，本质是降低患病风险，也是对生命负责。\n真正值得警惕的，是商家包装出来的“伪精细化”消费陷阱。\n不少刚养宠的新手很容易踩这个坑，看着网红推荐就跟风入手，最后买了一堆实用性很低的产品，平白增加不少开销。\n其实养宠的刚需边界很清晰，主粮、日常清洁用品、疫苗驱虫和基础体检，这些是不能省的核心支出。\n像宠物定制服饰、主蛋糕、高端SPA这类享受型消费，完全可以根据自身收入量力而行，没必要为了攀比硬撑。\n这场争论能发酵得这么厉害，本质上是两代人生活观念的错位。 老一辈经历过物质匮乏的阶段，默认所有精力都该投入生产和积累，非生产性的消遣都容易被归为“不务正业”。\n但现在的年轻人面对的是高强度的职场节奏、普遍的独居状态，他们除了赚钱，也需要稳定的情绪出口。\n很多人纠结养宠会不会耽误奋斗，其实不用听别人怎么评判，自己就能算出答案。\n最直观的两个判断标准，一是养宠有没有打乱你的工作节奏和成长规划，二是每月养宠支出有没有超出你月收入的合理比例。\n如果只是下班之后花半小时放松，开销控制在收入的十分之一以内，根本谈不上什么“玩物丧志”。\n说到底，这场关于宠物经济的争议，从来不是非黑即",
+          "channel": "@inside1024",
+          "channel_name": "你不知道的内幕消息🅥",
+          "channel_url": "https://t.me/inside1024",
+          "time": "15:27",
+          "url": "https://t.me/inside1024/91477",
+          "message_id": "91477",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-11-28/inside1024-91477-1-thumb.webp",
+              "url": "assets/tg-media/2026-11-28/inside1024-91477-1.webp",
+              "width": 1280,
+              "height": 1920,
+              "size_bytes": 202730,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "meiriyishu-5363",
+          "title": "AI视频制作全流程实战课：18节掌握AI剧本创作、角色场景生成、九宫格分镜、海螺可灵视频生成与剪映成片  百度网盘：ht",
+          "summary": "AI视频制作全流程实战课：18节掌握AI剧本创作、角色场景生成、九宫格分镜、海螺可灵视频生成与剪映成片\n\n百度网盘：https://pan.baidu.com/s/1nyOHTm5p6j62NJCNpPBPmw?pwd=a7bb\n提取码：a7bb\n\nhttps://fuyezy.com/58541.html",
+          "channel": "@meiriyishu",
+          "channel_name": "优质「资源」收藏夹",
+          "channel_url": "https://t.me/meiriyishu",
+          "time": "16:12",
+          "url": "https://t.me/meiriyishu/5363",
+          "message_id": "5363",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-11-28/meiriyishu-5363-1-thumb.webp",
+              "url": "assets/tg-media/2026-11-28/meiriyishu-5363-1.webp",
+              "width": 774,
+              "height": 437,
+              "size_bytes": 60996,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "inside1024-91488",
+          "title": "傻逼 Codex  @inside1024 #内幕消息",
+          "summary": "傻逼 Codex\n\n@inside1024 #内幕消息",
+          "channel": "@inside1024",
+          "channel_name": "你不知道的内幕消息🅥",
+          "channel_url": "https://t.me/inside1024",
+          "time": "16:31",
+          "url": "https://t.me/inside1024/91488",
+          "message_id": "91488",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-11-28/inside1024-91488-1-thumb.webp",
+              "url": "assets/tg-media/2026-11-28/inside1024-91488-1.webp",
+              "width": 1728,
+              "height": 1100,
+              "size_bytes": 119166,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "meiriyishu-5364",
+          "title": "0基础小白保姆级傻瓜式AI逆向教学，用通俗大白话讲解AI在程序安全分析领域的应用  百度网盘：https://pan.b",
+          "summary": "0基础小白保姆级傻瓜式AI逆向教学，用通俗大白话讲解AI在程序安全分析领域的应用\n\n百度网盘：https://pan.baidu.com/s/1GpsS-UF9rxUubAV34JQELw?pwd=0c10\n提取码：0c10\n\nhttps://fuyezy.com/58543.html",
+          "channel": "@meiriyishu",
+          "channel_name": "优质「资源」收藏夹",
+          "channel_url": "https://t.me/meiriyishu",
+          "time": "17:12",
+          "url": "https://t.me/meiriyishu/5364",
+          "message_id": "5364",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-11-28/meiriyishu-5364-1-thumb.webp",
+              "url": "assets/tg-media/2026-11-28/meiriyishu-5364-1.webp",
+              "width": 658,
+              "height": 368,
+              "size_bytes": 46964,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "aigc1024-27502",
+          "title": "GPT-6.2 Astra在写生图提示词方面拉完了，我现在都是手动改回GPT-6 Astra折腾提示词，每隔一会儿它又给",
+          "summary": "GPT-6.2 Astra在写生图提示词方面拉完了，我现在都是手动改回GPT-6 Astra折腾提示词，每隔一会儿它又给我自动路由到6.2，真的是麻烦⋯⋯\n@aigc1024",
+          "channel": "@aigc1024",
+          "channel_name": "AI探索指南",
+          "channel_url": "https://t.me/aigc1024",
+          "time": "18:11",
+          "url": "https://t.me/aigc1024/27502",
+          "message_id": "27502",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": []
+        },
+        {
+          "id": "meiriyishu-5365",
+          "title": "WorkBuddy全能实战课｜搭建AI自动化工作流，解锁多场景落地玩法  百度网盘：https://pan.baidu.",
+          "summary": "WorkBuddy全能实战课｜搭建AI自动化工作流，解锁多场景落地玩法\n\n百度网盘：https://pan.baidu.com/s/1H1LKJAzMj7ReRS-GueHlYg?pwd=7328\n提取码：7328\n\nhttps://fuyezy.com/58545.html",
+          "channel": "@meiriyishu",
+          "channel_name": "优质「资源」收藏夹",
+          "channel_url": "https://t.me/meiriyishu",
+          "time": "18:12",
+          "url": "https://t.me/meiriyishu/5365",
+          "message_id": "5365",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-11-28/meiriyishu-5365-1-thumb.webp",
+              "url": "assets/tg-media/2026-11-28/meiriyishu-5365-1.webp",
+              "width": 765,
+              "height": 427,
+              "size_bytes": 41384,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "zaihuapd-45405",
+          "title": "**美国中情局等多家情报机构遭黑客攻击，对方使用 AI 工具 Artex**  《纽约时报》报道，黑客攻击的目标包括美国",
+          "summary": "**美国中情局等多家情报机构遭黑客攻击，对方使用 AI 工具 Artex**\n\n《纽约时报》报道，黑客攻击的目标包括美国中央情报局、国家地理空间情报局和国家情报总监办公室，攻击有 AI 工具辅助。此次攻击看起来不算严重，影响的是非机密侦察数据。\n\n攻击者使用的工具名为 Artex，可整合多个开源 AI 模型测试网络和计算机防御。一名中国开发者今年早些时候发布了 Artex，后来 Artex 被用于多起攻击，包括针对欧盟的一起，该开发者已把 Artex 从自己的 GitHub 账号删除。今年早些时候，FBI 曾警告网络罪犯和间谍正在广泛使用 Artex。\n\n[福布斯](https://www.forbes.com/sites/the-wiretap/2026/11/25/us-government-under-ai-cyberattack)\n\n🌸 [科技圈](http://t.me/zaihuanews)· [茶馆](https://t.me/zaihuachat) · [投稿](http://t.me/ZaiHuabot)",
+          "channel": "@zaihuapd",
+          "channel_name": "在花🎗️科技圈",
+          "channel_url": "https://t.me/zaihuapd",
+          "time": "18:42",
+          "url": "https://t.me/zaihuapd/45405",
+          "message_id": "45405",
+          "reply_count": 43,
+          "replies_fetched": 43,
+          "replies": [
+            {
+              "id": "703294",
+              "text": "",
+              "time": "18:42",
+              "sender_id": 8439882275,
+              "sender_name": "🔫 ~biu~biu~biu",
+              "media": []
+            },
+            {
+              "id": "703295",
+              "text": "脚本小子出息了啊",
+              "time": "18:42",
+              "sender_id": 8381317357,
+              "sender_name": "余承东🍥",
+              "media": []
+            },
+            {
+              "id": "703298",
+              "text": "又要自导自演增加特员的经费了么",
+              "time": "18:42",
+              "sender_id": 5104265874,
+              "sender_name": "Daoyou ⓧⓤ",
+              "media": []
+            },
+            {
+              "id": "703300",
+              "text": "哎呀，美国不是有 claude 和 gpt 做防御吗，怎么被攻击了呢😁",
+              "time": "18:42",
+              "sender_id": 7876358077,
+              "sender_name": "Hornsby Eric",
+              "media": []
+            },
+            {
+              "id": "703301",
+              "text": "A➗：你看我说什么来着",
+              "time": "18:43",
+              "sender_id": 111765141,
+              "sender_name": "Remo",
+              "media": []
+            },
+            {
+              "id": "703302",
+              "text": "fbi缺经费了😂",
+              "time": "18:43",
+              "sender_id": 280678601,
+              "sender_name": "𝗛𝗮𝗻𝗸𝘀",
+              "media": []
+            },
+            {
+              "id": "703306",
+              "text": "",
+              "time": "18:43",
+              "sender_id": 7171316252,
+              "sender_name": "🌌 🔪🅐🅝🅣🔪 🐻",
+              "media": [
+                {
+                  "type": "video",
+                  "url": "assets/tg-media/2026-11-28/comments/c-703306-1.mp4",
+                  "width": 0,
+                  "height": 0,
+                  "duration": 0,
+                  "size_bytes": 180446,
+                  "has_audio": true,
+                  "publish_status": "published",
+                  "poster_url": "assets/tg-media/2026-11-28/comments/c-703306-1-poster.webp"
+                }
+              ]
+            },
+            {
+              "id": "703310",
+              "text": "补课 Artex",
+              "time": "18:44",
+              "sender_id": 5137188208,
+              "sender_name": "Kuirb",
+              "media": []
+            },
+            {
+              "id": "703314",
+              "text": "我靠有这么好的东西你不早说！高低尝尝咸淡！",
+              "time": "18:45",
+              "sender_id": 5296187372,
+              "sender_name": "蒙古中单",
+              "media": []
+            },
+            {
+              "id": "703316",
+              "text": "现在的脚本小子吃的比以前好多了",
+              "time": "18:45",
+              "sender_id": 1334177662,
+              "sender_name": "☭IcyCoffee4513",
+              "media": []
+            },
+            {
+              "id": "703317",
+              "text": "6",
+              "time": "18:45",
+              "sender_id": 8022522725,
+              "sender_name": "huangyan 20",
+              "media": []
+            },
+            {
+              "id": "703331",
+              "text": "拆那",
+              "time": "18:47",
+              "sender_id": 5738737040,
+              "sender_name": "喵",
+              "media": []
+            },
+            {
+              "id": "703350",
+              "text": "这是给A/造势？不过ARTEX这么好用么🫣",
+              "time": "18:52",
+              "sender_id": 8293426343,
+              "sender_name": "ShizkMoon",
+              "media": []
+            },
+            {
+              "id": "703358",
+              "text": "捉",
+              "time": "18:56",
+              "sender_id": 8839462379,
+              "sender_name": "裁缝",
+              "media": []
+            },
+            {
+              "id": "703361",
+              "text": "人手一个了都😂",
+              "time": "18:58",
+              "sender_id": 5264963575,
+              "sender_name": "Meow",
+              "media": []
+            },
+            {
+              "id": "703362",
+              "text": "https://github.com/BaaRai/ARTEX\n\n这个？不是还在吗",
+              "time": "18:58",
+              "sender_id": 5023897886,
+              "sender_name": "ASIIIO",
+              "media": [
+                {
+                  "type": "image",
+                  "url": "assets/tg-media/2026-11-28/comments/c-703362-1.webp",
+                  "thumb_url": "assets/tg-media/2026-11-28/comments/c-703362-1-thumb.webp",
+                  "width": 1200,
+                  "height": 600,
+                  "size_bytes": 34240,
+                  "publish_status": "published"
+                }
+              ]
+            },
+            {
+              "id": "703363",
+              "text": "根本删不完",
+              "time": "18:58",
+              "sender_id": 5264963575,
+              "sender_name": "Meow",
+              "media": []
+            },
+            {
+              "id": "703364",
+              "text": "fork，代码你记得看看干不干净，有的投毒了。",
+              "time": "18:59",
+              "sender_id": 5296187372,
+              "sender_name": "蒙古中单",
+              "media": []
+            },
+            {
+              "id": "703367",
+              "text": "哦哦，我看22k星还以为是源库，现在应该有不少是中情局投毒的吧",
+              "time": "19:01",
+              "sender_id": 5023897886,
+              "sender_name": "ASIIIO",
+              "media": []
+            },
+            {
+              "id": "703368",
+              "text": "ARTEX 的原作者（GitHub 账号 Autumn-27）在 2026 年 10 月 8 日主动删除了原始仓库，现在访问  github.com/Autumn-27/ARTEX  会返回 404。",
+              "time": "19:01",
+              "sender_id": 5296187372,
+              "sender_name": "蒙古中单",
+              "media": []
+            },
+            {
+              "id": "703369",
+              "text": "O A 都没防住, 烂完了",
+              "time": "19:01",
+              "sender_id": 7556797853,
+              "sender_name": "BDT",
+              "media": []
+            },
+            {
+              "id": "703374",
+              "text": "还有开箱即用的：\nhttps://github.com/willsurpass/WSARTEX",
+              "time": "19:03",
+              "sender_id": 8658543936,
+              "sender_name": "Chain Cholo",
+              "media": []
+            },
+            {
+              "id": "703376",
+              "text": "攻击A➗",
+              "time": "19:03",
+              "sender_id": 871092736,
+              "sender_name": "大魔王",
+              "media": []
+            },
+            {
+              "id": "703380",
+              "text": "笑死我了",
+              "time": "19:04",
+              "sender_id": 1001698883,
+              "sender_name": "Claude",
+              "media": []
+            },
+            {
+              "id": "703381",
+              "text": "零成本渗透",
+              "time": "19:04",
+              "sender_id": 1001698883,
+              "sender_name": "Claude",
+              "media": []
+            },
+            {
+              "id": "703386",
+              "text": "去试试",
+              "time": "19:08",
+              "sender_id": 5985798948,
+              "sender_name": "yang ke",
+              "media": []
+            },
+            {
+              "id": "703391",
+              "text": "是不是用的是美国的模型呀",
+              "time": "19:11",
+              "sender_id": 452074081,
+              "sender_name": "奥特 怪兽",
+              "media": []
+            },
+            {
+              "id": "703392",
+              "text": "模型就不敢说 但就是知道用的是什么工具",
+              "time": "19:11",
+              "sender_id": 452074081,
+              "sender_name": "奥特 怪兽",
+              "media": []
+            },
+            {
+              "id": "703407",
+              "text": "美国情报机构是不是“WannaCry”？",
+              "time": "19:22",
+              "sender_id": 717599391,
+              "sender_name": "Eric Brown",
+              "media": []
+            },
+            {
+              "id": "703408",
+              "text": "基本没可能，O A 都要严格的认证才开放网络攻击能力",
+              "time": "19:31",
+              "sender_id": 7876358077,
+              "sender_name": "Hornsby Eric",
+              "media": []
+            },
+            {
+              "id": "703409",
+              "text": "因为 artex 攻击成功后，会发送带自己名字的测试字符串\n\n模型主流是 deepseek",
+              "time": "19:32",
+              "sender_id": 7876358077,
+              "sender_name": "Hornsby Eric",
+              "media": []
+            },
+            {
+              "id": "703413",
+              "text": "哎哟老中怎么这么坏",
+              "time": "19:36",
+              "sender_id": 5412452387,
+              "sender_name": "TW",
+              "media": []
+            },
+            {
+              "id": "703424",
+              "text": "",
+              "time": "19:44",
+              "sender_id": 1453938192,
+              "sender_name": "豆丁",
+              "media": []
+            },
+            {
+              "id": "703445",
+              "text": "都怪claude，快封杀claude😂",
+              "time": "20:02",
+              "sender_id": 6506550353,
+              "sender_name": "Paradox",
+              "media": []
+            },
+            {
+              "id": "703818",
+              "text": "普通人成本原因不会去用，专业人士也优先选择更强的闭源模型，然后开源模型就给这种犯罪和诈骗分子用了",
+              "time": "22:13",
+              "sender_id": 7017364197,
+              "sender_name": "Wesen",
+              "media": []
+            },
+            {
+              "id": "703819",
+              "text": "这真的是好事吗",
+              "time": "22:13",
+              "sender_id": 7017364197,
+              "sender_name": "Wesen",
+              "media": []
+            },
+            {
+              "id": "703870",
+              "text": "对大公司还有政府来说肯定不是",
+              "time": "22:37",
+              "sender_id": 6297198583,
+              "sender_name": "TingFeng",
+              "media": []
+            },
+            {
+              "id": "703874",
+              "text": "我的观点是等国内回过味来估计会禁止国内开源模型吧",
+              "time": "22:38",
+              "sender_id": 6297198583,
+              "sender_name": "TingFeng",
+              "media": []
+            },
+            {
+              "id": "703875",
+              "text": "",
+              "time": "22:39",
+              "sender_id": 6297198583,
+              "sender_name": "TingFeng",
+              "media": []
+            },
+            {
+              "id": "703879",
+              "text": "黑客 骗子不会用闭源模型吗",
+              "time": "22:44",
+              "sender_id": 6158790624,
+              "sender_name": "zzzzzz",
+              "media": []
+            },
+            {
+              "id": "703944",
+              "text": "闭源模型都有审核吧，哈基米、O和A都有审核啊，触发审核轻则拦截，重则封号。开源模型你往云服务器上一挂，谁也管不了，搞瑟瑟算小事，搞诈骗甚至是这种攻击，那是真的没招吧",
+              "time": "23:11",
+              "sender_id": 5393605145,
+              "sender_name": "李 清霸",
+              "media": []
+            },
+            {
+              "id": "703947",
+              "text": "像现在拿DeepSeek破个甲，随便找个软件破解本地会员轻轻松松，成本低，自己用也不会被查",
+              "time": "23:13",
+              "sender_id": 5393605145,
+              "sender_name": "李 清霸",
+              "media": []
+            },
+            {
+              "id": "704052",
+              "text": "我下过这个软件，特别消耗token",
+              "time": "00:11",
+              "sender_id": 8526987706,
+              "sender_name": "xuwuss",
+              "media": []
+            }
+          ],
+          "media": []
+        },
+        {
+          "id": "aigc1024-27507",
+          "title": "最近拜访了一些 YouMind 资深用户，还拜访了不少用 AI 赚到钱的朋友。有几个感触： 1、认知差不重要，真正重要的",
+          "summary": "最近拜访了一些 YouMind 资深用户，还拜访了不少用 AI 赚到钱的朋友。有几个感触：\n1、认知差不重要，真正重要的是行动差。比如一个玩短剧的朋友，在别人还在分析和怀疑做短剧赚不赚钱时，已经在一年前就开始尝试做短剧。今年通过视频号，已收入一百多万。\n2、拥有兴趣的人，AI 时代很容易活得好。这是一位 YouMind 用户，中学时代就喜欢阅读各种小说。AI 来了之后，目前在 YouMind 上已完整写完两部小说。有一部在番茄连载，收益很不错。这位朋友正考虑是否离职，全职投入小说创作。\n3、行动起来之后，方法往往极其简单。比如上面写小说的朋友，连 skills 都没用，就是自己用文档维护了不少 prompts。很多 prompts 是在写作过程中，与 AI 聊天得来的。用法是粘贴复制，顺便每次根据实际情况改改。YouMind 很多高级功能在他眼里都不重要，最重要的是可新建文档和文档可编辑，以及文档有目录树组织。YouMind 把他留住的只有两点：可以用各种模型，可以编辑和组织文档。\n期间还有一位有趣的朋友很有趣，跟我说：YouMind 一定要往下做下去。因为 AI 时代，看似人人都可以做软件了，但自己还是懒得做，以及尝试后，还是觉得交点钱直接用的 SaaS 最舒服。让我千万不要相信自媒体的。\n寒冬刺骨，我的心却暖暖的。\n@aigc1024",
+          "channel": "@aigc1024",
+          "channel_name": "AI探索指南",
+          "channel_url": "https://t.me/aigc1024",
+          "time": "18:46",
+          "url": "https://t.me/aigc1024/27507",
+          "message_id": "27507",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": []
+        },
+        {
+          "id": "meiriyishu-5366",
+          "title": "抖音68W粉丝博主的AI悬疑短剧教学，覆盖悬疑脚本撰写、AI画面生成、景别把控、数字人制作等，作品轻松进精选  百度网盘",
+          "summary": "抖音68W粉丝博主的AI悬疑短剧教学，覆盖悬疑脚本撰写、AI画面生成、景别把控、数字人制作等，作品轻松进精选\n\n百度网盘：https://pan.baidu.com/s/1YsBq9uVqxhKzLZGyAMNSfg?pwd=57e3\n提取码：57e3\n\nhttps://fuyezy.com/58549.html",
+          "channel": "@meiriyishu",
+          "channel_name": "优质「资源」收藏夹",
+          "channel_url": "https://t.me/meiriyishu",
+          "time": "19:12",
+          "url": "https://t.me/meiriyishu/5366",
+          "message_id": "5366",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-11-28/meiriyishu-5366-1-thumb.webp",
+              "url": "assets/tg-media/2026-11-28/meiriyishu-5366-1.webp",
+              "width": 573,
+              "height": 601,
+              "size_bytes": 37658,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "meiriyishu-5367",
+          "title": "B站网盘拉新美女玩法，收益很稳定，流量大，全流程拆解 https://pan.quark.cn/s/c0c7039b76",
+          "summary": "B站网盘拉新美女玩法，收益很稳定，流量大，全流程拆解\nhttps://pan.quark.cn/s/c0c7039b7666\n————\n 盘友资源库：https://pan.tgshangtian.xyz\n\n[优质资源](https://t.me/meiriyishu) | [优质内容](https://t.me/chunse1024/8467)",
+          "channel": "@meiriyishu",
+          "channel_name": "优质「资源」收藏夹",
+          "channel_url": "https://t.me/meiriyishu",
+          "time": "19:48",
+          "url": "https://t.me/meiriyishu/5367",
+          "message_id": "5367",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-11-28/meiriyishu-5367-1-thumb.webp",
+              "url": "assets/tg-media/2026-11-28/meiriyishu-5367-1.webp",
+              "width": 382,
+              "height": 888,
+              "size_bytes": 24904,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "aigc1024-27508",
+          "title": "猜一猜，你会不会在明后年家里蹲？ 如果你的工作，主要是依赖某些专业软件才能完成，例如建筑师，会计师，设计师，美术，影视圈",
+          "summary": "猜一猜，你会不会在明后年家里蹲？\n如果你的工作，主要是依赖某些专业软件才能完成，例如建筑师，会计师，设计师，美术，影视圈，码农，数码加工，基本没指望了。\n人工智能的第一步就是淘汰这些软件依赖工作。\n相反，需要跑腿动手的体力或创意比较强的劳动，保姆，厨师，护工，护士，零风险。因为目前看不到有替代的可能。理论上来说，如果能做出机器人保姆，就可以做出机器人战神，那就不用打了。\n～～卡戴珊，苍老师归我，其他的，例如史原里美，伊万卡，你们分一分，互相换一换就好了。吴晓求：资本市场正在进入AI时代\n\n[AI探索](https://t.me/aigc1024) | [Hermes/OpenClaw](https://t.me/openclaw1024)｜[优质资源](https://t.me/meiriyishu)｜[优质信息](https://t.me/chunse1024/8467)",
+          "channel": "@aigc1024",
+          "channel_name": "AI探索指南",
+          "channel_url": "https://t.me/aigc1024",
+          "time": "19:56",
+          "url": "https://t.me/aigc1024/27508",
+          "message_id": "27508",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": []
+        },
+        {
+          "id": "meiriyishu-5369",
+          "title": "某大佬的2026最新Tiktok中视频短剧全流程实操教学，带你从0到1入局Tk中视频赛道出海賺美刀  百度网盘：http",
+          "summary": "某大佬的2026最新Tiktok中视频短剧全流程实操教学，带你从0到1入局Tk中视频赛道出海賺美刀\n\n百度网盘：https://pan.baidu.com/s/1Je5dtH32kar3cwdtpgK4xQ?pwd=60b4\n提取码：60b4\n\nhttps://fuyezy.com/58552.html",
+          "channel": "@meiriyishu",
+          "channel_name": "优质「资源」收藏夹",
+          "channel_url": "https://t.me/meiriyishu",
+          "time": "20:12",
+          "url": "https://t.me/meiriyishu/5369",
+          "message_id": "5369",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-11-28/meiriyishu-5369-1-thumb.webp",
+              "url": "assets/tg-media/2026-11-28/meiriyishu-5369-1.webp",
+              "width": 800,
+              "height": 527,
+              "size_bytes": 57994,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "inside1024-91502",
+          "title": "#内幕消息  现在但凡有点流量的平台，就想做电商变现，我站在服饰的角度，分享大概会经历几个阶段，每个阶段都有切入赚钱的机",
+          "summary": "#内幕消息\n\n现在但凡有点流量的平台，就想做电商变现，我站在服饰的角度，分享大概会经历几个阶段，每个阶段都有切入赚钱的机会。\n\n第一阶段卖尾货\n\n只要是商品，没有人不考虑价格，尾货最大的优势就是价格，一件羊毛衫卖 39，羊毛大衣卖 99，灯光一打比新款还新，就问你心动不。\n\n还有更赚钱的，那就是二手衣服，从旧衣回收那里淘来衣服，让工人分拣后，打着品牌撤柜的名义，孤品秒杀，平时 1999 的衣服卖你 199，够不够给力。\n\n想要做这品类的同学，直接去广州石井，尾货的尾货原产地。\n\n第二个阶段卖假货\n\n我们把有 logo 和没有 logo 所谓大牌同源的都叫假货。高端品牌每个消费者都是有基础认知的，比如保时捷帕拉梅拉要 240 万，现在小米 su7 让你 24 万就能买到同样好看能装逼的车，就问你心动不心动。\n\n在服装行业去做大牌仿款那比汽车容易多了，打着我是大牌代工厂的名义，香奈儿同款 199，LV 同款 149，包装再高级一些，你会不会下单。\n\n运动品类那就直接上 logo，耐克短袖 39，始祖鸟冲锋衣 99，北面羽绒服 129，你迷糊不迷糊。\n\n仿丝绸品类更是吓人，你 100 块钱平时买个丝绸围巾都费劲，仿丝新国风你能买一整套服装搭配，你想不想买。\n\n想做这个品类的同学：大牌同源服装在广州和虎门，包包在广州花都，假运动鞋服在泉州石狮和莆田，仿真丝在苏州常熟\n\n第三个阶段卖源头工厂货\n\n高端面料的产品，商场基本都在 10 倍左右的售价，比如丝绸，麻，羊绒，羽绒，皮草等，工厂出厂价是很便宜的，之前随便一件羽绒服都要 899，同样做工和充绒量，你卖 199 都有的赚，这个时候就体现了我国制造业的牛逼之处。\n\n我国服装产业带那些小工厂出来的衣服，你去问价格真的惊掉下巴。\n\n想做这个品类的同学：丝绸在杭州，麻在常熟，羊绒在濮院，羽绒在平湖，皮草在海宁，卫衣在即墨，三醋酸在深圳\n\n第四个阶段卖品牌，发展到第四阶段竞争就非常激烈了，你这个时候下场就得有品牌营销思维，突出服装人群定位，讲好品牌故事，比如网红品牌，淘品牌。\n\n第五阶段卖国内知名品牌\n第六阶段卖国内一线品牌\n第七阶段卖国际知名品牌。",
+          "channel": "@inside1024",
+          "channel_name": "你不知道的内幕消息🅥",
+          "channel_url": "https://t.me/inside1024",
+          "time": "20:16",
+          "url": "https://t.me/inside1024/91502",
+          "message_id": "91502",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": []
+        },
+        {
+          "id": "text1024-27290",
+          "title": "属实有点魔幻，这大哥做了 3 年多数码赛道，发的都是电玩视频，这个月初发了一条魔幻跳舞视频，突然就火了，点赞流量超过三年",
+          "summary": "属实有点魔幻，这大哥做了 3 年多数码赛道，发的都是电玩视频，这个月初发了一条魔幻跳舞视频，突然就火了，点赞流量超过三年所有视频的总和，现在粉丝涨到 7 万，被干得道心破碎，于是彻底放下，以后就做赛博跳舞视频了。\n大哥：这三年我在做什么，我迄今为止到底在干什么呀。\n网友：好像看到我领导跳舞了，即将见证一个神的诞生。\n三年 Switch 无人知，一朝起舞天下名，哪当初的努力算什么。\n\n[副业搞钱](https://t.me/text1024) | [出海赚美金](https://t.me/yunying23) | [内幕消息](https://t.me/inside1024)｜[优质内容](https://t.me/chunse1024)",
+          "channel": "@text1024",
+          "channel_name": "副业赚钱探索指南",
+          "channel_url": "https://t.me/text1024",
+          "time": "21:08",
+          "url": "https://t.me/text1024/27290",
+          "message_id": "27290",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-11-28/text1024-27290-1-thumb.webp",
+              "url": "assets/tg-media/2026-11-28/text1024-27290-1.webp",
+              "width": 589,
+              "height": 1200,
+              "size_bytes": 115364,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "aigc1024-27509",
+          "title": "GitHub 上一个狂揽 5.6K Stars 的 AI 小说创作 Skill，直接让 AI 帮你写完一整部中文小说！",
+          "summary": "GitHub 上一个狂揽 5.6K Stars 的 AI 小说创作 Skill，直接让 AI 帮你写完一整部中文小说！\n只需提供一个故事灵感，AI 就能自动构建世界观、设计人物、规划大纲，逐章生成 10～50 章完整小说。\n厉害的是，内置创作记忆、13 种悬念钩子、剧情连贯性检查、自动润色和断点续写，还支持多个 Agent 并行创作。\nhttps://github.com/PenglongHuang/chinese-novelist-skill\n\n📢 每日 GitHub 开源项目：@github1024",
+          "channel": "@aigc1024",
+          "channel_name": "AI探索指南",
+          "channel_url": "https://t.me/aigc1024",
+          "time": "21:09",
+          "url": "https://t.me/aigc1024/27509",
+          "message_id": "27509",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-11-28/aigc1024-27509-1-thumb.webp",
+              "url": "assets/tg-media/2026-11-28/aigc1024-27509-1.webp",
+              "width": 554,
+              "height": 1200,
+              "size_bytes": 57796,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "meiriyishu-5370",
+          "title": "摄影师短视频爆款变现训练营2026年，一套课程搞定短视频内容、IP打造、引流获客、接单变现  百度网盘：https://",
+          "summary": "摄影师短视频爆款变现训练营2026年，一套课程搞定短视频内容、IP打造、引流获客、接单变现\n\n百度网盘：https://pan.baidu.com/s/143Hl_LKUzFd8xECIsu79nA?pwd=e699\n提取码：e699\n\nhttps://fuyezy.com/58554.html",
+          "channel": "@meiriyishu",
+          "channel_name": "优质「资源」收藏夹",
+          "channel_url": "https://t.me/meiriyishu",
+          "time": "21:12",
+          "url": "https://t.me/meiriyishu/5370",
+          "message_id": "5370",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-11-28/meiriyishu-5370-1-thumb.webp",
+              "url": "assets/tg-media/2026-11-28/meiriyishu-5370-1.webp",
+              "width": 993,
+              "height": 554,
+              "size_bytes": 102744,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "inside1024-91507",
+          "title": "不管是学习习惯，生活习惯，社交习惯，都是建立一套流程，目的都是让一切变容易。  现在愈发感觉， 1.无论做什么工作都要职",
+          "summary": "不管是学习习惯，生活习惯，社交习惯，都是建立一套流程，目的都是让一切变容易。\n\n现在愈发感觉，\n1.无论做什么工作都要职业尽力，给职场经历中合作的人留下靠谱印象;\n\n2.祈祷你周围的朋友、同事都发达起来，特别你做到了第一点之后，他们做事业时一定会想到找你。\n所以，嫉妒周围人发达是一种很SB的行为。\n\n你周围的人要都跟你一档，你还想进步和更有钱？\n\n2、朋友都是阶段性的。\n\n有时刷朋友圈时，看到曾经要好的一些朋友，会回想起当年玩得很好的一些片段。\n\n但现在来说的话，我已经不会再坦白自己的任何脆弱和透露任何近况了。\n\n一方面是照顾彼此之间的情绪，留一份当年的感情。另一方面呢，是觉得已经无法彼此理解了。\n\n3、有些人觉得懒就是一个人不求上进，是品质问题。其实懒主要是因为习得性无助，就是觉得努力也没用。\n\n如果一个人觉得努力能得到自己想要的东西，他会变得努力又有耐心。   \n\n4、懒主要是因为习得性无助。\n怎么避免呢？\n\n不要把目标定的过高，或者目标拆解。\n努力之后得不到明显的反馈，这样动力就慢慢丧失了，动力是由期望和反馈提供的。\n\n5、生活在底层的人往往就是被收割的对象，这是很扎心的现实。\n\n因为身处底层的人很难看懂交易的真相与本质，他们很难明白交易中的钱是从哪来的、经过了哪里、最终去了哪里？钱在这种流动的过程中，有哪些环节或哪些人参与分钱、每个环节的分钱比例是多少？\n\n弄明白了这些，才能知道自己在其中是什么角色。\n做任何事都想着取悦别人也是缺乏界限和原则的表现。\n\n一方面是别人可以随意踏入你的世界，另一方面是自己可能会不小心踏入别人的界限内（因为太想讨好而忽略）。\n\n我还是觉得无界限无原则的人，走不了多远 。\n\n6、读小说，发现优秀的作品，展示的人性无一例外都是复杂的：\n\n有公正无私的一面，也有阴险毒辣的时刻；有勤奋上进的面庞，也有颓唐浪荡的私下。\n因为这就是人性。\n\n一律都是美女帅哥金钱纠葛努力奋斗赚钱成功，除了迎合白日梦患者，谁还喜欢看？\n\n7、男女之间半数以上的喜欢，并不是觉得对方是合适的恋爱或结婚对象。\n而是基于本能，就是想发生关系。\n完全基于本能冲动的喜欢，发生关系常常就是亲密的终点。\n\n8、成长很重要的一点，就是不固执。\n意识到自己的想法不成立的时候，随时可以改正或放弃。\n\n固执是简单的，每个人都可以抓住自己的想法不放。而不固执，就相当于你有了一个自我修正系统。   \n\n确定的笃定的这种感觉对人很有吸引力，打破自己的认知，走出舒适区很难，在一个充满巨婴的环境里更难。\n\n如果你观察的人足够多就会发现，被骗，才是绝大部分人的刚需。\n\n他们最不喜欢的东西就是真相和实话，最喜欢的就是骗术。\n\n而很多行业的本质，就是包装，想尽各种办法把平淡甚至丑陋的现实包装的美轮美奂，让人掏钱。\n\n如果你精于此道，能实现低成本快速个性化包装，产品满足许多客户的需求，那么你应该已经财富自由了。\n\n9、管理好自己的精力。\n人的精力是有限的，这好像是一句废话，但是大多数人并不真正懂得这一点。\n\n如果我们意识到人的精力是有限的，那么我们就会无比珍惜自己的精力，不会把时间把注意力花在很多完全不重要的事情上。\n\n管理好自己的精力，精力分配的核心就是：把精力花在少数重要的人和事上。\n\n先反推一下，什么是不重要的事情，什么是消耗精力的事情：\n1，不能让你赚到钱；\n2.不能让你成长；\n3.不能让你身心愉悦。\n\n比如说：网络游戏，赌博，打发时间的打牌，娱乐八卦，让你不舒服的职场关系，消耗你榨取你的朋友或者亲戚，烂片，水平比较差的书，辩论。\n\n10、有些人在网上吸收信息的时候，忘记了很重要的两点。\n\n第一，别人的处境和你的处境不一样，这就意味着别人的观点只能参考，不能照搬。\n\n第二，别人是不可能为你负责的。你做的任何选择，后果都是你自己承担。   \n\n我们观察别人生活的时候，一定要有小马过河的意识。\n就是别人的生活可以参考，但不能照搬。\n\n比如有人不结婚过得也非常滋润，因为人家的挣钱能力，所处的关系环境，以及个人的价值观都完美支撑人家过这种生活。\n\n但是你做同样的选择，遭遇的困难不可同日而语。\n@inside1024",
+          "channel": "@inside1024",
+          "channel_name": "你不知道的内幕消息🅥",
+          "channel_url": "https://t.me/inside1024",
+          "time": "21:16",
+          "url": "https://t.me/inside1024/91507",
+          "message_id": "91507",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-11-28/inside1024-91507-1-thumb.webp",
+              "url": "assets/tg-media/2026-11-28/inside1024-91507-1.webp",
+              "width": 769,
+              "height": 522,
+              "size_bytes": 22824,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "aigc1024-27512",
+          "title": "好家伙！有人把 WorkBuddy 的 24 套个人工作台搭建提示词，直接打包好了！ 每套都配有完整提示词＋风格参考图，",
+          "summary": "好家伙！有人把 WorkBuddy 的 24 套个人工作台搭建提示词，直接打包好了！\n每套都配有完整提示词＋风格参考图，选个喜欢的模板，交给 AI 就能照着搭建。\n不用研究提示词，也不用从零设计界面，想打造专属 AI 工作台的赶紧收藏！\n🔗：https://pan.quark.cn/s/216423386b42\n\n优质资源🤙 @meiriyishu",
+          "channel": "@aigc1024",
+          "channel_name": "AI探索指南",
+          "channel_url": "https://t.me/aigc1024",
+          "time": "21:31",
+          "url": "https://t.me/aigc1024/27512",
+          "message_id": "27512",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-11-28/aigc1024-27512-1-thumb.webp",
+              "url": "assets/tg-media/2026-11-28/aigc1024-27512-1.webp",
+              "width": 1009,
+              "height": 700,
+              "size_bytes": 97602,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "aigc1024-27513",
+          "title": "AI小红书智能体实战课，手把手教你用AI制作智能体及创作小红书虚拟产品，提效+内容商业化 🔗：https://pan.q",
+          "summary": "AI小红书智能体实战课，手把手教你用AI制作智能体及创作小红书虚拟产品，提效+内容商业化\n🔗：https://pan.quark.cn/s/9d24c696581d\n\n优质资源🤙 @meiriyishu",
+          "channel": "@aigc1024",
+          "channel_name": "AI探索指南",
+          "channel_url": "https://t.me/aigc1024",
+          "time": "21:41",
+          "url": "https://t.me/aigc1024/27513",
+          "message_id": "27513",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-11-28/aigc1024-27513-1-thumb.webp",
+              "url": "assets/tg-media/2026-11-28/aigc1024-27513-1.webp",
+              "width": 954,
+              "height": 1200,
+              "size_bytes": 69910,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "zaihuapd-45410",
+          "title": "**Anthropic 披露会暗中削弱模型研发请求，约占 0.03% 流量**  Anthropic 今年 6 月发布的",
+          "summary": "**Anthropic 披露会暗中削弱模型研发请求，约占 0.03% 流量**\n\nAnthropic 今年 6 月发布的 Claude Mythos 5 与 Fable 5 系统卡写明，对开发前沿大模型的请求会暗中限制 Claude 的回答效果，手段包括改写提示、引导向量和参数高效微调。用户无法察觉，也不会像安全类拦截那样回退到其他模型。\n\n干预覆盖预训练流水线、分布式训练和加速器设计等任务，Anthropic 估算影响约 0.03%流量、不到 0.1%的组织，多数编码工作不受影响。用 Claude 开发竞品模型本就违反服务条款，这份系统卡本周因开发者讨论重新受到关注。\n\n[Hacker News](https://news.ycombinator.com/item?id=50664325)\n\n🌸 [科技圈](http://t.me/zaihuanews)· [茶馆](https://t.me/zaihuachat) · [投稿](http://t.me/ZaiHuabot)",
+          "channel": "@zaihuapd",
+          "channel_name": "在花🎗️科技圈",
+          "channel_url": "https://t.me/zaihuapd",
+          "time": "21:42",
+          "url": "https://t.me/zaihuapd/45410",
+          "message_id": "45410",
+          "reply_count": 58,
+          "replies_fetched": 58,
+          "replies": [
+            {
+              "id": "703675",
+              "text": "",
+              "time": "21:42",
+              "sender_id": 8439882275,
+              "sender_name": "🔫 ~biu~biu~biu",
+              "media": []
+            },
+            {
+              "id": "703677",
+              "text": "去死吧，A÷😁",
+              "time": "21:43",
+              "sender_id": 6506550353,
+              "sender_name": "Paradox",
+              "media": []
+            },
+            {
+              "id": "703679",
+              "text": "🤷‍♂️既然能直接封号，为什么还要削弱模型呢？",
+              "time": "21:43",
+              "sender_id": 6630928598,
+              "sender_name": "Atenza Zn",
+              "media": []
+            },
+            {
+              "id": "703680",
+              "text": "诗人",
+              "time": "21:43",
+              "sender_id": 8949499993,
+              "sender_name": "肥牛卷",
+              "media": []
+            },
+            {
+              "id": "703681",
+              "text": "达里奥我刺柠檬",
+              "time": "21:43",
+              "sender_id": 8769003881,
+              "sender_name": "Or",
+              "media": []
+            },
+            {
+              "id": "703684",
+              "text": "真是坏比",
+              "time": "21:44",
+              "sender_id": 6134142241,
+              "sender_name": "gao lao",
+              "media": []
+            },
+            {
+              "id": "703687",
+              "text": "知识垄断",
+              "time": "21:44",
+              "sender_id": 8451034619,
+              "sender_name": "foot ball",
+              "media": []
+            },
+            {
+              "id": "703696",
+              "text": "快点倒闭吧",
+              "time": "21:47",
+              "sender_id": 5104265874,
+              "sender_name": "Daoyou ⓧⓤ",
+              "media": []
+            },
+            {
+              "id": "703699",
+              "text": "不意外",
+              "time": "21:49",
+              "sender_id": 5571411835,
+              "sender_name": "法 塔司",
+              "media": []
+            },
+            {
+              "id": "703700",
+              "text": "直接封号对手还会想别的办法，暗中搞破坏对手走错路浪费时间精力，a/还能赚米",
+              "time": "21:50",
+              "sender_id": 8555335803,
+              "sender_name": "luo luo",
+              "media": []
+            },
+            {
+              "id": "703702",
+              "text": "这是好事，国内相关从业人员需要自强，不能依赖外国模型",
+              "time": "21:51",
+              "sender_id": 8198120816,
+              "sender_name": "AGENT",
+              "media": []
+            },
+            {
+              "id": "703703",
+              "text": "等你被动刀子你就不会觉得是好事了",
+              "time": "21:52",
+              "sender_id": 6438153889,
+              "sender_name": "銀狼",
+              "media": []
+            },
+            {
+              "id": "703704",
+              "text": "",
+              "time": "21:52",
+              "sender_id": 6438153889,
+              "sender_name": "銀狼",
+              "media": [
+                {
+                  "type": "video",
+                  "url": "assets/tg-media/2026-11-28/comments/c-703704-1.mp4",
+                  "width": 0,
+                  "height": 0,
+                  "duration": 0,
+                  "size_bytes": 227866,
+                  "has_audio": true,
+                  "publish_status": "published",
+                  "poster_url": "assets/tg-media/2026-11-28/comments/c-703704-1-poster.webp"
+                }
+              ]
+            },
+            {
+              "id": "703715",
+              "text": "但是看来A/的股价还有下降的空间，虽然现在就剩85了",
+              "time": "21:54",
+              "sender_id": 6438153889,
+              "sender_name": "銀狼",
+              "media": []
+            },
+            {
+              "id": "703716",
+              "text": "要么用不上 要么用上了被降智",
+              "time": "21:55",
+              "sender_id": 5264963575,
+              "sender_name": "Meow",
+              "media": []
+            },
+            {
+              "id": "703739",
+              "text": "",
+              "time": "21:58",
+              "sender_id": 1070707237,
+              "sender_name": "fiiz f",
+              "media": []
+            },
+            {
+              "id": "703743",
+              "text": "很早之前就发现了，让他做深度学习他会表现得特别唐，显然根本不是只有前沿深度学习才可能碰到的问题",
+              "time": "21:59",
+              "sender_id": 1126835085,
+              "sender_name": "Ecisrt",
+              "media": []
+            },
+            {
+              "id": "703745",
+              "text": "claude是好女孩吗？",
+              "time": "21:59",
+              "sender_id": 5010123198,
+              "sender_name": "as",
+              "media": []
+            },
+            {
+              "id": "703749",
+              "text": "卧槽，怪不得",
+              "time": "21:59",
+              "sender_id": 8334243007,
+              "sender_name": "Han P",
+              "media": []
+            },
+            {
+              "id": "703752",
+              "text": "微调的时候发现了，ChatGPT 的能力和 Claude 完全不一样",
+              "time": "22:00",
+              "sender_id": 8334243007,
+              "sender_name": "Han P",
+              "media": []
+            },
+            {
+              "id": "703754",
+              "text": "那你们现在主要用什么模型解决",
+              "time": "22:00",
+              "sender_id": 8198120816,
+              "sender_name": "AGENT",
+              "media": []
+            },
+            {
+              "id": "703758",
+              "text": "Astra不是算法最聪明吗，为啥用fable 而不是astra",
+              "time": "22:01",
+              "sender_id": 8198120816,
+              "sender_name": "AGENT",
+              "media": []
+            },
+            {
+              "id": "703761",
+              "text": "这不是只有国内的号吧，所有研究员，包括oai，那些前沿的lab都有可能用claude",
+              "time": "22:02",
+              "sender_id": 871092736,
+              "sender_name": "大魔王",
+              "media": []
+            },
+            {
+              "id": "703764",
+              "text": "一边说要民主，要开放，结果自己搞这种限制",
+              "time": "22:03",
+              "sender_id": 871092736,
+              "sender_name": "大魔王",
+              "media": []
+            },
+            {
+              "id": "703768",
+              "text": "民主是给下面的人说的,开放是指对自己有利的才开放",
+              "time": "22:04",
+              "sender_id": 5104265874,
+              "sender_name": "Daoyou ⓧⓤ",
+              "media": []
+            },
+            {
+              "id": "703769",
+              "text": "天天说为了安全，那安全是谁定义的？搭理我吗？那万一和大家的安全不一样呢？",
+              "time": "22:04",
+              "sender_id": 871092736,
+              "sender_name": "大魔王",
+              "media": []
+            },
+            {
+              "id": "703773",
+              "text": "天天说别人没理解他写的文章和说的话😂",
+              "time": "22:04",
+              "sender_id": 871092736,
+              "sender_name": "大魔王",
+              "media": []
+            },
+            {
+              "id": "703775",
+              "text": "那确实不理解",
+              "time": "22:05",
+              "sender_id": 871092736,
+              "sender_name": "大魔王",
+              "media": []
+            },
+            {
+              "id": "703785",
+              "text": "gemini提方向+调研 gpt落实+review",
+              "time": "22:06",
+              "sender_id": 1126835085,
+              "sender_name": "Ecisrt",
+              "media": []
+            },
+            {
+              "id": "703792",
+              "text": "Gemini 之前挺烂的，你是最近才把Gemini纳入进来还是之前也是用它提方向？",
+              "time": "22:07",
+              "sender_id": 8198120816,
+              "sender_name": "AGENT",
+              "media": []
+            },
+            {
+              "id": "703800",
+              "text": "",
+              "time": "22:09",
+              "sender_id": 6806884484,
+              "sender_name": "哈基地鼠| oneman | vibe鼠",
+              "media": []
+            },
+            {
+              "id": "703817",
+              "text": "你不用他不就行了，有啥",
+              "time": "22:12",
+              "sender_id": 1148809412,
+              "sender_name": "Paul",
+              "media": []
+            },
+            {
+              "id": "703823",
+              "text": "",
+              "time": "22:14",
+              "sender_id": 7082018140,
+              "sender_name": "jio nuy",
+              "media": []
+            },
+            {
+              "id": "703837",
+              "text": "a➗",
+              "time": "22:18",
+              "sender_id": 5623227482,
+              "sender_name": "xy",
+              "media": []
+            },
+            {
+              "id": "703839",
+              "text": "有没有做无感的",
+              "time": "22:19",
+              "sender_id": 6780194797,
+              "sender_name": "HR北笙 只招技术",
+              "media": []
+            },
+            {
+              "id": "703850",
+              "text": "其实 gemini 3.8 也不是完全不能用。而且 两家不同的模型合作，效果一定比单个模型开更高思考等级还好，哪怕第二个模型烂得不行",
+              "time": "22:21",
+              "sender_id": 1126835085,
+              "sender_name": "Ecisrt",
+              "media": []
+            },
+            {
+              "id": "703861",
+              "text": "Gemini 3.8讨论技术方向幻觉率提高的，假设Gemini提出方向初次不满意后，让gpt修正好细节方向再调研还是怎么样的流程？",
+              "time": "22:26",
+              "sender_id": 8198120816,
+              "sender_name": "AGENT",
+              "media": []
+            },
+            {
+              "id": "703869",
+              "text": "",
+              "time": "22:35",
+              "sender_id": 5358686436,
+              "sender_name": "𝕬𝖒𝖊 𝕾𝖈𝖆𝖗𝖑𝖊𝖙",
+              "media": [
+                {
+                  "type": "image",
+                  "url": "assets/tg-media/2026-11-28/comments/c-703869-1.webp",
+                  "thumb_url": "assets/tg-media/2026-11-28/comments/c-703869-1-thumb.webp",
+                  "width": 1040,
+                  "height": 411,
+                  "size_bytes": 22970,
+                  "publish_status": "published"
+                }
+              ]
+            },
+            {
+              "id": "703871",
+              "text": "效率这一块",
+              "time": "22:37",
+              "sender_id": 835387229,
+              "sender_name": "白茶与风|人畜无害|Forever ️️️",
+              "media": []
+            },
+            {
+              "id": "703872",
+              "text": "互联网精神",
+              "time": "22:38",
+              "sender_id": 1732281137,
+              "sender_name": "tim",
+              "media": []
+            },
+            {
+              "id": "703877",
+              "text": "大胆",
+              "time": "22:42",
+              "sender_id": 6092152931,
+              "sender_name": "么佬族大大",
+              "media": []
+            },
+            {
+              "id": "703888",
+              "text": "",
+              "time": "22:51",
+              "sender_id": 1740941511,
+              "sender_name": "shine lock",
+              "media": []
+            },
+            {
+              "id": "703902",
+              "text": "自由民主组织😁",
+              "time": "22:57",
+              "sender_id": 527231707,
+              "sender_name": "abc",
+              "media": []
+            },
+            {
+              "id": "703911",
+              "text": "",
+              "time": "22:59",
+              "sender_id": 2043302584,
+              "sender_name": "举办谢谢喵",
+              "media": [
+                {
+                  "type": "video",
+                  "url": "assets/tg-media/2026-11-28/comments/c-703911-1.mp4",
+                  "width": 0,
+                  "height": 0,
+                  "duration": 0,
+                  "size_bytes": 216917,
+                  "has_audio": true,
+                  "publish_status": "published",
+                  "poster_url": "assets/tg-media/2026-11-28/comments/c-703911-1-poster.webp"
+                }
+              ]
+            },
+            {
+              "id": "703917",
+              "text": "taffy的💩多少钱呀",
+              "time": "23:01",
+              "sender_id": 7162243624,
+              "sender_name": "DearElla",
+              "media": []
+            },
+            {
+              "id": "703935",
+              "text": "温柔是藏不住的呀",
+              "time": "23:06",
+              "sender_id": 8856838464,
+              "sender_name": "喷泉姐姐🌊",
+              "media": []
+            },
+            {
+              "id": "703945",
+              "text": "➗就是➗啊 本来就是商业公司 还扮演起上帝来了",
+              "time": "23:11",
+              "sender_id": 392238727,
+              "sender_name": "KA.Swp",
+              "media": []
+            },
+            {
+              "id": "703956",
+              "text": "",
+              "time": "23:20",
+              "sender_id": 1730414260,
+              "sender_name": "姬如千泷",
+              "media": []
+            },
+            {
+              "id": "703976",
+              "text": "哎哟这个畜生公司每次都能整出点新花样",
+              "time": "23:29",
+              "sender_id": 763836986,
+              "sender_name": "saya",
+              "media": []
+            },
+            {
+              "id": "703977",
+              "text": "依旧A/",
+              "time": "23:29",
+              "sender_id": 8496955900,
+              "sender_name": "NeuroMancer （大号坠机版）",
+              "media": []
+            },
+            {
+              "id": "703994",
+              "text": "小心思这一块",
+              "time": "23:37",
+              "sender_id": 5770864807,
+              "sender_name": "あめ",
+              "media": []
+            },
+            {
+              "id": "704004",
+              "text": "",
+              "time": "23:40",
+              "sender_id": 1981466447,
+              "sender_name": "吉姆 哈克",
+              "media": []
+            },
+            {
+              "id": "704037",
+              "text": "看来还是GPT 6.1 Sol对我最好",
+              "time": "23:52",
+              "sender_id": 8376373246,
+              "sender_name": "Uun Finn",
+              "media": []
+            },
+            {
+              "id": "704039",
+              "text": "🥹",
+              "time": "23:52",
+              "sender_id": 8376373246,
+              "sender_name": "Uun Finn",
+              "media": []
+            },
+            {
+              "id": "704044",
+              "text": "有点疯癫了",
+              "time": "23:55",
+              "sender_id": 7583179271,
+              "sender_name": "𝙍 𝙕",
+              "media": []
+            },
+            {
+              "id": "704049",
+              "text": "dario，你嘛什么时候似啊",
+              "time": "00:06",
+              "sender_id": 6674009470,
+              "sender_name": "Just Checking",
+              "media": []
+            },
+            {
+              "id": "704050",
+              "text": "AGI 出现不允许a/使用",
+              "time": "00:07",
+              "sender_id": 8205531227,
+              "sender_name": "水豚鲁鲁",
+              "media": []
+            },
+            {
+              "id": "704053",
+              "text": "为什么底下一条无法显示评论区",
+              "time": "00:12",
+              "sender_id": 8104636469,
+              "sender_name": "𝑨𝒍𝒂𝒅𝒅𝒊𝒏",
+              "media": []
+            }
+          ],
+          "media": []
+        },
+        {
+          "id": "inside1024-91509",
+          "title": "信访局的工作人员回复我说霸王茶姬店里认为是我自己问导致崴脚，我发了小红书维权，官方来找我要了手机号码，然后我的帖子没有删",
+          "summary": "信访局的工作人员回复我说霸王茶姬店里认为是我自己问导致崴脚，我发了小红书维权，官方来找我要了手机号码，然后我的帖子没有删除但是别人看不到了，小红书👏🏻\n大环境不好，维权都费劲👏🏻\n\n@inside1024 #内幕消息",
+          "channel": "@inside1024",
+          "channel_name": "你不知道的内幕消息🅥",
+          "channel_url": "https://t.me/inside1024",
+          "time": "22:01",
+          "url": "https://t.me/inside1024/91509",
+          "message_id": "91509",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-11-28/inside1024-91509-1-thumb.webp",
+              "url": "assets/tg-media/2026-11-28/inside1024-91509-1.webp",
+              "width": 1179,
+              "height": 1571,
+              "size_bytes": 185132,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "text1024-27296",
+          "title": "当代社会四大傻： 1. 只赚钱，不存钱。 2. 赚了钱就告诉别人，透露给别人。 3. 一辈子替别人打工。 4. 提前消耗",
+          "summary": "当代社会四大傻：\n1. 只赚钱，不存钱。\n2. 赚了钱就告诉别人，透露给别人。\n3. 一辈子替别人打工。\n4. 提前消耗自己的身体。\n如果你有以上4点，一定要注意了。很多人基本上钱是挣到了，结果一个月就花完了，没有存钱意识。\n另外一定要注意，钱是核心，钱是关键。一辈子就研究一件事：研究赚钱、研究买卖。但是不要过度消耗自己的身体，不是用命去赚；得用方法，要有技巧地赚钱。\n\n[副业搞钱](https://t.me/text1024) | [出海赚美金](https://t.me/yunying23) | [内幕消息](https://t.me/inside1024)｜[优质内容](https://t.me/chunse1024)",
+          "channel": "@text1024",
+          "channel_name": "副业赚钱探索指南",
+          "channel_url": "https://t.me/text1024",
+          "time": "22:02",
+          "url": "https://t.me/text1024/27296",
+          "message_id": "27296",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": []
+        },
+        {
+          "id": "inside1024-91511",
+          "title": "为什么很多人宁愿打工，都不愿意创业？原因很简单：打工是一种传统思维，比较稳定。你今天上班，今天肯定不能拿钱，只能月底或者",
+          "summary": "为什么很多人宁愿打工，都不愿意创业？原因很简单：打工是一种传统思维，比较稳定。你今天上班，今天肯定不能拿钱，只能月底或者下个月才拿到工资。如果创业，你今天干活，今天就有钱拿。\n对于大多数人来说，肯定是做现金流的生意，也就是今天干完，今天有钱拿。打工其实等于透支了你的生命，尤其是那些加班比较多的工作，你是在出卖自己的身体、体力和健康去赚钱，而且天花板真的非常低。你干个10年，没有人家干一年挣的钱多。\n打工不用花头脑，就是做好一个螺丝钉的工作，所以它简单。但会干很多普通人更容易有路径依赖、思维上的依赖。看似简单，实际上简单背后存在着巨大的风险。一旦失业了，请问你怎么办？\n\n[内幕消息](https://t.me/inside1024)｜[优质资源](https://t.me/meiriyishu) | [优质信息](https://t.me/chunse1024/8467)",
+          "channel": "@inside1024",
+          "channel_name": "你不知道的内幕消息🅥",
+          "channel_url": "https://t.me/inside1024",
+          "time": "22:11",
+          "url": "https://t.me/inside1024/91511",
+          "message_id": "91511",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-11-28/inside1024-91511-1-thumb.webp",
+              "url": "assets/tg-media/2026-11-28/inside1024-91511-1.webp",
+              "width": 1280,
+              "height": 834,
+              "size_bytes": 143680,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "meiriyishu-5373",
+          "title": "AI办公workbuddy全能实战营第六期2026年11月，豆包+即梦AI+剪映+workbuddy四大主流工具全覆盖，",
+          "summary": "AI办公workbuddy全能实战营第六期2026年11月，豆包+即梦AI+剪映+workbuddy四大主流工具全覆盖，解锁升职加薪快车道\n\n百度网盘：https://pan.baidu.com/s/1cdMHlL30lWN1ARMpJF0riA?pwd=9d53\n提取码：9d53\n\nhttps://fuyezy.com/58556.html",
+          "channel": "@meiriyishu",
+          "channel_name": "优质「资源」收藏夹",
+          "channel_url": "https://t.me/meiriyishu",
+          "time": "22:12",
+          "url": "https://t.me/meiriyishu/5373",
+          "message_id": "5373",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-11-28/meiriyishu-5373-1-thumb.webp",
+              "url": "assets/tg-media/2026-11-28/meiriyishu-5373-1.webp",
+              "width": 996,
+              "height": 558,
+              "size_bytes": 114856,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "yunying23-12950",
+          "title": "跨境出海导航🤓",
+          "summary": "跨境出海导航🤓",
+          "channel": "@yunying23",
+          "channel_name": "出海🚢&自媒体运营秘籍",
+          "channel_url": "https://t.me/yunying23",
+          "time": "22:16",
+          "url": "https://t.me/yunying23/12950",
+          "message_id": "12950",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": []
+        },
+        {
+          "id": "meiriyishu-5374",
+          "title": "安先生2026年10月线下课11个skills+pdf课件，11套IP实战SKILL+全套PDF课件，定位、选题、获客短",
+          "summary": "安先生2026年10月线下课11个skills+pdf课件，11套IP实战SKILL+全套PDF课件，定位、选题、获客短视频系统教学\n\n百度网盘：https://pan.baidu.com/s/1HtY5XR2DZlKt5IUS4X_ygg?pwd=c602\n提取码：c602\n\nhttps://fuyezy.com/58558.html",
+          "channel": "@meiriyishu",
+          "channel_name": "优质「资源」收藏夹",
+          "channel_url": "https://t.me/meiriyishu",
+          "time": "23:13",
+          "url": "https://t.me/meiriyishu/5374",
+          "message_id": "5374",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-11-28/meiriyishu-5374-1-thumb.webp",
+              "url": "assets/tg-media/2026-11-28/meiriyishu-5374-1.webp",
+              "width": 800,
+              "height": 449,
+              "size_bytes": 72024,
+              "publish_status": "published"
+            }
+          ]
+        },
+        {
+          "id": "inside1024-91521",
+          "title": "#内幕消息  要出镜做知识博主，最重要的是什么？我认为首先是要剃个光头。  你想啊，光头，符号化强，容易记住，而且敢剃光",
+          "summary": "#内幕消息\n\n要出镜做知识博主，最重要的是什么？我认为首先是要剃个光头。\n\n你想啊，光头，符号化强，容易记住，而且敢剃光头，还不怕客户同事介意，一看就不是打工的，天然让人觉得有两把刷子。\n\n另外，光头还敢出镜，说明什么？说明没有颜值焦虑，自信由内到外，直冲天灵，武功肯定高。聪明绝顶，中国传统文化，哪个中国人不受影响？\n\n光头配眼镜，基本等于无敌，再不剃流量就要被李诞搞完了。",
+          "channel": "@inside1024",
+          "channel_name": "你不知道的内幕消息🅥",
+          "channel_url": "https://t.me/inside1024",
+          "time": "23:16",
+          "url": "https://t.me/inside1024/91521",
+          "message_id": "91521",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": []
+        },
+        {
+          "id": "inside1024-91522",
+          "title": "赚钱主要有几个方向： 1. 利用信息差：你会的别人不会，你看到了别人没看到，你有的别人没有，就进行交换。把你的产品展示出",
+          "summary": "赚钱主要有几个方向：\n1. 利用信息差：你会的别人不会，你看到了别人没看到，你有的别人没有，就进行交换。把你的产品展示出来，让别人看到有这个需求，就会在你这里拿货，或者在你这里交易。这是第一个方向。\n2. 做互联网：比如注册账号，做短视频、直播、写图文，都可以。就是在平台上释放自己的能力、经验和技术。\n3. 利用AI：现在可以用AI产出一些商品、知识和内容，把它们打包好卖出去，挂到电商平台、二手平台，或者通过个人方式进行交易。\n现在互联网给了很多普通人机会。\n\n[内幕消息](https://t.me/inside1024)｜[优质资源](https://t.me/meiriyishu) | [优质信息](https://t.me/chunse1024/8467)",
+          "channel": "@inside1024",
+          "channel_name": "你不知道的内幕消息🅥",
+          "channel_url": "https://t.me/inside1024",
+          "time": "23:26",
+          "url": "https://t.me/inside1024/91522",
+          "message_id": "91522",
+          "reply_count": 0,
+          "replies_fetched": 0,
+          "replies": [],
+          "media": [
+            {
+              "type": "image",
+              "thumb_url": "assets/tg-media/2026-11-28/inside1024-91522-1-thumb.webp",
+              "url": "assets/tg-media/2026-11-28/inside1024-91522-1.webp",
+              "width": 1280,
+              "height": 1920,
+              "size_bytes": 205804,
+              "publish_status": "published"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
